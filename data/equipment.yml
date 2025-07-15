@@ -55,7 +55,7 @@ Gatling Cannon:
   range: Short
   heat: 2
   text: |
-    Repeating. Charge. Deal [Charge] damage.
+    Charge. Deal [Charge] damage.
 
 Heavy Mortar:
   size: Large
@@ -92,7 +92,7 @@ Heavy Assault Gun:
     - Shred.
     - Overwatch: Deal [Charge + 1] damage.
 
-Anti-Material Sniper Rifle:
+Anti Material Sniper Rifle:
   size: Large
   type: Ballistic
   range: Long
@@ -193,7 +193,7 @@ Gravity Cannon:
   text: |
     Deal 2 damage. If the target is in the vanguard, move them to the rear guard, and vice versa.
 
-Wave-Motion Cannon:
+Wave Motion Cannon:
   size: Large
   type: Energy
   range: Long

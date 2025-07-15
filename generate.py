@@ -102,7 +102,7 @@ def draw_name(img: Image, draw_ctx: Drawing, equipment: Equipment):
     draw_ctx.stroke_width = 2
     draw_ctx.fill_color = get_color(equipment)
     wrapped_text = wrap_text(
-        img, draw_ctx, equipment.name, int(CARD_WIDTH * 0.8), int(CARD_HEIGHT * 0.25)
+        img, draw_ctx, equipment.name, int(CARD_WIDTH * 0.7), int(CARD_HEIGHT * 0.25)
     )
     draw_ctx.text(220, 130, wrapped_text)
     draw_ctx.pop()
