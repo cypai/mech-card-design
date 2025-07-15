@@ -1,0 +1,211 @@
+#!/usr/bin/env python3
+
+import textwrap
+from wand.image import Image
+from wand.drawing import Drawing
+from typing import Optional
+import yaml
+
+
+CARD_WIDTH = 1000
+CARD_HEIGHT = 1400
+
+
+class Icons:
+    def __init__(self):
+        pass
+
+    def __enter__(self):
+        self.heat = Image(filename="textures/heat.png")
+        self.melee = Image(filename="textures/melee.png")
+        self.shortrange = Image(filename="textures/shortrange.png")
+        self.midrange = Image(filename="textures/midrange.png")
+        self.longrange = Image(filename="textures/longrange.png")
+        self.ammo = Image(filename="textures/ammo.png")
+
+        self.heat.resize(100, 100)
+        self.melee.resize(100, 100)
+        self.shortrange.resize(100, 100)
+        self.midrange.resize(100, 100)
+        self.longrange.resize(100, 100)
+        self.ammo.resize(100, 100)
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        self.heat.close()
+        self.melee.close()
+        self.shortrange.close()
+        self.midrange.close()
+        self.longrange.close()
+        self.ammo.close()
+
+
+class Equipment:
+    name: str
+    size: str
+    type: str
+    heat: Optional[int]
+    ammo: Optional[int]
+    range: Optional[str]
+    text: str
+
+    def __init__(self, **kwargs):
+        self.name = str(kwargs.get("name"))
+        self.size = str(kwargs.get("size"))
+        self.type = str(kwargs.get("type"))
+        self.heat = kwargs.get("heat", None)
+        self.ammo = kwargs.get("ammo", None)
+        self.range = kwargs.get("range", None)
+        self.text = str(kwargs.get("text"))
+
+    def __str__(self):
+        text = self.name + "\n"
+        text += f"{self.size} {self.type}\n"
+        if self.range is not None:
+            text += f"Range: {self.range}\n"
+        if self.heat is not None:
+            text += f"Heat: {self.heat}\n"
+        if self.ammo is not None:
+            text += f"Ammo: {self.ammo}\n"
+        text += f"{self.text}\n"
+        return text
+
+
+def generate_all():
+    with Icons() as icons:
+        with open("data/equipment.yml", "r") as equipment_file:
+            all_equipment = yaml.safe_load(equipment_file)
+            for item in all_equipment.items():
+                equipment = parse_equipment(item)
+                generate_card(icons, equipment)
+
+
+def parse_equipment(equipment) -> Equipment:
+    name, data = equipment
+    return Equipment(
+        name=name,
+        size=data.get("size"),
+        type=data.get("type"),
+        heat=data.get("heat", None),
+        ammo=data.get("ammo", None),
+        range=data.get("range", None),
+        text=data.get("text"),
+    )
+
+
+def generate_card(icons: Icons, equipment: Equipment):
+    with Image(width=CARD_WIDTH, height=CARD_HEIGHT) as img, Drawing() as draw_ctx:
+        draw_ctx.font = "fonts/Comme-Regular.ttf"
+        draw_name(draw_ctx, equipment.name)
+        pad_x = int(CARD_WIDTH * 0.025)
+        icon_y = int(CARD_WIDTH * 0.05)
+        if equipment.heat is not None:
+            add_icon(draw_ctx, icons.heat, pad_x, icon_y, str(equipment.heat))
+            icon_y += icons.heat.height + pad_x
+        if equipment.range is not None:
+            range_icon = None
+            if equipment.range == "Melee":
+                range_icon = icons.melee
+            elif equipment.range == "Short":
+                range_icon = icons.shortrange
+            elif equipment.range == "Mid":
+                range_icon = icons.midrange
+            elif equipment.range == "Long":
+                range_icon = icons.longrange
+            if range_icon is not None:
+                add_icon(draw_ctx, range_icon, pad_x, icon_y, "")
+                icon_y += range_icon.height + pad_x
+        if equipment.ammo is not None:
+            add_icon(draw_ctx, icons.ammo, pad_x, icon_y, str(equipment.ammo))
+            icon_y += icons.ammo.height + pad_x
+        draw_card_type(draw_ctx, equipment)
+        draw_card_text(img, draw_ctx, equipment)
+        draw_ctx.draw(img)
+        img.save(filename="test.png")
+
+
+def draw_name(draw_ctx: Drawing, text: str):
+    draw_ctx.push()
+    draw_ctx.font_size = 60
+    draw_ctx.text(240, 120, text)
+    draw_ctx.pop()
+
+
+def draw_card_type(draw_ctx: Drawing, equipment: Equipment):
+    draw_ctx.push()
+    draw_ctx.font_size = 50
+    draw_ctx.text(
+        int(CARD_WIDTH * 0.05),
+        int(CARD_HEIGHT * 0.5),
+        f"{equipment.size} {equipment.type}",
+    )
+    draw_ctx.pop()
+
+
+def draw_card_text(img: Image, draw_ctx: Drawing, equipment: Equipment):
+    draw_ctx.push()
+    draw_ctx.font_size = 50
+    wrapped_text = wrap_text(
+        img, draw_ctx, equipment.text, int(CARD_WIDTH * 0.9), int(CARD_HEIGHT / 3)
+    )
+    draw_ctx.text(int(CARD_WIDTH * 0.05), int(CARD_HEIGHT * 0.6), wrapped_text)
+    draw_ctx.pop()
+
+
+def wrap_text(image: Image, ctx: Drawing, text: str, roi_width: int, roi_height: int):
+    """
+    Break long text to multiple lines, and reduce point size
+    until all text fits within a bounding box.
+    https://docs.wand-py.org/en/0.6.12/guide/draw.html#word-wrapping
+    """
+    mutable_message = text
+    iteration_attempts = 100
+
+    def eval_metrics(txt):
+        """Quick helper function to calculate width/height of text."""
+        metrics = ctx.get_font_metrics(image, txt, True)
+        return (metrics.text_width, metrics.text_height)
+
+    while ctx.font_size > 0 and iteration_attempts:
+        iteration_attempts -= 1
+        width, height = eval_metrics(mutable_message)
+        if height > roi_height:
+            ctx.font_size -= 0.75  # Reduce pointsize
+            mutable_message = text  # Restore original text
+        elif width > roi_width:
+            columns = len(mutable_message)
+            while columns > 0:
+                columns -= 1
+                mutable_message = "\n".join(textwrap.wrap(mutable_message, columns))
+                wrapped_width, _ = eval_metrics(mutable_message)
+                if wrapped_width <= roi_width:
+                    break
+            if columns < 1:
+                ctx.font_size -= 0.75  # Reduce pointsize
+                mutable_message = text  # Restore original text
+        else:
+            break
+    if iteration_attempts < 1:
+        raise RuntimeError("Unable to calculate word_wrap for " + text)
+    return mutable_message
+
+
+def add_icon(draw_ctx: Drawing, icon: Image, x: int, y: int, text: str):
+    draw_ctx.push()
+    draw_ctx.composite(
+        operator="overlay",
+        left=x,
+        top=y,
+        width=icon.width,
+        height=icon.height,
+        image=icon,
+    )
+    draw_ctx.pop()
+    if text != None and len(text) > 0:
+        draw_ctx.push()
+        draw_ctx.font_size = int(icon.height * 0.8)
+        draw_ctx.text(x + icon.width, y + icon.height - int(icon.height * 0.2), text)
+        draw_ctx.pop()
+
+
+generate_all()
