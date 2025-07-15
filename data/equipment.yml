@@ -30,3 +30,58 @@ Railgun:
   heat: 4
   text: |
     Deal 3 AP damage.
+
+Targeting Laser:
+  size: Small
+  type: Energy
+  range: Short
+  heat: 1
+  text: |
+    Inflict 2 Vulnerable on the target.
+
+Gravity Cannon:
+  size: Large
+  type: Energy
+  range: Long
+  heat: 5
+  text: |
+    Deal 2 damage. If the target is in the vanguard, move them to the rear guard, and vice versa.
+
+Power Fist:
+  size: Medium
+  type: Melee
+  range: Melee
+  heat: 3
+  text: |
+    Deal 3 damage. Move the target to the rear guard.
+
+Combat Drone Launcher:
+  size: Medium
+  type: Drone
+  heat: 3
+  ammo: 3
+  text: |
+    Summon 1 Combat Drone at your position.
+
+Breach:
+  size: Medium
+  type: Missile
+  range: Short
+  heat: 0
+  ammo: 1
+  text: |
+    Deal 2 AP damage. Shred.
+
+"Cyberwarfare: OVERCOOK":
+  size: Small
+  type: Electronics
+  range: Long
+  heat: 3
+  text: |
+    Inflict Overheat.
+
+Premium Ammunition:
+  size: Medium
+  type: Auxiliary
+  text: |
+    Inert. Passive: All Ballistics weapons on this mech deal +1 damage.

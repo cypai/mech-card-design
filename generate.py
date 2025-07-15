@@ -3,6 +3,7 @@
 import textwrap
 from wand.drawing import Drawing
 from wand.image import Image
+from wand.color import Color
 
 from game_defs import *
 from game_data import *
@@ -43,13 +44,14 @@ class Icons:
 def generate_all():
     with Icons() as icons:
         all_equipment = get_all_equipment()
-        generate_card(icons, all_equipment[0])
+        for equipment in all_equipment:
+            generate_card(icons, equipment)
 
 
 def generate_card(icons: Icons, equipment: Equipment):
     with Image(width=CARD_WIDTH, height=CARD_HEIGHT) as img, Drawing() as draw_ctx:
         draw_ctx.font = "fonts/Comme-Regular.ttf"
-        draw_name(draw_ctx, equipment.name)
+        draw_name(img, draw_ctx, equipment)
         pad_x = int(CARD_WIDTH * 0.025)
         icon_y = int(CARD_WIDTH * 0.05)
         if equipment.heat is not None:
@@ -77,10 +79,32 @@ def generate_card(icons: Icons, equipment: Equipment):
         img.save(filename=f"outputs/equipment/{equipment.normalized_name}.png")
 
 
-def draw_name(draw_ctx: Drawing, text: str):
+def get_color(equipment: Equipment) -> Color:
+    if equipment.type == "Ballistic":
+        return Color("#ff7f00")
+    elif equipment.type == "Energy":
+        return Color("#ff00ff")
+    elif equipment.type == "Missile" or equipment.type == "Drone":
+        return Color("#888888")
+    elif equipment.type == "Melee":
+        return Color("#FF0000")
+    elif equipment.type == "Electronics":
+        return Color("#00f0ff")
+    elif equipment.type == "Auxiliary":
+        return Color("#000000")
+    return Color("#000000")
+
+
+def draw_name(img: Image, draw_ctx: Drawing, equipment: Equipment):
     draw_ctx.push()
-    draw_ctx.font_size = 60
-    draw_ctx.text(240, 120, text)
+    draw_ctx.font_size = 80
+    draw_ctx.stroke_color = Color("#000000")
+    draw_ctx.stroke_width = 2
+    draw_ctx.fill_color = get_color(equipment)
+    wrapped_text = wrap_text(
+        img, draw_ctx, equipment.name, int(CARD_WIDTH * 0.8), int(CARD_HEIGHT * 0.25)
+    )
+    draw_ctx.text(220, 130, wrapped_text)
     draw_ctx.pop()
 
 
