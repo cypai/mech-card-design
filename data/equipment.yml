@@ -26,13 +26,13 @@ Flechettes:
   text: |
     Choose:
     > Charge.
-    > Deal [Charge] damage.
+    > Deal [Charge] damage. Discharge all.
 
 Autocannon:
   size: Small
   type: Ballistic
   system: Weapon
-  range: Mid
+  range: Short
   heat: 2
   text: |
     Passive: When an enemy mech changes position, you may activate this weapon to deal 1 damage to them.
@@ -152,7 +152,7 @@ Anti Material Sniper Rifle:
   ammo: 3
   text: |
     Deal 4 damage.
-    Overwatch: Deal 4 damage.
+    Overwatch: Deal 4 damage. This costs 1 ammo.
 
 Targeting Laser:
   size: Small
@@ -298,7 +298,7 @@ Rift Opener:
   range: Short
   heat: 6
   text: |
-    Deal 4 AP damage. Inflict 2 Vulnerable. Shred.
+    Remove all Shield on the target. Deal 4 AP damage. Inflict 2 Vulnerable. Shred.
 
 Causality Invertor:
   size: Large
@@ -307,7 +307,7 @@ Causality Invertor:
   range: Short
   heat: 6
   text: |
-    Cannot be evaded. Prepare: Deal 6 damage.
+    Cannot be evaded. Prepare: Deal 7 damage.
 
 Power Blade:
   size: Medium
@@ -370,7 +370,8 @@ Heavy Combat Drill:
   range: Melee
   heat: 6
   text: |
-    Charge. Prepare: Deal [Charge+6] AP damage.
+    Charge. Prepare: Deal [Charge+5] AP damage.
+    If Charge is at least 2, skip the Prepare.
 
 Combat Drone Launcher:
   size: Medium
@@ -455,7 +456,7 @@ Tag Launcher:
   heat: 0
   ammo: 2
   text: |
-    Inflict Vulnerable.
+    Inflict 1 Vulnerable.
 
 Dragonfire RPG:
   size: Medium
@@ -557,21 +558,21 @@ Probability Manipulator:
   heat: 3
   ammo: 1
   text: |
-    Reduce your Overclock Counter by 1.
+    Reduce your Evade Counter by 1.
 
 Early Warning System:
   size: Medium
   type: Electronics
   system: System
   text: |
-    Passive: If all allied mechs are in the vanguard, enemy non-Electronic weapons can only target this mech if valid. When triggered, gain 1 Heat.
+    Passive: If all allied mechs are in the vanguard, enemy non-Electronic weapons can only target this mech if valid. When triggered, this mech gains 1 Heat.
 
 Slipstream Optimizer:
   size: Medium
   type: Electronics
   system: System
   text: |
-    Passive: After this mech acts, 1 allied mech may reposition. If it does, gain 2 Heat.
+    Passive: After this mech acts, 1 allied mech may reposition. If it does, this mech gains 2 Heat.
 
 Focus Fire Protocol:
   size: Medium
