@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 
 import textwrap
-from wand.image import Image
 from wand.drawing import Drawing
-from typing import Optional
-import yaml
+from wand.image import Image
 
+from game_defs import *
+from game_data import *
 
 CARD_WIDTH = 1000
 CARD_HEIGHT = 1400
@@ -40,57 +40,10 @@ class Icons:
         self.ammo.close()
 
 
-class Equipment:
-    name: str
-    size: str
-    type: str
-    heat: Optional[int]
-    ammo: Optional[int]
-    range: Optional[str]
-    text: str
-
-    def __init__(self, **kwargs):
-        self.name = str(kwargs.get("name"))
-        self.size = str(kwargs.get("size"))
-        self.type = str(kwargs.get("type"))
-        self.heat = kwargs.get("heat", None)
-        self.ammo = kwargs.get("ammo", None)
-        self.range = kwargs.get("range", None)
-        self.text = str(kwargs.get("text"))
-
-    def __str__(self):
-        text = self.name + "\n"
-        text += f"{self.size} {self.type}\n"
-        if self.range is not None:
-            text += f"Range: {self.range}\n"
-        if self.heat is not None:
-            text += f"Heat: {self.heat}\n"
-        if self.ammo is not None:
-            text += f"Ammo: {self.ammo}\n"
-        text += f"{self.text}\n"
-        return text
-
-
 def generate_all():
     with Icons() as icons:
-        with open("data/equipment.yml", "r") as equipment_file:
-            all_equipment = yaml.safe_load(equipment_file)
-            for item in all_equipment.items():
-                equipment = parse_equipment(item)
-                generate_card(icons, equipment)
-
-
-def parse_equipment(equipment) -> Equipment:
-    name, data = equipment
-    return Equipment(
-        name=name,
-        size=data.get("size"),
-        type=data.get("type"),
-        heat=data.get("heat", None),
-        ammo=data.get("ammo", None),
-        range=data.get("range", None),
-        text=data.get("text"),
-    )
+        all_equipment = get_all_equipment()
+        generate_card(icons, all_equipment[0])
 
 
 def generate_card(icons: Icons, equipment: Equipment):
