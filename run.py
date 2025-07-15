@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import argparse
 import textwrap
 from wand.drawing import Drawing
 from wand.image import Image
@@ -39,6 +40,48 @@ class Icons:
         self.midrange.close()
         self.longrange.close()
         self.ammo.close()
+
+
+def print_stats():
+    sizes = {
+        "Small": 0,
+        "Medium": 0,
+        "Large": 0,
+    }
+    types = {
+        "Ballistic": 0,
+        "Energy": 0,
+        "Melee": 0,
+        "Missile": 0,
+        "Electronics": 0,
+        "Drone": 0,
+        "Auxiliary": 0,
+    }
+    full_types = {}
+    ammo_weapons = 0
+    total = 0
+    for size in sizes.keys():
+        for t in types.keys():
+            full_types[(size, t)] = 0
+    all_equipment = get_all_equipment()
+    for equipment in all_equipment:
+        total += 1
+        sizes[equipment.size] += 1
+        types[equipment.type] += 1
+        full_types[(equipment.size, equipment.type)] += 1
+        if equipment.ammo:
+            ammo_weapons += 1
+    print("Sizes")
+    for k, v in sizes.items():
+        print(f"{k}: {v}")
+    print("\nTypes")
+    for k, v in types.items():
+        print(f"{k}: {v}")
+    print("\nFull Types")
+    for k, v in full_types.items():
+        print(f"{k[0]} {k[1]}: {v}")
+    print(f"\nAmmo Weapons: {ammo_weapons}")
+    print(f"Total Weapons: {total}")
 
 
 def generate_all():
@@ -185,4 +228,14 @@ def add_icon(draw_ctx: Drawing, icon: Image, x: int, y: int, text: str):
         draw_ctx.pop()
 
 
-generate_all()
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("action")
+    args = parser.parse_args()
+    if args.action == "generate_all":
+        generate_all()
+    elif args.action == "stats":
+        print_stats()
+
+
+main()
