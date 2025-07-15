@@ -73,7 +73,16 @@ def print_stats():
         for t in types.keys():
             full_types[(size, t)] = 0
     ammo_weapons = 0
-    shred_weapons = 0
+    keywords = {
+        "Shred": 0,
+        "Charge": 0,
+        "Shield": 0,
+        "Vulnerable": 0,
+        "Overheat": 0,
+        "Disable": 0,
+        "Overwatch": 0,
+        "AP": 0,
+    }
     total = 0
     all_equipment = get_all_equipment()
     for equipment in all_equipment:
@@ -88,8 +97,9 @@ def print_stats():
                 range_types[range_type_key] += 1
         if equipment.ammo:
             ammo_weapons += 1
-        if "Shred" in equipment.text:
-            shred_weapons += 1
+        for key in keywords.keys():
+            if key in equipment.text:
+                keywords[key] += 1
     print("Sizes")
     for k, v in sizes.items():
         print(f"{k}: {v}")
@@ -105,8 +115,10 @@ def print_stats():
     print("\nRanges by Type")
     for k, v in range_types.items():
         print(f"{k[0]} {k[1]}: {v}")
-    print(f"\nAmmo Weapons: {ammo_weapons}")
-    print(f"Total Weapons: {total}")
+    print(f"\nAmmo Equipment: {ammo_weapons}")
+    for k, v in keywords.items():
+        print(f"{k} Equipment: {v}")
+    print(f"Total Equipment: {total}")
 
 
 def generate_all():
