@@ -119,7 +119,7 @@ def generate_all():
 def generate_card(icons: Icons, equipment: Equipment):
     with Image(width=CARD_WIDTH, height=CARD_HEIGHT) as img, Drawing() as draw_ctx:
         draw_ctx.font = "fonts/Comme-Regular.ttf"
-        draw_name(img, draw_ctx, equipment)
+        draw_name(draw_ctx, equipment)
         pad_x = int(CARD_WIDTH * 0.025)
         icon_y = int(CARD_WIDTH * 0.05)
         if equipment.heat is not None:
@@ -142,7 +142,7 @@ def generate_card(icons: Icons, equipment: Equipment):
             add_icon(draw_ctx, icons.ammo, pad_x, icon_y, str(equipment.ammo))
             icon_y += icons.ammo.height + pad_x
         draw_card_type(draw_ctx, equipment)
-        draw_card_text(img, draw_ctx, equipment)
+        draw_card_text(draw_ctx, equipment)
         draw_ctx.draw(img)
         img.save(filename=f"outputs/equipment/{equipment.normalized_name}.png")
 
@@ -163,14 +163,16 @@ def get_color(equipment: Equipment) -> Color:
     return Color("#000000")
 
 
-def draw_name(img: Image, draw_ctx: Drawing, equipment: Equipment):
+def draw_name(draw_ctx: Drawing, equipment: Equipment):
     draw_ctx.push()
     draw_ctx.font_size = 80
     draw_ctx.stroke_color = Color("#000000")
     draw_ctx.stroke_width = 2
     draw_ctx.fill_color = get_color(equipment)
     wrapped_text = wrap_text(
-        img, draw_ctx, equipment.name, int(CARD_WIDTH * 0.7), int(CARD_HEIGHT * 0.25)
+        draw_ctx,
+        equipment.name,
+        int(CARD_WIDTH * 0.7),
     )
     draw_ctx.text(220, 130, wrapped_text)
     draw_ctx.pop()
@@ -181,58 +183,37 @@ def draw_card_type(draw_ctx: Drawing, equipment: Equipment):
     draw_ctx.font_size = 50
     draw_ctx.text(
         int(CARD_WIDTH * 0.05),
-        int(CARD_HEIGHT * 0.5),
-        f"{equipment.size} {equipment.type}",
+        int(CARD_HEIGHT * 0.45),
+        f"{equipment.size} {equipment.type} {equipment.system}",
     )
     draw_ctx.pop()
 
 
-def draw_card_text(img: Image, draw_ctx: Drawing, equipment: Equipment):
+def draw_card_text(draw_ctx: Drawing, equipment: Equipment):
     draw_ctx.push()
     draw_ctx.font_size = 50
     wrapped_text = wrap_text(
-        img, draw_ctx, equipment.text, int(CARD_WIDTH * 0.9), int(CARD_HEIGHT / 3)
+        draw_ctx,
+        equipment.text,
+        int(CARD_WIDTH * 0.9),
     )
-    draw_ctx.text(int(CARD_WIDTH * 0.05), int(CARD_HEIGHT * 0.6), wrapped_text)
+    draw_ctx.text(int(CARD_WIDTH * 0.05), int(CARD_HEIGHT * 0.55), wrapped_text)
     draw_ctx.pop()
 
 
-def wrap_text(image: Image, ctx: Drawing, text: str, roi_width: int, roi_height: int):
-    """
-    Break long text to multiple lines, and reduce point size
-    until all text fits within a bounding box.
-    https://docs.wand-py.org/en/0.6.12/guide/draw.html#word-wrapping
-    """
-    mutable_message = text
-    iteration_attempts = 100
+def wrap_text(ctx: Drawing, text: str, roi_width: int):
+    paragraphs = text.splitlines()
+    wrapped_paras = []
 
-    def eval_metrics(txt):
-        """Quick helper function to calculate width/height of text."""
-        metrics = ctx.get_font_metrics(image, txt, True)
-        return (metrics.text_width, metrics.text_height)
-
-    while ctx.font_size > 0 and iteration_attempts:
-        iteration_attempts -= 1
-        width, height = eval_metrics(mutable_message)
-        if height > roi_height:
-            ctx.font_size -= 0.75  # Reduce pointsize
-            mutable_message = text  # Restore original text
-        elif width > roi_width:
-            columns = len(mutable_message)
-            while columns > 0:
-                columns -= 1
-                mutable_message = "\n".join(textwrap.wrap(mutable_message, columns))
-                wrapped_width, _ = eval_metrics(mutable_message)
-                if wrapped_width <= roi_width:
-                    break
-            if columns < 1:
-                ctx.font_size -= 0.75  # Reduce pointsize
-                mutable_message = text  # Restore original text
+    estimated_columns = int(roi_width / (ctx.font_size * 0.53))
+    wrapper = textwrap.TextWrapper(width=estimated_columns, break_long_words=True)
+    for para in paragraphs:
+        if para.strip():
+            wrapped_paras.extend(wrapper.wrap(para))
         else:
-            break
-    if iteration_attempts < 1:
-        raise RuntimeError("Unable to calculate word_wrap for " + text)
-    return mutable_message
+            wrapped_paras.append("\n")
+
+    return "\n".join(wrapped_paras)
 
 
 def add_icon(draw_ctx: Drawing, icon: Image, x: int, y: int, text: str):
@@ -253,9 +234,9 @@ def add_icon(draw_ctx: Drawing, icon: Image, x: int, y: int, text: str):
         draw_ctx.pop()
 
 
-def print_filtered(filters):
+def get_filtered_equipment(filters):
     all_equipment = get_all_equipment()
-    total = 0
+    matching_equipment = []
     for equipment in all_equipment:
         ok = 0
         for f in filters:
@@ -270,9 +251,24 @@ def print_filtered(filters):
             elif f == "Ammo" and equipment.ammo:
                 ok += 1
         if ok == len(filters):
-            total += 1
-            print(equipment)
-    print(f"Found {total} matches.")
+            matching_equipment.append(equipment)
+    return matching_equipment
+
+
+def print_filtered(filters):
+    matching_equipment = get_filtered_equipment(filters)
+    for equipment in matching_equipment:
+        print(equipment)
+    print(f"Found {len(matching_equipment)} matches.")
+
+
+def generate_filtered(filters):
+    matching_equipment = get_filtered_equipment(filters)
+    with Icons() as icons:
+        for equipment in matching_equipment:
+            print(f"Generating card for {equipment.name}...")
+            generate_card(icons, equipment)
+    print(f"Found {len(matching_equipment)} matches.")
 
 
 def main():
@@ -280,8 +276,10 @@ def main():
     parser.add_argument("action")
     parser.add_argument("--filter", "-f", action="append")
     args = parser.parse_args()
-    if args.action == "generate_all":
+    if args.action == "generate":
         generate_all()
+    elif args.action == "genf":
+        generate_filtered(args.filter)
     elif args.action == "stats":
         print_stats()
     elif args.action == "count":

@@ -2,6 +2,7 @@ Light Cannon:
   size: Small
   type: Ballistic
   range: Short
+  system: Weapon
   heat: 2
   text: |
     Deal 2 damage.
@@ -10,24 +11,27 @@ Gunslinger's Justice:
   size: Small
   type: Ballistic
   range: Short
+  system: Weapon
   heat: 1
   ammo: 6
   text: |
-    Deal 1 damage. If it is your first action this Round, costs 0 Heat and deals 4 damage instead.
+    Deal 1 damage. If it is your first action this Round, costs 1 less Heat and deals 4 damage instead.
 
 Flechettes:
   size: Small
   type: Ballistic
   range: Short
+  system: Weapon
   heat: 1
   text: |
     Choose:
-    - Charge.
-    - Deal [Charge] damage.
+    > Charge.
+    > Deal [Charge] damage.
 
 Autocannon:
   size: Small
   type: Ballistic
+  system: Weapon
   range: Mid
   heat: 2
   text: |
@@ -36,6 +40,7 @@ Autocannon:
 Linked Cannon:
   size: Small
   type: Ballistic
+  system: Weapon
   range: Short
   heat: 2
   text: |
@@ -45,6 +50,7 @@ Linked Cannon:
 Gauss Rifle:
   size: Medium
   type: Ballistic
+  system: Weapon
   range: Short
   heat: 3
   text: |
@@ -53,6 +59,7 @@ Gauss Rifle:
 Railgun:
   size: Medium
   type: Ballistic
+  system: Weapon
   range: Mid
   heat: 4
   text: |
@@ -61,6 +68,7 @@ Railgun:
 Automatic Shotgun:
   size: Medium
   type: Ballistic
+  system: Weapon
   range: Short
   heat: 3
   text: |
@@ -69,16 +77,18 @@ Automatic Shotgun:
 Assault Cannon:
   size: Medium
   type: Ballistic
+  system: Weapon
   range: Short
   heat: 3
   text: |
     Deal 2 damage. Choose:
-    - Shred.
-    - Overwatch: Deal 2 damage.
+    > Shred.
+    > Overwatch: Deal 2 damage.
 
 Gatling Cannon:
   size: Medium
   type: Ballistic
+  system: Weapon
   range: Short
   heat: 2
   text: |
@@ -87,6 +97,7 @@ Gatling Cannon:
 Sniper Rifle:
   size: Medium
   type: Ballistic
+  system: Weapon
   range: Long
   heat: 4
   text: |
@@ -95,6 +106,7 @@ Sniper Rifle:
 Heavy Mortar:
   size: Large
   type: Ballistic
+  system: Weapon
   range: Long
   heat: 5
   text: |
@@ -103,6 +115,7 @@ Heavy Mortar:
 Devastator:
   size: Large
   type: Ballistic
+  system: Weapon
   range: Short
   heat: 5
   text: |
@@ -111,6 +124,7 @@ Devastator:
 Annihilator Siege Cannon:
   size: Large
   type: Ballistic
+  system: Weapon
   range: Short
   heat: 9
   ammo: 1
@@ -120,25 +134,30 @@ Annihilator Siege Cannon:
 Heavy Assault Gun:
   size: Large
   type: Ballistic
+  system: Weapon
   range: Short
   heat: 3
   text: |
-    Charge. Deal [Charge + 1] damage. Choose:
-    - Shred.
-    - Overwatch: Deal [Charge + 1] damage.
+    Charge. Deal [Charge+1] damage.
+    Choose:
+    > Shred.
+    > Overwatch: Deal [Charge+1] damage.
 
 Anti Material Sniper Rifle:
   size: Large
   type: Ballistic
+  system: Weapon
   range: Long
   heat: 5
   ammo: 3
   text: |
-    Deal 4 damage. Overwatch: Deal 4 damage.
+    Deal 4 damage.
+    Overwatch: Deal 4 damage.
 
 Targeting Laser:
   size: Small
   type: Energy
+  system: Weapon
   range: Short
   heat: 1
   text: |
@@ -147,6 +166,7 @@ Targeting Laser:
 Point Defense Laser:
   size: Small
   type: Energy
+  system: Weapon
   range: Short
   heat: 2
   text: |
@@ -155,6 +175,7 @@ Point Defense Laser:
 Minipulser:
   size: Small
   type: Energy
+  system: Weapon
   range: Short
   heat: 2
   text: |
@@ -163,6 +184,7 @@ Minipulser:
 Antimatter Blaster:
   size: Small
   type: Energy
+  system: Weapon
   range: Short
   heat: 8
   ammo: 1
@@ -172,14 +194,17 @@ Antimatter Blaster:
 Ion Cannon:
   size: Small
   type: Energy
+  system: Weapon
   range: Short
   heat: 2
   text: |
-    Deal 1 damage. Overwatch: Disable one of the target's equipment.
+    Deal 1 damage.
+    Overwatch: Disable one of the target's equipment.
 
 Flamethrower:
   size: Medium
   type: Energy
+  system: Weapon
   range: Short
   heat: 2
   text: |
@@ -188,6 +213,7 @@ Flamethrower:
 Laser Rifle:
   size: Medium
   type: Energy
+  system: Weapon
   range: Short
   heat: 3
   text: |
@@ -196,24 +222,28 @@ Laser Rifle:
 Repulsor Array:
   size: Medium
   type: Energy
+  system: Weapon
   range: Short
   heat: 3
   text: |
     Deal 2 damage. Choose:
-    - Move the target to the rear guard.
-    - Move yourself to the rear guard.
+    > Move the target to the rear guard.
+    > Move yourself to the rear guard.
 
 Magnetic Harpoon:
   size: Medium
   type: Energy
+  system: Weapon
   range: Mid
   heat: 3
   text: |
-    Deal 1 damage. Move the target to the vanguard. Overwatch: Deal 1 damage.
+    Deal 1 damage. If the target is in the rear guard, move it to the vanguard.
+    Overwatch: Deal 1 damage.
 
 Ion Beam:
   size: Medium
   type: Energy
+  system: Weapon
   range: Short
   heat: 4
   text: |
@@ -222,18 +252,19 @@ Ion Beam:
 Ion Pulser:
   size: Medium
   type: Energy
+  system: Weapon
   range: Short
   heat: 4
   text: |
     Charge. Choose:
-    - Charge.
-    - Disable up to [Charge] equipment on enemy mechs in the vanguard. Discharge all.
-
+    > Charge.
+    > Disable up to [Charge] equipment on the enemy vanguard. Discharge all.
     You may activate this in the rear guard. If so, you can only choose to Charge.
 
 Gravity Cannon:
   size: Large
   type: Energy
+  system: Weapon
   range: Long
   heat: 5
   text: |
@@ -242,6 +273,7 @@ Gravity Cannon:
 Wave Motion Cannon:
   size: Large
   type: Energy
+  system: Weapon
   range: Long
   heat: 7
   text: |
@@ -250,16 +282,19 @@ Wave Motion Cannon:
 Turbolaser Array:
   size: Large
   type: Energy
+  system: Weapon
   range: Mid
   heat: 5
   text: |
-    Charge. Deal [Charge + 1] AP damage. Choose:
-    - Charge.
-    - Overwatch: Deal [Charge + 1] AP damage.
+    Charge. Deal [Charge+1] damage.
+    Choose:
+    > Charge.
+    > Overwatch: Deal [Charge+1] damage.
 
 Rift Opener:
   size: Large
   type: Energy
+  system: Weapon
   range: Short
   heat: 6
   text: |
@@ -268,6 +303,7 @@ Rift Opener:
 Causality Invertor:
   size: Large
   type: Energy
+  system: Weapon
   range: Short
   heat: 6
   text: |
@@ -276,6 +312,7 @@ Causality Invertor:
 Power Blade:
   size: Medium
   type: Melee
+  system: Weapon
   range: Melee
   heat: 5
   text: |
@@ -284,14 +321,16 @@ Power Blade:
 Power Fist:
   size: Medium
   type: Melee
+  system: Weapon
   range: Melee
   heat: 3
   text: |
     Deal 3 damage. Move the target to the rear guard.
 
-One-Two Punch:
+One Two Punch:
   size: Medium
   type: Melee
+  system: Weapon
   range: Melee
   heat: 4
   text: |
@@ -300,6 +339,7 @@ One-Two Punch:
 Explosive Fist:
   size: Medium
   type: Melee
+  system: Weapon
   range: Melee
   heat: 3
   text: |
@@ -308,6 +348,7 @@ Explosive Fist:
 Phase Lance:
   size: Medium
   type: Melee
+  system: Weapon
   range: Melee
   heat: 3
   text: |
@@ -316,6 +357,7 @@ Phase Lance:
 Shield Bashing Unit:
   size: Medium
   type: Melee
+  system: Weapon
   range: Melee
   heat: 5
   text: |
@@ -324,22 +366,34 @@ Shield Bashing Unit:
 Heavy Combat Drill:
   size: Large
   type: Melee
+  system: Weapon
   range: Melee
   heat: 6
   text: |
-    Charge. Prepare: Deal [Charge + 6] AP damage.
+    Charge. Prepare: Deal [Charge+6] AP damage.
 
 Combat Drone Launcher:
   size: Medium
   type: Drone
+  system: System
   heat: 3
   ammo: 3
   text: |
     Summon 1 Combat Drone at your position.
 
+Combat Drone Hangar:
+  size: Large
+  type: Drone
+  system: System
+  heat: 6
+  ammo: 2
+  text: |
+    Summon 2 Combat Drones at your position.
+
 Shield Drone Launcher:
   size: Medium
   type: Drone
+  system: System
   heat: 3
   ammo: 2
   text: |
@@ -348,6 +402,7 @@ Shield Drone Launcher:
 Scout Drone Launcher:
   size: Medium
   type: Drone
+  system: System
   heat: 3
   ammo: 2
   text: |
@@ -356,6 +411,7 @@ Scout Drone Launcher:
 Decoy Drone Launcher:
   size: Medium
   type: Drone
+  system: System
   heat: 3
   ammo: 2
   text: |
@@ -364,14 +420,16 @@ Decoy Drone Launcher:
 Smoke Grenade:
   size: Small
   type: Missile
+  system: Weapon
   heat: 0
   ammo: 2
   text: |
-    Allied mechs at your position gain 1 Shield.
+    Choose an allied position. All allied mechs there gain 1 Shield.
 
 Javelin Missile:
   size: Medium
   type: Missile
+  system: Weapon
   range: Short
   heat: 0
   ammo: 1
@@ -381,6 +439,7 @@ Javelin Missile:
 Tag Launcher:
   size: Medium
   type: Missile
+  system: Weapon
   range: Mid
   heat: 0
   ammo: 2
@@ -390,6 +449,7 @@ Tag Launcher:
 Breach Missile:
   size: Medium
   type: Missile
+  system: Weapon
   range: Short
   heat: 0
   ammo: 1
@@ -399,6 +459,7 @@ Breach Missile:
 Quantum Torpedo:
   size: Medium
   type: Missile
+  system: Weapon
   range: Short
   heat: 0
   ammo: 1
@@ -408,6 +469,7 @@ Quantum Torpedo:
 Sympathetic Shield:
   size: Medium
   type: Missile
+  system: System
   heat: 0
   ammo: 2
   text: |
@@ -416,6 +478,7 @@ Sympathetic Shield:
 Ballistic Missile:
   size: Large
   type: Missile
+  system: Weapon
   range: Long
   heat: 0
   ammo: 1
@@ -425,6 +488,7 @@ Ballistic Missile:
 "Cyberwarfare: OVERCOOK":
   size: Small
   type: Electronics
+  system: System
   range: Long
   heat: 3
   text: |
@@ -433,6 +497,7 @@ Ballistic Missile:
 "Cyberwarfare: BLACKOUT":
   size: Small
   type: Electronics
+  system: System
   range: Long
   heat: 5
   text: |
@@ -441,6 +506,7 @@ Ballistic Missile:
 "Protocol: THUNDERSTRIKE":
   size: Small
   type: Electronics
+  system: System
   range: Long
   heat: 3
   text: |
@@ -449,6 +515,7 @@ Ballistic Missile:
 "Protocol: SCRAMBLE":
   size: Small
   type: Electronics
+  system: System
   range: Long
   heat: 3
   text: |
@@ -457,6 +524,7 @@ Ballistic Missile:
 Emergency Superconductor:
   size: Medium
   type: Electronics
+  system: System
   heat: 5
   text: |
     Remove 3 heat from an allied mech.
@@ -464,6 +532,7 @@ Emergency Superconductor:
 Probability Manipulator:
   size: Medium
   type: Electronics
+  system: System
   heat: 3
   ammo: 1
   text: |
@@ -472,37 +541,43 @@ Probability Manipulator:
 Early Warning System:
   size: Medium
   type: Electronics
+  system: System
   text: |
-    Passive: If all allied mechs are in the vanguard, enemy non-Electronic equipment can only target this mech if valid. When triggered, gain 1 Heat.
+    Passive: If all allied mechs are in the vanguard, enemy non-Electronic weapons can only target this mech if valid. When triggered, gain 1 Heat.
 
 Slipstream Optimizer:
   size: Medium
   type: Electronics
+  system: System
   text: |
     Passive: After this mech acts, 1 allied mech may reposition. If it does, gain 2 Heat.
 
 Focus Fire Protocol:
   size: Medium
   type: Electronics
+  system: System
   text: |
-    Passive: When this mech activates Small equipment, you may choose another mech in the vanguard. Immediately activate a Small, Short Range weapon on that mech.
+    Passive: When this mech activates Small Weapons, you may choose another mech in the vanguard. Immediately activate a Small, Short Range weapon on that mech.
 
 Siege Support Protocol:
   size: Medium
   type: Electronics
+  system: System
   text: |
-    Passive: When this mech activates Long Range equipment, you may choose another mech in the vanguard. Immediately activate a Small, Short Range weapon on that mech.
+    Passive: When this mech activates Long Range Weapons, you may choose another mech in the vanguard. Immediately activate a Small, Short Range weapon on that mech.
 
 IR Targeting Unit:
   size: Small
   type: Electronics
+  system: System
   heat: 2
   text: |
-    Passive: When an enemy mech changes position, you may activate this system to inflict 1 Vulnerable on that mech.
+    Passive: When an enemy mech changes position, you may activate this to inflict 1 Vulnerable on that mech.
 
 Field Modulator:
   size: Medium
   type: Electronics
+  system: System
   heat: 3
   text: |
     Doubles Shield on all allied mechs at your position.
@@ -510,29 +585,34 @@ Field Modulator:
 Armor Plating:
   size: Medium
   type: Auxiliary
+  system: Attachment
   text: |
     Inert. Passive: +1 Armor.
 
 Premium Ammunition:
   size: Medium
   type: Auxiliary
+  system: Attachment
   text: |
     Inert. Passive: Ballistics weapons on this mech deal +1 damage.
 
 Energy Coherer:
   size: Medium
   type: Auxiliary
+  system: Attachment
   text: |
     Inert. Passive: Energy weapons on this mech deal +1 damage.
 
 Heat Sink:
   size: Medium
   type: Auxiliary
+  system: Attachment
   text: |
     Inert. Passive: Increase Heat Cap by 1.
 
 Prototype Cooling System:
   size: Large
   type: Auxiliary
+  system: Attachment
   text: |
     Inert. Passive: Increase Heat Cap by 2.

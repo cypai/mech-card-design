@@ -16,6 +16,7 @@ class Equipment:
         self.name = str(kwargs.get("name"))
         self.size = str(kwargs.get("size"))
         self.type = str(kwargs.get("type"))
+        self.system = str(kwargs.get("system"))
         self.heat = kwargs.get("heat", None)
         self.ammo = kwargs.get("ammo", None)
         self.range = kwargs.get("range", None)

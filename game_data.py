@@ -8,6 +8,7 @@ def parse_equipment(equipment) -> Equipment:
         name=name,
         size=data.get("size"),
         type=data.get("type"),
+        system=data.get("system"),
         heat=data.get("heat", None),
         ammo=data.get("ammo", None),
         range=data.get("range", None),
