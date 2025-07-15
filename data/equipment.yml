@@ -404,7 +404,7 @@ Scout Drone Launcher:
   size: Medium
   type: Drone
   system: System
-  heat: 3
+  heat: 2
   ammo: 2
   text: |
     Summon 1 Scout Drone at your position.
@@ -541,7 +541,7 @@ Ballistic Missile:
   range: Long
   heat: 3
   text: |
-    Destroy up to 3 allied drones. For each, target a different enemy mech. Deal 2 AP damage and disable all Electronics on the target.
+    Destroy up to 3 allied drones. For each, choose a different enemy mech, then deal 1 damage and Disable 1 equipment on the target.
 
 Emergency Superconductor:
   size: Medium
@@ -564,15 +564,17 @@ Early Warning System:
   size: Medium
   type: Electronics
   system: System
+  heat: 1
   text: |
-    Passive: If all allied mechs are in the vanguard, enemy non-Electronic weapons can only target this mech if valid. When triggered, this mech gains 1 Heat.
+    Passive: If all allied mechs are in the vanguard, you may activate this system to redirect enemy non-Electronic weapons to this mech if valid.
 
 Slipstream Optimizer:
   size: Medium
   type: Electronics
   system: System
+  heat: 2
   text: |
-    Passive: After this mech acts, 1 allied mech may reposition. If it does, this mech gains 2 Heat.
+    Passive: After this mech acts, you may activate this system to allow 1 other allied mech to reposition.
 
 Focus Fire Protocol:
   size: Medium
@@ -592,7 +594,7 @@ IR Targeting Unit:
   size: Small
   type: Electronics
   system: System
-  heat: 2
+  heat: 1
   text: |
     Passive: When an enemy mech changes position, you may activate this to inflict 1 Vulnerable on that mech.
 
@@ -600,7 +602,7 @@ Field Modulator:
   size: Medium
   type: Electronics
   system: System
-  heat: 3
+  heat: 2
   text: |
     Doubles Shield on all allied mechs at your position.
 
