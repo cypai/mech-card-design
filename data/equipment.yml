@@ -206,9 +206,9 @@ Flamethrower:
   type: Energy
   system: Weapon
   range: Short
-  heat: 2
+  heat: 4
   text: |
-    Deal 1 damage to the enemy vanguard and increase their Heat by 1.
+    Deal 1 damage and inflict Overheat to the enemy vanguard.
 
 Laser Rifle:
   size: Medium
@@ -436,7 +436,7 @@ Javelin Missile:
   text: |
     Deal 3 damage.
 
-Tag Launcher:
+Proximity Mine Catapult:
   size: Medium
   type: Missile
   system: Weapon
@@ -444,7 +444,28 @@ Tag Launcher:
   heat: 0
   ammo: 2
   text: |
+    Deal 1 damage.
+    Overwatch: Deal 1 damage.
+
+Tag Launcher:
+  size: Small
+  type: Missile
+  system: Weapon
+  range: Mid
+  heat: 0
+  ammo: 2
+  text: |
     Inflict Vulnerable.
+
+Dragonfire RPG:
+  size: Medium
+  type: Missile
+  system: Weapon
+  range: Short
+  heat: 0
+  ammo: 1
+  text: |
+    Deal 1 damage. Inflict Overheat.
 
 Breach Missile:
   size: Medium

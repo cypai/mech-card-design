@@ -27,7 +27,7 @@ class Equipment:
 
     def __str__(self):
         text = self.name + "\n"
-        text += f"{self.size} {self.type}\n"
+        text += f"{self.size} {self.type} {self.system}\n"
         if self.range is not None:
             text += f"Range: {self.range}\n"
         if self.heat is not None:

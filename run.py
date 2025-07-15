@@ -282,7 +282,7 @@ def main():
         generate_filtered(args.filter)
     elif args.action == "stats":
         print_stats()
-    elif args.action == "count":
+    elif args.action == "scan":
         print_filtered(args.filter)
 
 
