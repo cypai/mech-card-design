@@ -84,6 +84,14 @@ Gatling Cannon:
   text: |
     Charge. Deal [Charge] damage.
 
+Sniper Rifle:
+  size: Medium
+  type: Ballistic
+  range: Long
+  heat: 4
+  text: |
+    Deal 3 damage.
+
 Heavy Mortar:
   size: Large
   type: Ballistic
@@ -161,14 +169,13 @@ Antimatter Blaster:
   text: |
     Deal 5 AP damage.
 
-Ion Blaster:
+Ion Cannon:
   size: Small
   type: Energy
   range: Short
   heat: 2
-  ammo: 1
   text: |
-    Overwatch: Disable one of the target's equipment.
+    Deal 1 damage. Overwatch: Disable one of the target's equipment.
 
 Flamethrower:
   size: Medium
@@ -212,7 +219,7 @@ Ion Beam:
   text: |
     Disable the targeted equipment.
 
-Ion Pulsor:
+Ion Pulser:
   size: Medium
   type: Energy
   range: Short
@@ -306,6 +313,14 @@ Phase Lance:
   text: |
     Remove all Shield from the target. Deal 3 AP damage.
 
+Shield Bashing Unit:
+  size: Medium
+  type: Melee
+  range: Melee
+  heat: 5
+  text: |
+    Deal 4 + X damage, where X is double your Shield.
+
 Heavy Combat Drill:
   size: Large
   type: Melee
@@ -362,6 +377,15 @@ Javelin Missile:
   ammo: 1
   text: |
     Deal 3 damage.
+
+Tag Launcher:
+  size: Medium
+  type: Missile
+  range: Mid
+  heat: 0
+  ammo: 2
+  text: |
+    Inflict Vulnerable.
 
 Breach Missile:
   size: Medium
@@ -475,6 +499,13 @@ IR Targeting Unit:
   heat: 2
   text: |
     Passive: When an enemy mech changes position, you may activate this system to inflict 1 Vulnerable on that mech.
+
+Field Modulator:
+  size: Medium
+  type: Electronics
+  heat: 3
+  text: |
+    Doubles Shield on all allied mechs at your position.
 
 Armor Plating:
   size: Medium

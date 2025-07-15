@@ -253,14 +253,39 @@ def add_icon(draw_ctx: Drawing, icon: Image, x: int, y: int, text: str):
         draw_ctx.pop()
 
 
+def print_filtered(filters):
+    all_equipment = get_all_equipment()
+    total = 0
+    for equipment in all_equipment:
+        ok = 0
+        for f in filters:
+            if (
+                f in equipment.text
+                or f in equipment.name
+                or f == equipment.range
+                or f == equipment.type
+                or f == equipment.size
+            ):
+                ok += 1
+            elif f == "Ammo" and equipment.ammo:
+                ok += 1
+        if ok == len(filters):
+            total += 1
+            print(equipment)
+    print(f"Found {total} matches.")
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("action")
+    parser.add_argument("--filter", "-f", action="append")
     args = parser.parse_args()
     if args.action == "generate_all":
         generate_all()
     elif args.action == "stats":
         print_stats()
+    elif args.action == "count":
+        print_filtered(args.filter)
 
 
 main()

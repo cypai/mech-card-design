@@ -33,5 +33,5 @@ class Equipment:
             text += f"Heat: {self.heat}\n"
         if self.ammo is not None:
             text += f"Ammo: {self.ammo}\n"
-        text += f"{self.text}\n"
+        text += f"{self.text}"
         return text
