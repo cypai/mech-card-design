@@ -1,0 +1,32 @@
+Light Cannon:
+  size: Small
+  type: Ballistic
+  range: Short
+  heat: 2
+  text: |
+    Deal 2 damage.
+
+Gunslinger's Justice:
+  size: Small
+  type: Ballistic
+  range: Short
+  heat: 1
+  ammo: 6
+  text: |
+    Deal 1 damage. If it is your first action this round, this weapon costs 0 Heat and deals 4 damage instead.
+
+  Gauss Rifle:
+    size: Medium
+    type: Ballistic
+    range: Short
+    heat: 3
+    text: |
+      Deal 2 AP damage.
+
+  Railgun:
+    size: Medium
+    type: Ballistic
+    range: Mid
+    heat: 4
+    text: |
+      Deal 3 AP damage.
