@@ -74,7 +74,7 @@ def generate_card(icons: Icons, equipment: Equipment):
         draw_card_type(draw_ctx, equipment)
         draw_card_text(img, draw_ctx, equipment)
         draw_ctx.draw(img)
-        img.save(filename="test.png")
+        img.save(filename=f"outputs/equipment/{equipment.normalized_name}.png")
 
 
 def draw_name(draw_ctx: Drawing, text: str):

@@ -1,8 +1,10 @@
 from typing import Optional
+import re
 
 
 class Equipment:
     name: str
+    normalized_name: str
     size: str
     type: str
     heat: Optional[int]
@@ -18,6 +20,9 @@ class Equipment:
         self.ammo = kwargs.get("ammo", None)
         self.range = kwargs.get("range", None)
         self.text = str(kwargs.get("text"))
+
+        self.normalized_name = re.sub(r"\W", "", self.name)
+        self.normalized_name = self.normalized_name.lower()
 
     def __str__(self):
         text = self.name + "\n"
