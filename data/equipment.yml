@@ -15,6 +15,33 @@ Gunslinger's Justice:
   text: |
     Deal 1 damage. If it is your first action this Round, costs 0 Heat and deals 4 damage instead.
 
+Flechettes:
+  size: Small
+  type: Ballistic
+  range: Short
+  heat: 1
+  text: |
+    Choose:
+    - Charge.
+    - Deal [Charge] damage.
+
+Autocannon:
+  size: Small
+  type: Ballistic
+  range: Mid
+  heat: 2
+  text: |
+    Passive: When an enemy mech changes position, you may activate this weapon to deal 1 damage to them.
+
+Linked Cannon:
+  size: Small
+  type: Ballistic
+  range: Short
+  heat: 2
+  text: |
+    Deal 1 damage.
+    Passive: After firing a Medium or Large Ballistic weapon on this mech, you may immediately activate this weapon on the same target.
+
 Gauss Rifle:
   size: Medium
   type: Ballistic
@@ -117,7 +144,7 @@ Point Defense Laser:
   text: |
     Deal 1 damage. Costs 1 less Heat when targeting Drones.
 
-Autoblaster:
+Minipulser:
   size: Small
   type: Energy
   range: Short
@@ -185,6 +212,18 @@ Ion Beam:
   text: |
     Disable the targeted equipment.
 
+Ion Pulsor:
+  size: Medium
+  type: Energy
+  range: Short
+  heat: 4
+  text: |
+    Charge. Choose:
+    - Charge.
+    - Disable up to [Charge] equipment on enemy mechs in the vanguard. Discharge all.
+
+    You may activate this in the rear guard. If so, you can only choose to Charge.
+
 Gravity Cannon:
   size: Large
   type: Energy
@@ -199,7 +238,7 @@ Wave Motion Cannon:
   range: Long
   heat: 7
   text: |
-    Prepare: Deal 5 AP damage. Deals half damage (rounded down) if fired from the rear guard.
+    Prepare: Deal 5 damage. Deals half damage (rounded down) if fired from the rear guard.
 
 Turbolaser Array:
   size: Large
@@ -210,6 +249,22 @@ Turbolaser Array:
     Charge. Deal [Charge + 1] AP damage. Choose:
     - Charge.
     - Overwatch: Deal [Charge + 1] AP damage.
+
+Rift Opener:
+  size: Large
+  type: Energy
+  range: Short
+  heat: 6
+  text: |
+    Deal 4 AP damage. Inflict 2 Vulnerable. Shred.
+
+Causality Invertor:
+  size: Large
+  type: Energy
+  range: Short
+  heat: 6
+  text: |
+    Cannot be evaded. Prepare: Deal 6 damage.
 
 Power Blade:
   size: Medium
@@ -234,6 +289,22 @@ One-Two Punch:
   heat: 4
   text: |
     Deal 2 damage. Prepare: Deal 4 damage.
+
+Explosive Fist:
+  size: Medium
+  type: Melee
+  range: Melee
+  heat: 3
+  text: |
+    Deal 3 damage. Shred.
+
+Phase Lance:
+  size: Medium
+  type: Melee
+  range: Melee
+  heat: 3
+  text: |
+    Remove all Shield from the target. Deal 3 AP damage.
 
 Heavy Combat Drill:
   size: Large
@@ -275,6 +346,14 @@ Decoy Drone Launcher:
   text: |
     Summon 1 Decoy Drone at your position.
 
+Smoke Grenade:
+  size: Small
+  type: Missile
+  heat: 0
+  ammo: 2
+  text: |
+    Allied mechs at your position gain 1 Shield.
+
 Javelin Missile:
   size: Medium
   type: Missile
@@ -309,6 +388,15 @@ Sympathetic Shield:
   ammo: 2
   text: |
     Give all allied mechs 1 Shield.
+
+Ballistic Missile:
+  size: Large
+  type: Missile
+  range: Long
+  heat: 0
+  ammo: 1
+  text: |
+    Prepare: Deal 4 damage to the enemy vanguard.
 
 "Cyberwarfare: OVERCOOK":
   size: Small
@@ -380,6 +468,13 @@ Siege Support Protocol:
   type: Electronics
   text: |
     Passive: When this mech activates Long Range equipment, you may choose another mech in the vanguard. Immediately activate a Small, Short Range weapon on that mech.
+
+IR Targeting Unit:
+  size: Small
+  type: Electronics
+  heat: 2
+  text: |
+    Passive: When an enemy mech changes position, you may activate this system to inflict 1 Vulnerable on that mech.
 
 Armor Plating:
   size: Medium

@@ -57,20 +57,39 @@ def print_stats():
         "Drone": 0,
         "Auxiliary": 0,
     }
+    ranges = {
+        "Melee": 0,
+        "Short": 0,
+        "Mid": 0,
+        "Long": 0,
+    }
+    range_types = {}
+    for r in ranges.keys():
+        if r != "Melee":
+            range_types[("Ballistic", r)] = 0
+            range_types[("Energy", r)] = 0
     full_types = {}
-    ammo_weapons = 0
-    total = 0
     for size in sizes.keys():
         for t in types.keys():
             full_types[(size, t)] = 0
+    ammo_weapons = 0
+    shred_weapons = 0
+    total = 0
     all_equipment = get_all_equipment()
     for equipment in all_equipment:
         total += 1
         sizes[equipment.size] += 1
         types[equipment.type] += 1
         full_types[(equipment.size, equipment.type)] += 1
+        if equipment.range is not None:
+            ranges[equipment.range] += 1
+            range_type_key = (equipment.type, equipment.range)
+            if range_type_key in range_types:
+                range_types[range_type_key] += 1
         if equipment.ammo:
             ammo_weapons += 1
+        if "Shred" in equipment.text:
+            shred_weapons += 1
     print("Sizes")
     for k, v in sizes.items():
         print(f"{k}: {v}")
@@ -79,6 +98,12 @@ def print_stats():
         print(f"{k}: {v}")
     print("\nFull Types")
     for k, v in full_types.items():
+        print(f"{k[0]} {k[1]}: {v}")
+    print("\nRanges")
+    for k, v in ranges.items():
+        print(f"{k}: {v}")
+    print("\nRanges by Type")
+    for k, v in range_types.items():
         print(f"{k[0]} {k[1]}: {v}")
     print(f"\nAmmo Weapons: {ammo_weapons}")
     print(f"Total Weapons: {total}")
