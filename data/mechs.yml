@@ -1,0 +1,158 @@
+Lancelot:
+  faction: Midline
+  hp: 10
+  armor: 0
+  hc: 10
+  hardpoints:
+  - Medium
+  - Medium
+  - Small
+  - Small
+  ability: |
+    1/battle, reduce Heat Cost by 3 to a minimum of 1.
+
+Guanyin:
+  faction: Midline
+  hp: 9
+  armor: 1
+  hc: 10
+  hardpoints:
+  - Medium
+  - Medium
+  - Small
+  - Small
+  ability: |
+    1/round, redirect the target of any enemy equipment to this mech if valid, reducing damage taken by 2.
+
+Yurlunger:
+  faction: Midline
+  hp: 10
+  armor: 1
+  hc: 9
+  hardpoints:
+  - Large
+  - Small
+  - Small
+  ability: |
+    Passive: Whenever this mech uses equipment with a Heat Cost of at least 3, remove 1 Heat from a different allied mech.
+
+Circe:
+  faction: Midline
+  hp: 7
+  armor: 0
+  hc: 11
+  hardpoints:
+  - Medium
+  - Small
+  - Small
+  - Small
+  ability: |
+    Passive: Heat Cost -1 (minimum 1 Heat) for all equipped Electronic Systems.
+
+Resolute:
+  faction: Low Tech
+  hp: 8
+  armor: 2
+  hc: 9
+  hardpoints:
+  - Large
+  - Medium
+  ability: |
+    1/round, you may ignore the effects of Shred or AP on this mech.
+
+Inevitable:
+  faction: Low Tech
+  hp: 6
+  armor: 1
+  hc: 7
+  hardpoints:
+  - Large
+  - Medium
+  - Medium
+  ability: |
+    Passive: When firing weapons, for each matching tag of Large, Ballistic, Long Range, deal +1 damage.
+
+Wolfblade:
+  faction: Low Tech
+  hp: 11
+  armor: 1
+  hc: 8
+  hardpoints:
+  - Large
+  - Medium
+  - Small
+  ability: |
+    Passive: When this mech takes an action, if it has Closed to Melee, restore 1 HP. This mech cannot choose to move back to the rear guard.
+
+Hellstorm:
+  faction: Low Tech
+  hp: 10
+  armor: 1
+  hc: 8
+  hardpoints:
+  - Medium
+  - Small
+  - Small
+  ability: |
+    Passive: Each time this mech activates a Short Range Weapon, deal 1 damage to all enemy mechs in the rear guard.
+
+Athena:
+  faction: High Tech
+  hp: 10
+  armor: 0
+  hc: 9
+  hardpoints:
+  - Large
+  - Medium
+  - Small
+  ability: |
+    Passive: While shielded, Heat Cost -1.
+
+Pegasus:
+  faction: High Tech
+  hp: 8
+  armor: 0
+  hc: 10
+  hardpoints:
+  - Medium
+  - Medium
+  - Small
+  - Small
+  ability: |
+    1/round, you may reposition this mech for 0 Heat cost after acting.
+
+Aegis:
+  faction: High Tech
+  hp: 8
+  armor: 0
+  hc: 10
+  hardpoints:
+  - Medium
+  - Medium
+  - Small
+  - Small
+  ability: |
+    1/round, move from the rear guard to the vanguard. All allied vanguard mechs gain 1 Shield.
+
+Libra:
+  faction: High Tech
+  hp: 8
+  armor: 0
+  hc: 12
+  hardpoints:
+  - Large
+  - Small
+  ability: |
+    1/round, you may convert damage taken into Heat.
+
+Sagittarius:
+  faction: High Tech
+  hp: 6
+  armor: 0
+  hc: 8
+  hardpoints:
+  - Large
+  - Medium
+  - Small
+  ability: |
+    Passive: When firing weapons, for each matching tag of Large, Energy, Long Range, deal +1 damage.
