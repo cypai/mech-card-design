@@ -31,6 +31,76 @@ Railgun:
   text: |
     Deal 3 AP damage.
 
+Automatic Shotgun:
+  size: Medium
+  type: Ballistic
+  range: Short
+  heat: 3
+  text: |
+    Deal 2 damage to the enemy vanguard.
+
+Assault Cannon:
+  size: Medium
+  type: Ballistic
+  range: Short
+  heat: 3
+  text: |
+    Deal 2 damage. Choose:
+    - Shred.
+    - Overwatch: Deal 2 damage.
+
+Gatling Cannon:
+  size: Medium
+  type: Ballistic
+  range: Short
+  heat: 2
+  text: |
+    Repeating. Charge. Deal [Charge] damage.
+
+Heavy Mortar:
+  size: Large
+  type: Ballistic
+  range: Long
+  heat: 5
+  text: |
+    Deal 4 damage.
+
+Devastator:
+  size: Large
+  type: Ballistic
+  range: Short
+  heat: 5
+  text: |
+    Deal 2 damage. Prepare: Deal 5 damage.
+
+Annihilator Siege Cannon:
+  size: Large
+  type: Ballistic
+  range: Short
+  heat: 9
+  ammo: 1
+  text: |
+    Prepare: Deal 12 damage.
+
+Heavy Assault Gun:
+  size: Large
+  type: Ballistic
+  range: Short
+  heat: 3
+  text: |
+    Charge. Deal [Charge + 1] damage. Choose:
+    - Shred.
+    - Overwatch: Deal [Charge + 1] damage.
+
+Anti-Material Sniper Rifle:
+  size: Large
+  type: Ballistic
+  range: Long
+  heat: 5
+  ammo: 3
+  text: |
+    Deal 4 damage. Overwatch: Deal 4 damage.
+
 Targeting Laser:
   size: Small
   type: Energy
@@ -38,6 +108,82 @@ Targeting Laser:
   heat: 1
   text: |
     Inflict 2 Vulnerable on the target.
+
+Point Defense Laser:
+  size: Small
+  type: Energy
+  range: Short
+  heat: 2
+  text: |
+    Deal 1 damage. Costs 1 less Heat when targeting Drones.
+
+Autoblaster:
+  size: Small
+  type: Energy
+  range: Short
+  heat: 2
+  text: |
+    Deal X AP damage, where X is the number of Small Energy Weapons mounted on this mech.
+
+Antimatter Blaster:
+  size: Small
+  type: Energy
+  range: Short
+  heat: 8
+  ammo: 1
+  text: |
+    Deal 5 AP damage.
+
+Ion Blaster:
+  size: Small
+  type: Energy
+  range: Short
+  heat: 2
+  ammo: 1
+  text: |
+    Overwatch: Disable one of the target's equipment.
+
+Flamethrower:
+  size: Medium
+  type: Energy
+  range: Short
+  heat: 2
+  text: |
+    Deal 1 damage to the enemy vanguard and increase their Heat by 1.
+
+Laser Rifle:
+  size: Medium
+  type: Energy
+  range: Short
+  heat: 3
+  text: |
+    Deal 3 damage.
+
+Repulsor Array:
+  size: Medium
+  type: Energy
+  range: Short
+  heat: 3
+  text: |
+    Deal 2 damage. Choose:
+    - Move the target to the rear guard.
+    - Move yourself to the rear guard.
+
+Magnetic Harpoon:
+  size: Medium
+  type: Energy
+  range: Mid
+  heat: 3
+  text: |
+    Deal 1 damage. Move the target to the vanguard. Overwatch: Deal 1 damage.
+
+Ion Beam:
+  size: Medium
+  type: Energy
+  range: Short
+  heat: 4
+  text: |
+    Disable the targeted equipment.
 
 Gravity Cannon:
   size: Large
@@ -47,6 +193,32 @@ Gravity Cannon:
   text: |
     Deal 2 damage. If the target is in the vanguard, move them to the rear guard, and vice versa.
 
+Wave-Motion Cannon:
+  size: Large
+  type: Energy
+  range: Long
+  heat: 7
+  text: |
+    Prepare: Deal 5 AP damage. Deals half damage (rounded down) if fired from the rear guard.
+
+Turbolaser Array:
+  size: Large
+  type: Energy
+  range: Mid
+  heat: 5
+  text: |
+    Charge. Deal [Charge + 1] AP damage. Choose:
+    - Charge.
+    - Overwatch: Deal [Charge + 1] AP damage.
+
+Power Blade:
+  size: Medium
+  type: Melee
+  range: Melee
+  heat: 5
+  text: |
+    Deal 6 damage.
+
 Power Fist:
   size: Medium
   type: Melee
@@ -54,6 +226,22 @@ Power Fist:
   heat: 3
   text: |
     Deal 3 damage. Move the target to the rear guard.
+
+One-Two Punch:
+  size: Medium
+  type: Melee
+  range: Melee
+  heat: 4
+  text: |
+    Deal 2 damage. Prepare: Deal 4 damage.
+
+Heavy Combat Drill:
+  size: Large
+  type: Melee
+  range: Melee
+  heat: 6
+  text: |
+    Charge. Prepare: Deal [Charge + 6] AP damage.
 
 Combat Drone Launcher:
   size: Medium
@@ -63,7 +251,40 @@ Combat Drone Launcher:
   text: |
     Summon 1 Combat Drone at your position.
 
-Breach:
+Shield Drone Launcher:
+  size: Medium
+  type: Drone
+  heat: 3
+  ammo: 2
+  text: |
+    Summon 1 Shield Drone at your position.
+
+Scout Drone Launcher:
+  size: Medium
+  type: Drone
+  heat: 3
+  ammo: 2
+  text: |
+    Summon 1 Scout Drone at your position.
+
+Decoy Drone Launcher:
+  size: Medium
+  type: Drone
+  heat: 3
+  ammo: 2
+  text: |
+    Summon 1 Decoy Drone at your position.
+
+Javelin Missile:
+  size: Medium
+  type: Missile
+  range: Short
+  heat: 0
+  ammo: 1
+  text: |
+    Deal 3 damage.
+
+Breach Missile:
   size: Medium
   type: Missile
   range: Short
@@ -71,6 +292,23 @@ Breach:
   ammo: 1
   text: |
     Deal 2 AP damage. Shred.
+
+Quantum Torpedo:
+  size: Medium
+  type: Missile
+  range: Short
+  heat: 0
+  ammo: 1
+  text: |
+    Deal 2 AP damage. If the target is shielded, increase the target's Heat by 2.
+
+Sympathetic Shield:
+  size: Medium
+  type: Missile
+  heat: 0
+  ammo: 2
+  text: |
+    Give all allied mechs 1 Shield.
 
 "Cyberwarfare: OVERCOOK":
   size: Small
@@ -80,8 +318,95 @@ Breach:
   text: |
     Inflict Overheat.
 
+"Cyberwarfare: BLACKOUT":
+  size: Small
+  type: Electronics
+  range: Long
+  heat: 5
+  text: |
+    Disable all Electronics on the target.
+
+"Protocol: THUNDERSTRIKE":
+  size: Small
+  type: Electronics
+  range: Long
+  heat: 3
+  text: |
+    Deal 2 damage for each deployed drone on your field.
+
+"Protocol: SCRAMBLE":
+  size: Small
+  type: Electronics
+  range: Long
+  heat: 3
+  text: |
+    Destroy up to 3 allied drones. For each, target a different enemy mech. Deal 2 AP damage and disable all Electronics on the target.
+
+Emergency Superconductor:
+  size: Medium
+  type: Electronics
+  heat: 5
+  text: |
+    Remove 3 heat from an allied mech.
+
+Probability Manipulator:
+  size: Medium
+  type: Electronics
+  heat: 3
+  ammo: 1
+  text: |
+    Reduce your Overclock Counter by 1.
+
+Early Warning System:
+  size: Medium
+  type: Electronics
+  text: |
+    Passive: If all allied mechs are in the vanguard, enemy non-Electronic equipment can only target this mech if valid. When triggered, gain 1 Heat.
+
+Slipstream Optimizer:
+  size: Medium
+  type: Electronics
+  text: |
+    Passive: After this mech acts, 1 allied mech may reposition. If it does, gain 2 Heat.
+
+Focus Fire Protocol:
+  size: Medium
+  type: Electronics
+  text: |
+    Passive: When this mech activates Small equipment, you may choose another mech in the vanguard. Immediately activate a Small, Short Range weapon on that mech.
+
+Siege Support Protocol:
+  size: Medium
+  type: Electronics
+  text: |
+    Passive: When this mech activates Long Range equipment, you may choose another mech in the vanguard. Immediately activate a Small, Short Range weapon on that mech.
+
+Armor Plating:
+  size: Medium
+  type: Auxiliary
+  text: |
+    Inert. Passive: +1 Armor.
+
 Premium Ammunition:
   size: Medium
   type: Auxiliary
   text: |
-    Inert. Passive: All Ballistics weapons on this mech deal +1 damage.
+    Inert. Passive: Ballistics weapons on this mech deal +1 damage.
+
+Energy Coherer:
+  size: Medium
+  type: Auxiliary
+  text: |
+    Inert. Passive: Energy weapons on this mech deal +1 damage.
+
+Heat Sink:
+  size: Medium
+  type: Auxiliary
+  text: |
+    Inert. Passive: Increase Heat Cap by 1.
+
+Prototype Cooling System:
+  size: Large
+  type: Auxiliary
+  text: |
+    Inert. Passive: Increase Heat Cap by 2.
