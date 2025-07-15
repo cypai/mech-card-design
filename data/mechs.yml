@@ -9,7 +9,7 @@ Lancelot:
   - Small
   - Small
   ability: |
-    1/battle, reduce Heat Cost by 3 to a minimum of 1.
+    1/battle, reduce Heat Cost by 4.
 
 Guanyin:
   faction: Midline
@@ -47,7 +47,7 @@ Circe:
   - Small
   - Small
   ability: |
-    Passive: Heat Cost -1 (minimum 1 Heat) for all equipped Electronic Systems.
+    Passive: Heat Cost -1 (min 1 Heat Cost) for all equipped Electronic Systems.
 
 Resolute:
   faction: Low Tech
@@ -70,7 +70,7 @@ Inevitable:
   - Medium
   - Medium
   ability: |
-    Passive: When firing weapons, for each matching tag of Large, Ballistic, Long Range, deal +1 damage.
+    Passive: When activating weapons, for each matching tag of Large, Ballistic, Long Range, deal +1 damage.
 
 Wolfblade:
   faction: Low Tech
@@ -106,7 +106,7 @@ Athena:
   - Medium
   - Small
   ability: |
-    Passive: While shielded, Heat Cost -1.
+    Passive: While shielded, Heat Cost -1 (min 1 Heat Cost).
 
 Pegasus:
   faction: High Tech
@@ -155,4 +155,4 @@ Sagittarius:
   - Medium
   - Small
   ability: |
-    Passive: When firing weapons, for each matching tag of Large, Energy, Long Range, deal +1 damage.
+    Passive: When activating weapons, for each matching tag of Large, Energy, Long Range, deal +1 damage.

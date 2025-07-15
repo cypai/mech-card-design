@@ -25,7 +25,7 @@ Flechettes:
   heat: 1
   text: |
     Choose:
-    > Charge.
+    > Charge. (Max 3 Charge)
     > Deal [Charge] damage. Discharge all.
 
 Autocannon:
@@ -45,7 +45,7 @@ Linked Cannon:
   heat: 2
   text: |
     Deal 1 damage.
-    Passive: After firing a Medium or Large Ballistic weapon on this mech, you may immediately activate this weapon on the same target.
+    Passive: After activating a Medium or Large Ballistic Weapon on this mech, you may immediately activate this weapon on the same target.
 
 Gauss Rifle:
   size: Medium
@@ -186,7 +186,7 @@ Antimatter Blaster:
   type: Energy
   system: Weapon
   range: Short
-  heat: 8
+  heat: 7
   ammo: 1
   text: |
     Deal 5 AP damage.
@@ -244,7 +244,7 @@ Ion Beam:
   size: Medium
   type: Energy
   system: Weapon
-  range: Short
+  range: Mid
   heat: 4
   text: |
     Disable the targeted equipment.
@@ -277,7 +277,7 @@ Wave Motion Cannon:
   range: Long
   heat: 7
   text: |
-    Prepare: Deal 5 damage. Deals half damage (rounded down) if fired from the rear guard.
+    Prepare: Deal 6 damage. Damage -3 if activated from the rear guard.
 
 Turbolaser Array:
   size: Large
@@ -505,7 +505,7 @@ Ballistic Missile:
   heat: 0
   ammo: 1
   text: |
-    Prepare: Deal 4 damage to the enemy vanguard.
+    Place a Prepare Token at an enemy position. Prepare: Deal 4 AP damage to that position.
 
 "Cyberwarfare: OVERCOOK":
   size: Small
