@@ -75,13 +75,14 @@ def print_stats():
     ammo_weapons = 0
     keywords = {
         "Shred": 0,
+        "AP": 0,
         "Charge": 0,
         "Shield": 0,
         "Vulnerable": 0,
         "Overheat": 0,
         "Disable": 0,
         "Overwatch": 0,
-        "AP": 0,
+        "Move": 0,
     }
     total = 0
     all_equipment = get_all_equipment()
@@ -113,7 +114,7 @@ def print_stats():
     for k, v in ranges.items():
         print(f"{k}: {v}")
     print("\nRanges by Type")
-    for k, v in range_types.items():
+    for k, v in sorted(range_types.items()):
         print(f"{k[0]} {k[1]}: {v}")
     print(f"\nAmmo Equipment: {ammo_weapons}")
     for k, v in keywords.items():
@@ -253,7 +254,7 @@ def get_filtered_equipment(filters):
         ok = 0
         for f in filters:
             if (
-                f in equipment.text
+                f.lower() in equipment.text.lower()
                 or f in equipment.name
                 or f == equipment.range
                 or f == equipment.type
