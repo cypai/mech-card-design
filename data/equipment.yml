@@ -606,7 +606,7 @@ Slipstream Optimizer:
   system: System
   heat: 2
   text: |
-    Passive: After this mech acts, you may activate this System to allow 1 other allied mech to reposition for 0 Heat Cost immediately.
+    Passive: After this mech acts, you may activate this System to allow 1 other allied mech to Move to another position for 0 Heat Cost immediately.
 
 Focus Fire Protocol:
   size: Medium
