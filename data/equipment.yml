@@ -382,7 +382,7 @@ Shield Bashing Unit:
   range: Melee
   heat: 5
   text: |
-    Deal 4 + X damage, where X is double your Shield.
+    Deal 4+X damage, where X is double your Shield.
 
 Heavy Combat Drill:
   size: Large

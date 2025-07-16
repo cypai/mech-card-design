@@ -131,7 +131,7 @@ def generate_all():
 
 def generate_card(icons: Icons, equipment: Equipment):
     with Image(width=CARD_WIDTH, height=CARD_HEIGHT) as img, Drawing() as draw_ctx:
-        draw_ctx.font = "fonts/Comme-Regular.ttf"
+        draw_ctx.font = "fonts/HackNerdFont-Regular.ttf"
         draw_name(draw_ctx, equipment)
         pad_x = int(CARD_WIDTH * 0.025)
         icon_y = int(CARD_WIDTH * 0.05)
@@ -218,7 +218,7 @@ def wrap_text(ctx: Drawing, text: str, roi_width: int):
     paragraphs = text.splitlines()
     wrapped_paras = []
 
-    estimated_columns = int(roi_width / (ctx.font_size * 0.53))
+    estimated_columns = int(roi_width / (ctx.font_size * 0.6))
     wrapper = textwrap.TextWrapper(width=estimated_columns, break_long_words=True)
     for para in paragraphs:
         if para.strip():
