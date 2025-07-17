@@ -35,7 +35,7 @@ Autocannon:
   range: Short
   heat: 2
   text: |
-    Passive: When an enemy mech Moves, you may activate this Weapon to deal 1 damage to them.
+    Passive: When an enemy mech changes position, you may activate this Weapon to deal 1 damage to them.
 
 Linked Cannon:
   size: Small
@@ -128,7 +128,7 @@ Heavy Mass Driver:
   range: Mid
   heat: 5
   text: |
-    Deal 4 damage. If the target is in the vanguard, Move the target to the rear guard.
+    Deal 4 damage. If the target is in the vanguard, move the target to the rear guard.
 
 Annihilator Siege Cannon:
   size: Large
@@ -246,7 +246,7 @@ Magnetic Harpoon:
   range: Mid
   heat: 3
   text: |
-    Deal 1 damage. If the target is in the rear guard, Move it to the vanguard.
+    Deal 1 damage. If the target is in the rear guard, move it to the vanguard.
     Overwatch: Deal 1 damage.
 
 Ion Beam:
@@ -277,7 +277,7 @@ Gravity Cannon:
   range: Long
   heat: 5
   text: |
-    Deal 2 damage. If the target is in the vanguard, Move them to the rear guard, and vice versa.
+    Deal 2 damage. If the target is in the vanguard, move them to the rear guard, and vice versa.
 
 Wave Motion Cannon:
   size: Large
@@ -606,7 +606,7 @@ Slipstream Optimizer:
   system: System
   heat: 2
   text: |
-    Passive: After this mech acts, you may activate this System to allow 1 other allied mech to Move to another position for 0 Heat Cost immediately.
+    Passive: After this mech acts, you may activate this System to allow 1 other allied mech to reposition for 0 Heat Cost immediately.
 
 Focus Fire Protocol:
   size: Medium
@@ -628,7 +628,7 @@ IR Targeting Unit:
   system: System
   heat: 1
   text: |
-    Passive: When an enemy mech Moves, you may activate this to inflict 1 Vulnerable on that mech.
+    Passive: When an enemy mech changes position, you may activate this to inflict 1 Vulnerable on that mech.
 
 Weakness Analyzer:
   size: Small
