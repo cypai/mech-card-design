@@ -84,10 +84,13 @@ def draw_stats(draw_ctx: Drawing, mech: Mech):
     draw_ctx.text(margin, int(LARGE_FONT_SIZE * 3), f"HP:{mech.hp}")
     draw_ctx.text(margin, int(LARGE_FONT_SIZE * 4.5), f"Armor:{mech.armor}")
     draw_ctx.pop()
-    draw_ctx.push()
-    draw_ctx.text_alignment = "center"
-    draw_ctx.text(int(CARD_WIDTH / 2), int(LARGE_FONT_SIZE * 6), mech.hardpoints_str)
-    draw_ctx.pop()
+    if len(mech.hardpoints_str) > 0:
+        draw_ctx.push()
+        draw_ctx.text_alignment = "center"
+        draw_ctx.text(
+            int(CARD_WIDTH / 2), int(LARGE_FONT_SIZE * 6), mech.hardpoints_str
+        )
+        draw_ctx.pop()
     draw_ctx.push()
     draw_ctx.text_alignment = "right"
     draw_ctx.text(CARD_WIDTH - margin, int(LARGE_FONT_SIZE * 3), f"Heat:{mech.hc}")

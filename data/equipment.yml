@@ -26,7 +26,7 @@ Flechettes:
   text: |
     Choose:
     > Charge. (Max 3 Charge)
-    > Deal [Charge] damage. Discharge.
+    > Deal 1 damage [Charge] times. Discharge.
 
 Autocannon:
   size: Small
@@ -116,10 +116,10 @@ Devastator:
   size: Large
   type: Ballistic
   system: Weapon
-  range: Short
-  heat: 5
+  range: Mid
+  heat: 4
   text: |
-    Deal 2 damage. Prepare: Deal 5 damage.
+    Charge. Deal 3 damage. Inflict [Charge] Vulnerable.
 
 Heavy Mass Driver:
   size: Large
@@ -170,7 +170,7 @@ Targeting Laser:
   range: Short
   heat: 1
   text: |
-    Inflict 2 Vulnerable on the target.
+    Inflict 2 Vulnerable.
 
 Point Defense Laser:
   size: Small
@@ -286,7 +286,7 @@ Wave Motion Cannon:
   range: Long
   heat: 7
   text: |
-    Prepare: Deal 6 damage. Damage -3 if activated from the rear guard.
+    Prepare: Deal 7 damage. Damage -3 if activated from the rear guard.
 
 Turbolaser Array:
   size: Large
@@ -327,7 +327,7 @@ Gigapulse Laser:
   text: |
     Charge. Choose:
     > Charge.
-    > Deal 3 damage [Charge] times. You may select different targets each time. Discharge.
+    > Deal 3 damage [Charge] times. Discharge.
     You may activate this in the rear guard. If so, you can only choose to Charge.
 
 Power Blade:
@@ -355,7 +355,7 @@ One Two Punch:
   range: Melee
   heat: 4
   text: |
-    Deal 2 damage. Prepare: Deal 4 damage.
+    Deal 2 damage. Inflict 1 Vulnerable. Prepare: Deal 3 damage.
 
 Explosive Fist:
   size: Medium
@@ -365,6 +365,15 @@ Explosive Fist:
   heat: 3
   text: |
     Deal 3 damage. Shred.
+
+Ion Knuckle:
+  size: Medium
+  type: Melee
+  system: Weapon
+  range: Melee
+  heat: 5
+  text: |
+    Deal 2 damage. Disable 1 equipment.
 
 Phase Lance:
   size: Medium
@@ -466,8 +475,8 @@ Proximity Mine Catapult:
   heat: 0
   ammo: 2
   text: |
-    Deal 1 damage.
-    Overwatch: Deal 1 damage. Costs no ammo.
+    Inflict 1 Vulnerable.
+    Overwatch: Deal 1 damage. Inflict 1 Vulnerable.
 
 Tag Launcher:
   size: Small
@@ -488,7 +497,7 @@ Harpoons and Tow Cables:
   ammo: 2
   text: |
     Choose any mech. Move that mech to another position.
-    If Moving allied mechs, Range does not apply.
+    If moving allied mechs, Range does not apply.
 
 Dragonfire RPG:
   size: Medium
@@ -520,15 +529,6 @@ Quantum Torpedo:
   text: |
     Deal 2 AP damage. If the target is Shielded, increase the target's Heat by 2.
 
-Sympathetic Shield:
-  size: Medium
-  type: Missile
-  system: System
-  heat: 0
-  ammo: 2
-  text: |
-    Give all allied mechs 1 Shield.
-
 Ballistic Missile:
   size: Large
   type: Missile
@@ -557,23 +557,22 @@ Ballistic Missile:
   text: |
     Disable all Electronics on the target.
 
-"Protocol: THUNDERSTRIKE":
+Spatial Anchor:
   size: Small
   type: Electronics
   system: System
-  range: Long
-  heat: 3
+  heat: 2
   text: |
-    Deal 2 damage for each deployed drone on your field.
+    If your mech is forced to reposition, you may activate this to prevent it.
 
-"Protocol: SCRAMBLE":
-  size: Small
+Light Screen Umbrella:
+  size: Medium
   type: Electronics
   system: System
-  range: Long
   heat: 3
+  ammo: 2
   text: |
-    Destroy up to 3 allied drones. For each, choose a different enemy mech, then deal 1 damage and Disable 1 equipment on the target.
+    Give all allied mechs 1 Shield.
 
 Emergency Superconductor:
   size: Medium
@@ -643,7 +642,7 @@ Field Modulator:
   system: System
   heat: 2
   text: |
-    Doubles Shield on all allied mechs at your position.
+    Double Shield on all allied mechs at your position.
 
 Shield Projector:
   size: Medium
@@ -676,7 +675,7 @@ Abyssal Emanation:
   ammo: 1
   text: |
     All enemy mechs in the vanguard must choose:
-    > Move to the rear guard.
+    > Move to the rear guard for 1 Heat.
     > Take 1 damage. Gain 1 Vulnerable.
 
 Charge Spool:
@@ -705,14 +704,14 @@ Premium Ammunition:
   type: Auxiliary
   system: Attachment
   text: |
-    Inert. Passive: Ballistics Weapons on this mech deal +1 damage.
+    Inert. Passive: Medium and Large Ballistics Weapons on this mech deal +1 damage.
 
 Energy Coherer:
   size: Medium
   type: Auxiliary
   system: Attachment
   text: |
-    Inert. Passive: Energy Weapons on this mech deal +1 damage.
+    Inert. Passive: Medium and Large Energy Weapons on this mech deal +1 damage.
 
 Heat Sink:
   size: Medium

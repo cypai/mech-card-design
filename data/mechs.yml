@@ -255,3 +255,35 @@ Powder Keg:
   ability: |
     1/battle, Prepare: Self-destruct.
     Passive: If this mech is destroyed while in the vanguard, deal 3 AP damage to the enemy vanguard. This ability cannot win the game.
+
+Combat Drone:
+  faction: Drone
+  hp: 1
+  armor: 0
+  hc: 0
+  ability: |
+    Passive: At the end of the round, if this drone is in the vanguard, deal 2 damage to the enemy vanguard.
+
+Shield Drone:
+  faction: Drone
+  hp: 3
+  armor: 0
+  hc: 0
+  ability: |
+    Passive: At the start of the round, all mechs at this drone's position gain 1 Shield.
+
+Scout Drone:
+  faction: Drone
+  hp: 2
+  armor: 0
+  hc: 0
+  ability: |
+    Passive: 1/round, all allied mechs may reposition for 0 Heat Cost.
+
+Decoy Drone:
+  faction: Drone
+  hp: 1
+  armor: 0
+  hc: 0
+  ability: |
+    Passive: You may redirect damage to it if the target is in the same position as this drone.

@@ -33,7 +33,7 @@ def parse_mechs(mechs) -> Mech:
         hp=data.get("hp"),
         armor=data.get("armor"),
         hc=data.get("hc"),
-        hardpoints=data.get("hardpoints"),
+        hardpoints=data.get("hardpoints", []),
         ability=data.get("ability"),
     )
 
