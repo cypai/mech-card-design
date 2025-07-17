@@ -537,7 +537,7 @@ Ballistic Missile:
   heat: 0
   ammo: 1
   text: |
-    Place a Prepare Token at an enemy position. Prepare: Deal 4 AP damage to that position.
+    Place a Prepare Token at an enemy position. Prepare: Deal 3 AP damage to that position.
 
 "Cyberwarfare: OVERCOOK":
   size: Small

@@ -132,7 +132,7 @@ Stalwart:
   ability: |
     1/round, prevent forced movement on this mech.
 
-Athena:
+Aquarius:
   faction: High Tech
   hp: 10
   armor: 0
@@ -157,7 +157,7 @@ Pegasus:
   ability: |
     1/round, reposition this mech for 0 Heat after acting.
 
-Aegis:
+Cygnus:
   faction: High Tech
   hp: 8
   armor: 0
@@ -192,6 +192,18 @@ Sagittarius:
   - Small
   ability: |
     Passive: When activating weapons, for each matching tag of Large, Energy, Long Range, deal +1 damage.
+
+Taurus:
+  faction: High Tech
+  hp: 10
+  armor: 0
+  hc: 10
+  hardpoints:
+  - Large
+  - Medium
+  - Small
+  ability: |
+    1/round, move from the rear guard to the vanguard for 0 Heat, then you may activate a Melee Weapon immediately and deal +1 damage.
 
 Cockroach:
   faction: Pirate
@@ -258,9 +270,9 @@ Powder Keg:
 
 Combat Drone:
   faction: Drone
-  hp: 1
+  hp: 2
   armor: 0
-  hc: 0
+  hc: 1
   ability: |
     Passive: At the end of the round, if this drone is in the vanguard, deal 2 damage to the enemy vanguard.
 
@@ -268,7 +280,7 @@ Shield Drone:
   faction: Drone
   hp: 3
   armor: 0
-  hc: 0
+  hc: 1
   ability: |
     Passive: At the start of the round, all mechs at this drone's position gain 1 Shield.
 
@@ -276,7 +288,7 @@ Scout Drone:
   faction: Drone
   hp: 2
   armor: 0
-  hc: 0
+  hc: 1
   ability: |
     Passive: 1/round, all allied mechs may reposition for 0 Heat Cost.
 
@@ -284,6 +296,6 @@ Decoy Drone:
   faction: Drone
   hp: 1
   armor: 0
-  hc: 0
+  hc: 1
   ability: |
     Passive: You may redirect damage to it if the target is in the same position as this drone.
