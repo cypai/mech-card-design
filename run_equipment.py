@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 
 import argparse
-import textwrap
 from wand.drawing import Drawing
 from wand.image import Image
 from wand.color import Color
 
 from game_defs import *
 from game_data import *
+from lib import *
 
 # At 300 DPI
 CARD_WIDTH = 750
@@ -229,21 +229,6 @@ def draw_card_text(draw_ctx: Drawing, equipment: Equipment):
     )
     draw_ctx.text(int(CARD_WIDTH * 0.05), int(CARD_HEIGHT * 0.55), wrapped_text)
     draw_ctx.pop()
-
-
-def wrap_text(ctx: Drawing, text: str, roi_width: int):
-    paragraphs = text.splitlines()
-    wrapped_paras = []
-
-    estimated_columns = int(roi_width / (ctx.font_size * 0.6))
-    wrapper = textwrap.TextWrapper(width=estimated_columns, break_long_words=True)
-    for para in paragraphs:
-        if para.strip():
-            wrapped_paras.extend(wrapper.wrap(para))
-        else:
-            wrapped_paras.append("\n")
-
-    return "\n".join(wrapped_paras)
 
 
 def add_icon(draw_ctx: Drawing, icon: Image, x: int, y: int, text: str):

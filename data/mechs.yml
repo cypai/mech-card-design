@@ -49,6 +49,30 @@ Circe:
   ability: |
     Passive: Heat Cost -1 (min 1 Heat Cost) for all equipped Electronic Systems.
 
+Tzitzimitl:
+  faction: Midline
+  hp: 8
+  armor: 0
+  hc: 10
+  hardpoints:
+  - Medium
+  - Medium
+  - Medium
+  ability: |
+    Passive: Reduce damage taken by 1. At start of round, all allied mechs in the same position gain 1 Shield.
+
+Yoshitsune:
+  faction: Midline
+  hp: 8
+  armor: 0
+  hc: 10
+  hardpoints:
+  - Large
+  - Medium
+  - Small
+  ability: |
+    1/round, when you Charge, Charge+1 instead.
+
 Resolute:
   faction: Low Tech
   hp: 8
@@ -95,6 +119,18 @@ Hellstorm:
   - Small
   ability: |
     Passive: Each time this mech activates a Short Range Weapon, deal 1 damage to all enemy mechs in the rear guard.
+
+Stalwart:
+  faction: Low Tech
+  hp: 8
+  armor: 2
+  hc: 9
+  hardpoints:
+  - Medium
+  - Medium
+  - Small
+  ability: |
+    1/round, prevent forced movement on this mech.
 
 Athena:
   faction: High Tech

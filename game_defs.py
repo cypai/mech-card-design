@@ -1,3 +1,4 @@
+from functools import reduce
 from typing import Optional
 import re
 
@@ -35,4 +36,38 @@ class Equipment:
         if self.ammo is not None:
             text += f"Ammo: {self.ammo}\n"
         text += f"{self.text}"
+        return text
+
+
+class Mech:
+    name: str
+    faction: str
+    hp: int
+    armor: int
+    hc: int
+    hardpoints: list[str]
+    hardpoints_str: str
+    ability: str
+
+    def __init__(self, **kwargs):
+        self.name = str(kwargs.get("name"))
+        self.faction = str(kwargs.get("faction"))
+        self.hp = kwargs.get("hp", 10)
+        self.armor = kwargs.get("armor", 10)
+        self.hc = kwargs.get("hc", 10)
+        self.hardpoints = kwargs.get("hardpoints", [])
+        self.hardpoints_str = reduce(lambda x, y: x + y[0] + " ", self.hardpoints, "")
+        self.hardpoints_str = self.hardpoints_str[:-1]
+        self.ability = str(kwargs.get("ability"))
+
+        self.normalized_name = re.sub(r"\W", "", self.name)
+        self.normalized_name = self.normalized_name.lower()
+
+    def __str__(self):
+        text = self.name + "\n"
+        text += f"HP: {self.hp}\n"
+        text += f"Armor: {self.armor}\n"
+        text += f"Heat: {self.hc}\n"
+        text += f"Hardpoints: {self.hardpoints_str}\n"
+        text += f"Ability: {self.ability}"
         return text
