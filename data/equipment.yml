@@ -15,7 +15,7 @@ Gunslinger's Justice:
   heat: 1
   ammo: 6
   text: |
-    Deal 1 damage. If it is your first action this Round, costs 1 less Heat and deals 4 damage instead.
+    Deal 1 damage. If it is your first action this Round, deals +3 damage.
 
 Flechettes:
   size: Small
@@ -32,12 +32,12 @@ Autocannon:
   size: Small
   type: Ballistic
   system: Weapon
-  range: Short
+  range: Mid
   heat: 2
   text: |
     Passive: When an enemy mech changes position, you may activate this Weapon to deal 1 damage to them.
 
-Linked Cannon:
+Synchronous Cannon:
   size: Small
   type: Ballistic
   system: Weapon
@@ -56,14 +56,14 @@ Gauss Rifle:
   text: |
     Deal 2 AP damage.
 
-Railgun:
+Gauss Strike Rifle:
   size: Medium
   type: Ballistic
   system: Weapon
   range: Mid
   heat: 4
   text: |
-    Deal 3 AP damage.
+    Deal 3 AP damage. -1 damage at Short Range.
 
 Automatic Shotgun:
   size: Medium
@@ -94,7 +94,7 @@ Gatling Cannon:
   text: |
     Charge. Deal [Charge] damage.
 
-Sniper Rifle:
+Railgun:
   size: Medium
   type: Ballistic
   system: Weapon
@@ -300,7 +300,7 @@ Turbolaser Array:
     > Charge.
     > Overwatch: Deal [Charge+1] damage.
 
-Rift Opener:
+Rift Inducer:
   size: Large
   type: Energy
   system: Weapon
@@ -416,7 +416,7 @@ Combat Drone Hangar:
   size: Large
   type: Drone
   system: System
-  heat: 6
+  heat: 5
   ammo: 2
   text: |
     Summon 2 Combat Drones at your position.
@@ -517,7 +517,9 @@ Breach Missile:
   heat: 0
   ammo: 1
   text: |
-    Deal 2 AP damage. Shred.
+    Deal 2 AP damage. Choose:
+    > Shred.
+    > Inflict Vulnerable.
 
 Quantum Torpedo:
   size: Medium
@@ -563,7 +565,7 @@ Spatial Anchor:
   system: System
   heat: 2
   text: |
-    If your mech is forced to reposition, you may activate this to prevent it.
+    If this mech is forced to reposition, you may activate this to prevent it.
 
 Light Screen Umbrella:
   size: Medium
@@ -625,6 +627,7 @@ IR Targeting Unit:
   size: Small
   type: Electronics
   system: System
+  range: Long
   heat: 1
   text: |
     Passive: When an enemy mech changes position, you may activate this to inflict 1 Vulnerable on that mech.
@@ -671,6 +674,7 @@ Abyssal Emanation:
   size: Small
   type: Electronics
   system: System
+  range: Short
   heat: 2
   ammo: 1
   text: |
@@ -720,7 +724,7 @@ Heat Sink:
   text: |
     Inert. Passive: Increase Heat Cap by 1.
 
-Prototype Cooling System:
+Prototype Cryonics Sink:
   size: Large
   type: Auxiliary
   system: Attachment

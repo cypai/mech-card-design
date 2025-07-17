@@ -266,6 +266,7 @@ def get_filtered_equipment(filters):
                 or f in equipment.name
                 or f == equipment.range
                 or f == equipment.type
+                or f == equipment.system
                 or f == equipment.size
             ):
                 ok += 1
