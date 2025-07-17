@@ -268,6 +268,19 @@ Powder Keg:
     1/battle, Prepare: Self-destruct.
     Passive: If this mech is destroyed while in the vanguard, deal 3 AP damage to the enemy vanguard. This ability cannot win the game.
 
+Trainwreck:
+  faction: Pirate
+  hp: 9
+  armor: 0
+  hc: 12
+  hardpoints:
+  - Large
+  - Large
+  - Medium
+  - Medium
+  ability: |
+    Passive: Whenever this mech takes damage, the owner chooses one equipment to disable.
+
 Combat Drone:
   faction: Drone
   hp: 2
