@@ -53,6 +53,8 @@ def get_color(mech: Mech) -> Color:
         return Color("#ff00ff")
     elif mech.faction == "Midline":
         return Color("#00f0ff")
+    elif mech.faction == "Pirate":
+        return Color("#FF0000")
     return Color("#000000")
 
 

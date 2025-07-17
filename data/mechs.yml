@@ -192,3 +192,66 @@ Sagittarius:
   - Small
   ability: |
     Passive: When activating weapons, for each matching tag of Large, Energy, Long Range, deal +1 damage.
+
+Cockroach:
+  faction: Pirate
+  hp: 7
+  armor: 0
+  hc: 10
+  hardpoints:
+  - Medium
+  - Medium
+  - Small
+  - Small
+  ability: |
+    1/round, when HP is reduced to 0, restore HP by 1 and disable all equipment except 1.
+
+Gangplank:
+  faction: Pirate
+  hp: 9
+  armor: 0
+  hc: 10
+  hardpoints:
+  - Large
+  - Medium
+  - Medium
+  ability: |
+    Passive: While in the vanguard, Large and Medium Weapons Heat Cost -1. Cannot gain Shield.
+
+Jolly Roger:
+  faction: Pirate
+  hp: 9
+  armor: 0
+  hc: 8
+  hardpoints:
+  - Medium
+  - Medium
+  - Small
+  - Small
+  ability: |
+    Passive: Whenever a mech has its HP reduced to 0, all mechs at this mech's position lose 1 Heat.
+
+Brig:
+  faction: Pirate
+  hp: 9
+  armor: 0
+  hc: 10
+  hardpoints:
+  - Large
+  - Medium
+  - Small
+  ability: |
+    1/round, when an enemy mech changes position, you may activate any non-Melee weapon and target that mech.
+
+Powder Keg:
+  faction: Pirate
+  hp: 9
+  armor: 0
+  hc: 10
+  hardpoints:
+  - Large
+  - Medium
+  - Small
+  ability: |
+    1/battle, Prepare: Self-destruct.
+    Passive: If this mech is destroyed while in the vanguard, deal 3 AP damage to the enemy vanguard. This ability cannot win the game.
