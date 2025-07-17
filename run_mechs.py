@@ -60,6 +60,7 @@ def get_color(mech: Mech) -> Color:
 
 def draw_name(draw_ctx: Drawing, mech: Mech):
     draw_ctx.push()
+    draw_ctx.font = "fonts/HackNerdFont-Bold.ttf"
     draw_ctx.font_size = LARGE_FONT_SIZE
     draw_ctx.stroke_color = Color("#000000")
     draw_ctx.stroke_width = 2
