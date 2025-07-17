@@ -9,8 +9,13 @@ from wand.color import Color
 from game_defs import *
 from game_data import *
 
-CARD_WIDTH = 1000
-CARD_HEIGHT = 1400
+# At 300 DPI
+CARD_WIDTH = 750
+CARD_HEIGHT = 1050
+
+ICON_SIZE = int(CARD_WIDTH / 10)
+LARGE_FONT_SIZE = int(CARD_HEIGHT / 17.5)
+SMALL_FONT_SIZE = int(CARD_HEIGHT / 28)
 
 
 class Icons:
@@ -25,12 +30,12 @@ class Icons:
         self.longrange = Image(filename="textures/longrange.png")
         self.ammo = Image(filename="textures/ammo.png")
 
-        self.heat.resize(100, 100)
-        self.melee.resize(100, 100)
-        self.shortrange.resize(100, 100)
-        self.midrange.resize(100, 100)
-        self.longrange.resize(100, 100)
-        self.ammo.resize(100, 100)
+        self.heat.resize(ICON_SIZE, ICON_SIZE)
+        self.melee.resize(ICON_SIZE, ICON_SIZE)
+        self.shortrange.resize(ICON_SIZE, ICON_SIZE)
+        self.midrange.resize(ICON_SIZE, ICON_SIZE)
+        self.longrange.resize(ICON_SIZE, ICON_SIZE)
+        self.ammo.resize(ICON_SIZE, ICON_SIZE)
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
@@ -131,6 +136,7 @@ def generate_all():
 
 def generate_card(icons: Icons, equipment: Equipment):
     with Image(width=CARD_WIDTH, height=CARD_HEIGHT) as img, Drawing() as draw_ctx:
+        draw_border(draw_ctx)
         draw_ctx.font = "fonts/HackNerdFont-Regular.ttf"
         draw_name(draw_ctx, equipment)
         pad_x = int(CARD_WIDTH * 0.025)
@@ -160,6 +166,17 @@ def generate_card(icons: Icons, equipment: Equipment):
         img.save(filename=f"outputs/equipment/{equipment.normalized_name}.png")
 
 
+def draw_border(draw_ctx: Drawing):
+    draw_ctx.push()
+    draw_ctx.stroke_color = Color("#000000")
+    draw_ctx.stroke_width = 2
+    draw_ctx.line((0, 0), (0, CARD_HEIGHT))
+    draw_ctx.line((0, 0), (CARD_WIDTH, 0))
+    draw_ctx.line((CARD_WIDTH, CARD_HEIGHT), (0, CARD_HEIGHT))
+    draw_ctx.line((CARD_WIDTH, CARD_HEIGHT), (CARD_WIDTH, 0))
+    draw_ctx.pop()
+
+
 def get_color(equipment: Equipment) -> Color:
     if equipment.type == "Ballistic":
         return Color("#ff7f00")
@@ -178,7 +195,7 @@ def get_color(equipment: Equipment) -> Color:
 
 def draw_name(draw_ctx: Drawing, equipment: Equipment):
     draw_ctx.push()
-    draw_ctx.font_size = 80
+    draw_ctx.font_size = LARGE_FONT_SIZE
     draw_ctx.stroke_color = Color("#000000")
     draw_ctx.stroke_width = 2
     draw_ctx.fill_color = get_color(equipment)
@@ -187,13 +204,13 @@ def draw_name(draw_ctx: Drawing, equipment: Equipment):
         equipment.name,
         int(CARD_WIDTH * 0.7),
     )
-    draw_ctx.text(220, 130, wrapped_text)
+    draw_ctx.text(int(ICON_SIZE * 2.2), int(ICON_SIZE * 1.3), wrapped_text)
     draw_ctx.pop()
 
 
 def draw_card_type(draw_ctx: Drawing, equipment: Equipment):
     draw_ctx.push()
-    draw_ctx.font_size = 50
+    draw_ctx.font_size = SMALL_FONT_SIZE
     draw_ctx.text(
         int(CARD_WIDTH * 0.05),
         int(CARD_HEIGHT * 0.45),
@@ -204,7 +221,7 @@ def draw_card_type(draw_ctx: Drawing, equipment: Equipment):
 
 def draw_card_text(draw_ctx: Drawing, equipment: Equipment):
     draw_ctx.push()
-    draw_ctx.font_size = 50
+    draw_ctx.font_size = SMALL_FONT_SIZE
     wrapped_text = wrap_text(
         draw_ctx,
         equipment.text,
