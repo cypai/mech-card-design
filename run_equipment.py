@@ -87,8 +87,8 @@ def print_stats():
         "Overheat": 0,
         "Disable": 0,
         "Overwatch": 0,
-        "Move": 0,
     }
+    move_systems = 0
     total = 0
     all_equipment = get_all_equipment()
     for equipment in all_equipment:
@@ -106,6 +106,10 @@ def print_stats():
         for key in keywords.keys():
             if key in equipment.text:
                 keywords[key] += 1
+        if "remove" not in equipment.text.lower() and (
+            "move" in equipment.text.lower() or "reposition" in equipment.text.lower()
+        ):
+            move_systems += 1
     print("Sizes")
     for k, v in sizes.items():
         print(f"{k}: {v}")
@@ -124,6 +128,7 @@ def print_stats():
     print(f"\nAmmo Equipment: {ammo_weapons}")
     for k, v in keywords.items():
         print(f"{k} Equipment: {v}")
+    print(f"Move Equipment: {move_systems}")
     print(f"Total Equipment: {total}")
 
 
@@ -256,7 +261,8 @@ def get_filtered_equipment(filters):
         ok = 0
         for f in filters:
             if (
-                f.lower() in equipment.text.lower()
+                f != "Move"
+                and f.lower() in equipment.text.lower()
                 or f in equipment.name
                 or f == equipment.range
                 or f == equipment.type
@@ -264,6 +270,15 @@ def get_filtered_equipment(filters):
             ):
                 ok += 1
             elif f == "Ammo" and equipment.ammo:
+                ok += 1
+            elif (
+                f == "Move"
+                and "remove" not in equipment.text.lower()
+                and (
+                    "move" in equipment.text.lower()
+                    or "reposition" in equipment.text.lower()
+                )
+            ):
                 ok += 1
         if ok == len(filters):
             matching_equipment.append(equipment)
