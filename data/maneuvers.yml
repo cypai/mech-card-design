@@ -1,6 +1,6 @@
 Coordinated Maneuvers:
   text: |
-    Action: This round, allied mechs may move for 0 Heat any number of times.
+    Action: Reposition all allied mechs for 0 Heat, then immediately take an Action at -1 Heat Cost.
 
 Airstrike:
   text: |
@@ -12,11 +12,11 @@ Fog of War:
 
 Combat Engineering:
   text: |
-    Action: Replace an allied mech's equipment with equipment in your hand. You may activate it immediately.
+    Action: Swap any of an allied mech's equipment with any equipment in your hand. Then take an action with that mech.
 
 Combat Reload:
   text: |
-    Action: Restore all ammo for 1 equipment. You may activate it immediately.
+    Action: Restore all ammo for 1 equipment.
 
 Replating:
   text: |

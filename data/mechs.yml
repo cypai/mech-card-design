@@ -134,6 +134,18 @@ Stalwart:
   ability: |
     Trigger: 1/round, prevent forced movement on this mech.
 
+Mahout:
+  faction: Low Tech
+  hp: 10
+  armor: 1
+  hc: 10
+  hardpoints:
+  - Large
+  - Large
+  - Large
+  ability: |
+    Passive: Advance, Fall Back, and equipment with Range > 1 cost +1 Heat.
+
 Aquarius:
   faction: High Tech
   hp: 10
@@ -175,9 +187,9 @@ Cygnus:
 
 Libra:
   faction: High Tech
-  hp: 8
+  hp: 7
   armor: 0
-  hc: 11
+  hc: 12
   hardpoints:
   - Large
   - Small

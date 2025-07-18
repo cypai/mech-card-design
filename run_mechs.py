@@ -50,7 +50,7 @@ def get_color(mech: Mech) -> Color:
     if mech.faction == "Low Tech":
         return Color("#ff7f00")
     elif mech.faction == "High Tech":
-        return Color("#ff00ff")
+        return Color("#ff40ff")
     elif mech.faction == "Midline":
         return Color("#00f0ff")
     elif mech.faction == "Pirate":
@@ -63,7 +63,7 @@ def draw_name(draw_ctx: Drawing, mech: Mech):
     draw_ctx.font = "fonts/HackNerdFont-Bold.ttf"
     draw_ctx.font_size = LARGE_FONT_SIZE
     draw_ctx.stroke_color = Color("#000000")
-    draw_ctx.stroke_width = 2
+    draw_ctx.stroke_width = 1
     draw_ctx.fill_color = get_color(mech)
     draw_ctx.text_alignment = "center"
     wrapped_text = wrap_text(
@@ -141,6 +141,7 @@ def main():
     parser.add_argument("action")
     parser.add_argument("--filter", "-f", action="append")
     args = parser.parse_args()
+    print(f"Running mechs {args.action}")
     if args.action == "generate":
         generate_all()
     elif args.action == "genf":

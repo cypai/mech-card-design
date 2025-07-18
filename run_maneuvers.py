@@ -50,7 +50,7 @@ def draw_name(draw_ctx: Drawing, maneuver: Maneuver):
     draw_ctx.font = "fonts/HackNerdFont-Bold.ttf"
     draw_ctx.font_size = LARGE_FONT_SIZE
     draw_ctx.stroke_color = Color("#000000")
-    draw_ctx.stroke_width = 2
+    draw_ctx.stroke_width = 1
     draw_ctx.fill_color = Color("#00ff00")
     draw_ctx.text_alignment = "center"
     wrapped_text = wrap_text(
@@ -77,6 +77,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("action")
     args = parser.parse_args()
+    print(f"Running maneuvers {args.action}")
     if args.action == "generate":
         generate_all()
 

@@ -177,7 +177,7 @@ def get_color(equipment: Equipment) -> Color:
     if equipment.type == "Ballistic":
         return Color("#ff7f00")
     elif equipment.type == "Energy":
-        return Color("#ff00ff")
+        return Color("#ff40ff")
     elif equipment.type == "Missile" or equipment.type == "Drone":
         return Color("#888888")
     elif equipment.type == "Melee":
@@ -191,9 +191,10 @@ def get_color(equipment: Equipment) -> Color:
 
 def draw_name(draw_ctx: Drawing, equipment: Equipment):
     draw_ctx.push()
+    draw_ctx.font = "fonts/HackNerdFont-Bold.ttf"
     draw_ctx.font_size = LARGE_FONT_SIZE
     draw_ctx.stroke_color = Color("#000000")
-    draw_ctx.stroke_width = 2
+    draw_ctx.stroke_width = 1
     draw_ctx.fill_color = get_color(equipment)
     wrapped_text = wrap_text(
         draw_ctx,
@@ -312,6 +313,7 @@ def main():
     parser.add_argument("action")
     parser.add_argument("--filter", "-f", action="append")
     args = parser.parse_args()
+    print(f"Running equipment {args.action}")
     if args.action == "generate":
         generate_all()
     elif args.action == "genf":
