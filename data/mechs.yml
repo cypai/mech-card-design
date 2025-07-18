@@ -307,7 +307,7 @@ Scout Drone:
   armor: 0
   hc: 1
   ability: |
-    Trigger: 1/round, all allied mechs may reposition for 0 Heat Cost.
+    Action: 1/round, all allied mechs may reposition for 0 Heat Cost.
 
 Decoy Drone:
   faction: Drone

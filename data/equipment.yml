@@ -614,14 +614,14 @@ Focus Fire Protocol:
   type: Electronics
   system: System
   text: |
-    Trigger: When this mech activates Small Weapons, you may choose another mech in the vanguard. Immediately activate a Small Weapon on that mech.
+    Trigger: After this mech activates Small Weapons, you may choose another mech in the vanguard. Immediately activate a Small Weapon on that mech.
 
 Siege Support Protocol:
   size: Medium
   type: Electronics
   system: System
   text: |
-    Trigger: When this mech activates Weapons with Range 3, you may choose another mech in the vanguard. Immediately activate a Small Weapon on that mech.
+    Trigger: After this mech activates Weapons with Range 3, you may choose another mech in the vanguard. Immediately activate a Small Weapon on that mech.
 
 IR Targeting Unit:
   size: Small
@@ -630,7 +630,7 @@ IR Targeting Unit:
   range: 3
   heat: 1
   text: |
-    Trigger: When an enemy mech changes position, you may activate this to inflict 1 Vulnerable on that mech.
+    Trigger: After an enemy mech changes position, you may activate this to inflict 1 Vulnerable on that mech.
 
 Weakness Analyzer:
   size: Small
