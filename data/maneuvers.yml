@@ -1,0 +1,35 @@
+Coordinated Maneuvers:
+  text: |
+    This round, allied mechs may move for 0 Heat any number of times.
+
+Airstrike:
+  text: |
+    Deal 3 AP damage.
+
+Fog of War:
+  text: |
+    All allied mechs gain 2 Shield.
+
+Combat Engineering:
+  text: |
+    Replace an allied mech's equipment with equipment in your hand.
+
+Combat Reload:
+  text: |
+    Restore all ammo for 1 equipment.
+
+Replating:
+  text: |
+    +2 Armor to a mech that is not at max Armor. This cannot restore beyond the mech's maximum.
+
+EMP Blast:
+  text: |
+    Disable 3 equipment for each player.
+
+Mission Control:
+  text: |
+    Remove all Vulnerable, Overheat, Overwatch, and Disable tokens from an allied mech. That mech may immediately act.
+
+Command Grab:
+  text: |
+    Select a target, remove all Shield from it, then activate a Melee weapon targeting it. This turn, that Melee weapon does +2 damage and is considered AP.
