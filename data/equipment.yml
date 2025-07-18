@@ -237,7 +237,7 @@ Repulsor Array:
   text: |
     Deal 2 damage. Choose:
     > Move the target to the rear guard.
-    > Fall Back.
+    > Fall Back for 0 Heat Cost.
 
 Magnetic Harpoon:
   size: Medium

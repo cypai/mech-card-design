@@ -183,6 +183,7 @@ Libra:
   - Small
   ability: |
     Trigger: 1/round, upon taking damage, convert it into Heat instead.
+    You cannot trigger this if this mech would go over the Heat Cap.
 
 Sagittarius:
   faction: High Tech
