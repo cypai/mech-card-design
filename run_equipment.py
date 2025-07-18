@@ -100,8 +100,12 @@ def print_stats():
         for key in keywords.keys():
             if key in equipment.text:
                 keywords[key] += 1
-        if "remove" not in equipment.text.lower() and (
-            "move" in equipment.text.lower() or "reposition" in equipment.text.lower()
+        text = equipment.text.lower()
+        if "remove" not in text and (
+            "move" in text
+            or "reposition" in text
+            or "fall back" in text
+            or "advance" in text
         ):
             move_systems += 1
     print("Sizes")
@@ -282,7 +286,9 @@ def get_filtered_equipment(filters):
                 f == "Move"
                 and "remove" not in equipment.text.lower()
                 and (
-                    "move" in equipment.text.lower()
+                    "advance" in equipment.text.lower()
+                    or "fall back" in equipment.text.lower()
+                    or "move" in equipment.text.lower()
                     or "reposition" in equipment.text.lower()
                 )
             ):
