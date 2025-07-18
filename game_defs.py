@@ -10,7 +10,7 @@ class Equipment:
     type: str
     heat: Optional[int]
     ammo: Optional[int]
-    range: Optional[str]
+    range: Optional[int]
     text: str
 
     def __init__(self, **kwargs):

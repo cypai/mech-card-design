@@ -25,25 +25,19 @@ class Icons:
     def __enter__(self):
         self.heat = Image(filename="textures/heat.png")
         self.melee = Image(filename="textures/melee.png")
-        self.shortrange = Image(filename="textures/shortrange.png")
-        self.midrange = Image(filename="textures/midrange.png")
-        self.longrange = Image(filename="textures/longrange.png")
+        self.range = Image(filename="textures/range.png")
         self.ammo = Image(filename="textures/ammo.png")
 
         self.heat.resize(ICON_SIZE, ICON_SIZE)
         self.melee.resize(ICON_SIZE, ICON_SIZE)
-        self.shortrange.resize(ICON_SIZE, ICON_SIZE)
-        self.midrange.resize(ICON_SIZE, ICON_SIZE)
-        self.longrange.resize(ICON_SIZE, ICON_SIZE)
+        self.range.resize(ICON_SIZE, ICON_SIZE)
         self.ammo.resize(ICON_SIZE, ICON_SIZE)
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         self.heat.close()
         self.melee.close()
-        self.shortrange.close()
-        self.midrange.close()
-        self.longrange.close()
+        self.range.close()
         self.ammo.close()
 
 
@@ -63,10 +57,10 @@ def print_stats():
         "Auxiliary": 0,
     }
     ranges = {
-        "Melee": 0,
-        "Short": 0,
-        "Mid": 0,
-        "Long": 0,
+        0: 0,
+        1: 0,
+        2: 0,
+        3: 0,
     }
     range_types = {}
     for r in ranges.keys():
@@ -121,7 +115,7 @@ def print_stats():
         print(f"{k[0]} {k[1]}: {v}")
     print("\nRanges")
     for k, v in ranges.items():
-        print(f"{k}: {v}")
+        print(f"Range {k}: {v}")
     print("\nRanges by Type")
     for k, v in sorted(range_types.items()):
         print(f"{k[0]} {k[1]}: {v}")
@@ -151,16 +145,13 @@ def generate_card(icons: Icons, equipment: Equipment):
             icon_y += icons.heat.height + pad_x
         if equipment.range is not None:
             range_icon = None
-            if equipment.range == "Melee":
+            if equipment.range == 0:
                 range_icon = icons.melee
-            elif equipment.range == "Short":
-                range_icon = icons.shortrange
-            elif equipment.range == "Mid":
-                range_icon = icons.midrange
-            elif equipment.range == "Long":
-                range_icon = icons.longrange
+            elif equipment.range:
+                range_icon = icons.range
             if range_icon is not None:
-                add_icon(draw_ctx, range_icon, pad_x, icon_y, "")
+                range_num = str(equipment.range) if equipment.range > 0 else ""
+                add_icon(draw_ctx, range_icon, pad_x, icon_y, range_num)
                 icon_y += range_icon.height + pad_x
         if equipment.ammo is not None:
             add_icon(draw_ctx, icons.ammo, pad_x, icon_y, str(equipment.ammo))

@@ -9,7 +9,7 @@ Lancelot:
   - Small
   - Small
   ability: |
-    1/battle, reduce Heat Cost by 4.
+    Trigger: 1/battle, Heat Cost = 0.
 
 Guanyin:
   faction: Midline
@@ -22,9 +22,9 @@ Guanyin:
   - Small
   - Small
   ability: |
-    1/round, redirect the target of any enemy equipment to this mech if valid, reducing damage taken by 2.
+    Trigger: 1/round, redirect the target of any enemy equipment to this mech if valid, reducing damage taken by 2.
 
-Yurlunger:
+Yurlungur:
   faction: Midline
   hp: 10
   armor: 1
@@ -34,9 +34,9 @@ Yurlunger:
   - Small
   - Small
   ability: |
-    Passive: Whenever this mech uses equipment with a Heat Cost of at least 3, remove 1 Heat from a different allied mech.
+    Trigger: Whenever this mech uses equipment with a Heat Cost of at least 3, remove 1 Heat from a different allied mech.
 
-Circe:
+Anansi:
   faction: Midline
   hp: 7
   armor: 0
@@ -59,7 +59,7 @@ Tzitzimitl:
   - Medium
   - Medium
   ability: |
-    Passive: Reduce damage taken by 1. At start of round, all allied mechs in the same position gain 1 Shield.
+    Passive: Reduce damage taken by 1. At the start of the round, all allied mechs in the same position gain 1 Shield.
 
 Yoshitsune:
   faction: Midline
@@ -71,7 +71,8 @@ Yoshitsune:
   - Medium
   - Small
   ability: |
-    1/round, when you Charge, Charge+1 instead.
+    Passive: All ammo weapons +1 ammo.
+    Trigger: 1/round, when you Charge, Charge+1 instead.
 
 Resolute:
   faction: Low Tech
@@ -82,7 +83,7 @@ Resolute:
   - Large
   - Medium
   ability: |
-    1/round, you may ignore the effects of Shred or AP on this mech.
+    Trigger: 1/round, you may ignore the effects of Shred or AP on this mech.
 
 Inevitable:
   faction: Low Tech
@@ -94,7 +95,8 @@ Inevitable:
   - Medium
   - Medium
   ability: |
-    Passive: When activating weapons, for each matching tag of Large, Ballistic, Long Range, deal +1 damage.
+    Passive: When activating weapons, for each matching tag of Large, Ballistic, Range 3, deal +1 damage.
+    While in the vanguard, this mech is Closed to Melee.
 
 Wolfblade:
   faction: Low Tech
@@ -106,7 +108,7 @@ Wolfblade:
   - Medium
   - Small
   ability: |
-    Passive: When this mech takes an action, if it has Closed to Melee, restore 1 HP. This mech cannot choose to move back to the rear guard.
+    Passive: When this mech takes an action, if it has Closed to Melee, restore 1 HP. This mech cannot Fall Back.
 
 Hellstorm:
   faction: Low Tech
@@ -118,7 +120,7 @@ Hellstorm:
   - Small
   - Small
   ability: |
-    Passive: Each time this mech activates a Short Range Weapon, deal 1 damage to all enemy mechs in the rear guard.
+    Passive: Each time this mech activates a Range 1 Weapon, deal 1 damage to all enemy mechs in the rear guard.
 
 Stalwart:
   faction: Low Tech
@@ -130,7 +132,7 @@ Stalwart:
   - Medium
   - Small
   ability: |
-    1/round, prevent forced movement on this mech.
+    Trigger: 1/round, prevent forced movement on this mech.
 
 Aquarius:
   faction: High Tech
@@ -146,16 +148,17 @@ Aquarius:
 
 Pegasus:
   faction: High Tech
-  hp: 8
+  hp: 9
   armor: 0
-  hc: 10
+  hc: 11
   hardpoints:
   - Medium
   - Medium
   - Small
   - Small
   ability: |
-    1/round, reposition this mech for 0 Heat after acting.
+    Trigger: You may reposition this mech immediately after acting.
+    1/round, this reposition costs 0 Heat.
 
 Cygnus:
   faction: High Tech
@@ -168,18 +171,18 @@ Cygnus:
   - Small
   - Small
   ability: |
-    1/round, move from the rear guard to the vanguard. All allied vanguard mechs gain 1 Shield.
+    Action: 1/round, Advance, then grant allied vanguard mechs 1 Shield.
 
 Libra:
   faction: High Tech
   hp: 8
   armor: 0
-  hc: 12
+  hc: 11
   hardpoints:
   - Large
   - Small
   ability: |
-    1/round, you may convert damage taken into Heat.
+    Trigger: 1/round, upon taking damage, convert it into Heat instead.
 
 Sagittarius:
   faction: High Tech
@@ -191,11 +194,12 @@ Sagittarius:
   - Medium
   - Small
   ability: |
-    Passive: When activating weapons, for each matching tag of Large, Energy, Long Range, deal +1 damage.
+    Passive: When activating weapons, for each matching tag of Large, Energy, Range 3, deal +1 damage.
+    While in the vanguard, this mech is Closed to Melee.
 
 Taurus:
   faction: High Tech
-  hp: 10
+  hp: 9
   armor: 0
   hc: 10
   hardpoints:
@@ -203,7 +207,7 @@ Taurus:
   - Medium
   - Small
   ability: |
-    1/round, move from the rear guard to the vanguard for 0 Heat, then you may activate a Melee Weapon immediately and deal +1 damage.
+    Action: 1/round, Advance for 0 Heat, then you may activate a Melee Weapon immediately and deal +1 damage.
 
 Cockroach:
   faction: Pirate
@@ -216,7 +220,7 @@ Cockroach:
   - Small
   - Small
   ability: |
-    1/round, when HP is reduced to 0, restore HP by 1 and disable all equipment except 1.
+    Trigger: 1/round, when HP is reduced to 0, restore HP by 1 and Disable all equipment except 1.
 
 Gangplank:
   faction: Pirate
@@ -253,7 +257,7 @@ Brig:
   - Medium
   - Small
   ability: |
-    1/round, when an enemy mech changes position, you may activate any non-Melee weapon and target that mech.
+    Trigger: 1/round, after an enemy mech changes position, you may immediately activate a non-Melee Weapon and target that mech.
 
 Powder Keg:
   faction: Pirate
@@ -265,7 +269,7 @@ Powder Keg:
   - Medium
   - Small
   ability: |
-    1/battle, Prepare: Self-destruct.
+    Action: 1/battle, Prepare: Self-destruct.
     Passive: If this mech is destroyed while in the vanguard, deal 3 AP damage to the enemy vanguard. This ability cannot win the game.
 
 Trainwreck:
@@ -279,7 +283,7 @@ Trainwreck:
   - Medium
   - Medium
   ability: |
-    Passive: Whenever this mech takes damage, the owner chooses one equipment to disable.
+    Trigger: Whenever this mech takes damage, the owner chooses one equipment to Disable.
 
 Combat Drone:
   faction: Drone
@@ -303,7 +307,7 @@ Scout Drone:
   armor: 0
   hc: 1
   ability: |
-    Passive: 1/round, all allied mechs may reposition for 0 Heat Cost.
+    Trigger: 1/round, all allied mechs may reposition for 0 Heat Cost.
 
 Decoy Drone:
   faction: Drone
@@ -311,4 +315,4 @@ Decoy Drone:
   armor: 0
   hc: 1
   ability: |
-    Passive: You may redirect damage to it if the target is in the same position as this drone.
+    Trigger: You may redirect damage to this drone if the target is in the same position.
