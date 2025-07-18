@@ -16,4 +16,9 @@ for i in "$@"; do
     montage outputs/mechs/*drone*.png -tile 3x3 -geometry 750x1050 -background white -density 300 outputs/drones_montages/output.png
     magick convert outputs/drones_montages/*.png -gravity Center drones.pdf
   fi
+  if [ "$i" == "maneuvers" ]; then
+    echo "Generating maneuvers"
+    montage outputs/maneuvers/*.png -tile 3x3 -geometry 750x1050 -background white -density 300 outputs/maneuvers_montages/output.png
+    magick convert outputs/maneuvers_montages/*.png -gravity Center maneuvers.pdf
+  fi
 done

@@ -71,3 +71,19 @@ class Mech:
         text += f"Hardpoints: {self.hardpoints_str}\n"
         text += f"Ability: {self.ability}"
         return text
+
+
+class Maneuver:
+    name: str
+    text: str
+
+    def __init__(self, **kwargs):
+        self.name = str(kwargs.get("name"))
+        self.text = str(kwargs.get("text"))
+
+        self.normalized_name = re.sub(r"\W", "", self.name)
+        self.normalized_name = self.normalized_name.lower()
+
+    def __str__(self):
+        text = self.name + "\n" + self.text
+        return text

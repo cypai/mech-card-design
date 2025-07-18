@@ -28,4 +28,13 @@ for i in "$@"; do
       rm outputs/drones_montages/*
     fi
   fi
+  if [ "$i" == "maneuvers" ]; then
+    echo "Clearing maneuvers"
+    if [ -n "$(ls -A outputs/maneuvers)" ]; then
+      rm outputs/maneuvers/*
+    fi
+    if [ -n "$(ls -A outputs/maneuvers_montages)" ]; then
+      rm outputs/maneuvers_montages/*
+    fi
+  fi
 done

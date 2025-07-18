@@ -45,3 +45,20 @@ def get_all_mechs() -> list[Mech]:
         for item in data.items():
             all_mechs.append(parse_mechs(item))
     return all_mechs
+
+
+def parse_maneuvers(maneuvers) -> Maneuver:
+    name, data = maneuvers
+    return Maneuver(
+        name=name,
+        text=data.get("text"),
+    )
+
+
+def get_all_maneuvers() -> list[Maneuver]:
+    all_maneuvers = []
+    with open("data/maneuvers.yml", "r") as maneuvers_file:
+        data = yaml.safe_load(maneuvers_file)
+        for item in data.items():
+            all_maneuvers.append(parse_maneuvers(item))
+    return all_maneuvers
