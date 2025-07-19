@@ -45,7 +45,7 @@ Synchronous Cannon:
   heat: 2
   text: |
     Deal 1 damage.
-    Trigger: After activating a Medium or Large Ballistic Weapon on this mech, you may immediately activate this Weapon on the same target.
+    Trigger: After activating a Medium or Large Ballistic Weapon on this mech, you may activate this Weapon on the same target at -1 Heat Cost.
 
 Gauss Rifle:
   size: Medium
@@ -136,11 +136,11 @@ Annihilator Siege Cannon:
   system: Weapon
   range: 1
   heat: 9
-  ammo: 1
+  ammo: 2
   text: |
     Prepare: Deal 12 AP damage.
 
-Heavy Assault Gun:
+Heavy Assault Cannon:
   size: Large
   type: Ballistic
   system: Weapon
@@ -152,7 +152,7 @@ Heavy Assault Gun:
     > Shred.
     > Overwatch: Deal [Charge+1] damage.
 
-Anti Material Sniper Rifle:
+Anti Materiel Sniper Rifle:
   size: Large
   type: Ballistic
   system: Weapon
@@ -162,6 +162,15 @@ Anti Material Sniper Rifle:
   text: |
     Deal 4 damage.
     Overwatch: Deal 4 damage.
+
+Mjolnir Railgun:
+  size: Large
+  type: Ballistic
+  system: Weapon
+  range: 2
+  heat: 5
+  text: |
+    Deal 3 AP damage. If target is not shielded, Disable one of the target's equipment.
 
 Targeting Laser:
   size: Small
@@ -208,7 +217,7 @@ Ion Cannon:
   heat: 2
   text: |
     Deal 1 damage.
-    Overwatch: Disable one of the target's equipment.
+    Overwatch: Disable 1 equipment on the target.
 
 Flamethrower:
   size: Medium
@@ -256,7 +265,7 @@ Ion Beam:
   range: 2
   heat: 4
   text: |
-    Disable the targeted equipment.
+    Disable one of the target's equipment.
 
 Ion Pulser:
   size: Medium
@@ -300,16 +309,25 @@ Turbolaser Array:
     > Charge.
     > Overwatch: Deal [Charge+1] damage.
 
+Plasma Heating Laser:
+  size: Large
+  type: Energy
+  system: Weapon
+  range: 1
+  heat: 5
+  text: |
+    Deal 4 damage. If the target has Vulnerable, inflict Overheat, otherwise inflict 1 Vulnerable.
+
 Rift Inducer:
   size: Large
   type: Energy
   system: Weapon
   range: 1
-  heat: 6
+  heat: 5
   text: |
-    Remove all Shield on the target. Deal 4 AP damage. Inflict 2 Vulnerable. Shred.
+    Ignores Shield. Deal 3 AP damage. Shred.
 
-Causality Invertor:
+Causality Inverter:
   size: Large
   type: Energy
   system: Weapon
@@ -355,7 +373,7 @@ One Two Punch:
   range: 0
   heat: 4
   text: |
-    Deal 2 damage. Inflict 1 Vulnerable. Prepare: Deal 3 damage.
+    Deal 2 damage. Inflict 1 Vulnerable. Prepare: Deal 2 damage, +1 damage if the target has Vulnerable.
 
 Explosive Fist:
   size: Medium
@@ -373,7 +391,7 @@ Ion Knuckle:
   range: 0
   heat: 5
   text: |
-    Deal 2 damage. Disable 1 equipment.
+    Deal 2 damage. Disable one of the target's equipment.
 
 Phase Lance:
   size: Medium
@@ -389,9 +407,9 @@ Shield Bashing Unit:
   type: Melee
   system: Weapon
   range: 0
-  heat: 5
+  heat: 4
   text: |
-    Deal 4+X damage, where X is double your Shield.
+    Deal 3+X damage, where X is your Shield.
 
 Heavy Combat Drill:
   size: Large
@@ -400,8 +418,18 @@ Heavy Combat Drill:
   range: 0
   heat: 6
   text: |
-    Charge. Prepare: Deal [Charge+5] AP damage.
-    If Charge is at least 2, skip the Prepare.
+    Charge. Prepare: Deal [Charge+4] AP damage.
+    If it is not the first time activating this weapon this battle, skip the Prepare.
+
+Heavy Chainaxe:
+  size: Large
+  type: Melee
+  system: Weapon
+  range: 0
+  heat: 5
+  text: |
+    Charge. Deal [Charge+3] damage.
+    If Charge is at least 2, Shred.
 
 Combat Drone Launcher:
   size: Medium
@@ -505,7 +533,7 @@ Dragonfire RPG:
   system: Weapon
   range: 1
   heat: 0
-  ammo: 1
+  ammo: 2
   text: |
     Deal 1 damage. Inflict Overheat.
 
@@ -515,9 +543,9 @@ Breach Missile:
   system: Weapon
   range: 1
   heat: 0
-  ammo: 1
+  ammo: 2
   text: |
-    Deal 2 AP damage. Choose:
+    Deal 1 AP damage. Choose:
     > Shred.
     > Inflict Vulnerable.
 
@@ -558,6 +586,42 @@ Ballistic Missile:
   heat: 4
   text: |
     Disable all Electronics on the target.
+
+"Cyberwarfare: COOKOFF":
+  size: Small
+  type: Electronics
+  system: System
+  range: 3
+  heat: 4
+  text: |
+    Choose one of the target's equipment with ammo. Decrease its ammo by 1 and deal 1 damage.
+
+"Cyberwarfare: SAP":
+  size: Small
+  type: Electronics
+  system: System
+  range: 3
+  heat: 2
+  text: |
+    Choose one of the target's equipment with Charge. Set its Charge to 0.
+
+"Cyberwarfare: EPIDEMIC":
+  size: Small
+  type: Electronics
+  system: System
+  range: 3
+  heat: 1
+  text: |
+    Charge. Inflict Vulnerable [Charge] times.
+
+"Cyberwarfare: SHORTCIRCUIT":
+  size: Small
+  type: Electronics
+  system: System
+  range: 3
+  heat: 4
+  text: |
+    If the target has at least 4 Heat, Disable one of the target's equipment.
 
 Spatial Anchor:
   size: Small
