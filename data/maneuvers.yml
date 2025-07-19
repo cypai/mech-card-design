@@ -14,9 +14,9 @@ Combat Engineering:
   text: |
     Action: Swap any of an allied mech's equipment with any equipment in your hand. Then take an action with that mech.
 
-Combat Reload:
+Lock n' Load:
   text: |
-    Action: Restore all ammo for 1 equipment.
+    Action: Restore all ammo for 1 equipment, then you may activate that equipment.
 
 Replating:
   text: |
@@ -26,14 +26,14 @@ EMP Airburst:
   text: |
     Action: Disable 3 equipment for each player.
 
-Mission Control:
+System Reboot:
   text: |
     Action: Remove 2 Heat, and all Vulnerable, Overheat, Overwatch, and Disable tokens from an allied mech. That mech may immediately act.
 
-Command Grab:
+Ramming Speed:
   text: |
     Action: Select a target, remove all Shield from it, then activate a Melee weapon targeting it. This turn, that Melee weapon does +2 damage and is considered AP.
 
 High Ground:
   text: |
-    Action: Activate any weapon and deal +1 damage until your turn is over. You may target anything with that weapon, ignoring Weapon Range.
+    Action: Activate any equipment, ignoring Range, and deal +1 damage until your turn is over.
