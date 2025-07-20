@@ -353,9 +353,9 @@ Power Blade:
   type: Melee
   system: Weapon
   range: 0
-  heat: 5
+  heat: 4
   text: |
-    Deal 6 damage.
+    Deal 4 damage. Overwatch: Deal 2 damage.
 
 Power Fist:
   size: Medium
@@ -411,6 +411,15 @@ Shield Bashing Unit:
   text: |
     Deal 3+X damage, where X is your Shield.
 
+Arondight Starsword:
+  size: Large
+  type: Melee
+  system: Weapon
+  range: 0
+  heat: 5
+  text: |
+    Deal 6 damage.
+
 Heavy Combat Drill:
   size: Large
   type: Melee
@@ -418,7 +427,7 @@ Heavy Combat Drill:
   range: 0
   heat: 6
   text: |
-    Charge. Prepare: Deal [Charge+4] AP damage.
+    Charge. Prepare: Deal [Charge+5] AP damage.
     If it is not the first time activating this weapon this battle, skip the Prepare.
 
 Heavy Chainaxe:
@@ -428,7 +437,7 @@ Heavy Chainaxe:
   range: 0
   heat: 5
   text: |
-    Charge. Deal [Charge+3] damage.
+    Charge. Deal [Charge+4] damage.
     If Charge is at least 2, Shred.
 
 Combat Drone Launcher:
@@ -610,9 +619,9 @@ Ballistic Missile:
   type: Electronics
   system: System
   range: 3
-  heat: 1
+  heat: 2
   text: |
-    Charge. Inflict Vulnerable [Charge] times.
+    Charge (max 3 Charge). Inflict Vulnerable [Charge] times.
 
 "Cyberwarfare: SHORTCIRCUIT":
   size: Small

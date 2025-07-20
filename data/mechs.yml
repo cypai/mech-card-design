@@ -4,12 +4,11 @@ Lancelot:
   armor: 0
   hc: 10
   hardpoints:
+  - Large
   - Medium
-  - Medium
-  - Small
   - Small
   ability: |
-    Trigger: 1/battle, Heat Cost = 0.
+    Trigger: 1/battle, Heat Cost = 1.
 
 Guanyin:
   faction: Midline
@@ -108,7 +107,7 @@ Wolfblade:
   - Medium
   - Small
   ability: |
-    Passive: When this mech takes an action, if it has Closed to Melee, restore 1 HP. This mech cannot Fall Back.
+    Passive: After this mech takes an action, if it has Closed to Melee, restore 1 HP. This mech cannot Fall Back.
 
 Hellstorm:
   faction: Low Tech
@@ -120,7 +119,7 @@ Hellstorm:
   - Small
   - Small
   ability: |
-    Passive: Each time this mech activates a Range 1 Weapon, deal 1 damage to all enemy mechs in the rear guard.
+    Passive: After this mech activates a Range 1 Weapon, deal 1 damage to all enemy mechs in the rear guard.
 
 Stalwart:
   faction: Low Tech
@@ -150,10 +149,11 @@ Aquarius:
   faction: High Tech
   hp: 10
   armor: 0
-  hc: 9
+  hc: 10
   hardpoints:
-  - Large
   - Medium
+  - Medium
+  - Small
   - Small
   ability: |
     Passive: While shielded, Heat Cost -1 (min 1 Heat Cost).
@@ -169,21 +169,19 @@ Pegasus:
   - Small
   - Small
   ability: |
-    Trigger: You may reposition this mech immediately after acting.
-    1/round, this reposition costs 0 Heat.
+    Trigger: You may reposition this mech for 0 Heat Cost after acting.
 
 Cygnus:
   faction: High Tech
-  hp: 8
+  hp: 9
   armor: 0
-  hc: 10
+  hc: 11
   hardpoints:
+  - Large
   - Medium
-  - Medium
-  - Small
   - Small
   ability: |
-    Action: 1/round, Advance, then grant allied vanguard mechs 1 Shield.
+    Action: 1/round, Advance for 0 Heat Cost, then grant allied vanguard mechs 1 Shield.
 
 Libra:
   faction: High Tech
@@ -199,7 +197,7 @@ Libra:
 
 Sagittarius:
   faction: High Tech
-  hp: 6
+  hp: 7
   armor: 0
   hc: 8
   hardpoints:
@@ -260,17 +258,17 @@ Jolly Roger:
   ability: |
     Passive: Whenever a mech has its HP reduced to 0, all mechs at this mech's position lose 1 Heat.
 
-Brig:
+Blackjack:
   faction: Pirate
-  hp: 9
-  armor: 0
+  hp: 8
+  armor: 1
   hc: 10
   hardpoints:
   - Large
   - Medium
   - Small
   ability: |
-    Trigger: 1/round, after an enemy mech changes position, you may immediately activate a non-Melee Weapon and target that mech.
+    Action: 1/round, discard a card. Reveal cards from the top of the deck until you reveal a Maneuver, then use it immediately.
 
 Powder Keg:
   faction: Pirate
@@ -285,18 +283,18 @@ Powder Keg:
     Action: 1/battle, Prepare: Self-destruct.
     Passive: If this mech is destroyed while in the vanguard, deal 3 AP damage to the enemy vanguard. This ability cannot win the game.
 
-Trainwreck:
+Davy Jones:
   faction: Pirate
   hp: 9
   armor: 0
-  hc: 12
+  hc: 11
   hardpoints:
   - Large
   - Large
   - Medium
   - Medium
   ability: |
-    Trigger: Whenever this mech takes damage, the owner chooses one equipment to Disable.
+    Trigger: Whenever this mech takes damage, the owner must choose one equipment on this mech to Disable.
 
 Combat Drone:
   faction: Drone
