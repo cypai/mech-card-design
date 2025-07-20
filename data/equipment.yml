@@ -502,7 +502,7 @@ Decoy Drone Launcher:
   size: Medium
   type: Drone
   system: System
-  heat: 3
+  heat: 2
   ammo: 2
   text: |
     Summon 1 Decoy Drone at your position.

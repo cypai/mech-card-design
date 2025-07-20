@@ -249,7 +249,7 @@ Jolly Roger:
   faction: Pirate
   hp: 9
   armor: 0
-  hc: 8
+  hc: 10
   hardpoints:
   - Medium
   - Medium
