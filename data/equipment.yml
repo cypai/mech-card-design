@@ -65,6 +65,15 @@ Gauss Strike Rifle:
   text: |
     Deal 3 AP damage. -1 damage at Range 1.
 
+Sniper Rifle:
+  size: Medium
+  type: Ballistic
+  system: Weapon
+  range: 3
+  heat: 4
+  text: |
+    Deal 3 damage. -1 damage at Range 1.
+
 Automatic Shotgun:
   size: Medium
   type: Ballistic
@@ -94,23 +103,15 @@ Gatling Cannon:
   text: |
     Charge. Deal [Charge] damage.
 
-Railgun:
-  size: Medium
-  type: Ballistic
-  system: Weapon
-  range: 3
-  heat: 4
-  text: |
-    Deal 3 damage.
-
 Heavy Mortar:
   size: Large
   type: Ballistic
   system: Weapon
   range: 3
   heat: 5
+  ammo: 3
   text: |
-    Deal 4 damage.
+    Deal 4 damage. If activated at Range 1, deal 1 damage to yourself.
 
 Devastator:
   size: Large
@@ -640,7 +641,7 @@ Spatial Anchor:
   text: |
     Trigger: When this mech is forced to reposition, you may activate this to prevent it.
 
-Light Screen Umbrella:
+Light Screen Projector:
   size: Medium
   type: Electronics
   system: System
