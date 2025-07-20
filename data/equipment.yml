@@ -28,24 +28,25 @@ Flechettes:
     > Charge. (Max 3 Charge)
     > Deal 1 damage [Charge] times. Discharge.
 
-Autocannon:
+Overwatching Autocannon:
   size: Small
   type: Ballistic
   system: Weapon
   range: 2
   heat: 2
   text: |
-    Trigger: After an enemy mech changes position, you may activate this Weapon to deal 1 damage to them.
+    Deal 1 damage.
+    Trigger: After an enemy changes position, you may activate this Weapon and target that enemy.
 
-Synchronous Cannon:
+Linked Autocannon:
   size: Small
   type: Ballistic
   system: Weapon
-  range: 1
+  range: 2
   heat: 2
   text: |
     Deal 1 damage.
-    Trigger: After activating a Medium or Large Ballistic Weapon on this mech, you may activate this Weapon on the same target at -1 Heat Cost.
+    Trigger: After activating a Medium or Large Ballistic Weapon on this mech, you may activate this Weapon on the same target.
 
 Gauss Rifle:
   size: Medium
@@ -55,6 +56,15 @@ Gauss Rifle:
   heat: 3
   text: |
     Deal 2 AP damage.
+
+Gauss Carbine:
+  size: Medium
+  type: Ballistic
+  system: Weapon
+  range: 1
+  heat: 2
+  text: |
+    Deal 2 damage. Overwatch: Deal 1 damage.
 
 Gauss Strike Rifle:
   size: Medium
@@ -238,6 +248,17 @@ Laser Rifle:
   text: |
     Deal 3 damage.
 
+Autopulse Rifle:
+  size: Medium
+  type: Energy
+  system: Weapon
+  range: 1
+  heat: 3
+  text: |
+    Charge. Deal 3 damage [Charge] times. Discharge.
+    Rear guard activation: Charge.
+    Max 3 Charge.
+
 Repulsor Array:
   size: Medium
   type: Energy
@@ -278,7 +299,7 @@ Ion Pulser:
     Charge. Choose:
     > Charge.
     > Disable up to [Charge] equipment on the enemy vanguard. Discharge.
-    You may activate this in the rear guard. If so, you can only choose to Charge.
+    Rear guard activation: Charge 2.
 
 Gravity Cannon:
   size: Large
@@ -287,7 +308,7 @@ Gravity Cannon:
   range: 3
   heat: 5
   text: |
-    Deal 2 damage. If the target is in the vanguard, move them to the rear guard, and vice versa.
+    Deal 3 damage. If the target is in the vanguard, move them to the rear guard, and vice versa.
 
 Wave Motion Cannon:
   size: Large
@@ -296,7 +317,7 @@ Wave Motion Cannon:
   range: 3
   heat: 7
   text: |
-    Prepare: Deal 7 damage. Damage -3 if activated from the rear guard.
+    Prepare: Deal 7 damage. Damage -2 if activated from the rear guard.
 
 Turbolaser Array:
   size: Large
@@ -347,7 +368,7 @@ Gigapulse Laser:
     Charge. Choose:
     > Charge.
     > Deal 3 damage [Charge] times. Discharge.
-    You may activate this in the rear guard. If so, you can only choose to Charge.
+    Rear guard activation: Charge 2.
 
 Power Blade:
   size: Medium
@@ -783,7 +804,7 @@ Premium Ammunition:
   type: Auxiliary
   system: Attachment
   text: |
-    Inert. Passive: Medium and Large Ballistics Weapons on this mech deal +1 damage.
+    Inert. Passive: Medium and Large Ballistic Weapons on this mech deal +1 damage.
 
 Energy Coherer:
   size: Medium
