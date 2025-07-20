@@ -13,7 +13,9 @@ for i in "$@"; do
   fi
   if [ "$i" == "drones" ]; then
     echo "Generating drones PDF"
-    montage outputs/mechs/*drone*.png -tile 3x3 -geometry 750x1050 -background white -density 300 outputs/drones_montages/output.png
+    rm -rf /tmp/drones
+    cp -r outputs/drones /tmp/drones
+    montage outputs/drones/*.png /tmp/drones/*.png -tile 3x3 -geometry 750x1050 -background white -density 300 outputs/drones_montages/output.png
     magick outputs/drones_montages/*.png -gravity Center drones.pdf
   fi
   if [ "$i" == "maneuvers" ]; then

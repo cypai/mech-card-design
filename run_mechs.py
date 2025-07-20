@@ -32,7 +32,8 @@ def generate_card(mech: Mech):
         draw_stats(draw_ctx, mech)
         draw_ability(draw_ctx, mech)
         draw_ctx.draw(img)
-        img.save(filename=f"outputs/mechs/{mech.normalized_name}.png")
+        dir = "drones" if mech.faction == "Drone" else "mechs"
+        img.save(filename=f"outputs/{dir}/{mech.normalized_name}.png")
 
 
 def draw_border(draw_ctx: Drawing):

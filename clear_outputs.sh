@@ -18,12 +18,18 @@ for i in "$@"; do
     if [ -n "$(ls -A outputs/mechs_montages)" ]; then
       rm outputs/mechs_montages/*
     fi
+    if [ -n "$(ls -A outputs/drones)" ]; then
+      rm outputs/drones/*
+    fi
     if [ -n "$(ls -A outputs/drones_montages)" ]; then
       rm outputs/drones_montages/*
     fi
   fi
   if [ "$i" == "drones" ]; then
     echo "Clearing drones"
+    if [ -n "$(ls -A outputs/drones)" ]; then
+      rm outputs/drones/*
+    fi
     if [ -n "$(ls -A outputs/drones_montages)" ]; then
       rm outputs/drones_montages/*
     fi
