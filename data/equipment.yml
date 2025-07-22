@@ -132,7 +132,7 @@ Devastator:
   text: |
     Charge. Deal 3 damage. Inflict [Charge] Vulnerable.
 
-Heavy Mass Driver:
+Mass Driver:
   size: Large
   type: Ballistic
   system: Weapon
@@ -146,10 +146,10 @@ Annihilator Siege Cannon:
   type: Ballistic
   system: Weapon
   range: 1
-  heat: 9
+  heat: 7
   ammo: 2
   text: |
-    Prepare: Deal 12 AP damage.
+    Prepare: Deal 9 AP damage.
 
 Heavy Assault Cannon:
   size: Large
@@ -192,14 +192,14 @@ Targeting Laser:
   text: |
     Inflict 2 Vulnerable.
 
-Point Defense Laser:
+Heating Laser:
   size: Small
   type: Energy
   system: Weapon
   range: 1
-  heat: 2
+  heat: 3
   text: |
-    Deal 1 damage. Costs 1 less Heat when targeting Drones.
+    Deal 1 damage. Inflict 1 Overheat.
 
 Minipulser:
   size: Small
@@ -225,7 +225,7 @@ Ion Cannon:
   type: Energy
   system: Weapon
   range: 1
-  heat: 2
+  heat: 3
   text: |
     Deal 1 damage.
     Overwatch: Disable 1 equipment on the target.
@@ -300,6 +300,7 @@ Ion Pulser:
     > Charge.
     > Disable up to [Charge] equipment on the enemy vanguard. Discharge.
     Rear guard activation: Charge 2.
+    Max 3 Charge.
 
 Gravity Cannon:
   size: Large
@@ -345,9 +346,9 @@ Rift Inducer:
   type: Energy
   system: Weapon
   range: 1
-  heat: 5
+  heat: 4
   text: |
-    Ignores Shield. Deal 3 AP damage. Shred.
+    Bypasses Shield. Deal 3 AP damage. Shred.
 
 Causality Inverter:
   size: Large
@@ -369,6 +370,7 @@ Gigapulse Laser:
     > Charge.
     > Deal 3 damage [Charge] times. Discharge.
     Rear guard activation: Charge 2.
+    Max Charge 4.
 
 Power Blade:
   size: Medium
@@ -395,7 +397,9 @@ One Two Punch:
   range: 0
   heat: 4
   text: |
-    Deal 2 damage. Inflict 1 Vulnerable. Prepare: Deal 2 damage, +1 damage if the target has Vulnerable.
+    Deal 2 damage. Prepare: Deal 2 damage.
+    On hit, if the target is not Vulnerable, inflict 1 Vulnerable.
+    This weapon deals +1 damage on targets with Vulnerable.
 
 Explosive Fist:
   size: Medium
@@ -466,43 +470,45 @@ Combat Drone Launcher:
   size: Medium
   type: Drone
   system: System
-  heat: 3
+  heat: 1
   ammo: 3
   text: |
+    Deal 2 damage to the enemy vanguard.
     Summon 1 Combat Drone at your position.
 
 Combat Drone Hangar:
   size: Large
   type: Drone
   system: System
-  heat: 5
+  heat: 2
   ammo: 2
   text: |
+    Deal 2 damage to the enemy vanguard.
     Summon 2 Combat Drones at your position.
 
 Shield Drone Launcher:
   size: Medium
   type: Drone
   system: System
-  heat: 3
-  ammo: 2
+  heat: 1
+  ammo: 3
   text: |
-    Summon 1 Shield Drone at your position.
+    1/round, Summon 1 Shield Drone at your position, then all allied mechs gain 1 Shield.
 
 Scout Drone Launcher:
-  size: Medium
+  size: Small
   type: Drone
   system: System
-  heat: 2
+  heat: 1
   ammo: 2
   text: |
-    Summon 1 Scout Drone at your position.
+    Summon 1 Scout Drone at your position. You may trigger its Action immediately.
 
 Decoy Drone Launcher:
-  size: Medium
+  size: Small
   type: Drone
   system: System
-  heat: 2
+  heat: 0
   ammo: 2
   text: |
     Summon 1 Decoy Drone at your position.
@@ -526,29 +532,8 @@ Javelin Missile:
   text: |
     Deal 3 damage.
 
-Proximity Mine Catapult:
-  size: Medium
-  type: Missile
-  system: Weapon
-  range: 2
-  heat: 0
-  ammo: 2
-  text: |
-    Inflict 1 Vulnerable.
-    Overwatch: Deal 1 damage. Inflict 1 Vulnerable.
-
-Tag Launcher:
-  size: Small
-  type: Missile
-  system: Weapon
-  range: 2
-  heat: 0
-  ammo: 2
-  text: |
-    Inflict 1 Vulnerable.
-
 Harpoons and Tow Cables:
-  size: Medium
+  size: Small
   type: Missile
   system: Weapon
   range: 2
@@ -559,7 +544,7 @@ Harpoons and Tow Cables:
     If moving allied mechs, Range does not apply.
 
 Dragonfire RPG:
-  size: Medium
+  size: Small
   type: Missile
   system: Weapon
   range: 1
@@ -569,7 +554,7 @@ Dragonfire RPG:
     Deal 1 damage. Inflict Overheat.
 
 Breach Missile:
-  size: Medium
+  size: Small
   type: Missile
   system: Weapon
   range: 1
@@ -578,17 +563,7 @@ Breach Missile:
   text: |
     Deal 1 AP damage. Choose:
     > Shred.
-    > Inflict Vulnerable.
-
-Quantum Torpedo:
-  size: Medium
-  type: Missile
-  system: Weapon
-  range: 1
-  heat: 0
-  ammo: 1
-  text: |
-    Deal 2 AP damage. If the target is Shielded, increase the target's Heat by 2.
+    > Inflict 2 Vulnerable.
 
 Ballistic Missile:
   size: Large
@@ -662,15 +637,6 @@ Spatial Anchor:
   text: |
     Trigger: When this mech is forced to reposition, you may activate this to prevent it.
 
-Light Screen Projector:
-  size: Medium
-  type: Electronics
-  system: System
-  heat: 3
-  ammo: 2
-  text: |
-    Give all allied mechs 1 Shield.
-
 Emergency Superconductor:
   size: Medium
   type: Electronics
@@ -697,7 +663,7 @@ Early Warning System:
     Trigger: If all allied mechs are in the vanguard, you may activate this System to redirect enemy Weapons to this mech if valid.
 
 Slipstream Optimizer:
-  size: Medium
+  size: Small
   type: Electronics
   system: System
   heat: 2
@@ -705,14 +671,14 @@ Slipstream Optimizer:
     Trigger: After this mech acts, you may activate this System to allow 1 other allied mech to reposition for 0 Heat Cost immediately.
 
 Focus Fire Protocol:
-  size: Medium
+  size: Small
   type: Electronics
   system: System
   text: |
     Trigger: After this mech activates Small Weapons, you may choose another mech in the vanguard. Immediately activate a Small Weapon on that mech.
 
 Siege Support Protocol:
-  size: Medium
+  size: Small
   type: Electronics
   system: System
   text: |
@@ -727,23 +693,17 @@ IR Targeting Unit:
   text: |
     Trigger: After an enemy mech changes position, you may activate this to inflict 1 Vulnerable on that mech.
 
-Weakness Analyzer:
-  size: Small
-  type: Electronics
-  system: System
-  text: |
-    Passive: When this mech targets an enemy with Vulnerable, deal +1 damage.
-
 Field Modulator:
   size: Medium
   type: Electronics
   system: System
   heat: 2
+  ammo: 2
   text: |
-    Double Shield on all allied mechs at your position.
+    1/round: Double Shield on all allied mechs at your position.
 
 Shield Projector:
-  size: Medium
+  size: Small
   type: Electronics
   system: System
   heat: 2
@@ -759,24 +719,21 @@ Shield Generator:
   text: |
     Trigger: At the start of the round, you may activate this to gain 1 Shield.
 
-Quantum Destabilizer:
+Light Screen:
   size: Small
   type: Electronics
   system: System
-  text: |
-    Passive: 1/round, the first time you attack a Shielded enemy mech with a Weapon, the target gains 1 Heat.
-
-Abyssal Emanation:
-  size: Small
-  type: Electronics
-  system: System
-  range: 1
   heat: 2
-  ammo: 1
   text: |
-    All enemy mechs in the vanguard must choose:
-    > Fall Back.
-    > Take 1 damage. Gain 1 Vulnerable.
+    Give allied mechs at your position 1 Shield.
+
+Light Screen Projector:
+  size: Small
+  type: Electronics
+  system: System
+  heat: 3
+  text: |
+    Give all allied mechs 1 Shield.
 
 Charge Spool:
   size: Small
@@ -798,31 +755,3 @@ Armor Plating:
   system: Attachment
   text: |
     Inert. Passive: +1 Armor.
-
-Premium Ammunition:
-  size: Medium
-  type: Auxiliary
-  system: Attachment
-  text: |
-    Inert. Passive: Medium and Large Ballistic Weapons on this mech deal +1 damage.
-
-Energy Coherer:
-  size: Medium
-  type: Auxiliary
-  system: Attachment
-  text: |
-    Inert. Passive: Medium and Large Energy Weapons on this mech deal +1 damage.
-
-Heat Sink:
-  size: Medium
-  type: Auxiliary
-  system: Attachment
-  text: |
-    Inert. Passive: Increase Heat Cap by 1.
-
-Prototype Cryonics Sink:
-  size: Large
-  type: Auxiliary
-  system: Attachment
-  text: |
-    Inert. Passive: Increase Heat Cap by 2.

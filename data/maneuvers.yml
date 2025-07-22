@@ -12,19 +12,15 @@ Fog of War:
 
 Combat Engineering:
   text: |
-    Action: Swap any of an allied mech's equipment with any equipment in your hand. Then take an action with that mech.
+    Action: Swap any of an allied mech's equipment with any equipment in your hand. Then take an Action with that mech.
 
 Lock n' Load:
   text: |
     Action: Restore all ammo for 1 equipment, then you may activate that equipment.
 
-Replating:
-  text: |
-    Action: +2 Armor to a mech that is not at max Armor. This cannot restore beyond the mech's maximum.
-
 EMP Airburst:
   text: |
-    Action: Disable 3 equipment for each player.
+    Action: Disable 1 equipment for each player.
 
 System Reboot:
   text: |

@@ -1,8 +1,8 @@
 Lancelot:
   faction: Midline
-  hp: 10
+  hp: 12
   armor: 0
-  hc: 10
+  hc: 7
   hardpoints:
   - Large
   - Medium
@@ -12,9 +12,9 @@ Lancelot:
 
 Guanyin:
   faction: Midline
-  hp: 9
+  hp: 11
   armor: 1
-  hc: 10
+  hc: 7
   hardpoints:
   - Medium
   - Medium
@@ -25,9 +25,9 @@ Guanyin:
 
 Yurlungur:
   faction: Midline
-  hp: 10
+  hp: 12
   armor: 1
-  hc: 9
+  hc: 7
   hardpoints:
   - Large
   - Small
@@ -37,9 +37,9 @@ Yurlungur:
 
 Anansi:
   faction: Midline
-  hp: 7
+  hp: 9
   armor: 0
-  hc: 11
+  hc: 8
   hardpoints:
   - Medium
   - Small
@@ -50,9 +50,9 @@ Anansi:
 
 Tzitzimitl:
   faction: Midline
-  hp: 8
+  hp: 10
   armor: 0
-  hc: 10
+  hc: 7
   hardpoints:
   - Medium
   - Medium
@@ -62,9 +62,9 @@ Tzitzimitl:
 
 Yoshitsune:
   faction: Midline
-  hp: 8
+  hp: 10
   armor: 0
-  hc: 10
+  hc: 7
   hardpoints:
   - Large
   - Medium
@@ -77,7 +77,7 @@ Resolute:
   faction: Low Tech
   hp: 8
   armor: 2
-  hc: 9
+  hc: 7
   hardpoints:
   - Large
   - Medium
@@ -88,20 +88,21 @@ Inevitable:
   faction: Low Tech
   hp: 6
   armor: 1
-  hc: 7
+  hc: 6
   hardpoints:
   - Large
   - Medium
   - Medium
   ability: |
-    Passive: When activating weapons, for each matching tag of Large, Ballistic, Range 3, deal +1 damage.
+    Passive: Weapons mounted on this mech matching Large, Ballistic, or Range 3, deal +1 damage.
+    If the Weapon matches all attributes, -1 Heat Cost.
     While in the vanguard, this mech is Closed to Melee.
 
 Wolfblade:
   faction: Low Tech
-  hp: 11
+  hp: 10
   armor: 1
-  hc: 8
+  hc: 7
   hardpoints:
   - Large
   - Medium
@@ -113,7 +114,7 @@ Hellstorm:
   faction: Low Tech
   hp: 10
   armor: 1
-  hc: 8
+  hc: 6
   hardpoints:
   - Medium
   - Small
@@ -125,7 +126,7 @@ Stalwart:
   faction: Low Tech
   hp: 8
   armor: 2
-  hc: 9
+  hc: 7
   hardpoints:
   - Medium
   - Medium
@@ -137,7 +138,7 @@ Mahout:
   faction: Low Tech
   hp: 10
   armor: 1
-  hc: 10
+  hc: 8
   hardpoints:
   - Large
   - Large
@@ -147,9 +148,9 @@ Mahout:
 
 Aquarius:
   faction: High Tech
-  hp: 10
+  hp: 12
   armor: 0
-  hc: 10
+  hc: 7
   hardpoints:
   - Medium
   - Medium
@@ -160,9 +161,9 @@ Aquarius:
 
 Pegasus:
   faction: High Tech
-  hp: 9
+  hp: 11
   armor: 0
-  hc: 11
+  hc: 8
   hardpoints:
   - Medium
   - Medium
@@ -173,21 +174,22 @@ Pegasus:
 
 Cygnus:
   faction: High Tech
-  hp: 9
+  hp: 11
   armor: 0
-  hc: 11
+  hc: 8
   hardpoints:
   - Large
   - Medium
   - Small
   ability: |
     Action: 1/round, Advance for 0 Heat Cost, then grant allied vanguard mechs 1 Shield.
+    Trigger: At the start of the round, you may Fall Back.
 
 Libra:
   faction: High Tech
   hp: 7
   armor: 0
-  hc: 12
+  hc: 8
   hardpoints:
   - Large
   - Small
@@ -197,7 +199,21 @@ Libra:
 
 Sagittarius:
   faction: High Tech
-  hp: 7
+  hp: 9
+  armor: 0
+  hc: 7
+  hardpoints:
+  - Large
+  - Medium
+  - Small
+  ability: |
+    Passive: Weapons mounted on this mech matching Large, Energy, or Range 3, deal +1 damage.
+    If the Weapon matches all attributes, -1 Heat Cost.
+    While in the vanguard, this mech is Closed to Melee.
+
+Taurus:
+  faction: High Tech
+  hp: 12
   armor: 0
   hc: 8
   hardpoints:
@@ -205,26 +221,14 @@ Sagittarius:
   - Medium
   - Small
   ability: |
-    Passive: When activating weapons, for each matching tag of Large, Energy, Range 3, deal +1 damage.
-    While in the vanguard, this mech is Closed to Melee.
-
-Taurus:
-  faction: High Tech
-  hp: 10
-  armor: 0
-  hc: 10
-  hardpoints:
-  - Large
-  - Medium
-  - Small
-  ability: |
-    Action: 1/round, Advance for 0 Heat, then you may activate a Melee Weapon immediately and deal +1 damage.
+    Action: 1/round, Advance for 0 Heat Cost, then you may activate a Melee Weapon immediately, which deals +1 damage until resolved.
+    Trigger: At the start of the round, you may Fall Back.
 
 Cockroach:
   faction: Pirate
-  hp: 7
+  hp: 8
   armor: 0
-  hc: 10
+  hc: 7
   hardpoints:
   - Medium
   - Medium
@@ -235,21 +239,21 @@ Cockroach:
 
 Gangplank:
   faction: Pirate
-  hp: 9
+  hp: 11
   armor: 0
-  hc: 10
+  hc: 7
   hardpoints:
   - Large
   - Medium
   - Medium
   ability: |
-    Passive: While in the vanguard, Large and Medium Weapons Heat Cost -1. Cannot gain Shield.
+    Passive: Something
 
 Jolly Roger:
   faction: Pirate
-  hp: 9
+  hp: 11
   armor: 0
-  hc: 10
+  hc: 7
   hardpoints:
   - Medium
   - Medium
@@ -260,9 +264,9 @@ Jolly Roger:
 
 Blackjack:
   faction: Pirate
-  hp: 8
+  hp: 10
   armor: 1
-  hc: 10
+  hc: 7
   hardpoints:
   - Large
   - Medium
@@ -272,9 +276,9 @@ Blackjack:
 
 Powder Keg:
   faction: Pirate
-  hp: 9
+  hp: 11
   armor: 0
-  hc: 10
+  hc: 7
   hardpoints:
   - Large
   - Medium
@@ -285,9 +289,9 @@ Powder Keg:
 
 Davy Jones:
   faction: Pirate
-  hp: 9
+  hp: 11
   armor: 0
-  hc: 11
+  hc: 8
   hardpoints:
   - Large
   - Large
@@ -300,23 +304,23 @@ Combat Drone:
   faction: Drone
   hp: 2
   armor: 0
-  hc: 1
+  hc: 0
   ability: |
-    Passive: At the end of the round, if this drone is in the vanguard, deal 2 damage to the enemy vanguard.
+    Passive: At the end of the round, if this drone is in the vanguard, deal 2 damage to the enemy vanguard, then self-destruct.
 
 Shield Drone:
   faction: Drone
   hp: 3
   armor: 0
-  hc: 1
+  hc: 0
   ability: |
-    Passive: At the start of the round, all mechs at this drone's position gain 1 Shield.
+    Passive: At the start of the round, all allied mechs gain 1 Shield, then self-destruct.
 
 Scout Drone:
   faction: Drone
   hp: 2
   armor: 0
-  hc: 1
+  hc: 0
   ability: |
     Action: 1/round, all allied mechs may reposition for 0 Heat Cost.
 
@@ -324,6 +328,6 @@ Decoy Drone:
   faction: Drone
   hp: 1
   armor: 0
-  hc: 1
+  hc: 0
   ability: |
     Trigger: You may redirect damage to this drone if the target is in the same position.
