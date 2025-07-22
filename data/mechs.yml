@@ -247,7 +247,7 @@ Gangplank:
   - Medium
   - Medium
   ability: |
-    Passive: Something
+    Passive: Enemy mechs without Vulnerable receive 1 Vulnerable after taking damage from Weapons mounted on this mech.
 
 Jolly Roger:
   faction: Pirate
@@ -330,4 +330,4 @@ Decoy Drone:
   armor: 0
   hc: 0
   ability: |
-    Trigger: You may redirect damage to this drone if the target is in the same position.
+    Trigger: You may redirect damage to this drone.

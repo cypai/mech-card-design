@@ -24,9 +24,8 @@ Flechettes:
   system: Weapon
   heat: 1
   text: |
-    Choose:
-    > Charge. (Max 3 Charge)
-    > Deal 1 damage [Charge] times. Discharge.
+    Deal 1 damage [Charge] times. Discharge.
+    Trigger: You may activate this to Charge after this mech takes an Action.
 
 Overwatching Autocannon:
   size: Small
@@ -35,7 +34,7 @@ Overwatching Autocannon:
   range: 2
   heat: 2
   text: |
-    Deal 1 damage.
+    Deal 1 damage. Inflict 1 Vulnerable.
     Trigger: After an enemy changes position, you may activate this Weapon and target that enemy.
 
 Linked Autocannon:
@@ -46,7 +45,7 @@ Linked Autocannon:
   heat: 2
   text: |
     Deal 1 damage.
-    Trigger: After activating a Medium or Large Ballistic Weapon on this mech, you may activate this Weapon on the same target.
+    Trigger: After activating a Medium or Large Weapon on this mech, you may activate this Weapon on the same target with -1 Heat Cost.
 
 Gauss Rifle:
   size: Medium
@@ -118,10 +117,10 @@ Heavy Mortar:
   type: Ballistic
   system: Weapon
   range: 3
-  heat: 5
+  heat: 4
   ammo: 3
   text: |
-    Deal 4 damage. If activated at Range 1, deal 1 damage to yourself.
+    Deal 3 damage. If activated at Range 1, deal 1 damage to yourself.
 
 Devastator:
   size: Large
@@ -146,10 +145,10 @@ Annihilator Siege Cannon:
   type: Ballistic
   system: Weapon
   range: 1
-  heat: 7
+  heat: 6
   ammo: 2
   text: |
-    Prepare: Deal 9 AP damage.
+    Prepare: Deal 8 AP damage.
 
 Heavy Assault Cannon:
   size: Large
@@ -197,9 +196,9 @@ Heating Laser:
   type: Energy
   system: Weapon
   range: 1
-  heat: 3
+  heat: 2
   text: |
-    Deal 1 damage. Inflict 1 Overheat.
+    Deal 1 damage. Inflict Overheat.
 
 Minipulser:
   size: Small
@@ -215,10 +214,10 @@ Antimatter Blaster:
   type: Energy
   system: Weapon
   range: 1
-  heat: 7
+  heat: 6
   ammo: 1
   text: |
-    Deal 5 AP damage.
+    Deal 4 AP damage.
 
 Ion Cannon:
   size: Small
@@ -235,7 +234,7 @@ Flamethrower:
   type: Energy
   system: Weapon
   range: 1
-  heat: 4
+  heat: 3
   text: |
     Deal 1 damage and inflict Overheat to the enemy vanguard.
 
@@ -316,9 +315,9 @@ Wave Motion Cannon:
   type: Energy
   system: Weapon
   range: 3
-  heat: 7
+  heat: 6
   text: |
-    Prepare: Deal 7 damage. Damage -2 if activated from the rear guard.
+    Prepare: Deal 6 damage. Damage -2 if activated from the rear guard.
 
 Turbolaser Array:
   size: Large
@@ -355,9 +354,9 @@ Causality Inverter:
   type: Energy
   system: Weapon
   range: 1
-  heat: 6
+  heat: 5
   text: |
-    Cannot be evaded. Prepare: Deal 7 damage.
+    Cannot be evaded. Prepare: Deal 6 damage.
 
 Gigapulse Laser:
   size: Large
@@ -370,7 +369,7 @@ Gigapulse Laser:
     > Charge.
     > Deal 3 damage [Charge] times. Discharge.
     Rear guard activation: Charge 2.
-    Max Charge 4.
+    Max 4 Charge.
 
 Power Blade:
   size: Medium
@@ -398,8 +397,7 @@ One Two Punch:
   heat: 4
   text: |
     Deal 2 damage. Prepare: Deal 2 damage.
-    On hit, if the target is not Vulnerable, inflict 1 Vulnerable.
-    This weapon deals +1 damage on targets with Vulnerable.
+    This weapon deals +1 damage on targets with Vulnerable, otherwise it inflicts 1 Vulnerable.
 
 Explosive Fist:
   size: Medium
@@ -415,7 +413,7 @@ Ion Knuckle:
   type: Melee
   system: Weapon
   range: 0
-  heat: 5
+  heat: 4
   text: |
     Deal 2 damage. Disable one of the target's equipment.
 
@@ -451,9 +449,9 @@ Heavy Combat Drill:
   type: Melee
   system: Weapon
   range: 0
-  heat: 6
+  heat: 5
   text: |
-    Charge. Prepare: Deal [Charge+5] AP damage.
+    Charge. Prepare: Deal [Charge+4] AP damage.
     If it is not the first time activating this weapon this battle, skip the Prepare.
 
 Heavy Chainaxe:
@@ -474,7 +472,7 @@ Combat Drone Launcher:
   ammo: 3
   text: |
     Deal 2 damage to the enemy vanguard.
-    Summon 1 Combat Drone at your position.
+    Summon 1 Combat Drone.
 
 Combat Drone Hangar:
   size: Large
@@ -484,7 +482,7 @@ Combat Drone Hangar:
   ammo: 2
   text: |
     Deal 2 damage to the enemy vanguard.
-    Summon 2 Combat Drones at your position.
+    Summon 2 Combat Drones.
 
 Shield Drone Launcher:
   size: Medium
@@ -493,7 +491,7 @@ Shield Drone Launcher:
   heat: 1
   ammo: 3
   text: |
-    1/round, Summon 1 Shield Drone at your position, then all allied mechs gain 1 Shield.
+    1/round, Summon 1 Shield Drone.
 
 Scout Drone Launcher:
   size: Small
@@ -502,7 +500,7 @@ Scout Drone Launcher:
   heat: 1
   ammo: 2
   text: |
-    Summon 1 Scout Drone at your position. You may trigger its Action immediately.
+    Summon 1 Scout Drone. You may trigger its Action immediately.
 
 Decoy Drone Launcher:
   size: Small
@@ -511,7 +509,7 @@ Decoy Drone Launcher:
   heat: 0
   ammo: 2
   text: |
-    Summon 1 Decoy Drone at your position.
+    Summon 1 Decoy Drone.
 
 Smoke Grenade:
   size: Small
@@ -627,7 +625,7 @@ Ballistic Missile:
   range: 3
   heat: 4
   text: |
-    If the target has at least 4 Heat, Disable one of the target's equipment.
+    If the target has at least 2 Heat, Disable one of the target's equipment.
 
 Spatial Anchor:
   size: Small
@@ -660,7 +658,7 @@ Early Warning System:
   system: System
   heat: 1
   text: |
-    Trigger: If all allied mechs are in the vanguard, you may activate this System to redirect enemy Weapons to this mech if valid.
+    Trigger: If all allied mechs are in the vanguard, you may activate this System to redirect enemy Weapons to this mech.
 
 Slipstream Optimizer:
   size: Small
@@ -691,7 +689,18 @@ IR Targeting Unit:
   range: 3
   heat: 1
   text: |
-    Trigger: After an enemy mech changes position, you may activate this to inflict 1 Vulnerable on that mech.
+    Inflict 1 Vulnerable.
+    Trigger: After an enemy mech has changed position, you may activate this system to target that mech.
+
+Targeting Computer:
+  size: Small
+  type: Electronics
+  system: System
+  range: 2
+  heat: 1
+  text: |
+    Inflict 1 Vulnerable.
+    Trigger: You may activate this system at the start of the round.
 
 Field Modulator:
   size: Medium
@@ -748,10 +757,3 @@ Camouflage:
   system: Attachment
   text: |
     Inert. At the start of combat, gain 2 Shield.
-
-Armor Plating:
-  size: Medium
-  type: Auxiliary
-  system: Attachment
-  text: |
-    Inert. Passive: +1 Armor.

@@ -3,4 +3,4 @@ __pycache__/
 test.png
 outputs/
 *.pdf
-stats.txt
+*.txt
