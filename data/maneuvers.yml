@@ -1,35 +1,48 @@
 Coordinated Maneuvers:
   text: |
     Action: Reposition all allied mechs for 0 Heat, then immediately take an Action at -1 Heat Cost.
+    Draw a card.
 
 Airstrike:
   text: |
     Action: Deal 3 AP damage.
+    Draw a card.
 
 Fog of War:
   text: |
     Action: All allied mechs gain 2 Shield.
+    Draw a card.
 
 Combat Engineering:
   text: |
-    Action: Swap any of an allied mech's equipment with any equipment in your hand. Then take an Action with that mech.
+    Action: Draw a card. Swap any of an allied mech's equipment with any equipment in your hand. Then take an Action with that mech.
 
 Lock n' Load:
   text: |
     Action: Restore all ammo for 1 equipment, then you may activate that equipment.
+    Draw a card.
 
 EMP Airburst:
   text: |
     Action: Disable 1 equipment for each player.
+    Draw a card.
 
 System Reboot:
   text: |
     Action: Remove 2 Heat, and all Vulnerable, Overheat, Overwatch, and Disable tokens from an allied mech. That mech may immediately act.
+    Draw a card.
 
 Ramming Speed:
   text: |
     Action: Select a target, remove all Shield from it, then activate a Melee weapon targeting it. This turn, that Melee weapon does +2 damage and is considered AP.
+    Draw a card.
 
 High Ground:
   text: |
     Action: Activate any equipment, ignoring Range, and deal +1 damage until your turn is over.
+    Draw a card.
+
+Shock and Awe:
+  text: |
+    Action: Inflict 1 Vulnerable and Overheat to the enemy vanguard.
+    Draw a card.

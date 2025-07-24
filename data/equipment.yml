@@ -227,7 +227,7 @@ Ion Cannon:
   heat: 3
   text: |
     Deal 1 damage.
-    Overwatch: Disable 1 equipment on the target.
+    Overwatch: Disable one equipment on the target.
 
 Flamethrower:
   size: Medium
@@ -468,7 +468,7 @@ Combat Drone Launcher:
   size: Medium
   type: Drone
   system: System
-  heat: 1
+  heat: 3
   ammo: 3
   text: |
     Deal 2 damage to the enemy vanguard.
@@ -478,7 +478,7 @@ Combat Drone Hangar:
   size: Large
   type: Drone
   system: System
-  heat: 2
+  heat: 3
   ammo: 2
   text: |
     Deal 2 damage to the enemy vanguard.
@@ -488,10 +488,10 @@ Shield Drone Launcher:
   size: Medium
   type: Drone
   system: System
-  heat: 1
+  heat: 3
   ammo: 3
   text: |
-    1/round, Summon 1 Shield Drone.
+    1/round, grant 1 Shield to all allied mechs, then summon 1 Shield Drone.
 
 Scout Drone Launcher:
   size: Small
@@ -500,16 +500,16 @@ Scout Drone Launcher:
   heat: 1
   ammo: 2
   text: |
-    Summon 1 Scout Drone. You may trigger its Action immediately.
+    All allied mechs may immediately reposition for 0 Heat Cost, then summon 1 Scout Drone.
 
-Decoy Drone Launcher:
+Jammer Drone Launcher:
   size: Small
   type: Drone
   system: System
-  heat: 0
+  heat: 3
   ammo: 2
   text: |
-    Summon 1 Decoy Drone.
+    Inflict Overheat on the enemy vanguard, then summon 1 Jammer Drone.
 
 Smoke Grenade:
   size: Small
@@ -578,7 +578,7 @@ Ballistic Missile:
   type: Electronics
   system: System
   range: 3
-  heat: 3
+  heat: 2
   text: |
     Inflict Overheat.
 
@@ -596,7 +596,7 @@ Ballistic Missile:
   type: Electronics
   system: System
   range: 3
-  heat: 4
+  heat: 3
   text: |
     Choose one of the target's equipment with ammo. Decrease its ammo by 1 and deal 1 damage.
 
@@ -616,7 +616,7 @@ Ballistic Missile:
   range: 3
   heat: 2
   text: |
-    Charge (max 3 Charge). Inflict Vulnerable [Charge] times.
+    Charge (max 4 Charge). Inflict Vulnerable [Charge] times.
 
 "Cyberwarfare: SHORTCIRCUIT":
   size: Small
@@ -635,13 +635,13 @@ Spatial Anchor:
   text: |
     Trigger: When this mech is forced to reposition, you may activate this to prevent it.
 
-Emergency Superconductor:
-  size: Medium
+Interception Protocol:
+  size: Small
   type: Electronics
   system: System
-  heat: 5
+  heat: 3
   text: |
-    Remove 3 heat from an allied mech.
+    Trigger: 1/round, redirect damage to this mech if in valid range.
 
 Probability Manipulator:
   size: Medium
@@ -690,7 +690,7 @@ IR Targeting Unit:
   heat: 1
   text: |
     Inflict 1 Vulnerable.
-    Trigger: After an enemy mech has changed position, you may activate this system to target that mech.
+    Trigger: After an enemy mech has changed position, you may activate this system, targeting that mech.
 
 Targeting Computer:
   size: Small

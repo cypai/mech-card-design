@@ -247,7 +247,7 @@ Gangplank:
   - Medium
   - Medium
   ability: |
-    Passive: Enemy mechs without Vulnerable receive 1 Vulnerable after taking damage from Weapons mounted on this mech.
+    Passive: Weapons on this mech targeting enemy mechs without Vulnerable inflict 1 Vulnerable after dealing damage.
 
 Jolly Roger:
   faction: Pirate
@@ -302,15 +302,15 @@ Davy Jones:
 
 Combat Drone:
   faction: Drone
-  hp: 2
+  hp: 0
   armor: 0
   hc: 0
   ability: |
-    Passive: At the end of the round, if this drone is in the vanguard, deal 2 damage to the enemy vanguard, then self-destruct.
+    Passive: At the end of the round, deal 2 damage to the enemy vanguard, then self-destruct.
 
 Shield Drone:
   faction: Drone
-  hp: 3
+  hp: 0
   armor: 0
   hc: 0
   ability: |
@@ -318,16 +318,16 @@ Shield Drone:
 
 Scout Drone:
   faction: Drone
-  hp: 2
+  hp: 0
   armor: 0
   hc: 0
   ability: |
-    Action: 1/round, all allied mechs may reposition for 0 Heat Cost.
+    Action: All allied mechs may reposition for 0 Heat Cost, then destroy this drone.
 
-Decoy Drone:
+Jammer Drone:
   faction: Drone
-  hp: 1
+  hp: 0
   armor: 0
   hc: 0
   ability: |
-    Trigger: You may redirect damage to this drone.
+    Passive: At the start of the round, inflict Overheat on the enemy vanguard, then self-destruct.
