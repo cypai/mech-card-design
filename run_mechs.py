@@ -91,6 +91,8 @@ def draw_hp(draw_ctx: Drawing, mech: Mech):
         draw_ctx.text(
             int(TRACKER_SIZE / 2), TRACKER_SIZE * i - int(TRACKER_FONT_SIZE / 2), str(i)
         )
+        draw_ctx.line((0, TRACKER_SIZE * i), (TRACKER_SIZE, TRACKER_SIZE * i))
+    draw_ctx.line((TRACKER_SIZE, 0), (TRACKER_SIZE, CARD_HEIGHT))
     draw_ctx.pop()
 
 
@@ -107,6 +109,13 @@ def draw_heat(draw_ctx: Drawing, mech: Mech):
             TRACKER_SIZE * (i + 1) - int(TRACKER_FONT_SIZE / 2),
             str(i),
         )
+        draw_ctx.line(
+            (CARD_WIDTH - TRACKER_SIZE, TRACKER_SIZE * (i + 1)),
+            (CARD_WIDTH, TRACKER_SIZE * (i + 1)),
+        )
+    draw_ctx.line(
+        (CARD_WIDTH - TRACKER_SIZE, 0), (CARD_WIDTH - TRACKER_SIZE, CARD_HEIGHT)
+    )
     draw_ctx.pop()
 
 
