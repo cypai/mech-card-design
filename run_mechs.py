@@ -14,6 +14,7 @@ CARD_WIDTH = 750
 CARD_HEIGHT = 1050
 
 LARGE_FONT_SIZE = int(CARD_HEIGHT / 17.5)
+TRACKER_FONT_SIZE = int(CARD_HEIGHT / 20)
 SMALL_FONT_SIZE = int(CARD_HEIGHT / 28)
 TRACKER_SIZE = int(CARD_HEIGHT / 10)
 
@@ -31,6 +32,9 @@ def generate_card(mech: Mech):
         draw_name(draw_ctx, mech)
         draw_stats(draw_ctx, mech)
         draw_ability(draw_ctx, mech)
+        if mech.faction != "Drone":
+            draw_hp(draw_ctx, mech)
+            draw_heat(draw_ctx, mech)
         draw_ctx.draw(img)
         dir = "drones" if mech.faction == "Drone" else "mechs"
         img.save(filename=f"outputs/{dir}/{mech.normalized_name}.png")
@@ -73,6 +77,36 @@ def draw_name(draw_ctx: Drawing, mech: Mech):
         int(CARD_WIDTH * 0.7),
     )
     draw_ctx.text(int(CARD_WIDTH / 2), int(LARGE_FONT_SIZE * 1.2), wrapped_text)
+    draw_ctx.pop()
+
+
+def draw_hp(draw_ctx: Drawing, mech: Mech):
+    draw_ctx.push()
+    draw_ctx.font_size = TRACKER_FONT_SIZE
+    draw_ctx.stroke_color = Color("#000000")
+    draw_ctx.stroke_width = 1
+    draw_ctx.fill_color = Color("#00ff00")
+    draw_ctx.text_alignment = "center"
+    for i in range(1, min(mech.hp + 1, 11)):
+        draw_ctx.text(
+            int(TRACKER_SIZE / 2), TRACKER_SIZE * i - int(TRACKER_FONT_SIZE / 2), str(i)
+        )
+    draw_ctx.pop()
+
+
+def draw_heat(draw_ctx: Drawing, mech: Mech):
+    draw_ctx.push()
+    draw_ctx.font_size = TRACKER_FONT_SIZE
+    draw_ctx.stroke_color = Color("#000000")
+    draw_ctx.stroke_width = 1
+    draw_ctx.fill_color = Color("#ff0000")
+    draw_ctx.text_alignment = "center"
+    for i in range(0, mech.hc + 1):
+        draw_ctx.text(
+            CARD_WIDTH - int(TRACKER_SIZE / 2),
+            TRACKER_SIZE * (i + 1) - int(TRACKER_FONT_SIZE / 2),
+            str(i),
+        )
     draw_ctx.pop()
 
 
