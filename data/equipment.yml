@@ -15,7 +15,7 @@ Gunslinger's Justice:
   heat: 1
   ammo: 6
   text: |
-    Deal 1 damage. If it is your first action this Round, deals +3 damage.
+    Deal 1 damage. If it is your first action this Round, deals +2 damage.
 
 Flechettes:
   size: Small
@@ -26,6 +26,7 @@ Flechettes:
   text: |
     Deal 1 damage [Charge] times. Discharge.
     Trigger: You may activate this to Charge after this mech takes an Action.
+    Max 3 Charge.
 
 Overwatching Autocannon:
   size: Small
@@ -34,8 +35,8 @@ Overwatching Autocannon:
   range: 2
   heat: 2
   text: |
-    Deal 1 damage. Inflict 1 Vulnerable.
-    Trigger: After an enemy changes position, you may activate this Weapon and target that enemy.
+    Deal 1 damage.
+    Trigger: After an enemy changes position, you may activate this Weapon on that target and additionally inflict 1 Vulnerable.
 
 Linked Autocannon:
   size: Small
@@ -45,7 +46,7 @@ Linked Autocannon:
   heat: 2
   text: |
     Deal 1 damage.
-    Trigger: After activating a Medium or Large Weapon on this mech, you may activate this Weapon on the same target with -1 Heat Cost.
+    Trigger: After activating a Medium or Large Weapon on this mech as an Action, you may activate this Weapon on the same target with -1 Heat Cost.
 
 Gauss Rifle:
   size: Medium
@@ -54,7 +55,7 @@ Gauss Rifle:
   range: 1
   heat: 3
   text: |
-    Deal 2 AP damage.
+    Deal 2 AP damage. Inflict 1 Vulnerable.
 
 Gauss Carbine:
   size: Medium
@@ -338,7 +339,7 @@ Plasma Heating Laser:
   range: 1
   heat: 5
   text: |
-    Deal 4 damage. If the target has Vulnerable, inflict Overheat, otherwise inflict 1 Vulnerable.
+    Deal 4 damage. Inflict Overheat and 1 Vulnerable.
 
 Rift Inducer:
   size: Large
@@ -538,7 +539,7 @@ Harpoons and Tow Cables:
   heat: 0
   ammo: 2
   text: |
-    Choose any mech. Move that mech to another position.
+    Choose any mech. Move that mech to another position (ending position must be in Range).
     If moving allied mechs, Range does not apply.
 
 Dragonfire RPG:
@@ -559,7 +560,7 @@ Breach Missile:
   heat: 0
   ammo: 2
   text: |
-    Deal 1 AP damage. Choose:
+    Deal 1 damage. Choose:
     > Shred.
     > Inflict 2 Vulnerable.
 
@@ -587,7 +588,7 @@ Ballistic Missile:
   type: Electronics
   system: System
   range: 3
-  heat: 4
+  heat: 3
   text: |
     Disable all Electronics on the target.
 
@@ -647,10 +648,10 @@ Probability Manipulator:
   size: Medium
   type: Electronics
   system: System
-  heat: 3
+  heat: 4
   ammo: 1
   text: |
-    Reduce your Evade Counter by 1.
+    Reduce your Evade Counter by 1 (min 0).
 
 Early Warning System:
   size: Medium
@@ -664,7 +665,7 @@ Slipstream Optimizer:
   size: Small
   type: Electronics
   system: System
-  heat: 2
+  heat: 1
   text: |
     Trigger: After this mech acts, you may activate this System to allow 1 other allied mech to reposition for 0 Heat Cost immediately.
 
@@ -673,14 +674,14 @@ Focus Fire Protocol:
   type: Electronics
   system: System
   text: |
-    Trigger: After this mech activates Small Weapons, you may choose another mech in the vanguard. Immediately activate a Small Weapon on that mech.
+    Trigger: After this mech activates Small Weapons as an Action, you may choose another mech in the vanguard and activate a Small Weapon on that mech.
 
 Siege Support Protocol:
   size: Small
   type: Electronics
   system: System
   text: |
-    Trigger: After this mech activates Weapons with Range 3, you may choose another mech in the vanguard. Immediately activate a Small Weapon on that mech.
+    Trigger: After this mech activates Weapons with Range 3 as an Action, you may choose another mech in the vanguard and activate a Small Weapon on that mech.
 
 IR Targeting Unit:
   size: Small
@@ -709,7 +710,7 @@ Field Modulator:
   heat: 2
   ammo: 2
   text: |
-    1/round: Double Shield on all allied mechs at your position.
+    1/round, double Shield on all allied mechs at your position.
 
 Shield Projector:
   size: Small

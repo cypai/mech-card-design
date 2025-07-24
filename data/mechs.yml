@@ -120,7 +120,7 @@ Hellstorm:
   - Small
   - Small
   ability: |
-    Passive: After this mech activates a Range 1 Weapon, deal 1 damage to all enemy mechs in the rear guard.
+    Passive: After this mech activates a Range 1 Weapon, deal 1 damage to the enemy rear guard.
 
 Stalwart:
   faction: Low Tech
@@ -306,7 +306,7 @@ Combat Drone:
   armor: 0
   hc: 0
   ability: |
-    Passive: At the end of the round, deal 2 damage to the enemy vanguard, then self-destruct.
+    Passive: At the end of the round, deal 2 damage to the enemy vanguard, then destroy this drone.
 
 Shield Drone:
   faction: Drone
@@ -314,7 +314,7 @@ Shield Drone:
   armor: 0
   hc: 0
   ability: |
-    Passive: At the start of the round, all allied mechs gain 1 Shield, then self-destruct.
+    Passive: At the start of the round, all allied mechs gain 1 Shield, then destroy this drone.
 
 Scout Drone:
   faction: Drone
@@ -330,4 +330,4 @@ Jammer Drone:
   armor: 0
   hc: 0
   ability: |
-    Passive: At the start of the round, inflict Overheat on the enemy vanguard, then self-destruct.
+    Passive: At the start of the round, inflict Overheat on the enemy vanguard, then destroy this drone.

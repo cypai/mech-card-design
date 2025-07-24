@@ -1,17 +1,14 @@
 Coordinated Maneuvers:
   text: |
-    Action: Reposition all allied mechs for 0 Heat, then immediately take an Action at -1 Heat Cost.
-    Draw a card.
+    Action: Draw a card. Reposition all allied mechs for 0 Heat, then immediately take an Action at -1 Heat Cost.
 
 Airstrike:
   text: |
-    Action: Deal 3 AP damage.
-    Draw a card.
+    Action: Draw a card. Deal 3 AP damage.
 
 Fog of War:
   text: |
-    Action: All allied mechs gain 2 Shield.
-    Draw a card.
+    Action: Draw a card. All allied mechs gain 2 Shield.
 
 Combat Engineering:
   text: |
@@ -19,30 +16,24 @@ Combat Engineering:
 
 Lock n' Load:
   text: |
-    Action: Restore all ammo for 1 equipment, then you may activate that equipment.
-    Draw a card.
+    Action: Draw a card. Restore all ammo for 1 equipment, then you may activate that equipment.
 
 EMP Airburst:
   text: |
-    Action: Disable 1 equipment for each player.
-    Draw a card.
+    Action: Draw a card. Disable 1 equipment for each player.
 
 System Reboot:
   text: |
-    Action: Restore 2 Heat Capacity, and remove all Vulnerable, Overheat, Overwatch, and Disable tokens from an allied mech. That mech may immediately act.
-    Draw a card.
+    Action: Draw a card. Restore 2 Heat Capacity, and remove all Vulnerable, Overheat, Overwatch, and Disable tokens from an allied mech. That mech may immediately act.
 
 Ramming Speed:
   text: |
-    Action: Select a target, remove all Shield from it, then activate a Melee weapon targeting it. This turn, that Melee weapon does +2 damage and is considered AP.
-    Draw a card.
+    Action: Draw a card. Select a target, remove all Shield from it, then activate a Melee weapon targeting it. This turn, that Melee weapon does +2 damage and is considered AP.
 
 High Ground:
   text: |
-    Action: Activate any equipment, ignoring Range, and deal +1 damage until your turn is over.
-    Draw a card.
+    Action: Draw a card. Activate any equipment, ignoring Range, and deal +1 damage until your turn is over.
 
 Shock and Awe:
   text: |
-    Action: Inflict 1 Vulnerable and Overheat to the enemy vanguard.
-    Draw a card.
+    Action: Draw a card. Inflict 1 Vulnerable and Overheat to the enemy vanguard.
