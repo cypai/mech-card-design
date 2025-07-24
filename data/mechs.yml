@@ -96,7 +96,7 @@ Inevitable:
   ability: |
     Passive: Weapons mounted on this mech matching Large, Ballistic, or Range 3, deal +1 damage.
     If the Weapon matches all attributes, -1 Heat Cost.
-    While in the vanguard, this mech is Closed to Melee.
+    While in the vanguard, this mech cannot evade.
 
 Wolfblade:
   faction: Low Tech
@@ -209,7 +209,7 @@ Sagittarius:
   ability: |
     Passive: Weapons mounted on this mech matching Large, Energy, or Range 3, deal +1 damage.
     If the Weapon matches all attributes, -1 Heat Cost.
-    While in the vanguard, this mech is Closed to Melee.
+    While in the vanguard, this mech cannot evade.
 
 Taurus:
   faction: High Tech
