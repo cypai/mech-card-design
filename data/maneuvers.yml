@@ -29,7 +29,7 @@ EMP Airburst:
 
 System Reboot:
   text: |
-    Action: Remove 2 Heat, and all Vulnerable, Overheat, Overwatch, and Disable tokens from an allied mech. That mech may immediately act.
+    Action: Restore 2 Heat Capacity, and remove all Vulnerable, Overheat, Overwatch, and Disable tokens from an allied mech. That mech may immediately act.
     Draw a card.
 
 Ramming Speed:

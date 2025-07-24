@@ -625,7 +625,7 @@ Ballistic Missile:
   range: 3
   heat: 4
   text: |
-    If the target has at least 2 Heat, Disable one of the target's equipment.
+    If the target is not at maximum Heat Capacity, Disable one of the target's equipment.
 
 Spatial Anchor:
   size: Small

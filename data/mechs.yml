@@ -194,8 +194,8 @@ Libra:
   - Large
   - Small
   ability: |
-    Trigger: 1/round, upon taking damage, convert it into Heat instead.
-    You cannot trigger this if this mech would go over the Heat Cap.
+    Trigger: 1/round, upon taking damage, turn it into Heat instead.
+    You cannot trigger this if you do not have enough Heat Capacity.
 
 Sagittarius:
   faction: High Tech
@@ -260,7 +260,7 @@ Jolly Roger:
   - Small
   - Small
   ability: |
-    Passive: Whenever a mech has its HP reduced to 0, all mechs at this mech's position lose 1 Heat.
+    Passive: Whenever a mech has its HP reduced to 0, all mechs at this mech's position restore 1 Heat Capacity.
 
 Blackjack:
   faction: Pirate
