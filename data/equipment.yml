@@ -27,6 +27,8 @@ Flechettes:
     Deal 1 damage [Charge] times. Discharge.
     Trigger: You may activate this to Charge after this mech takes an Action.
     Max 3 Charge.
+  tags:
+    - AOE
 
 Overwatching Autocannon:
   size: Small
@@ -92,6 +94,8 @@ Automatic Shotgun:
   heat: 3
   text: |
     Deal 2 damage to the enemy vanguard.
+  tags:
+    - AOE
 
 Assault Cannon:
   size: Medium
@@ -238,6 +242,8 @@ Flamethrower:
   heat: 3
   text: |
     Deal 1 damage and inflict Overheat to the enemy vanguard.
+  tags:
+    - AOE
 
 Laser Rifle:
   size: Medium
@@ -258,6 +264,8 @@ Autopulse Rifle:
     Charge. Deal 3 damage [Charge] times. Discharge.
     Rear guard activation: Charge.
     Max 3 Charge.
+  tags:
+    - AOE
 
 Repulsor Array:
   size: Medium
@@ -301,6 +309,8 @@ Ion Pulser:
     > Disable up to [Charge] equipment on the enemy vanguard. Discharge.
     Rear guard activation: Charge 2.
     Max 3 Charge.
+  tags:
+    - AOE
 
 Gravity Cannon:
   size: Large
@@ -371,6 +381,8 @@ Gigapulse Laser:
     > Deal 3 damage [Charge] times. Discharge.
     Rear guard activation: Charge 2.
     Max 4 Charge.
+  tags:
+    - AOE
 
 Power Blade:
   size: Medium
@@ -474,6 +486,8 @@ Combat Drone Launcher:
   text: |
     Deal 2 damage to the enemy vanguard.
     Summon 1 Combat Drone.
+  tags:
+    - AOE
 
 Combat Drone Hangar:
   size: Large
@@ -484,6 +498,8 @@ Combat Drone Hangar:
   text: |
     Deal 2 damage to the enemy vanguard.
     Summon 2 Combat Drones.
+  tags:
+    - AOE
 
 Shield Drone Launcher:
   size: Medium
@@ -511,6 +527,8 @@ Jammer Drone Launcher:
   ammo: 2
   text: |
     Inflict Overheat on the enemy vanguard, then summon 1 Jammer Drone.
+  tags:
+    - AOE
 
 Smoke Grenade:
   size: Small
@@ -573,6 +591,8 @@ Ballistic Missile:
   ammo: 1
   text: |
     Place a Prepare Token at an enemy position. Prepare: Deal 3 AP damage to that position.
+  tags:
+    - AOE
 
 "Cyberwarfare: OVERCOOK":
   size: Small
@@ -618,6 +638,8 @@ Ballistic Missile:
   heat: 2
   text: |
     Charge (max 4 Charge). Inflict Vulnerable [Charge] times.
+  tags:
+    - AOE
 
 "Cyberwarfare: SHORTCIRCUIT":
   size: Small

@@ -12,6 +12,7 @@ class Equipment:
     ammo: Optional[int]
     range: Optional[int]
     text: str
+    tags: list[str]
 
     def __init__(self, **kwargs):
         self.name = str(kwargs.get("name"))
@@ -22,6 +23,7 @@ class Equipment:
         self.ammo = kwargs.get("ammo", None)
         self.range = kwargs.get("range", None)
         self.text = str(kwargs.get("text"))
+        self.tags = kwargs.get("tags", [])
 
         self.normalized_name = re.sub(r"\W", "", self.name)
         self.normalized_name = self.normalized_name.lower()
@@ -35,6 +37,8 @@ class Equipment:
             text += f"Heat: {self.heat}\n"
         if self.ammo is not None:
             text += f"Ammo: {self.ammo}\n"
+        if len(self.tags) > 0:
+            text += f"Tags: {self.tags}\n"
         text += f"{self.text}"
         return text
 

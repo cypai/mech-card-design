@@ -293,6 +293,8 @@ def get_filtered_equipment(filters):
                 )
             ):
                 ok += 1
+            elif f in equipment.tags:
+                ok += 1
         if ok == len(filters):
             matching_equipment.append(equipment)
     return matching_equipment

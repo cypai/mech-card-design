@@ -13,6 +13,7 @@ def parse_equipment(equipment) -> Equipment:
         ammo=data.get("ammo", None),
         range=data.get("range", None),
         text=data.get("text"),
+        tags=data.get("tags", []),
     )
 
 
