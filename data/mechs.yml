@@ -75,7 +75,7 @@ Yoshitsune:
 
 Resolute:
   faction: Low Tech
-  hp: 8
+  hp: 9
   armor: 2
   hc: 7
   hardpoints:
@@ -114,7 +114,7 @@ Hellstorm:
   faction: Low Tech
   hp: 10
   armor: 1
-  hc: 6
+  hc: 7
   hardpoints:
   - Medium
   - Small
@@ -124,7 +124,7 @@ Hellstorm:
 
 Stalwart:
   faction: Low Tech
-  hp: 8
+  hp: 9
   armor: 2
   hc: 7
   hardpoints:
