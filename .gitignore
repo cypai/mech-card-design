@@ -4,3 +4,4 @@ test.png
 outputs/
 *.pdf
 *.txt
+.envrc

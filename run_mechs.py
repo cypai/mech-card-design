@@ -154,22 +154,11 @@ def draw_ability(draw_ctx: Drawing, mech: Mech):
     draw_ctx.pop()
 
 
-def get_filtered_mechs(filters):
-    all_mechs = get_all_mechs()
-    matching_mechs = []
-    for mech in all_mechs:
-        ok = 0
-        for f in filters:
-            if (
-                f in mech.name
-                or f == mech.faction
-                or f in mech.hardpoints
-                or f in mech.ability
-            ):
-                ok += 1
-        if ok == len(filters):
-            matching_mechs.append(mech)
-    return matching_mechs
+def print_filtered(filters):
+    matching_mechs = get_filtered_mechs(filters)
+    for mech in matching_mechs:
+        print(mech)
+    print(f"Found {len(matching_mechs)} matches.")
 
 
 def generate_filtered(filters):
@@ -190,6 +179,8 @@ def main():
         generate_all()
     elif args.action == "genf":
         generate_filtered(args.filter)
+    elif args.action == "scan":
+        print_filtered(args.filter)
 
 
 main()

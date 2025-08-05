@@ -63,3 +63,97 @@ def get_all_maneuvers() -> list[Maneuver]:
         for item in data.items():
             all_maneuvers.append(parse_maneuvers(item))
     return all_maneuvers
+
+
+def get_filtered_equipment(filters) -> list[Equipment]:
+    all_equipment = get_all_equipment()
+    matching_equipment = []
+    for equipment in all_equipment:
+        ok = 0
+        for f in filters:
+            if (
+                f != "Move"
+                and f.lower() in equipment.text.lower()
+                or f in equipment.name
+                or f == equipment.type
+                or f == equipment.system
+                or f == equipment.size
+            ):
+                ok += 1
+            elif f == "Ammo" and equipment.ammo:
+                ok += 1
+            elif f == "Short" and equipment.range == 1:
+                ok += 1
+            elif f == "Mid" and equipment.range == 2:
+                ok += 1
+            elif f == "Long" and equipment.range == 3:
+                ok += 1
+            elif f.startswith("Heat"):
+                op = f[4]
+                heat = int(f[5])
+                if op == "=" and equipment.heat == heat:
+                    ok += 1
+                elif op == ">" and equipment.heat and equipment.heat > heat:
+                    ok += 1
+                elif op == "<" and equipment.heat and equipment.heat < heat:
+                    ok += 1
+            elif (
+                f == "Move"
+                and "remove" not in equipment.text.lower()
+                and (
+                    "advance" in equipment.text.lower()
+                    or "fall back" in equipment.text.lower()
+                    or "move" in equipment.text.lower()
+                    or "reposition" in equipment.text.lower()
+                )
+            ):
+                ok += 1
+            elif f in equipment.tags:
+                ok += 1
+        if ok == len(filters):
+            matching_equipment.append(equipment)
+    return matching_equipment
+
+
+def get_filtered_mechs(filters):
+    all_mechs = get_all_mechs()
+    matching_mechs = []
+    for mech in all_mechs:
+        ok = 0
+        for f in filters:
+            if (
+                f in mech.name
+                or f == mech.faction
+                or f in mech.hardpoints
+                or f in mech.ability
+            ):
+                ok += 1
+            elif f == "Feds" and mech.faction == "Midline":
+                ok += 1
+            elif f == "Ares" and mech.faction == "Low Tech":
+                ok += 1
+            elif f == "Jovians" and mech.faction == "High Tech":
+                ok += 1
+            elif f == "Pirates" and mech.faction == "Pirate":
+                ok += 1
+            elif f.startswith("Heat"):
+                op = f[4]
+                heat = int(f[5:])
+                if op == "=" and mech.hc == heat:
+                    ok += 1
+                elif op == ">" and mech.hc and mech.hc > heat:
+                    ok += 1
+                elif op == "<" and mech.hc and mech.hc < heat:
+                    ok += 1
+            elif f.startswith("HP"):
+                op = f[2]
+                hp = int(f[3:])
+                if op == "=" and mech.hp == hp:
+                    ok += 1
+                elif op == ">" and mech.hp and mech.hp > hp:
+                    ok += 1
+                elif op == "<" and mech.hp and mech.hp < hp:
+                    ok += 1
+        if ok == len(filters):
+            matching_mechs.append(mech)
+    return matching_mechs

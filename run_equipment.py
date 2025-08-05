@@ -250,56 +250,6 @@ def add_icon(draw_ctx: Drawing, icon: Image, x: int, y: int, text: str):
         draw_ctx.pop()
 
 
-def get_filtered_equipment(filters):
-    all_equipment = get_all_equipment()
-    matching_equipment = []
-    for equipment in all_equipment:
-        ok = 0
-        for f in filters:
-            if (
-                f != "Move"
-                and f.lower() in equipment.text.lower()
-                or f in equipment.name
-                or f == equipment.type
-                or f == equipment.system
-                or f == equipment.size
-            ):
-                ok += 1
-            elif f == "Ammo" and equipment.ammo:
-                ok += 1
-            elif f == "Short" and equipment.range == 1:
-                ok += 1
-            elif f == "Mid" and equipment.range == 2:
-                ok += 1
-            elif f == "Long" and equipment.range == 3:
-                ok += 1
-            elif f.startswith("Heat"):
-                op = f[4]
-                heat = int(f[5])
-                if op == "=" and equipment.heat == heat:
-                    ok += 1
-                elif op == ">" and equipment.heat and equipment.heat > heat:
-                    ok += 1
-                elif op == "<" and equipment.heat and equipment.heat < heat:
-                    ok += 1
-            elif (
-                f == "Move"
-                and "remove" not in equipment.text.lower()
-                and (
-                    "advance" in equipment.text.lower()
-                    or "fall back" in equipment.text.lower()
-                    or "move" in equipment.text.lower()
-                    or "reposition" in equipment.text.lower()
-                )
-            ):
-                ok += 1
-            elif f in equipment.tags:
-                ok += 1
-        if ok == len(filters):
-            matching_equipment.append(equipment)
-    return matching_equipment
-
-
 def print_filtered(filters):
     matching_equipment = get_filtered_equipment(filters)
     for equipment in matching_equipment:

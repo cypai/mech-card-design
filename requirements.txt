@@ -1,2 +1,3 @@
 wand
 pyyaml
+discord.py
