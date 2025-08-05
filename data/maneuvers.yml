@@ -4,19 +4,19 @@ Coordinated Maneuvers:
 
 Airstrike:
   text: |
-    Action: Draw a card. Deal 3 AP damage.
+    Action: Draw a card. Deal 2 damage.
 
 Fog of War:
   text: |
-    Action: Draw a card. All allied mechs gain 2 Shield.
+    Action: Draw a card. All allied mechs gain 1 Shield.
 
-Combat Engineering:
+Unstoppable Force:
   text: |
-    Action: Draw a card. Swap any of an allied mech's equipment with any equipment in your hand. Then take an Action with that mech.
+    Action: Draw a card. Choose an enemy position and remove all Shield on enemy mechs there.
 
 Lock n' Load:
   text: |
-    Action: Draw a card. Restore all ammo for 1 equipment, then you may activate that equipment.
+    Action: Draw a card. Restore all ammo for 1 equipment, then immediately activate that equipment, dealing +1 damage with it this turn.
 
 EMP Airburst:
   text: |
@@ -24,11 +24,11 @@ EMP Airburst:
 
 System Reboot:
   text: |
-    Action: Draw a card. Restore 2 Heat Capacity, and remove all Vulnerable, Overheat, Overwatch, and Disable tokens from an allied mech. That mech may immediately act.
+    Action: Draw a card. Restore 1 Heat Capacity, and remove all Vulnerable, Overheat, Overwatch, and Disable tokens from an allied mech. That mech may immediately act.
 
 Ramming Speed:
   text: |
-    Action: Draw a card. Select a target, remove all Shield from it, then activate a Melee weapon targeting it. This turn, that Melee weapon does +2 damage and is considered AP.
+    Action: Draw a card. Activate a Melee weapon. This turn, that Melee weapon does +2 damage.
 
 High Ground:
   text: |

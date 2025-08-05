@@ -192,7 +192,7 @@ Targeting Laser:
   type: Energy
   system: Weapon
   range: 1
-  heat: 1
+  heat: 2
   text: |
     Inflict 2 Vulnerable.
 
@@ -292,7 +292,7 @@ Ion Beam:
   size: Medium
   type: Energy
   system: Weapon
-  range: 2
+  range: 1
   heat: 4
   text: |
     Disable one of the target's equipment.
@@ -302,9 +302,9 @@ Ion Pulser:
   type: Energy
   system: Weapon
   range: 1
-  heat: 4
+  heat: 3
   text: |
-    Charge. Choose:
+    Choose:
     > Charge.
     > Disable up to [Charge] equipment on the enemy vanguard. Discharge.
     Rear guard activation: Charge 2.
@@ -508,7 +508,7 @@ Shield Drone Launcher:
   heat: 4
   ammo: 3
   text: |
-    1/round, grant 1 Shield to all allied mechs, then summon 1 Shield Drone.
+    1/round, choose a position to grant 1 Shield to allied mechs there, then summon 1 Shield Drone.
 
 Scout Drone Launcher:
   size: Small
@@ -656,7 +656,7 @@ Spatial Anchor:
   system: System
   heat: 2
   text: |
-    Trigger: When this mech is forced to reposition, you may activate this to prevent it.
+    Trigger: When an allied mech is forced to reposition, you may activate this to prevent it.
 
 Interception Protocol:
   size: Small

@@ -148,7 +148,7 @@ Mahout:
 
 Aquarius:
   faction: High Tech
-  hp: 12
+  hp: 10
   armor: 0
   hc: 7
   hardpoints:
@@ -161,7 +161,7 @@ Aquarius:
 
 Pegasus:
   faction: High Tech
-  hp: 11
+  hp: 10
   armor: 0
   hc: 8
   hardpoints:
@@ -174,7 +174,7 @@ Pegasus:
 
 Cygnus:
   faction: High Tech
-  hp: 11
+  hp: 10
   armor: 0
   hc: 8
   hardpoints:
@@ -199,7 +199,7 @@ Libra:
 
 Sagittarius:
   faction: High Tech
-  hp: 9
+  hp: 8
   armor: 0
   hc: 7
   hardpoints:
@@ -213,7 +213,7 @@ Sagittarius:
 
 Taurus:
   faction: High Tech
-  hp: 12
+  hp: 10
   armor: 0
   hc: 8
   hardpoints:
@@ -314,7 +314,7 @@ Shield Drone:
   armor: 0
   hc: 0
   ability: |
-    Passive: At the start of the round, all allied mechs gain 1 Shield, then destroy this drone.
+    Passive: At the start of the round, choose a position to grant 1 Shield to allied mechs there, then destroy this drone.
 
 Scout Drone:
   faction: Drone
