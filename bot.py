@@ -2,6 +2,7 @@
 import os
 import argparse
 import textwrap
+import logging
 import discord
 from discord import app_commands
 from discord.ext import commands
@@ -22,9 +23,9 @@ bot = commands.Bot(command_prefix="$", intents=intents)
 
 @bot.event
 async def on_ready():
-    print(f"Logged in as {bot.user}.")
+    logging.info(f"Logged in as {bot.user}.")
     if args.sync:
-        print("Syncing CommandTree.")
+        logging.info("Syncing CommandTree.")
         await bot.tree.sync()
 
 
@@ -127,8 +128,8 @@ async def stats(interaction: discord.Interaction):
 
 
 if args.sync:
-    print("All commands:")
+    logging.info("All commands:")
     for command in bot.tree.get_commands():
-        print(command.name)
+        logging.info(command.name)
 
 bot.run(os.getenv("DISCORD_TOKEN", ""))
