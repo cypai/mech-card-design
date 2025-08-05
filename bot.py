@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import os
+import sys
 import argparse
 import textwrap
 import logging
@@ -10,6 +11,14 @@ from discord.ext import commands
 from game_defs import *
 from game_data import *
 from lib import *
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s %(name)s %(levelname)s %(message)s",
+    stream=sys.stdout,
+)
+logger = logging.getLogger(__name__)
+logger.info("Starting discord-bot.")
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--sync", "-s", action="store_true")
@@ -23,9 +32,9 @@ bot = commands.Bot(command_prefix="$", intents=intents)
 
 @bot.event
 async def on_ready():
-    logging.info(f"Logged in as {bot.user}.")
+    logger.info(f"Logged in as {bot.user}.")
     if args.sync:
-        logging.info("Syncing CommandTree.")
+        logger.info("Syncing CommandTree.")
         await bot.tree.sync()
 
 
@@ -72,7 +81,7 @@ async def scan_equipment(interaction: discord.Interaction, filter_str: str):
         )
         return
     results = get_filtered_equipment([filter_str])
-    message = "```"
+    message = "```\n"
     for equipment in results:
         message += f"{equipment}\n"
     message += f"Found {len(results)} matches.```"
@@ -89,7 +98,7 @@ async def scan_mechs(interaction: discord.Interaction, filter_str: str):
         )
         return
     results = get_filtered_mechs([filter_str])
-    message = "```"
+    message = "```\n"
     for mech in results:
         message += f"{mech}\n"
     message += f"Found {len(results)} matches.```"
@@ -104,7 +113,7 @@ async def scan_drones(interaction: discord.Interaction, filter_str: Optional[str
         results = get_filtered_mechs(["Drone"])
     else:
         results = get_filtered_mechs([filter_str, "Drone"])
-    message = "```"
+    message = "```\n"
     for mech in results:
         message += f"{mech}\n"
     message += f"Found {len(results)} matches.```"
@@ -114,7 +123,7 @@ async def scan_drones(interaction: discord.Interaction, filter_str: Optional[str
 @bot.tree.command()
 async def maneuvers(interaction: discord.Interaction):
     results = get_all_maneuvers()
-    message = "```"
+    message = "```\n"
     for maneuver in results:
         message += f"{maneuver}\n"
     message += f"Found {len(results)} matches.```"
@@ -123,13 +132,14 @@ async def maneuvers(interaction: discord.Interaction):
 
 @bot.tree.command()
 async def stats(interaction: discord.Interaction):
-    message = f"```{equipment_stats()}```"
+    message = f"```\n{equipment_stats()}```"
     await interaction.response.send_message(message)
 
 
 if args.sync:
-    logging.info("All commands:")
+    logger.info("All commands:")
     for command in bot.tree.get_commands():
-        logging.info(command.name)
+        logger.info(command.name)
 
-bot.run(os.getenv("DISCORD_TOKEN", ""))
+
+bot.run(os.getenv("DISCORD_TOKEN", ""), log_handler=None)
