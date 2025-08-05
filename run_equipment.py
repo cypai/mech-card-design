@@ -41,95 +41,6 @@ class Icons:
         self.ammo.close()
 
 
-def print_stats():
-    sizes = {
-        "Small": 0,
-        "Medium": 0,
-        "Large": 0,
-    }
-    types = {
-        "Ballistic": 0,
-        "Energy": 0,
-        "Melee": 0,
-        "Missile": 0,
-        "Electronics": 0,
-        "Drone": 0,
-        "Auxiliary": 0,
-    }
-    ranges = {
-        0: 0,
-        1: 0,
-        2: 0,
-        3: 0,
-    }
-    range_types = {}
-    for r in ranges.keys():
-        if r != "Melee":
-            range_types[("Ballistic", r)] = 0
-            range_types[("Energy", r)] = 0
-    full_types = {}
-    for size in sizes.keys():
-        for t in types.keys():
-            full_types[(size, t)] = 0
-    ammo_weapons = 0
-    keywords = {
-        "Shred": 0,
-        "AP": 0,
-        "Charge": 0,
-        "Shield": 0,
-        "Vulnerable": 0,
-        "Overheat": 0,
-        "Disable": 0,
-        "Overwatch": 0,
-    }
-    move_systems = 0
-    total = 0
-    all_equipment = get_all_equipment()
-    for equipment in all_equipment:
-        total += 1
-        sizes[equipment.size] += 1
-        types[equipment.type] += 1
-        full_types[(equipment.size, equipment.type)] += 1
-        if equipment.range is not None:
-            ranges[equipment.range] += 1
-            range_type_key = (equipment.type, equipment.range)
-            if range_type_key in range_types:
-                range_types[range_type_key] += 1
-        if equipment.ammo:
-            ammo_weapons += 1
-        for key in keywords.keys():
-            if key in equipment.text:
-                keywords[key] += 1
-        text = equipment.text.lower()
-        if "remove" not in text and (
-            "move" in text
-            or "reposition" in text
-            or "fall back" in text
-            or "advance" in text
-        ):
-            move_systems += 1
-    print("Sizes")
-    for k, v in sizes.items():
-        print(f"{k}: {v}")
-    print("\nTypes")
-    for k, v in types.items():
-        print(f"{k}: {v}")
-    print("\nFull Types")
-    for k, v in full_types.items():
-        print(f"{k[0]} {k[1]}: {v}")
-    print("\nRanges")
-    for k, v in ranges.items():
-        print(f"Range {k}: {v}")
-    print("\nRanges by Type")
-    for k, v in sorted(range_types.items()):
-        print(f"{k[0]} {k[1]}: {v}")
-    print(f"\nAmmo Equipment: {ammo_weapons}")
-    for k, v in keywords.items():
-        print(f"{k} Equipment: {v}")
-    print(f"Move Equipment: {move_systems}")
-    print(f"Total Equipment: {total}")
-
-
 def generate_all():
     with Icons() as icons:
         all_equipment = get_all_equipment()
@@ -277,7 +188,7 @@ def main():
     elif args.action == "genf":
         generate_filtered(args.filter)
     elif args.action == "stats":
-        print_stats()
+        print(equipment_stats())
     elif args.action == "scan":
         print_filtered(args.filter)
 

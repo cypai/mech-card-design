@@ -65,6 +65,102 @@ def get_all_maneuvers() -> list[Maneuver]:
     return all_maneuvers
 
 
+def equipment_stats():
+    output = ""
+    sizes = {
+        "Small": 0,
+        "Medium": 0,
+        "Large": 0,
+    }
+    types = {
+        "Ballistic": 0,
+        "Energy": 0,
+        "Melee": 0,
+        "Missile": 0,
+        "Electronics": 0,
+        "Drone": 0,
+        "Auxiliary": 0,
+    }
+    ranges = {
+        0: 0,
+        1: 0,
+        2: 0,
+        3: 0,
+    }
+    range_types = {}
+    for r in ranges.keys():
+        if r != "Melee":
+            range_types[("Ballistic", r)] = 0
+            range_types[("Energy", r)] = 0
+    full_types = {}
+    for size in sizes.keys():
+        for t in types.keys():
+            full_types[(size, t)] = 0
+    ammo_weapons = 0
+    keywords = {
+        "Shred": 0,
+        "AP": 0,
+        "Charge": 0,
+        "Shield": 0,
+        "Vulnerable": 0,
+        "Overheat": 0,
+        "Disable": 0,
+        "Overwatch": 0,
+    }
+    move_systems = 0
+    total = 0
+    all_equipment = get_all_equipment()
+    for equipment in all_equipment:
+        total += 1
+        sizes[equipment.size] += 1
+        types[equipment.type] += 1
+        full_types[(equipment.size, equipment.type)] += 1
+        if equipment.range is not None:
+            ranges[equipment.range] += 1
+            range_type_key = (equipment.type, equipment.range)
+            if range_type_key in range_types:
+                range_types[range_type_key] += 1
+        if equipment.ammo:
+            ammo_weapons += 1
+        for key in keywords.keys():
+            if key in equipment.text:
+                keywords[key] += 1
+        text = equipment.text.lower()
+        if "remove" not in text and (
+            "move" in text
+            or "reposition" in text
+            or "fall back" in text
+            or "advance" in text
+        ):
+            move_systems += 1
+        for tag in equipment.tags:
+            if tag not in keywords:
+                keywords[tag] = 1
+            else:
+                keywords[tag] += 1
+    output += "Sizes\n"
+    for k, v in sizes.items():
+        output += f"{k}: {v}\n"
+    output += "\nTypes\n"
+    for k, v in types.items():
+        output += f"{k}: {v}\n"
+    output += "\nFull Types\n"
+    for k, v in full_types.items():
+        output += f"{k[0]} {k[1]}: {v}\n"
+    output += "\nRanges\n"
+    for k, v in ranges.items():
+        output += f"Range {k}: {v}\n"
+    output += "\nRanges by Type\n"
+    for k, v in sorted(range_types.items()):
+        output += f"{k[0]} {k[1]}: {v}\n"
+    output += f"\nAmmo Equipment: {ammo_weapons}\n"
+    for k, v in keywords.items():
+        output += f"{k} Equipment: {v}\n"
+    output += f"Move Equipment: {move_systems}\n"
+    output += f"Total Equipment: {total}"
+    return output
+
+
 def get_filtered_equipment(filters) -> list[Equipment]:
     all_equipment = get_all_equipment()
     matching_equipment = []

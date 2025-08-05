@@ -120,6 +120,12 @@ async def maneuvers(interaction: discord.Interaction):
     await interaction.response.send_message(message)
 
 
+@bot.tree.command()
+async def stats(interaction: discord.Interaction):
+    message = f"```{equipment_stats()}```"
+    await interaction.response.send_message(message)
+
+
 if args.sync:
     print("All commands:")
     for command in bot.tree.get_commands():
