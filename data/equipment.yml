@@ -185,7 +185,7 @@ Mjolnir Railgun:
   range: 2
   heat: 5
   text: |
-    Deal 3 AP damage. If target is not shielded, Disable one of the target's equipment.
+    Deal 3 damage. If target is not shielded, Disable one of the target's equipment.
 
 Targeting Laser:
   size: Small
@@ -780,3 +780,36 @@ Camouflage:
   system: Attachment
   text: |
     Inert. At the start of combat, gain 2 Shield.
+
+Reserved Rifle:
+  size: Medium
+  type: Ballistic
+  system: Weapon
+  range: 1
+  heat: 4
+  text: |
+    Deal 3 damage.
+  tags:
+    - Spare
+
+Reserved Sidearm:
+  size: Small
+  type: Ballistic
+  system: Weapon
+  range: 1
+  heat: 3
+  text: |
+    Deal 2 damage.
+  tags:
+    - Spare
+
+Reserved Power Fist:
+  size: Medium
+  type: Melee
+  system: Weapon
+  range: 0
+  heat: 3
+  text: |
+    Deal 3 damage.
+  tags:
+    - Spare

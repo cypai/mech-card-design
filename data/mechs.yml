@@ -82,7 +82,9 @@ Resolute:
   - Large
   - Medium
   ability: |
-    Trigger: 1/round, you may ignore the effects of Shred or AP on this mech.
+    Trigger: 1/round, choose:
+    > Prevent forced movement on this mech.
+    > Ignore the effects of AP or Shred.
 
 Inevitable:
   faction: Low Tech
@@ -100,15 +102,16 @@ Inevitable:
 
 Wolfblade:
   faction: Low Tech
-  hp: 10
-  armor: 1
+  hp: 9
+  armor: 2
   hc: 7
   hardpoints:
   - Large
   - Medium
   - Small
   ability: |
-    Passive: After this mech takes an action, if it has Closed to Melee, restore 1 HP. This mech cannot Fall Back.
+    Passive: Melee Weapons +1 damage.
+    Action: 1/round, activate a Melee or Range 1 Weapon, removing all Overwatch, Vulnerable, and Overheat from this mech. This mech cannot Fall Back for the remainder of the round.
 
 Hellstorm:
   faction: Low Tech
@@ -117,34 +120,22 @@ Hellstorm:
   hc: 7
   hardpoints:
   - Medium
-  - Small
-  - Small
-  ability: |
-    Passive: After this mech activates a Range 1 Weapon, deal 1 damage to the enemy rear guard.
-
-Stalwart:
-  faction: Low Tech
-  hp: 9
-  armor: 2
-  hc: 7
-  hardpoints:
-  - Medium
   - Medium
   - Small
   ability: |
-    Trigger: 1/round, prevent forced movement on this mech.
+    Passive: Apply 1 Vulnerable to targeted enemy mechs after taking damage from a Weapon on this mech if the target did not have Vulnerable.
 
 Mahout:
   faction: Low Tech
-  hp: 10
+  hp: 11
   armor: 1
-  hc: 8
+  hc: 7
   hardpoints:
   - Large
   - Large
-  - Large
+  - Small
   ability: |
-    Passive: For this mech, Advance, Fall Back, and equipment with Range > 1 cost +1 Heat.
+    Passive: Whenever this mech deals at least 3 damage (including to Shields), additionally inflict 1 Vulnerable.
 
 Aquarius:
   faction: High Tech
@@ -239,7 +230,7 @@ Cockroach:
 
 Gangplank:
   faction: Pirate
-  hp: 11
+  hp: 10
   armor: 0
   hc: 7
   hardpoints:
@@ -247,12 +238,12 @@ Gangplank:
   - Medium
   - Medium
   ability: |
-    Passive: Weapons on this mech targeting enemy mechs without Vulnerable inflict 1 Vulnerable after dealing damage.
+    Action: 1/round, reveal cards from the deck until you reveal an Equipment. Immediately mount it on this mech, replacing previous equipment if necessary, then you may activate it at -1 Heat Cost.
 
 Jolly Roger:
   faction: Pirate
-  hp: 11
-  armor: 0
+  hp: 10
+  armor: 1
   hc: 7
   hardpoints:
   - Medium
@@ -276,7 +267,7 @@ Blackjack:
 
 Powder Keg:
   faction: Pirate
-  hp: 11
+  hp: 10
   armor: 0
   hc: 7
   hardpoints:
@@ -285,11 +276,11 @@ Powder Keg:
   - Small
   ability: |
     Action: 1/battle, Prepare: Self-destruct.
-    Passive: If this mech is destroyed while in the vanguard, deal 3 AP damage to the enemy vanguard. This ability cannot win the game.
+    Passive: If this mech is destroyed while in the vanguard, immediately deal 3 AP damage to the enemy vanguard. This ability cannot win the game.
 
 Davy Jones:
   faction: Pirate
-  hp: 11
+  hp: 10
   armor: 0
   hc: 8
   hardpoints:
