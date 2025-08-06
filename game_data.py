@@ -1,5 +1,8 @@
 from game_defs import *
 import yaml
+import itertools
+from thefuzz import fuzz
+from typing import Union
 
 
 def parse_equipment(equipment) -> Equipment:
@@ -161,7 +164,7 @@ def equipment_stats():
     return output
 
 
-def get_filtered_equipment(filters) -> list[Equipment]:
+def get_filtered_equipment(filters: list[str]) -> list[Equipment]:
     all_equipment = get_all_equipment()
     matching_equipment = []
     for equipment in all_equipment:
@@ -211,7 +214,7 @@ def get_filtered_equipment(filters) -> list[Equipment]:
     return matching_equipment
 
 
-def get_filtered_mechs(filters):
+def get_filtered_mechs(filters: list[str]):
     all_mechs = get_all_mechs()
     matching_mechs = []
     for mech in all_mechs:
@@ -253,3 +256,26 @@ def get_filtered_mechs(filters):
         if ok == len(filters):
             matching_mechs.append(mech)
     return matching_mechs
+
+
+class BotDatabase:
+    equipment = get_all_equipment()
+    mechs = get_all_mechs()
+    maneuvers = get_all_maneuvers()
+    everything = list(itertools.chain.from_iterable([equipment, mechs, maneuvers]))
+
+    def get_filtered_equipment(self, filters: list[str]) -> list[Equipment]:
+        return get_filtered_equipment(filters)
+
+    def get_filtered_mechs(self, filters: list[str]) -> list[Mech]:
+        return get_filtered_mechs(filters)
+
+    def fuzzy_query_name(
+        self, name: str, threshold: int
+    ) -> list[tuple[Union[Equipment, Mech, Maneuver], int]]:
+        results = [
+            (x, fuzz.ratio(name.lower(), x.name.lower())) for x in self.everything
+        ]
+        return sorted(
+            [x for x in results if x[1] > threshold], key=lambda x: x[1], reverse=True
+        )

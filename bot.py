@@ -4,6 +4,7 @@ import sys
 import argparse
 import textwrap
 import logging
+import re
 import discord
 from discord import app_commands
 from discord.ext import commands
@@ -28,6 +29,7 @@ intents = discord.Intents.default()
 intents.message_content = True
 
 bot = commands.Bot(command_prefix="$", intents=intents)
+db = BotDatabase()
 
 
 @bot.event
@@ -36,6 +38,43 @@ async def on_ready():
     if args.sync:
         logger.info("Syncing CommandTree.")
         await bot.tree.sync()
+
+
+@bot.event
+async def on_message(message: discord.Message):
+    if bot.user is not None and message.author.id == bot.user.id:
+        return
+
+    query_groups = re.findall(r"\[\[([\w\- ]+)\]\]", message.content)
+    if len(query_groups) > 0:
+        await message.reply(build_query_response(query_groups))
+
+    await bot.process_commands(message)
+
+
+def build_query_response(queries: list[str]) -> str:
+    message = "```\n"
+    total = 0
+    bad_result_message = ""
+    for query in queries:
+        results = db.fuzzy_query_name(query, 50)
+        good_results = [x for x in results if x[1] > 95]
+        if len(good_results) > 0:
+            top_result = results[0]
+            total += 1
+            if top_result[1] == 100:
+                message += f"{top_result[0]}\n"
+            else:
+                message += f"{top_result[0]}\n(Fuzzy match ratio of {top_result[1]} for {query})\n"
+        else:
+            top_3 = " or ".join(map(lambda x: f"[[{x[0].name}]]", results[:3]))
+            bad_result_message += f"[[{query}]] not found. Did you mean: {top_3}?\n"
+
+    message += f"Total matches: {total} of {len(queries)}\n"
+    if total != len(queries):
+        message += bad_result_message
+    message += "```"
+    return message
 
 
 @bot.command()
@@ -122,7 +161,7 @@ async def scan_drones(interaction: discord.Interaction, filter_str: Optional[str
 
 @bot.tree.command()
 async def maneuvers(interaction: discord.Interaction):
-    results = get_all_maneuvers()
+    results = db.maneuvers
     message = "```\n"
     for maneuver in results:
         message += f"{maneuver}\n"

@@ -1,3 +1,4 @@
 wand
 pyyaml
 discord.py
+thefuzz
