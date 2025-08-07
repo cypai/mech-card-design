@@ -32,12 +32,10 @@ def generate_card(mech: Mech):
         draw_name(draw_ctx, mech)
         draw_stats(draw_ctx, mech)
         draw_ability(draw_ctx, mech)
-        if mech.faction != "Drone":
-            draw_hp(draw_ctx, mech)
-            draw_heat(draw_ctx, mech)
+        draw_heat(draw_ctx, mech)
+        draw_hp(draw_ctx, mech)
         draw_ctx.draw(img)
-        dir = "drones" if mech.faction == "Drone" else "mechs"
-        img.save(filename=f"outputs/{dir}/{mech.normalized_name}.png")
+        img.save(filename=f"outputs/mechs/{mech.normalized_name}.png")
 
 
 def draw_border(draw_ctx: Drawing):

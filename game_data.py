@@ -20,9 +20,9 @@ def parse_equipment(equipment) -> Equipment:
     )
 
 
-def get_all_equipment() -> list[Equipment]:
+def get_all_equipment(filename: str = "data/equipment.yml") -> list[Equipment]:
     all_equipment = []
-    with open("data/equipment.yml", "r") as equipment_file:
+    with open(filename, "r") as equipment_file:
         data = yaml.safe_load(equipment_file)
         for item in data.items():
             all_equipment.append(parse_equipment(item))
@@ -42,13 +42,30 @@ def parse_mechs(mechs) -> Mech:
     )
 
 
-def get_all_mechs() -> list[Mech]:
+def get_all_mechs(filename: str = "data/mechs.yml") -> list[Mech]:
     all_mechs = []
-    with open("data/mechs.yml", "r") as mechs_file:
+    with open(filename, "r") as mechs_file:
         data = yaml.safe_load(mechs_file)
         for item in data.items():
             all_mechs.append(parse_mechs(item))
     return all_mechs
+
+
+def parse_drones(drones) -> Drone:
+    name, data = drones
+    return Drone(
+        name=name,
+        ability=data.get("ability"),
+    )
+
+
+def get_all_drones(filename: str = "data/drones.yml") -> list[Drone]:
+    all_drones = []
+    with open(filename, "r") as drones_file:
+        data = yaml.safe_load(drones_file)
+        for item in data.items():
+            all_drones.append(parse_drones(item))
+    return all_drones
 
 
 def parse_maneuvers(maneuvers) -> Maneuver:
@@ -59,9 +76,9 @@ def parse_maneuvers(maneuvers) -> Maneuver:
     )
 
 
-def get_all_maneuvers() -> list[Maneuver]:
+def get_all_maneuvers(filename: str = "data/maneuvers.yml") -> list[Maneuver]:
     all_maneuvers = []
-    with open("data/maneuvers.yml", "r") as maneuvers_file:
+    with open(filename, "r") as maneuvers_file:
         data = yaml.safe_load(maneuvers_file)
         for item in data.items():
             all_maneuvers.append(parse_maneuvers(item))
@@ -267,11 +284,14 @@ def get_filtered_mechs(filters: list[str]):
     return matching_mechs
 
 
-class BotDatabase:
+class GameDatabase:
     equipment = get_all_equipment()
     mechs = get_all_mechs()
+    drones = get_all_drones()
     maneuvers = get_all_maneuvers()
-    everything = list(itertools.chain.from_iterable([equipment, mechs, maneuvers]))
+    everything = list(
+        itertools.chain.from_iterable([equipment, mechs, drones, maneuvers])
+    )
 
     def get_filtered_equipment(self, filters: list[str]) -> list[Equipment]:
         return get_filtered_equipment(filters)
@@ -281,7 +301,7 @@ class BotDatabase:
 
     def fuzzy_query_name(
         self, name: str, threshold: int
-    ) -> list[tuple[Union[Equipment, Mech, Maneuver], int]]:
+    ) -> list[tuple[Union[Equipment, Mech, Drone, Maneuver], int]]:
         results = [
             (x, fuzz.ratio(name.lower(), x.name.lower())) for x in self.everything
         ]

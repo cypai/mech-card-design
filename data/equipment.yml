@@ -214,7 +214,7 @@ Heating Laser:
   range: 1
   heat: 2
   text: |
-    Deal 1 damage. Inflict Overheat.
+    Deal 1 damage. Inflict 1 Overheat.
 
 Minipulser:
   size: Small
@@ -252,7 +252,7 @@ Flamethrower:
   range: 1
   heat: 3
   text: |
-    Deal 1 damage and inflict Overheat to the enemy vanguard.
+    Deal 1 damage and inflict 1 Overheat to the enemy vanguard.
   tags:
     - AOE
 
@@ -369,7 +369,7 @@ Plasma Heating Laser:
   range: 1
   heat: 5
   text: |
-    Deal 4 damage. Inflict Overheat and 1 Vulnerable.
+    Deal 4 damage. Inflict 1 Overheat and 1 Vulnerable.
 
 Rift Inducer:
   size: Large
@@ -546,7 +546,7 @@ Jammer Drone Launcher:
   heat: 2
   ammo: 2
   text: |
-    Inflict Overheat on the enemy vanguard, then summon 1 Jammer Drone.
+    Inflict 1 Overheat on the enemy vanguard, then summon 1 Jammer Drone.
   tags:
     - AOE
 
@@ -588,7 +588,7 @@ Dragonfire RPG:
   heat: 0
   ammo: 2
   text: |
-    Deal 1 damage. Inflict Overheat.
+    Deal 1 damage. Inflict 1 Overheat.
 
 Breach Missile:
   size: Small
@@ -621,7 +621,7 @@ Ballistic Missile:
   range: 3
   heat: 2
   text: |
-    Inflict Overheat.
+    Inflict 1 Overheat.
 
 "Cyberwarfare: WHITENOISE":
   size: Small

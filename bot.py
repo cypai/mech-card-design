@@ -29,7 +29,7 @@ intents = discord.Intents.default()
 intents.message_content = True
 
 bot = commands.Bot(command_prefix="$", intents=intents)
-db = BotDatabase()
+db = GameDatabase()
 
 
 @bot.event
@@ -147,17 +147,12 @@ async def scan_mechs(interaction: discord.Interaction, filter_str: str):
     await interaction.response.send_message(message)
 
 
-@bot.tree.command(name="drones")
-@app_commands.rename(filter_str="filter")
-@app_commands.describe(filter_str="The text to filter on. Use $scan_help for options.")
-async def scan_drones(interaction: discord.Interaction, filter_str: Optional[str]):
-    if filter_str is None or len(filter_str) == 0:
-        results = get_filtered_mechs(["Drone"])
-    else:
-        results = get_filtered_mechs([filter_str, "Drone"])
+@bot.tree.command()
+async def drones(interaction: discord.Interaction):
+    results = db.drones
     message = "```\n"
-    for mech in results:
-        message += f"{mech}\n"
+    for drone in results:
+        message += f"{drone}\n"
     message += f"Found {len(results)} matches.```"
     await interaction.response.send_message(message)
 

@@ -4,6 +4,7 @@ for i in "$@"; do
   if [ "$i" == "all" ]; then
     ./clear_outputs.sh mechs equipment drones maneuvers
     ./run_mechs.py generate
+    ./run_drones.py generate
     ./run_equipment.py generate
     ./run_maneuvers.py generate
     ./make_pdf.sh mechs equipment drones maneuvers
@@ -20,7 +21,7 @@ for i in "$@"; do
   fi
   if [ "$i" == "drones" ]; then
     ./clear_outputs.sh drones
-    ./run_mechs.py generate
+    ./run_drones.py generate
     ./make_pdf.sh drones
   fi
   if [ "$i" == "maneuvers" ]; then

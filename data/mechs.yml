@@ -123,7 +123,7 @@ Hellstorm:
   - Medium
   - Small
   ability: |
-    Passive: Apply 1 Vulnerable to targeted enemy mechs after taking damage from a Weapon on this mech if the target did not have Vulnerable.
+    Passive: After dealing damage with Weapons on this mech, if the target did not have Vulnerable, inflict 1 Vulnerable.
 
 Mahout:
   faction: Low Tech
@@ -139,7 +139,7 @@ Mahout:
 
 Hephaestus:
   faction: Low Tech
-  hp: 9
+  hp: 8
   armor: 3
   hc: 7
   hardpoints:
@@ -303,35 +303,3 @@ Davy Jones:
   - Medium
   ability: |
     Trigger: Whenever this mech takes damage, the owner must choose one equipment on this mech to Disable.
-
-Combat Drone:
-  faction: Drone
-  hp: 0
-  armor: 0
-  hc: 0
-  ability: |
-    Passive: At the end of the round, deal 2 damage to the enemy vanguard, then destroy this drone.
-
-Shield Drone:
-  faction: Drone
-  hp: 0
-  armor: 0
-  hc: 0
-  ability: |
-    Passive: At the start of the round, choose a position to grant 1 Shield to allied mechs there, then destroy this drone.
-
-Scout Drone:
-  faction: Drone
-  hp: 0
-  armor: 0
-  hc: 0
-  ability: |
-    Action: All allied mechs may reposition for 0 Heat Cost, then destroy this drone.
-
-Jammer Drone:
-  faction: Drone
-  hp: 0
-  armor: 0
-  hc: 0
-  ability: |
-    Passive: At the start of the round, inflict Overheat on the enemy vanguard, then destroy this drone.

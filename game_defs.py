@@ -1,5 +1,5 @@
 from functools import reduce
-from typing import Optional
+from typing import Optional, Self
 import re
 
 
@@ -42,6 +42,32 @@ class Equipment:
         text += f"{self.text}"
         return text
 
+    def diff(self, other: Self) -> tuple[bool, str]:
+        is_diff = False
+        diffs = f"{self.name}\n"
+        if self.size != other.size:
+            is_diff = True
+            diffs += f"{other.size} -> {self.size}\n"
+        if self.type != other.type:
+            is_diff = True
+            diffs += f"{other.type} -> {self.type}\n"
+        if self.system != other.system:
+            is_diff = True
+            diffs += f"{other.system} -> {self.system}\n"
+        if self.heat != other.heat:
+            is_diff = True
+            diffs += f"{other.heat} -> {self.heat}\n"
+        if self.ammo != other.ammo:
+            is_diff = True
+            diffs += f"{other.ammo} -> {self.ammo}\n"
+        if self.range != other.range:
+            is_diff = True
+            diffs += f"{other.range} -> {self.range}\n"
+        if self.text != other.text:
+            is_diff = True
+            diffs += f"{other.text}\n->\n{self.text}\n"
+        return (is_diff, diffs)
+
 
 class Mech:
     name: str
@@ -76,6 +102,51 @@ class Mech:
         text += f"Ability: {self.ability}"
         return text
 
+    def diff(self, other: Self) -> tuple[bool, str]:
+        is_diff = False
+        diffs = f"{self.name}\n"
+        if self.hp != other.hp:
+            is_diff = True
+            diffs += f"{other.hp} -> {self.hp}\n"
+        if self.armor != other.armor:
+            is_diff = True
+            diffs += f"{other.armor} -> {self.armor}\n"
+        if self.hc != other.hc:
+            is_diff = True
+            diffs += f"{other.hc} -> {self.hc}\n"
+        if self.hardpoints_str != other.hardpoints_str:
+            is_diff = True
+            diffs += f"{other.hardpoints_str} -> {self.hardpoints_str}\n"
+        if self.ability != other.ability:
+            is_diff = True
+            diffs += f"{other.ability} -> {self.ability}\n"
+        return (is_diff, diffs)
+
+
+class Drone:
+    name: str
+    ability: str
+
+    def __init__(self, **kwargs):
+        self.name = str(kwargs.get("name"))
+        self.ability = str(kwargs.get("ability"))
+
+        self.normalized_name = re.sub(r"\W", "", self.name)
+        self.normalized_name = self.normalized_name.lower()
+
+    def __str__(self):
+        text = self.name + "\n"
+        text += f"Ability: {self.ability}"
+        return text
+
+    def diff(self, other: Self) -> tuple[bool, str]:
+        is_diff = False
+        diffs = f"{self.name}\n"
+        if self.ability != other.ability:
+            is_diff = True
+            diffs += f"{other.ability} -> {self.ability}\n"
+        return (is_diff, diffs)
+
 
 class Maneuver:
     name: str
@@ -91,3 +162,11 @@ class Maneuver:
     def __str__(self):
         text = self.name + "\n" + self.text
         return text
+
+    def diff(self, other: Self) -> tuple[bool, str]:
+        is_diff = False
+        diffs = f"{self.name}\n"
+        if self.text != other.text:
+            is_diff = True
+            diffs += f"{other.text} -> {self.text}\n"
+        return (is_diff, diffs)
