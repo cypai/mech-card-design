@@ -137,6 +137,19 @@ Mahout:
   ability: |
     Passive: Whenever this mech deals at least 3 damage (including to Shields), additionally inflict 1 Vulnerable.
 
+Hephaestus:
+  faction: Low Tech
+  hp: 9
+  armor: 3
+  hc: 7
+  hardpoints:
+  - Large
+  - Medium
+  - Small
+  ability: |
+    Passive: Whenever this mech loses Armor, restore 1 Heat Capacity.
+    Action: 1/round, lose 1 Armor, then take another Action with this mech.
+
 Aquarius:
   faction: High Tech
   hp: 10
