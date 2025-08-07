@@ -14,13 +14,15 @@ prev_db = GameDatabase(changelog=True)
 def generate_changelog_text():
     changelog = ""
     for mech in prev_db.mechs:
-        curr_mech = next((m for m in prev_db.mechs if m.name == mech.name), None)
+        curr_mech = next((m for m in db.mechs if m.name == mech.name), None)
         if curr_mech is None:
             changelog += f"{mech.name} was deleted.\n"
+            changelog += str(mech) + "\n"
     for mech in db.mechs:
         prev_mech = next((m for m in prev_db.mechs if m.name == mech.name), None)
         if prev_mech is None:
             changelog += f"{mech.name} was added.\n"
+            changelog += str(mech) + "\n"
         else:
             is_diff, diff_str = mech.diff(prev_mech)
             if is_diff:
@@ -28,46 +30,50 @@ def generate_changelog_text():
 
     for equipment in prev_db.equipment:
         curr_equipment = next(
-            (m for m in prev_db.equipment if m.name == equipment.name), None
+            (m for m in db.equipment if m.name == equipment.name), None
         )
         if curr_equipment is None:
             changelog += f"{equipment.name} was deleted.\n"
+            changelog += str(equipment) + "\n"
     for equipment in db.equipment:
         prev_equipment = next(
             (m for m in prev_db.equipment if m.name == equipment.name), None
         )
         if prev_equipment is None:
             changelog += f"{equipment.name} was added.\n"
+            changelog += str(equipment) + "\n"
         else:
             is_diff, diff_str = equipment.diff(prev_equipment)
             if is_diff:
                 changelog += f"{diff_str}\n"
 
     for drone in prev_db.drones:
-        curr_drone = next((m for m in prev_db.drones if m.name == drone.name), None)
+        curr_drone = next((m for m in db.drones if m.name == drone.name), None)
         if curr_drone is None:
             changelog += f"{drone.name} was deleted.\n"
+            changelog += str(drone) + "\n"
     for drone in db.drones:
         prev_drone = next((m for m in prev_db.drones if m.name == drone.name), None)
         if prev_drone is None:
             changelog += f"{drone.name} was added.\n"
+            changelog += str(drone) + "\n"
         else:
             is_diff, diff_str = drone.diff(prev_drone)
             if is_diff:
                 changelog += f"{diff_str}\n"
 
     for maneuver in prev_db.maneuvers:
-        curr_maneuver = next(
-            (m for m in prev_db.maneuvers if m.name == maneuver.name), None
-        )
+        curr_maneuver = next((m for m in db.maneuvers if m.name == maneuver.name), None)
         if curr_maneuver is None:
             changelog += f"{maneuver.name} was deleted.\n"
+            changelog += str(maneuver) + "\n"
     for maneuver in db.maneuvers:
         prev_maneuver = next(
             (m for m in prev_db.maneuvers if m.name == maneuver.name), None
         )
         if prev_maneuver is None:
             changelog += f"{maneuver.name} was added.\n"
+            changelog += str(maneuver) + "\n"
         else:
             is_diff, diff_str = maneuver.diff(prev_maneuver)
             if is_diff:
