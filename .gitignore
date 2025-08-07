@@ -1,8 +1,6 @@
 .python-version
 __pycache__/
-test.png
 outputs/
 *.pdf
-*.txt
 .envrc
 venv/

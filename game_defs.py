@@ -47,25 +47,25 @@ class Equipment:
         diffs = f"{self.name}\n"
         if self.size != other.size:
             is_diff = True
-            diffs += f"{other.size} -> {self.size}\n"
+            diffs += f"Size: {other.size} -> {self.size}\n"
         if self.type != other.type:
             is_diff = True
-            diffs += f"{other.type} -> {self.type}\n"
+            diffs += f"Type: {other.type} -> {self.type}\n"
         if self.system != other.system:
             is_diff = True
             diffs += f"{other.system} -> {self.system}\n"
         if self.heat != other.heat:
             is_diff = True
-            diffs += f"{other.heat} -> {self.heat}\n"
+            diffs += f"Heat: {other.heat} -> {self.heat}\n"
         if self.ammo != other.ammo:
             is_diff = True
-            diffs += f"{other.ammo} -> {self.ammo}\n"
+            diffs += f"Ammo: {other.ammo} -> {self.ammo}\n"
         if self.range != other.range:
             is_diff = True
-            diffs += f"{other.range} -> {self.range}\n"
+            diffs += f"Range: {other.range} -> {self.range}\n"
         if self.text != other.text:
             is_diff = True
-            diffs += f"{other.text}\n->\n{self.text}\n"
+            diffs += f"{other.text}|->\n{self.text}"
         return (is_diff, diffs)
 
 
@@ -107,19 +107,19 @@ class Mech:
         diffs = f"{self.name}\n"
         if self.hp != other.hp:
             is_diff = True
-            diffs += f"{other.hp} -> {self.hp}\n"
+            diffs += f"HP: {other.hp} -> {self.hp}\n"
         if self.armor != other.armor:
             is_diff = True
-            diffs += f"{other.armor} -> {self.armor}\n"
+            diffs += f"Armor: {other.armor} -> {self.armor}\n"
         if self.hc != other.hc:
             is_diff = True
-            diffs += f"{other.hc} -> {self.hc}\n"
+            diffs += f"Heat Capacity: {other.hc} -> {self.hc}\n"
         if self.hardpoints_str != other.hardpoints_str:
             is_diff = True
-            diffs += f"{other.hardpoints_str} -> {self.hardpoints_str}\n"
+            diffs += f"Hardpoints: {other.hardpoints_str} -> {self.hardpoints_str}\n"
         if self.ability != other.ability:
             is_diff = True
-            diffs += f"{other.ability} -> {self.ability}\n"
+            diffs += f"{other.ability}|->\n{self.ability}"
         return (is_diff, diffs)
 
 
@@ -144,7 +144,7 @@ class Drone:
         diffs = f"{self.name}\n"
         if self.ability != other.ability:
             is_diff = True
-            diffs += f"{other.ability} -> {self.ability}\n"
+            diffs += f"{other.ability}|->\n{self.ability}"
         return (is_diff, diffs)
 
 
@@ -168,5 +168,5 @@ class Maneuver:
         diffs = f"{self.name}\n"
         if self.text != other.text:
             is_diff = True
-            diffs += f"{other.text} -> {self.text}\n"
+            diffs += f"{other.text}|->\n{self.text}"
         return (is_diff, diffs)

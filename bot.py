@@ -11,6 +11,7 @@ from discord.ext import commands
 
 from game_defs import *
 from game_data import *
+from run_changelog import generate_changelog_text
 from lib import *
 
 logging.basicConfig(
@@ -165,6 +166,11 @@ async def maneuvers(interaction: discord.Interaction):
         message += f"{maneuver}\n"
     message += f"Found {len(results)} matches.```"
     await interaction.response.send_message(message)
+
+
+@bot.command()
+async def changelog(ctx: commands.Context):
+    await ctx.reply(f"```\n{generate_changelog_text()}```")
 
 
 @bot.tree.command()

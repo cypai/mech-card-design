@@ -285,13 +285,22 @@ def get_filtered_mechs(filters: list[str]):
 
 
 class GameDatabase:
-    equipment = get_all_equipment()
-    mechs = get_all_mechs()
-    drones = get_all_drones()
-    maneuvers = get_all_maneuvers()
-    everything = list(
-        itertools.chain.from_iterable([equipment, mechs, drones, maneuvers])
-    )
+    def __init__(self, changelog=False) -> None:
+        if changelog:
+            self.equipment = get_all_equipment("./changelog/previous_equipment.yml")
+            self.mechs = get_all_mechs("./changelog/previous_mechs.yml")
+            self.drones = get_all_drones("./changelog/previous_drones.yml")
+            self.maneuvers = get_all_maneuvers("./changelog/previous_maneuvers.yml")
+        else:
+            self.equipment = get_all_equipment()
+            self.mechs = get_all_mechs()
+            self.drones = get_all_drones()
+            self.maneuvers = get_all_maneuvers()
+        self.everything = list(
+            itertools.chain.from_iterable(
+                [self.equipment, self.mechs, self.drones, self.maneuvers]
+            )
+        )
 
     def get_filtered_equipment(self, filters: list[str]) -> list[Equipment]:
         return get_filtered_equipment(filters)
