@@ -12,4 +12,4 @@ Scout Drone:
 
 Jammer Drone:
   ability: |
-    Passive: At the start of the round, inflict Overheat on the enemy vanguard, then destroy this drone.
+    Passive: At the start of the round, inflict 1 Overheat on the enemy vanguard, then destroy this drone.

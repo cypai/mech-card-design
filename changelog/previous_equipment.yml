@@ -330,7 +330,7 @@ Slagmaker:
   range: 1
   heat: 5
   text: |
-    Deal 6 damage, then Disable all equipment on this mech.
+    Deal 6 damage, then Disable all other equipment on this mech.
 
 Gravity Cannon:
   size: Large
@@ -495,7 +495,7 @@ Heavy Chainaxe:
   heat: 5
   text: |
     Charge. Deal [Charge+4] damage.
-    If Charge is at least 2, Shred.
+    If Charge is at least 2 or the target has Vulnerable, Shred.
 
 Combat Drone Launcher:
   size: Medium
@@ -555,7 +555,7 @@ Smoke Grenade:
   type: Missile
   system: Weapon
   heat: 0
-  ammo: 2
+  ammo: 1
   text: |
     Choose an allied position. All allied mechs there gain 1 Shield.
 
@@ -690,9 +690,8 @@ Probability Manipulator:
   type: Electronics
   system: System
   heat: 4
-  ammo: 1
   text: |
-    Reduce your Evade Counter by 1 (min 0).
+    1/battle: Reduce your Evade Counter by 1 (min 0).
 
 Early Warning System:
   size: Medium
@@ -759,7 +758,7 @@ Shield Projector:
   system: System
   heat: 2
   text: |
-    Choose an allied mech to gain 1 Shield.
+    Choose an allied mech to give it 1 Shield.
     Trigger: You may activate this at the start of the round.
 
 Shield Generator:

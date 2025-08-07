@@ -42,7 +42,7 @@ Anansi:
   hc: 8
   hardpoints:
   - Medium
-  - Small
+  - Medium
   - Small
   - Small
   ability: |
@@ -264,7 +264,7 @@ Jolly Roger:
   - Small
   - Small
   ability: |
-    Passive: Whenever a mech has its HP reduced to 0, all mechs at this mech's position restore 1 Heat Capacity.
+    Passive: Whenever a mech has its HP reduced to 0, all allied mechs restore 1 Heat Capacity.
 
 Blackjack:
   faction: Pirate
