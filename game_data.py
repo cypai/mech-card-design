@@ -174,12 +174,12 @@ def get_filtered_equipment(filters: list[str]) -> list[Equipment]:
                 f != "Move"
                 and f.lower() in equipment.text.lower()
                 or f in equipment.name
-                or f == equipment.type
-                or f == equipment.system
-                or f == equipment.size
+                or f.lower() == equipment.type.lower()
+                or f.lower() == equipment.system.lower()
+                or f.lower() == equipment.size.lower()
             ):
                 ok += 1
-            elif f == "Ammo" and equipment.ammo:
+            elif f.lower() == "ammo" and equipment.ammo:
                 ok += 1
             elif f == "Short" and equipment.range == 1:
                 ok += 1
@@ -195,6 +195,15 @@ def get_filtered_equipment(filters: list[str]) -> list[Equipment]:
                 elif op == ">" and equipment.heat and equipment.heat > heat:
                     ok += 1
                 elif op == "<" and equipment.heat and equipment.heat < heat:
+                    ok += 1
+            elif f.startswith("Range"):
+                op = f[5]
+                the_range = int(f[6])
+                if op == "=" and equipment.range == the_range:
+                    ok += 1
+                elif op == ">" and equipment.range and equipment.range > the_range:
+                    ok += 1
+                elif op == "<" and equipment.range and equipment.range < the_range:
                     ok += 1
             elif (
                 f == "Move"

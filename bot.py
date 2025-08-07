@@ -58,7 +58,7 @@ def build_query_response(queries: list[str]) -> str:
     bad_result_message = ""
     for query in queries:
         results = db.fuzzy_query_name(query, 50)
-        good_results = [x for x in results if x[1] > 95]
+        good_results = [x for x in results if x[1] > 90]
         if len(good_results) > 0:
             top_result = results[0]
             total += 1
@@ -86,10 +86,13 @@ async def scan_help(ctx: commands.Context):
     Short, Mid, Long, Melee
     Heat[operator][number]
         Examples: Heat=3, Heat>1, Heat<4
+    Range[operator][number]
+        Examples: Range=3, Range>1, Range<2
     Move```
     You can also filter for text in these categories:
     ```
     Size: Small, Medium, Large
+    Type: Ballistic, Energy, Missile, Electronics, Drone, Auxiliary
     System: Weapon, System
     Name
     Card Text
