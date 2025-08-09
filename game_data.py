@@ -127,11 +127,15 @@ def equipment_stats():
         "Disable": 0,
         "Overwatch": 0,
     }
+    spare_equipment = 0
     move_systems = 0
     total = 0
     all_equipment = get_all_equipment()
     for equipment in all_equipment:
         total += 1
+        if "Spare" in equipment.tags:
+            spare_equipment += 1
+            continue
         sizes[equipment.size] += 1
         types[equipment.type] += 1
         full_types[(equipment.size, equipment.type)] += 1
@@ -177,6 +181,7 @@ def equipment_stats():
     for k, v in keywords.items():
         output += f"{k} Equipment: {v}\n"
     output += f"Move Equipment: {move_systems}\n"
+    output += f"Spare Equipment (not counted in other stats): {spare_equipment}\n"
     output += f"Total Equipment: {total}"
     return output
 
