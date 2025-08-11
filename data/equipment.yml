@@ -501,6 +501,7 @@ Combat Drone Launcher:
   size: Medium
   type: Drone
   system: System
+  range: 1
   heat: 4
   ammo: 3
   text: |
@@ -513,6 +514,7 @@ Combat Drone Hangar:
   size: Large
   type: Drone
   system: System
+  range: 1
   heat: 5
   ammo: 2
   text: |
@@ -610,7 +612,7 @@ Ballistic Missile:
   heat: 0
   ammo: 1
   text: |
-    Place a Prepare Token at an enemy position. Prepare: Deal 3 AP damage to that position.
+    Choose an enemy position. Prepare: Deal 3 AP damage to enemy mechs at that position.
   tags:
     - AOE
 

@@ -1,6 +1,6 @@
 Coordinated Maneuvers:
   text: |
-    Action: Draw a card. Reposition all allied mechs for 0 Heat, then immediately take an Action at -1 Heat Cost.
+    Action: Draw a card. Reposition all allied mechs for 0 Heat, then you may activate any equipment.
 
 Airstrike:
   text: |
@@ -12,7 +12,7 @@ Fog of War:
 
 Unstoppable Force:
   text: |
-    Action: Draw a card. Choose an enemy position and remove all Shield on enemy mechs there.
+    Action: Draw a card. Choose an enemy position and remove all Shield on enemy mechs there, then you may activate a Weapon.
 
 Lock n' Load:
   text: |

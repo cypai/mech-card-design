@@ -174,7 +174,7 @@ Pegasus:
   - Small
   - Small
   ability: |
-    Trigger: You may reposition this mech for 0 Heat Cost after acting.
+    Trigger: This mech may Advance or Fall Back after acting.
 
 Cygnus:
   faction: High Tech
@@ -288,13 +288,13 @@ Powder Keg:
   - Medium
   - Small
   ability: |
-    Action: 1/battle, Prepare: Self-destruct.
+    Action: Prepare: Self-destruct.
     Passive: If this mech is destroyed while in the vanguard, immediately deal 3 AP damage to the enemy vanguard. This ability cannot win the game.
 
 Davy Jones:
   faction: Pirate
   hp: 10
-  armor: 0
+  armor: 1
   hc: 8
   hardpoints:
   - Large
