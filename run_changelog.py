@@ -2,6 +2,7 @@
 
 import argparse
 import shutil
+from typing import TypeVar, Union
 
 from game_defs import *
 from game_data import *
@@ -10,78 +11,53 @@ from lib import *
 db = GameDatabase()
 prev_db = GameDatabase(changelog=True)
 
+T = TypeVar("T", Mech, Drone, Equipment, Maneuver)
 
-def generate_changelog_text():
+
+def generate_changelog_text() -> str:
     changelog = ""
-    for mech in prev_db.mechs:
-        curr_mech = next((m for m in db.mechs if m.name == mech.name), None)
-        if curr_mech is None:
-            changelog += f"{mech.name} was deleted.\n"
-            changelog += str(mech) + "\n"
-    for mech in db.mechs:
-        prev_mech = next((m for m in prev_db.mechs if m.name == mech.name), None)
-        if prev_mech is None:
-            changelog += f"{mech.name} was added.\n"
-            changelog += str(mech) + "\n"
-        else:
-            is_diff, diff_str = mech.diff(prev_mech)
-            if is_diff:
-                changelog += f"{diff_str}\n"
-
-    for equipment in prev_db.equipment:
-        curr_equipment = next(
-            (m for m in db.equipment if m.name == equipment.name), None
-        )
-        if curr_equipment is None:
-            changelog += f"{equipment.name} was deleted.\n"
-            changelog += str(equipment) + "\n"
-    for equipment in db.equipment:
-        prev_equipment = next(
-            (m for m in prev_db.equipment if m.name == equipment.name), None
-        )
-        if prev_equipment is None:
-            changelog += f"{equipment.name} was added.\n"
-            changelog += str(equipment) + "\n"
-        else:
-            is_diff, diff_str = equipment.diff(prev_equipment)
-            if is_diff:
-                changelog += f"{diff_str}\n"
-
-    for drone in prev_db.drones:
-        curr_drone = next((m for m in db.drones if m.name == drone.name), None)
-        if curr_drone is None:
-            changelog += f"{drone.name} was deleted.\n"
-            changelog += str(drone) + "\n"
-    for drone in db.drones:
-        prev_drone = next((m for m in prev_db.drones if m.name == drone.name), None)
-        if prev_drone is None:
-            changelog += f"{drone.name} was added.\n"
-            changelog += str(drone) + "\n"
-        else:
-            is_diff, diff_str = drone.diff(prev_drone)
-            if is_diff:
-                changelog += f"{diff_str}\n"
-
-    for maneuver in prev_db.maneuvers:
-        curr_maneuver = next((m for m in db.maneuvers if m.name == maneuver.name), None)
-        if curr_maneuver is None:
-            changelog += f"{maneuver.name} was deleted.\n"
-            changelog += str(maneuver) + "\n"
-    for maneuver in db.maneuvers:
-        prev_maneuver = next(
-            (m for m in prev_db.maneuvers if m.name == maneuver.name), None
-        )
-        if prev_maneuver is None:
-            changelog += f"{maneuver.name} was added.\n"
-            changelog += str(maneuver) + "\n"
-        else:
-            is_diff, diff_str = maneuver.diff(prev_maneuver)
-            if is_diff:
-                changelog += f"{diff_str}\n"
+    changelog += generate_changelog_text_for(db.mechs, prev_db.mechs)
+    changelog += generate_changelog_text_for(db.equipment, prev_db.equipment)
+    changelog += generate_changelog_text_for(db.drones, prev_db.drones)
+    changelog += generate_changelog_text_for(db.maneuvers, prev_db.maneuvers)
 
     if len(changelog) == 0:
         changelog = "No changes."
 
+    return changelog
+
+
+def generate_changelog_text_for(
+    current_list: list[T],
+    previous_list: list[T],
+) -> str:
+    changelog = ""
+    deleted_items = []
+    added_items = []
+    for item in previous_list:
+        current = next((x for x in current_list if x.name == item.name), None)
+        if current is None:
+            deleted_items.append(item)
+    for item in current_list:
+        prev_item = next((x for x in previous_list if x.name == item.name), None)
+        if prev_item is None:
+            added_items.append(item)
+        else:
+            is_diff, diff_str = item.diff(prev_item)
+            if is_diff:
+                changelog += f"{diff_str}\n"
+    for item in added_items:
+        similar_item = next((m for m in deleted_items if item.is_similar(m)), None)
+        if similar_item is None:
+            changelog += f"{item.name} was added.\n"
+            changelog += str(item) + "\n"
+        else:
+            deleted_items.remove(similar_item)
+            _, diff_str = similar_item.diff(item)
+            changelog += f"{diff_str}\n"
+    for item in deleted_items:
+        changelog += f"{item.name} was deleted.\n"
+        changelog += str(item) + "\n"
     return changelog
 
 

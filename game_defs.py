@@ -1,6 +1,7 @@
 from functools import reduce
 from typing import Optional, Self
 import re
+from thefuzz import fuzz
 
 
 class Equipment:
@@ -42,9 +43,39 @@ class Equipment:
         text += f"{self.text}"
         return text
 
+    def is_similar(self, other: Self) -> bool:
+        """
+        Determines likelihood that this was a rename
+        """
+        if self.name == other.name:
+            return True
+        diffs = 0
+        if self.size != other.size:
+            diffs += 1
+        if self.type != other.type:
+            diffs += 1
+        if self.system != other.system:
+            diffs += 1
+        if self.heat != other.heat:
+            diffs += 1
+        if self.ammo != other.ammo:
+            diffs += 1
+        if self.range != other.range:
+            diffs += 1
+        text_ratio = fuzz.ratio(self.text, other.text)
+        if text_ratio < 100:
+            if text_ratio > 70:
+                diffs += 1
+            else:
+                diffs += 2
+        return diffs <= 3
+
     def diff(self, other: Self) -> tuple[bool, str]:
         is_diff = False
-        diffs = f"{self.name}\n"
+        if self.name == other.name:
+            diffs = f"{self.name}\n"
+        else:
+            diffs = f"{self.name} -> {other.name}\n"
         if self.size != other.size:
             is_diff = True
             diffs += f"Size: {other.size} -> {self.size}\n"
@@ -102,9 +133,35 @@ class Mech:
         text += f"Ability: {self.ability}"
         return text
 
+    def is_similar(self, other: Self) -> bool:
+        """
+        Determines likelihood that this was a rename
+        """
+        if self.name == other.name:
+            return True
+        diffs = 0
+        if self.hp != other.hp:
+            diffs += 1
+        if self.armor != other.armor:
+            diffs += 1
+        if self.hc != other.hc:
+            diffs += 1
+        if self.hardpoints_str != other.hardpoints_str:
+            diffs += 1
+        text_ratio = fuzz.ratio(self.ability, other.ability)
+        if text_ratio < 100:
+            if text_ratio > 70:
+                diffs += 1
+            else:
+                diffs += 2
+        return diffs <= 3
+
     def diff(self, other: Self) -> tuple[bool, str]:
         is_diff = False
-        diffs = f"{self.name}\n"
+        if self.name == other.name:
+            diffs = f"{self.name}\n"
+        else:
+            diffs = f"{self.name} -> {other.name}\n"
         if self.hp != other.hp:
             is_diff = True
             diffs += f"HP: {other.hp} -> {self.hp}\n"
@@ -139,9 +196,21 @@ class Drone:
         text += f"Ability: {self.ability}"
         return text
 
+    def is_similar(self, other: Self) -> bool:
+        """
+        Determines likelihood that this was a rename
+        """
+        if self.name == other.name:
+            return True
+        text_ratio = fuzz.ratio(self.ability, other.ability)
+        return text_ratio > 80
+
     def diff(self, other: Self) -> tuple[bool, str]:
         is_diff = False
-        diffs = f"{self.name}\n"
+        if self.name == other.name:
+            diffs = f"{self.name}\n"
+        else:
+            diffs = f"{self.name} -> {other.name}\n"
         if self.ability != other.ability:
             is_diff = True
             diffs += f"{other.ability}|->\n{self.ability}"
@@ -163,9 +232,21 @@ class Maneuver:
         text = self.name + "\n" + self.text
         return text
 
+    def is_similar(self, other: Self) -> bool:
+        """
+        Determines likelihood that this was a rename
+        """
+        if self.name == other.name:
+            return True
+        text_ratio = fuzz.ratio(self.text, other.text)
+        return text_ratio > 80
+
     def diff(self, other: Self) -> tuple[bool, str]:
         is_diff = False
-        diffs = f"{self.name}\n"
+        if self.name == other.name:
+            diffs = f"{self.name}\n"
+        else:
+            diffs = f"{self.name} -> {other.name}\n"
         if self.text != other.text:
             is_diff = True
             diffs += f"{other.text}|->\n{self.text}"
