@@ -617,7 +617,7 @@ Ballistic Missile:
   tags:
     - AOE
 
-"Cyberwarfare: OVERCOOK":
+"Cyberwarfare: MELTDOWN":
   size: Small
   type: Electronics
   system: System
@@ -639,18 +639,9 @@ Ballistic Missile:
   type: Electronics
   system: System
   range: 3
-  heat: 3
-  text: |
-    Choose one of the target's equipment with ammo. Decrease its ammo by 1 and deal 1 damage.
-
-"Cyberwarfare: SAP":
-  size: Small
-  type: Electronics
-  system: System
-  range: 3
   heat: 2
   text: |
-    Choose one of the target's equipment with Charge. Set its Charge to 0.
+    Choose one of the target's equipment with Ammo or Charge, then decrease it by 1 and deal 1 damage.
 
 "Cyberwarfare: EPIDEMIC":
   size: Small
@@ -726,25 +717,23 @@ Siege Support Protocol:
   text: |
     Trigger: After this mech activates Weapons with Range 3 as an Action, you may choose another mech in the vanguard and activate a Small Weapon on that mech.
 
-IR Targeting Unit:
+Targeting Computer:
+  size: Small
+  type: Electronics
+  system: System
+  range: 1
+  heat: 1
+  text: |
+    Trigger: At the start of the round, you may activate this to inflict 2 Vulnerable.
+
+Leading Crosshairs:
   size: Small
   type: Electronics
   system: System
   range: 3
   heat: 1
   text: |
-    Inflict 1 Vulnerable.
-    Trigger: After an enemy mech has changed position, you may activate this system, targeting that mech.
-
-Targeting Computer:
-  size: Small
-  type: Electronics
-  system: System
-  range: 2
-  heat: 1
-  text: |
-    Inflict 1 Vulnerable.
-    Trigger: You may activate this system at the start of the round.
+    Trigger: After an enemy mech has changed position, you may activate this to inflict 1 Vulnerable on that mech.
 
 Field Modulator:
   size: Medium

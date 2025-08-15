@@ -297,13 +297,12 @@ Powder Keg:
 
 Davy Jones:
   faction: Pirate
-  hp: 10
-  armor: 1
-  hc: 8
+  hp: 12
+  armor: 0
+  hc: 9
   hardpoints:
   - Large
   - Large
-  - Medium
-  - Medium
+  - Large
   ability: |
-    Trigger: Whenever this mech takes damage, the owner must choose one equipment on this mech to Disable.
+    Passive: When this mech takes damage, choose 1 Equipment on this mech and Disable it.
