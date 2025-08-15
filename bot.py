@@ -46,7 +46,7 @@ async def on_message(message: discord.Message):
     if bot.user is not None and message.author.id == bot.user.id:
         return
 
-    query_groups = re.findall(r"\[\[([\w\- ]+)\]\]", message.content)
+    query_groups = re.findall(r"\[\[([\w\- :]+)\]\]", message.content)
     if len(query_groups) > 0:
         await message.reply(build_query_response(query_groups))
 
