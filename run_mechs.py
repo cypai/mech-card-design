@@ -24,7 +24,7 @@ def generate_card(mech: Mech):
         draw_border(draw_ctx)
         draw_ctx.font = "fonts/HackNerdFont-Regular.ttf"
         draw_name(draw_ctx, mech)
-        draw_stats(draw_ctx, icons, mech)
+        draw_stats(draw_ctx, mech)
         draw_ability(draw_ctx, mech)
         draw_heat(draw_ctx, mech)
         draw_hp(draw_ctx, mech)
@@ -113,7 +113,7 @@ def draw_heat(draw_ctx: Drawing, mech: Mech):
     draw_ctx.pop()
 
 
-def draw_stats(draw_ctx: Drawing, icons: Icons, mech: Mech):
+def draw_stats(draw_ctx: Drawing, mech: Mech):
     margin = int(TRACKER_SIZE * 1.2)
     draw_ctx.push()
     draw_ctx.font_size = LARGE_FONT_SIZE
@@ -121,17 +121,18 @@ def draw_stats(draw_ctx: Drawing, icons: Icons, mech: Mech):
     draw_ctx.push()
     draw_ctx.text_alignment = "left"
     draw_ctx.text(margin, int(LARGE_FONT_SIZE * 3), f"HP:{mech.hp}")
-    if mech.armor > 0:
-        draw_ctx.text(margin, int(LARGE_FONT_SIZE * 4.5), f"Armor:")
-        for a in range(mech.armor):
-            draw_ctx.composite(
-                operator="overlay",
-                left=int(CARD_WIDTH * 0.47 + a * icons.armor.width * 1.4),
-                top=int(LARGE_FONT_SIZE * 4.5 - icons.armor.height * 0.9),
-                width=icons.armor.width,
-                height=icons.armor.height,
-                image=icons.armor,
-            )
+    draw_ctx.text(margin, int(LARGE_FONT_SIZE * 4.5), f"Armor:{mech.armor}")
+    # This draws armor pips, commented out for now
+    # if mech.armor > 0:
+    #     for a in range(mech.armor):
+    #         draw_ctx.composite(
+    #             operator="overlay",
+    #             left=int(CARD_WIDTH * 0.47 + a * icons.armor.width * 1.4),
+    #             top=int(LARGE_FONT_SIZE * 4.5 - icons.armor.height * 0.9),
+    #             width=icons.armor.width,
+    #             height=icons.armor.height,
+    #             image=icons.armor,
+    #         )
     draw_ctx.pop()
     if len(mech.hardpoints_str) > 0:
         draw_ctx.push()
