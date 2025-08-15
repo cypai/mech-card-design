@@ -39,6 +39,7 @@ def parse_mechs(mechs) -> Mech:
         hc=data.get("hc"),
         hardpoints=data.get("hardpoints", []),
         ability=data.get("ability"),
+        tags=data.get("tags", []),
     )
 
 
@@ -283,6 +284,15 @@ def get_filtered_mechs(filters: list[str]):
                 elif op == ">" and mech.hp and mech.hp > hp:
                     ok += 1
                 elif op == "<" and mech.hp and mech.hp < hp:
+                    ok += 1
+            elif f.startswith("Armor"):
+                op = f[5]
+                armor = int(f[6:])
+                if op == "=" and mech.armor == armor:
+                    ok += 1
+                elif op == ">" and mech.armor and mech.armor > armor:
+                    ok += 1
+                elif op == "<" and mech.armor and mech.armor < armor:
                     ok += 1
         if ok == len(filters):
             matching_mechs.append(mech)

@@ -7,16 +7,8 @@ from wand.color import Color
 
 from game_defs import *
 from game_data import *
+from card_data import *
 from lib import *
-
-# At 300 DPI
-CARD_WIDTH = 750
-CARD_HEIGHT = 1050
-
-LARGE_FONT_SIZE = int(CARD_HEIGHT / 17.5)
-TRACKER_FONT_SIZE = int(CARD_HEIGHT / 20)
-SMALL_FONT_SIZE = int(CARD_HEIGHT / 28)
-TRACKER_SIZE = int(CARD_HEIGHT / 10)
 
 
 def generate_all():
@@ -26,14 +18,18 @@ def generate_all():
 
 
 def generate_card(mech: Mech):
-    with Image(width=CARD_WIDTH, height=CARD_HEIGHT) as img, Drawing() as draw_ctx:
+    with Image(
+        width=CARD_WIDTH, height=CARD_HEIGHT
+    ) as img, Icons() as icons, Drawing() as draw_ctx:
         draw_border(draw_ctx)
         draw_ctx.font = "fonts/HackNerdFont-Regular.ttf"
         draw_name(draw_ctx, mech)
-        draw_stats(draw_ctx, mech)
+        draw_stats(draw_ctx, icons, mech)
         draw_ability(draw_ctx, mech)
         draw_heat(draw_ctx, mech)
         draw_hp(draw_ctx, mech)
+        if "card_rotation_icon" in mech.tags:
+            draw_card_rotation_icon(draw_ctx, icons)
         draw_ctx.draw(img)
         img.save(filename=f"outputs/mechs/{mech.normalized_name}.png")
 
@@ -117,7 +113,7 @@ def draw_heat(draw_ctx: Drawing, mech: Mech):
     draw_ctx.pop()
 
 
-def draw_stats(draw_ctx: Drawing, mech: Mech):
+def draw_stats(draw_ctx: Drawing, icons: Icons, mech: Mech):
     margin = int(TRACKER_SIZE * 1.2)
     draw_ctx.push()
     draw_ctx.font_size = LARGE_FONT_SIZE
@@ -125,7 +121,17 @@ def draw_stats(draw_ctx: Drawing, mech: Mech):
     draw_ctx.push()
     draw_ctx.text_alignment = "left"
     draw_ctx.text(margin, int(LARGE_FONT_SIZE * 3), f"HP:{mech.hp}")
-    draw_ctx.text(margin, int(LARGE_FONT_SIZE * 4.5), f"Armor:{mech.armor}")
+    if mech.armor > 0:
+        draw_ctx.text(margin, int(LARGE_FONT_SIZE * 4.5), f"Armor:")
+        for a in range(mech.armor):
+            draw_ctx.composite(
+                operator="overlay",
+                left=int(CARD_WIDTH * 0.47 + a * icons.armor.width * 1.4),
+                top=int(LARGE_FONT_SIZE * 4.5 - icons.armor.height * 0.9),
+                width=icons.armor.width,
+                height=icons.armor.height,
+                image=icons.armor,
+            )
     draw_ctx.pop()
     if len(mech.hardpoints_str) > 0:
         draw_ctx.push()
@@ -149,6 +155,20 @@ def draw_ability(draw_ctx: Drawing, mech: Mech):
     draw_ctx.text_alignment = "left"
     wrapped_text = wrap_text(draw_ctx, mech.ability, CARD_WIDTH - 2 * margin)
     draw_ctx.text(margin, int(CARD_HEIGHT * 0.5), wrapped_text)
+    draw_ctx.pop()
+
+
+def draw_card_rotation_icon(draw_ctx: Drawing, icons: Icons):
+    icon = icons.card_rotation
+    draw_ctx.push()
+    draw_ctx.composite(
+        operator="overlay",
+        left=int(CARD_WIDTH / 2 - icon.width / 2),
+        top=int(CARD_HEIGHT - icon.height * 1.1),
+        width=icon.width,
+        height=icon.height,
+        image=icon,
+    )
     draw_ctx.pop()
 
 

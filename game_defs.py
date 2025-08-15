@@ -109,6 +109,7 @@ class Mech:
     hardpoints: list[str]
     hardpoints_str: str
     ability: str
+    tags: list[str]
 
     def __init__(self, **kwargs):
         self.name = str(kwargs.get("name"))
@@ -120,6 +121,7 @@ class Mech:
         self.hardpoints_str = reduce(lambda x, y: x + y[0] + " ", self.hardpoints, "")
         self.hardpoints_str = self.hardpoints_str[:-1]
         self.ability = str(kwargs.get("ability"))
+        self.tags = kwargs.get("tags", [])
 
         self.normalized_name = re.sub(r"\W", "", self.name)
         self.normalized_name = self.normalized_name.lower()

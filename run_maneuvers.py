@@ -7,15 +7,8 @@ from wand.color import Color
 
 from game_defs import *
 from game_data import *
+from card_data import *
 from lib import *
-
-# At 300 DPI
-CARD_WIDTH = 750
-CARD_HEIGHT = 1050
-
-LARGE_FONT_SIZE = int(CARD_HEIGHT / 17.5)
-SMALL_FONT_SIZE = int(CARD_HEIGHT / 28)
-TRACKER_SIZE = int(CARD_HEIGHT / 10)
 
 
 def generate_all():

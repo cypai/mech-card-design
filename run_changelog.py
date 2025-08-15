@@ -2,7 +2,7 @@
 
 import argparse
 import shutil
-from typing import TypeVar, Union
+from typing import TypeVar
 
 from game_defs import *
 from game_data import *
