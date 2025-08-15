@@ -581,6 +581,7 @@ Harpoons and Tow Cables:
   text: |
     Choose any mech. Move that mech to another position (ending position must be in Range).
     If moving allied mechs, Range does not apply.
+    If moving enemy mechs, inflict 1 Vulnerable.
 
 Dragonfire RPG:
   size: Small
