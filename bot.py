@@ -218,8 +218,49 @@ async def reply(
 
 @bot.tree.command()
 async def stats(interaction: discord.Interaction):
-    message = f"```\n{equipment_stats()}```"
-    await interaction.response.send_message(message)
+    message = equipment_stats()
+    await reply(interaction, message, "Stats too long. txt file attached.", "stats.txt")
+
+
+@bot.tree.command()
+async def watchlist(interaction: discord.Interaction):
+    strong = db.get_filtered_equipment(["Strong-Watchlist"])
+    weak = db.get_filtered_equipment(["Weak-Watchlist"])
+    message = "Strong Watchlist\n"
+    message += "----------------\n"
+    for item in strong:
+        message += f"{item}\n"
+    message += "\nWeak Watchlist\n"
+    message += "--------------\n"
+    for item in weak:
+        message += f"{item}\n"
+    await reply(
+        interaction, message, "Watchlist too long. txt file attached.", "watchlist.txt"
+    )
+
+
+@bot.command()
+async def strong(ctx: commands.Context):
+    strong = db.get_filtered_equipment(["Strong-Watchlist"])
+    message = "Strong Watchlist\n"
+    message += "----------------\n"
+    for item in strong:
+        message += f"{item}\n"
+    await reply(
+        ctx, message, "Watchlist too long. txt file attached.", "strong_watchlist.txt"
+    )
+
+
+@bot.command()
+async def weak(ctx: commands.Context):
+    weak = db.get_filtered_equipment(["Weak-Watchlist"])
+    message = "Weak Watchlist\n"
+    message += "--------------\n"
+    for item in weak:
+        message += f"{item}\n"
+    await reply(
+        ctx, message, "Watchlist too long. txt file attached.", "weak_watchlist.txt"
+    )
 
 
 if args.sync:
