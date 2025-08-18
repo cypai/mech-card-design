@@ -2,6 +2,7 @@
 
 import argparse
 import shutil
+import os
 from typing import TypeVar
 
 from game_defs import *
@@ -109,6 +110,32 @@ def copy_current():
     shutil.copyfile("./data/maneuvers.yml", "./changelog/previous_maneuvers.yml")
 
 
+def create_montage_directory():
+    os.makedirs("./outputs/changed/", exist_ok=True)
+    mech_changelog = generate_changelog_for(db.mechs, prev_db.mechs)
+    equipment_changelog = generate_changelog_for(db.equipment, prev_db.equipment)
+    drone_changelog = generate_changelog_for(db.drones, prev_db.drones)
+    maneuver_changelog = generate_changelog_for(db.maneuvers, prev_db.maneuvers)
+    for changelog in [
+        mech_changelog,
+        equipment_changelog,
+        drone_changelog,
+        maneuver_changelog,
+    ]:
+        for item in changelog.added:
+            shutil.copyfile(
+                item.filename, f"./outputs/changed/{item.normalized_name}.png"
+            )
+        for item in changelog.renamed:
+            shutil.copyfile(
+                item.filename, f"./outputs/changed/{item.normalized_name}.png"
+            )
+        for item in changelog.changed:
+            shutil.copyfile(
+                item.filename, f"./outputs/changed/{item.normalized_name}.png"
+            )
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("action")
@@ -117,10 +144,16 @@ def main():
     if args.action == "init":
         copy_current()
     elif args.action == "sync":
+        if not args.message:
+            print("sync -m message is required.")
+            return
         append_to_changelog(args.message)
         copy_current()
     elif args.action == "preview":
         print(generate_changelog_text())
+    elif args.action == "montage":
+        print("Copying changed cards into changed directory")
+        create_montage_directory()
 
 
 if __name__ == "__main__":

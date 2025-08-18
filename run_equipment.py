@@ -51,7 +51,7 @@ def generate_card(icons: Icons, equipment: Equipment):
         draw_card_type(draw_ctx, equipment)
         draw_card_text(draw_ctx, equipment)
         draw_ctx.draw(img)
-        img.save(filename=f"outputs/equipment/{equipment.normalized_name}.png")
+        img.save(filename=equipment.filename)
 
 
 def draw_border(draw_ctx: Drawing):

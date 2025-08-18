@@ -6,7 +6,6 @@ from thefuzz import fuzz
 
 class Equipment:
     name: str
-    normalized_name: str
     size: str
     type: str
     heat: Optional[int]
@@ -28,6 +27,7 @@ class Equipment:
 
         self.normalized_name = re.sub(r"\W", "", self.name)
         self.normalized_name = self.normalized_name.lower()
+        self.filename = f"outputs/equipment/{self.normalized_name}.png"
 
     def __str__(self):
         text = self.name + "\n"
@@ -125,6 +125,7 @@ class Mech:
 
         self.normalized_name = re.sub(r"\W", "", self.name)
         self.normalized_name = self.normalized_name.lower()
+        self.filename = f"outputs/mechs/{self.normalized_name}.png"
 
     def __str__(self):
         text = self.name + "\n"
@@ -192,6 +193,7 @@ class Drone:
 
         self.normalized_name = re.sub(r"\W", "", self.name)
         self.normalized_name = self.normalized_name.lower()
+        self.filename = f"outputs/drones/{self.normalized_name}.png"
 
     def __str__(self):
         text = self.name + "\n"
@@ -229,6 +231,7 @@ class Maneuver:
 
         self.normalized_name = re.sub(r"\W", "", self.name)
         self.normalized_name = self.normalized_name.lower()
+        self.filename = f"outputs/maneuvers/{self.normalized_name}.png"
 
     def __str__(self):
         text = self.name + "\n" + self.text

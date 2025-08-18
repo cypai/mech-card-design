@@ -1,5 +1,16 @@
 #!/usr/bin/env bash
 
+mkdir -p outputs/equipment
+mkdir -p outputs/equipment_montages
+mkdir -p outputs/mechs
+mkdir -p outputs/mechs_montages
+mkdir -p outputs/drones
+mkdir -p outputs/drones_montages
+mkdir -p outputs/maneuvers
+mkdir -p outputs/maneuvers_montages
+mkdir -p outputs/changed
+mkdir -p outputs/changed_montages
+
 for i in "$@"; do
   if [ "$i" == "all" ]; then
     ./clear_outputs.sh mechs equipment drones maneuvers
@@ -28,5 +39,10 @@ for i in "$@"; do
     ./clear_outputs.sh maneuvers
     ./run_maneuvers.py generate
     ./make_pdf.sh maneuvers
+  fi
+  if [ "$i" == "changed" ]; then
+    ./clear_outputs.sh changed
+    ./run_changelog.py montage
+    ./make_pdf.sh changed
   fi
 done

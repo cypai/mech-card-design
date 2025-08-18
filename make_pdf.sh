@@ -23,4 +23,9 @@ for i in "$@"; do
     montage outputs/maneuvers/*.png -tile 3x3 -geometry 750x1050 -background white -density 300 outputs/maneuvers_montages/output.png
     magick outputs/maneuvers_montages/*.png -gravity Center maneuvers.pdf
   fi
+  if [ "$i" == "changed" ]; then
+    echo "Generating changed PDF"
+    montage outputs/changed/*.png -tile 3x3 -geometry 750x1050 -background white -density 300 outputs/changed_montages/output.png
+    magick outputs/changed_montages/*.png -gravity Center changed.pdf
+  fi
 done

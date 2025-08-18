@@ -24,7 +24,7 @@ def generate_card(drone: Drone):
         draw_name(draw_ctx, drone)
         draw_ability(draw_ctx, drone)
         draw_ctx.draw(img)
-        img.save(filename=f"outputs/drones/{drone.normalized_name}.png")
+        img.save(filename=drone.filename)
 
 
 def draw_border(draw_ctx: Drawing):

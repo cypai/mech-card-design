@@ -31,7 +31,7 @@ def generate_card(mech: Mech):
         if "card_rotation_icon" in mech.tags:
             draw_card_rotation_icon(draw_ctx, icons)
         draw_ctx.draw(img)
-        img.save(filename=f"outputs/mechs/{mech.normalized_name}.png")
+        img.save(filename=mech.filename)
 
 
 def draw_border(draw_ctx: Drawing):

@@ -24,7 +24,7 @@ def generate_card(maneuver: Maneuver):
         draw_name(draw_ctx, maneuver)
         draw_ability(draw_ctx, maneuver)
         draw_ctx.draw(img)
-        img.save(filename=f"outputs/maneuvers/{maneuver.normalized_name}.png")
+        img.save(filename=maneuver.filename)
 
 
 def draw_border(draw_ctx: Drawing):
