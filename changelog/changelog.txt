@@ -1,3 +1,103 @@
+pre-8/17 playtest changes
+-------------------------
+
+Yurlungur
+HP: 12 -> 11
+
+Anansi
+Passive: Heat Cost -1 (min 1 Heat Cost) for all equipped Electronic Systems.
+|->
+Passive: The first time each turn this mech inflicts damage, additionally inflict 1 Overheat.
+
+Hellstorm
+Hardpoints: M M S -> L M S
+
+Pegasus
+Trigger: You may reposition this mech for 0 Heat Cost after acting.
+|->
+Trigger: This mech may Advance or Fall Back after acting.
+
+Powder Keg
+Action: 1/battle, Prepare: Self-destruct.
+Passive: If this mech is destroyed while in the vanguard, immediately deal 3 AP damage to the enemy vanguard. This ability cannot win the game.
+|->
+Action: Prepare: Self-destruct.
+Passive: If this mech is destroyed while in the vanguard, immediately deal 3 AP damage to the enemy vanguard. This ability cannot win the game.
+
+Davy Jones
+HP: 10 -> 12
+Armor: 0 -> 1
+Heat Capacity: 8 -> 9
+Hardpoints: L L M M -> L L L
+Trigger: Whenever this mech takes damage, the owner must choose one equipment on this mech to Disable.
+|->
+Passive: When this mech takes damage, choose 1 Equipment on this mech and Disable it.
+
+Yoshitsune -> Amaterasu
+
+Hephaestus -> Centurion
+
+Gangplank -> Monte Carlo
+
+Combat Drone Launcher
+Range: None -> 1
+
+Combat Drone Hangar
+Range: None -> 1
+
+Harpoons and Tow Cables
+Choose any mech. Move that mech to another position (ending position must be in Range).
+If moving allied mechs, Range does not apply.
+|->
+Choose any mech. Move that mech to another position (ending position must be in Range).
+If moving allied mechs, Range does not apply.
+If moving enemy mechs, inflict 1 Vulnerable.
+
+Ballistic Missile
+Place a Prepare Token at an enemy position. Prepare: Deal 3 AP damage to that position.
+|->
+Choose an enemy position. Prepare: Deal 3 AP damage to enemy mechs at that position.
+
+Cyberwarfare: COOKOFF
+Heat: 3 -> 2
+Choose one of the target's equipment with ammo. Decrease its ammo by 1 and deal 1 damage.
+|->
+Choose one of the target's equipment with Ammo or Charge, then decrease it by 1 and deal 1 damage.
+
+Targeting Computer
+Range: 2 -> 1
+Inflict 1 Vulnerable.
+Trigger: You may activate this system at the start of the round.
+|->
+Trigger: At the start of the round, you may activate this to inflict 2 Vulnerable.
+
+Cyberwarfare: OVERCOOK -> Cyberwarfare: MELTDOWN
+
+IR Targeting Unit -> Leading Crosshairs
+Inflict 1 Vulnerable.
+Trigger: After an enemy mech has changed position, you may activate this system, targeting that mech.
+|->
+Trigger: After an enemy mech has changed position, you may activate this to inflict 1 Vulnerable on that mech.
+
+Cyberwarfare: SAP was deleted.
+Cyberwarfare: SAP
+Small Electronics System
+Range: 3
+Heat: 2
+Choose one of the target's equipment with Charge. Set its Charge to 0.
+
+Coordinated Maneuvers
+Action: Draw a card. Reposition all allied mechs for 0 Heat, then immediately take an Action at -1 Heat Cost.
+|->
+Action: Draw a card. Reposition all allied mechs for 0 Heat, then you may activate any equipment.
+
+Unstoppable Force
+Action: Draw a card. Choose an enemy position and remove all Shield on enemy mechs there.
+|->
+Action: Draw a card. Choose an enemy position and remove all Shield on enemy mechs there, then you may activate a Weapon.
+
+
+
 8/7 pre-playtest
 ----------------
 

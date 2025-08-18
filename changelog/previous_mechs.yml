@@ -25,7 +25,7 @@ Guanyin:
 
 Yurlungur:
   faction: Midline
-  hp: 12
+  hp: 11
   armor: 1
   hc: 7
   hardpoints:
@@ -46,7 +46,7 @@ Anansi:
   - Small
   - Small
   ability: |
-    Passive: Heat Cost -1 (min 1 Heat Cost) for all equipped Electronic Systems.
+    Passive: The first time each turn this mech inflicts damage, additionally inflict 1 Overheat.
 
 Tzitzimitl:
   faction: Midline
@@ -60,7 +60,7 @@ Tzitzimitl:
   ability: |
     Passive: Reduce damage taken by 1. At the start of the round, all allied mechs in the same position gain 1 Shield.
 
-Yoshitsune:
+Amaterasu:
   faction: Midline
   hp: 10
   armor: 0
@@ -99,6 +99,8 @@ Inevitable:
     Passive: Weapons mounted on this mech matching Large, Ballistic, or Range 3, deal +1 damage.
     If the Weapon matches all attributes, -1 Heat Cost.
     While in the vanguard, this mech cannot evade.
+  tags:
+  - card_rotation_icon
 
 Wolfblade:
   faction: Low Tech
@@ -119,7 +121,7 @@ Hellstorm:
   armor: 1
   hc: 7
   hardpoints:
-  - Medium
+  - Large
   - Medium
   - Small
   ability: |
@@ -137,7 +139,7 @@ Mahout:
   ability: |
     Passive: Whenever this mech deals at least 3 damage (including to Shields), additionally inflict 1 Vulnerable.
 
-Hephaestus:
+Centurion:
   faction: Low Tech
   hp: 8
   armor: 3
@@ -174,7 +176,7 @@ Pegasus:
   - Small
   - Small
   ability: |
-    Trigger: You may reposition this mech for 0 Heat Cost after acting.
+    Trigger: This mech may Advance or Fall Back after acting.
 
 Cygnus:
   faction: High Tech
@@ -214,6 +216,8 @@ Sagittarius:
     Passive: Weapons mounted on this mech matching Large, Energy, or Range 3, deal +1 damage.
     If the Weapon matches all attributes, -1 Heat Cost.
     While in the vanguard, this mech cannot evade.
+  tags:
+  - card_rotation_icon
 
 Taurus:
   faction: High Tech
@@ -241,7 +245,7 @@ Cockroach:
   ability: |
     Trigger: 1/round, when HP is reduced to 0, restore HP by 1 and Disable all equipment except 1.
 
-Gangplank:
+Monte Carlo:
   faction: Pirate
   hp: 10
   armor: 0
@@ -288,18 +292,17 @@ Powder Keg:
   - Medium
   - Small
   ability: |
-    Action: 1/battle, Prepare: Self-destruct.
+    Action: Prepare: Self-destruct.
     Passive: If this mech is destroyed while in the vanguard, immediately deal 3 AP damage to the enemy vanguard. This ability cannot win the game.
 
 Davy Jones:
   faction: Pirate
-  hp: 10
-  armor: 0
-  hc: 8
+  hp: 12
+  armor: 1
+  hc: 9
   hardpoints:
   - Large
   - Large
-  - Medium
-  - Medium
+  - Large
   ability: |
-    Trigger: Whenever this mech takes damage, the owner must choose one equipment on this mech to Disable.
+    Passive: When this mech takes damage, choose 1 Equipment on this mech and Disable it.
