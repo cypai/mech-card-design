@@ -67,6 +67,8 @@ Gauss Carbine:
   heat: 2
   text: |
     Deal 2 damage. Overwatch: Deal 1 damage.
+  tags:
+    - Strong-Watchlist
 
 Gauss Strike Rifle:
   size: Medium
@@ -197,6 +199,7 @@ Hellbore AMR:
     Deal 4 AP damage. If targeting a mech in the vanguard, you may additionally target a mech in the rear guard, dealing 1 damage.
   tags:
     - AOE
+    - Strong-Watchlist
 
 Targeting Laser:
   size: Small
@@ -285,9 +288,7 @@ Repulsor Array:
   range: 1
   heat: 3
   text: |
-    Deal 2 damage. Choose:
-    > Move the target to the rear guard.
-    > Fall Back for 0 Heat Cost.
+    Deal 2 damage. You may move the target to the rear guard. You may Fall Back for 0 Heat Cost.
 
 Magnetic Harpoon:
   size: Medium
@@ -400,9 +401,10 @@ Gigapulse Laser:
     > Charge.
     > Deal 3 damage [Charge] times. Discharge.
     Rear guard activation: Charge 2.
-    Max 4 Charge.
+    Max 3 Charge.
   tags:
     - AOE
+    - Strong-Watchlist
 
 Power Blade:
   size: Medium
@@ -545,6 +547,7 @@ Jammer Drone Launcher:
   size: Small
   type: Drone
   system: System
+  range: 1
   heat: 2
   ammo: 2
   text: |
@@ -661,7 +664,9 @@ Ballistic Missile:
   range: 3
   heat: 4
   text: |
-    If the target is not at maximum Heat Capacity, Disable one of the target's equipment.
+    If the target is not at 0 Heat, Disable one of the target's equipment.
+  tags:
+    - Weak-Watchlist
 
 Spatial Anchor:
   size: Small
@@ -678,14 +683,6 @@ Interception Protocol:
   heat: 3
   text: |
     Trigger: 1/round, redirect the target of any enemy equipment to this mech if in valid range.
-
-Probability Manipulator:
-  size: Medium
-  type: Electronics
-  system: System
-  heat: 4
-  text: |
-    1/battle: Reduce your Evade Counter by 1 (min 0).
 
 Early Warning System:
   size: Medium
