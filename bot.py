@@ -5,6 +5,7 @@ import argparse
 import textwrap
 import logging
 import re
+import io
 import discord
 from discord import app_commands
 from discord.ext import commands
@@ -124,11 +125,16 @@ async def scan_equipment(interaction: discord.Interaction, filter_str: str):
         )
         return
     results = get_filtered_equipment([filter_str])
-    message = "```\n"
+    message = ""
     for equipment in results:
         message += f"{equipment}\n"
-    message += f"Found {len(results)} matches.```"
-    await interaction.response.send_message(message)
+    message += f"Found {len(results)} matches."
+    await reply(
+        interaction,
+        message,
+        "Result set too large. txt file attached.",
+        "equipment.txt",
+    )
 
 
 @bot.tree.command(name="mechs")
@@ -141,36 +147,73 @@ async def scan_mechs(interaction: discord.Interaction, filter_str: str):
         )
         return
     results = get_filtered_mechs([filter_str])
-    message = "```\n"
+    message = ""
     for mech in results:
         message += f"{mech}\n"
-    message += f"Found {len(results)} matches.```"
-    await interaction.response.send_message(message)
+    message += f"Found {len(results)} matches."
+    await reply(
+        interaction,
+        message,
+        "Result set too large. txt file attached.",
+        "mechs.txt",
+    )
 
 
 @bot.tree.command()
 async def drones(interaction: discord.Interaction):
     results = db.drones
-    message = "```\n"
+    message = ""
     for drone in results:
         message += f"{drone}\n"
-    message += f"Found {len(results)} matches.```"
-    await interaction.response.send_message(message)
+    message += f"Found {len(results)} matches."
+    await reply(
+        interaction,
+        message,
+        "Result set too large. txt file attached.",
+        "drones.txt",
+    )
 
 
 @bot.tree.command()
 async def maneuvers(interaction: discord.Interaction):
     results = db.maneuvers
-    message = "```\n"
+    message = ""
     for maneuver in results:
         message += f"{maneuver}\n"
-    message += f"Found {len(results)} matches.```"
-    await interaction.response.send_message(message)
+    message += f"Found {len(results)} matches."
+    await reply(
+        interaction,
+        message,
+        "Result set too large. txt file attached.",
+        "maneuvers.txt",
+    )
 
 
 @bot.command()
 async def changelog(ctx: commands.Context):
-    await ctx.reply(f"```\n{generate_changelog_text()}```")
+    message = generate_changelog_text()
+    await reply(ctx, message, "Changelog too long. txt file attached.", "changelog.txt")
+
+
+async def reply(
+    api: Union[commands.Context, discord.Interaction],
+    message: str,
+    fallback_msg: str,
+    fallback_filename: str,
+):
+    discord_file = discord.File(
+        io.BytesIO(message.encode("utf-8")), filename=fallback_filename
+    )
+    if isinstance(api, commands.Context):
+        if len(message) >= 2000:
+            await api.reply(fallback_msg, file=discord_file)
+        else:
+            await api.reply(f"```\n{message}```")
+    elif isinstance(api, discord.Interaction):
+        if len(message) >= 2000:
+            await api.response.send_message(fallback_msg, file=discord_file)
+        else:
+            await api.response.send_message(message)
 
 
 @bot.tree.command()
