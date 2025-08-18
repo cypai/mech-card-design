@@ -14,26 +14,51 @@ prev_db = GameDatabase(changelog=True)
 T = TypeVar("T", Mech, Drone, Equipment, Maneuver)
 
 
+class Changelog:
+    def __init__(
+        self,
+        added: list[T],
+        deleted: list[T],
+        renamed: list[T],
+        changed: list[T],
+        text: str,
+    ):
+        self.added = added
+        self.deleted = deleted
+        self.renamed = renamed
+        self.changed = changed
+        self.text = text
+
+
 def generate_changelog_text() -> str:
-    changelog = ""
-    changelog += generate_changelog_text_for(db.mechs, prev_db.mechs)
-    changelog += generate_changelog_text_for(db.equipment, prev_db.equipment)
-    changelog += generate_changelog_text_for(db.drones, prev_db.drones)
-    changelog += generate_changelog_text_for(db.maneuvers, prev_db.maneuvers)
+    mech_changelog = generate_changelog_for(db.mechs, prev_db.mechs)
+    equipment_changelog = generate_changelog_for(db.equipment, prev_db.equipment)
+    drone_changelog = generate_changelog_for(db.drones, prev_db.drones)
+    maneuver_changelog = generate_changelog_for(db.maneuvers, prev_db.maneuvers)
+    text_changelog = (
+        mech_changelog.text
+        + equipment_changelog.text
+        + drone_changelog.text
+        + maneuver_changelog.text
+    )
 
-    if len(changelog) == 0:
-        changelog = "No changes."
+    if len(text_changelog) == 0:
+        text_changelog = "No changes."
 
-    return changelog
+    return text_changelog
 
 
-def generate_changelog_text_for(
+def generate_changelog_for(
     current_list: list[T],
     previous_list: list[T],
-) -> str:
+) -> Changelog:
     changelog = ""
     deleted_items = []
     added_items = []
+    actually_added = []
+    actually_deleted = []
+    renamed = []
+    changed = []
     for item in previous_list:
         current = next((x for x in current_list if x.name == item.name), None)
         if current is None:
@@ -46,19 +71,23 @@ def generate_changelog_text_for(
             is_diff, diff_str = item.diff(prev_item)
             if is_diff:
                 changelog += f"{diff_str}\n"
+                changed.append(item)
     for item in added_items:
         similar_item = next((m for m in deleted_items if item.is_similar(m)), None)
         if similar_item is None:
             changelog += f"{item.name} was added.\n"
             changelog += str(item) + "\n"
+            actually_added.append(item)
         else:
             deleted_items.remove(similar_item)
-            _, diff_str = similar_item.diff(item)
+            _, diff_str = item.diff(similar_item)
             changelog += f"{diff_str}\n"
+            renamed.append(item)
     for item in deleted_items:
         changelog += f"{item.name} was deleted.\n"
         changelog += str(item) + "\n"
-    return changelog
+        actually_deleted.append(item)
+    return Changelog(actually_added, actually_deleted, renamed, changed, changelog)
 
 
 def append_to_changelog(message):

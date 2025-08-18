@@ -62,20 +62,20 @@ class Equipment:
             diffs += 1
         if self.range != other.range:
             diffs += 1
-        text_ratio = fuzz.ratio(self.text, other.text)
+        text_ratio = fuzz.token_set_ratio(self.text, other.text)
         if text_ratio < 100:
-            if text_ratio > 70:
+            if text_ratio > 90:
                 diffs += 1
             else:
                 diffs += 2
-        return diffs <= 3
+        return diffs <= 2
 
     def diff(self, other: Self) -> tuple[bool, str]:
         is_diff = False
         if self.name == other.name:
             diffs = f"{self.name}\n"
         else:
-            diffs = f"{self.name} -> {other.name}\n"
+            diffs = f"{other.name} -> {self.name}\n"
         if self.size != other.size:
             is_diff = True
             diffs += f"Size: {other.size} -> {self.size}\n"
@@ -150,20 +150,20 @@ class Mech:
             diffs += 1
         if self.hardpoints_str != other.hardpoints_str:
             diffs += 1
-        text_ratio = fuzz.ratio(self.ability, other.ability)
+        text_ratio = fuzz.token_set_ratio(self.ability, other.ability)
         if text_ratio < 100:
-            if text_ratio > 70:
+            if text_ratio > 90:
                 diffs += 1
             else:
                 diffs += 2
-        return diffs <= 3
+        return diffs <= 2
 
     def diff(self, other: Self) -> tuple[bool, str]:
         is_diff = False
         if self.name == other.name:
             diffs = f"{self.name}\n"
         else:
-            diffs = f"{self.name} -> {other.name}\n"
+            diffs = f"{other.name} -> {self.name}\n"
         if self.hp != other.hp:
             is_diff = True
             diffs += f"HP: {other.hp} -> {self.hp}\n"
@@ -212,7 +212,7 @@ class Drone:
         if self.name == other.name:
             diffs = f"{self.name}\n"
         else:
-            diffs = f"{self.name} -> {other.name}\n"
+            diffs = f"{other.name} -> {self.name}\n"
         if self.ability != other.ability:
             is_diff = True
             diffs += f"{other.ability}|->\n{self.ability}"
@@ -248,7 +248,7 @@ class Maneuver:
         if self.name == other.name:
             diffs = f"{self.name}\n"
         else:
-            diffs = f"{self.name} -> {other.name}\n"
+            diffs = f"{other.name} -> {self.name}\n"
         if self.text != other.text:
             is_diff = True
             diffs += f"{other.text}|->\n{self.text}"
