@@ -132,7 +132,6 @@ async def scan_equipment(interaction: discord.Interaction, filter_str: str):
     await reply(
         interaction,
         message,
-        "Result set too large. txt file attached.",
         "equipment.txt",
     )
 
@@ -154,7 +153,6 @@ async def scan_mechs(interaction: discord.Interaction, filter_str: str):
     await reply(
         interaction,
         message,
-        "Result set too large. txt file attached.",
         "mechs.txt",
     )
 
@@ -169,7 +167,6 @@ async def drones(interaction: discord.Interaction):
     await reply(
         interaction,
         message,
-        "Result set too large. txt file attached.",
         "drones.txt",
     )
 
@@ -184,7 +181,6 @@ async def maneuvers(interaction: discord.Interaction):
     await reply(
         interaction,
         message,
-        "Result set too large. txt file attached.",
         "maneuvers.txt",
     )
 
@@ -192,18 +188,18 @@ async def maneuvers(interaction: discord.Interaction):
 @bot.command()
 async def changelog(ctx: commands.Context):
     message = generate_changelog_text()
-    await reply(ctx, message, "Changelog too long. txt file attached.", "changelog.txt")
+    await reply(ctx, message, "changelog.txt")
 
 
 async def reply(
     api: Union[commands.Context, discord.Interaction],
     message: str,
-    fallback_msg: str,
     fallback_filename: str,
 ):
     discord_file = discord.File(
         io.BytesIO(message.encode("utf-8")), filename=fallback_filename
     )
+    fallback_msg = "Reply too long. txt file attached."
     if isinstance(api, commands.Context):
         if len(message) >= 2000:
             await api.reply(fallback_msg, file=discord_file)
@@ -213,13 +209,13 @@ async def reply(
         if len(message) >= 2000:
             await api.response.send_message(fallback_msg, file=discord_file)
         else:
-            await api.response.send_message(message)
+            await api.response.send_message(f"```\n{message}```")
 
 
 @bot.tree.command()
 async def stats(interaction: discord.Interaction):
     message = equipment_stats()
-    await reply(interaction, message, "Stats too long. txt file attached.", "stats.txt")
+    await reply(interaction, message, "stats.txt")
 
 
 @bot.tree.command()
@@ -234,9 +230,7 @@ async def watchlist(interaction: discord.Interaction):
     message += "--------------\n"
     for item in weak:
         message += f"{item}\n"
-    await reply(
-        interaction, message, "Watchlist too long. txt file attached.", "watchlist.txt"
-    )
+    await reply(interaction, message, "watchlist.txt")
 
 
 @bot.command()
@@ -246,9 +240,7 @@ async def strong(ctx: commands.Context):
     message += "----------------\n"
     for item in strong:
         message += f"{item}\n"
-    await reply(
-        ctx, message, "Watchlist too long. txt file attached.", "strong_watchlist.txt"
-    )
+    await reply(ctx, message, "strong_watchlist.txt")
 
 
 @bot.command()
@@ -258,9 +250,40 @@ async def weak(ctx: commands.Context):
     message += "--------------\n"
     for item in weak:
         message += f"{item}\n"
-    await reply(
-        ctx, message, "Watchlist too long. txt file attached.", "weak_watchlist.txt"
-    )
+    await reply(ctx, message, "weak_watchlist.txt")
+
+
+@bot.command()
+async def tutorial(ctx: commands.Context):
+    message = """
+    Feds
+    ----
+    Lancelot
+    - Large: Arondight Starsword (Teaches Melee and Armor damage reduction)
+    - Medium: Empty
+    - Small: Shield Generator (Teaches Shield and Trigger)
+
+    Guanyin
+    - Medium: Gauss Rifle (Teaches AP and Vulnerable)
+    - Medium: Empty
+    - Small: Breach Missile (Teaches Ammo and Shred)
+    - Small: Empty
+
+    Ares
+    ----
+    Wolfblade
+    - Large: Power Fist (Teaches Melee, forced movement, and being able to attach smaller equipment into larger mounts)
+    - Medium: Javelin Missile (Teaches Ammo - replace with something else?)
+    - Small: Empty
+
+    Resolute
+    - Large: Mjolnir Railgun (Teaches Range and Disable)
+    - Medium: Leading Crosshairs (Teaches Range and Trigger)
+
+    Each player has 3 cards in hand, 1 of which is an Airstrike.
+    """
+    message = textwrap.dedent(message)
+    await reply(ctx, message, "tutorial.txt")
 
 
 if args.sync:
