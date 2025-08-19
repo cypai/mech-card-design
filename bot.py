@@ -146,7 +146,8 @@ async def scan_equipment(interaction: discord.Interaction, filter_str: str):
             "Please provide a filter. Use $scan_help for options."
         )
         return
-    results = get_filtered_equipment([filter_str])
+    filters = filter_str.split(",")
+    results = get_filtered_equipment(filters)
     message = ""
     for equipment in results:
         message += f"{equipment}\n"
@@ -167,7 +168,8 @@ async def scan_mechs(interaction: discord.Interaction, filter_str: str):
             "Please provide a filter. Use $scan_help for options."
         )
         return
-    results = get_filtered_mechs([filter_str])
+    filters = filter_str.split(",")
+    results = get_filtered_mechs(filters)
     message = ""
     for mech in results:
         message += f"{mech}\n"

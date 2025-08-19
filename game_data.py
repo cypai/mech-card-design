@@ -192,29 +192,45 @@ def equipment_stats():
 
 
 def get_filtered_equipment(filters: list[str]) -> list[Equipment]:
+    parsed_filters = [f.lower() for f in filters]
     all_equipment = get_all_equipment()
     matching_equipment = []
     for equipment in all_equipment:
         ok = 0
-        for f in filters:
+        for f in parsed_filters:
             if (
-                f != "Move"
-                and f.lower() in equipment.text.lower()
+                f != "move"
+                and f in equipment.text
                 or f in equipment.name
-                or f.lower() == equipment.type.lower()
-                or f.lower() == equipment.system.lower()
-                or f.lower() == equipment.size.lower()
+                or f == equipment.type.lower()
+                or f == equipment.system.lower()
+                or f == equipment.size.lower()
             ):
                 ok += 1
-            elif f.lower() == "ammo" and equipment.ammo:
+            elif f == "ammo" and equipment.ammo:
                 ok += 1
-            elif f == "Short" and equipment.range == 1:
+            elif f == "short" and equipment.range == 1:
                 ok += 1
-            elif f == "Mid" and equipment.range == 2:
+            elif f == "mid" and equipment.range == 2:
                 ok += 1
-            elif f == "Long" and equipment.range == 3:
+            elif f == "long" and equipment.range == 3:
                 ok += 1
-            elif f.startswith("Heat"):
+            elif f.startswith("size"):
+                op = f[4]
+                size = f[5:]
+                if op == "=" and equipment.size.lower() == size:
+                    ok += 1
+            elif f.startswith("type"):
+                op = f[4]
+                the_type = f[5:]
+                if op == "=" and equipment.type.lower() == the_type:
+                    ok += 1
+            elif f.startswith("system"):
+                op = f[6]
+                system = f[7:]
+                if op == "=" and equipment.system.lower() == system:
+                    ok += 1
+            elif f.startswith("heat"):
                 op = f[4]
                 heat = int(f[5])
                 if op == "=" and equipment.heat == heat:
@@ -223,7 +239,7 @@ def get_filtered_equipment(filters: list[str]) -> list[Equipment]:
                     ok += 1
                 elif op == "<" and equipment.heat and equipment.heat < heat:
                     ok += 1
-            elif f.startswith("Range"):
+            elif f.startswith("range"):
                 op = f[5]
                 the_range = int(f[6])
                 if op == "=" and equipment.range == the_range:
@@ -233,7 +249,7 @@ def get_filtered_equipment(filters: list[str]) -> list[Equipment]:
                 elif op == "<" and equipment.range and equipment.range < the_range:
                     ok += 1
             elif (
-                f == "Move"
+                f == "move"
                 and "remove" not in equipment.text.lower()
                 and (
                     "advance" in equipment.text.lower()
@@ -251,27 +267,31 @@ def get_filtered_equipment(filters: list[str]) -> list[Equipment]:
 
 
 def get_filtered_mechs(filters: list[str]):
+    parsed_filters = [f.lower() for f in filters]
     all_mechs = get_all_mechs()
     matching_mechs = []
     for mech in all_mechs:
         ok = 0
-        for f in filters:
+        for f in parsed_filters:
             if (
-                f in mech.name
-                or f == mech.faction
-                or f in mech.hardpoints
-                or f in mech.ability
+                f == mech.name.lower()
+                or f == mech.faction.lower()
+                or f in [h.lower() for h in mech.hardpoints]
+                or f in mech.ability.lower()
             ):
                 ok += 1
-            elif f == "Feds" and mech.faction == "Midline":
+            elif f in ["feds", "terrans"] and mech.faction == "Midline":
                 ok += 1
-            elif f == "Ares" and mech.faction == "Low Tech":
+            elif f in ["ares"] and mech.faction == "Low Tech":
                 ok += 1
-            elif f == "Jovians" and mech.faction == "High Tech":
+            elif f in ["jovians", "jovian"] and mech.faction == "High Tech":
                 ok += 1
-            elif f == "Pirates" and mech.faction == "Pirate":
+            elif (
+                f in ["pirates", "pirate", "belter", "belters"]
+                and mech.faction == "Pirate"
+            ):
                 ok += 1
-            elif f.startswith("Heat"):
+            elif f.startswith("heat"):
                 op = f[4]
                 heat = int(f[5:])
                 if op == "=" and mech.hc == heat:
@@ -280,7 +300,7 @@ def get_filtered_mechs(filters: list[str]):
                     ok += 1
                 elif op == "<" and mech.hc and mech.hc < heat:
                     ok += 1
-            elif f.startswith("HP"):
+            elif f.startswith("hp"):
                 op = f[2]
                 hp = int(f[3:])
                 if op == "=" and mech.hp == hp:
@@ -289,7 +309,7 @@ def get_filtered_mechs(filters: list[str]):
                     ok += 1
                 elif op == "<" and mech.hp and mech.hp < hp:
                     ok += 1
-            elif f.startswith("Armor"):
+            elif f.startswith("armor"):
                 op = f[5]
                 armor = int(f[6:])
                 if op == "=" and mech.armor == armor:
