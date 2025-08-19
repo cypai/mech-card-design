@@ -200,8 +200,8 @@ def get_filtered_equipment(filters: list[str]) -> list[Equipment]:
         for f in parsed_filters:
             if (
                 f != "move"
-                and f in equipment.text
-                or f in equipment.name
+                and f in equipment.text.lower()
+                or f in equipment.name.lower()
                 or f == equipment.type.lower()
                 or f == equipment.system.lower()
                 or f == equipment.size.lower()

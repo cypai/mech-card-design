@@ -562,9 +562,11 @@ Smoke Grenade:
   type: Missile
   system: Weapon
   heat: 0
-  ammo: 1
+  ammo: 2
   text: |
     Choose an allied position. All allied mechs there gain 1 Shield.
+  tags:
+    - Weak-Watchlist
 
 Javelin Missile:
   size: Medium
