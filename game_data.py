@@ -259,7 +259,7 @@ def get_filtered_equipment(filters: list[str]) -> list[Equipment]:
                 )
             ):
                 ok += 1
-            elif f in equipment.tags:
+            elif f in [t.lower() for t in equipment.tags]:
                 ok += 1
         if ok == len(filters):
             matching_equipment.append(equipment)
