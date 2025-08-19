@@ -273,13 +273,14 @@ async def tutorial(ctx: commands.Context):
     Ares
     ----
     Wolfblade
-    - Large: Power Fist (Teaches Melee, forced movement, and being able to attach smaller equipment into larger mounts)
-    - Medium: Javelin Missile (Teaches Ammo - replace with something else?)
-    - Small: Empty
+    - Large: Empty
+    - Medium: Power Fist (Teaches Melee, forced movement, and that Larger doesn't always mean better)
+    - Small: Cyberwarfare: EPIDEMIC (Teaches Charge and Do something X times)
 
-    Resolute
+    Mahout
     - Large: Mjolnir Railgun (Teaches Range and Disable)
-    - Medium: Leading Crosshairs (Teaches Range and Trigger)
+    - Large: Empty
+    - Small: Leading Crosshairs (Teaches Range and Trigger)
 
     Each player has 3 cards in hand, 1 of which is an Airstrike.
     """
