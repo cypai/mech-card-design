@@ -8,7 +8,7 @@ Lancelot:
   - Medium
   - Small
   ability: |
-    Trigger: 1/battle, base Heat Cost = 1 for activated equipment on this mech.
+    Trigger: 1/battle, Heat Cost = 1 (ignoring Overheat) for this mech.
 
 Guanyin:
   faction: Midline

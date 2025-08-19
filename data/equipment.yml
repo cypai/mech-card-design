@@ -179,6 +179,8 @@ Anti Materiel Sniper Rifle:
   text: |
     Deal 4 damage.
     Overwatch: Deal 4 damage.
+  tags:
+    - Strong-Watchlist
 
 Mjolnir Railgun:
   size: Large
@@ -606,6 +608,8 @@ Breach Missile:
     Deal 1 damage. Choose:
     > Shred.
     > Inflict 2 Vulnerable.
+  tags:
+    - Strong-Watchlist
 
 Ballistic Missile:
   size: Large
@@ -617,6 +621,7 @@ Ballistic Missile:
   text: |
     Choose an enemy position. Prepare: Deal 3 AP damage to enemy mechs at that position.
   tags:
+    - Strong-Watchlist
     - AOE
 
 "Cyberwarfare: MELTDOWN":
@@ -632,9 +637,11 @@ Ballistic Missile:
   size: Small
   type: Electronics
   system: System
-  heat: 3
+  heat: 5
   text: |
     1/battle: The opponent discards a card from their hand.
+  tags:
+    - Strong-Watchlist
 
 "Cyberwarfare: COOKOFF":
   size: Small
