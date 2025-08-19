@@ -13,6 +13,7 @@ class Equipment:
     range: Optional[int]
     text: str
     tags: list[str]
+    copies: int
 
     def __init__(self, **kwargs):
         self.name = str(kwargs.get("name"))
@@ -24,6 +25,7 @@ class Equipment:
         self.range = kwargs.get("range", None)
         self.text = str(kwargs.get("text"))
         self.tags = kwargs.get("tags", [])
+        self.copies = kwargs.get("copies", 1)
 
         self.normalized_name = re.sub(r"\W", "", self.name)
         self.normalized_name = self.normalized_name.lower()
@@ -110,6 +112,7 @@ class Mech:
     hardpoints_str: str
     ability: str
     tags: list[str]
+    copies: int
 
     def __init__(self, **kwargs):
         self.name = str(kwargs.get("name"))
@@ -122,6 +125,7 @@ class Mech:
         self.hardpoints_str = self.hardpoints_str[:-1]
         self.ability = str(kwargs.get("ability"))
         self.tags = kwargs.get("tags", [])
+        self.copies = kwargs.get("copies", 1)
 
         self.normalized_name = re.sub(r"\W", "", self.name)
         self.normalized_name = self.normalized_name.lower()
@@ -186,10 +190,12 @@ class Mech:
 class Drone:
     name: str
     ability: str
+    copies: int
 
     def __init__(self, **kwargs):
         self.name = str(kwargs.get("name"))
         self.ability = str(kwargs.get("ability"))
+        self.copies = kwargs.get("copies", 2)
 
         self.normalized_name = re.sub(r"\W", "", self.name)
         self.normalized_name = self.normalized_name.lower()
@@ -224,10 +230,12 @@ class Drone:
 class Maneuver:
     name: str
     text: str
+    copies: int
 
     def __init__(self, **kwargs):
         self.name = str(kwargs.get("name"))
         self.text = str(kwargs.get("text"))
+        self.copies = kwargs.get("copies", 2)
 
         self.normalized_name = re.sub(r"\W", "", self.name)
         self.normalized_name = self.normalized_name.lower()

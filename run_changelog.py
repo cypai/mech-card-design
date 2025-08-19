@@ -122,18 +122,11 @@ def create_montage_directory():
         drone_changelog,
         maneuver_changelog,
     ]:
-        for item in changelog.added:
-            shutil.copyfile(
-                item.filename, f"./outputs/changed/{item.normalized_name}.png"
-            )
-        for item in changelog.renamed:
-            shutil.copyfile(
-                item.filename, f"./outputs/changed/{item.normalized_name}.png"
-            )
-        for item in changelog.changed:
-            shutil.copyfile(
-                item.filename, f"./outputs/changed/{item.normalized_name}.png"
-            )
+        for item in changelog.added + changelog.renamed + changelog.changed:
+            for i in range(item.copies):
+                shutil.copyfile(
+                    item.filename, f"./outputs/changed/{item.normalized_name}_{i}.png"
+                )
 
 
 def main():

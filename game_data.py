@@ -17,6 +17,7 @@ def parse_equipment(equipment) -> Equipment:
         range=data.get("range", None),
         text=data.get("text"),
         tags=data.get("tags", []),
+        copies=data.get("copies", 1),
     )
 
 
@@ -40,6 +41,7 @@ def parse_mechs(mechs) -> Mech:
         hardpoints=data.get("hardpoints", []),
         ability=data.get("ability"),
         tags=data.get("tags", []),
+        copies=data.get("copies", 1),
     )
 
 
@@ -57,6 +59,7 @@ def parse_drones(drones) -> Drone:
     return Drone(
         name=name,
         ability=data.get("ability"),
+        copies=data.get("copies", 2),
     )
 
 
@@ -74,6 +77,7 @@ def parse_maneuvers(maneuvers) -> Maneuver:
     return Maneuver(
         name=name,
         text=data.get("text"),
+        copies=data.get("copies", 2),
     )
 
 
