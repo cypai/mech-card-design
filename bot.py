@@ -358,9 +358,15 @@ async def db_usage_distribution(ctx: commands.Context):
             "select name, count(*) from usage group by name order by count(*) desc"
         )
         results = cursor.fetchall()
-        message = ""
+        equipment_message = ""
+        mechs_message = ""
         for row in results:
-            message += f"{row[0]}: {row[1]}\n"
+            name, count = row
+            if db.get_equipment(name) is not None:
+                equipment_message += f"{name}: {count}\n"
+            elif db.get_mech(name) is not None:
+                mechs_message += f"{name}: {count}\n"
+        message = f"Equipment:\n{equipment_message}\nMechs:\n{mechs_message}"
         await reply(ctx, message)
 
 
