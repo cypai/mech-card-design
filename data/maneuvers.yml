@@ -32,7 +32,7 @@ Ramming Speed:
 
 High Ground:
   text: |
-    Action: Draw a card. Activate any equipment, ignoring Range, and deal +1 damage until your turn is over.
+    Action: Draw a card. This turn, you deal +1 damage. You may activate any equipment, ignoring Range until resolved.
 
 Shock and Awe:
   text: |

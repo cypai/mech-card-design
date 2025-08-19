@@ -48,7 +48,7 @@ LINK-R Dumbfire Gun:
   heat: 2
   text: |
     Deal 1 damage.
-    Trigger: After activating a Medium or Large Weapon on this mech as an Action, you may activate this Weapon on the same target with -1 Heat Cost.
+    Trigger: After activating a Medium or Large Weapon on this mech as an Action, you may activate this Weapon on one of its targets with -1 Heat Cost.
 
 Gauss Rifle:
   size: Medium
@@ -288,7 +288,7 @@ Repulsor Array:
   range: 1
   heat: 3
   text: |
-    Deal 2 damage. You may move the target to the rear guard. You may Fall Back for 0 Heat Cost.
+    Deal 2 damage. You may move the target to the rear guard. You may move this mech to the rear guard.
 
 Magnetic Harpoon:
   size: Medium
@@ -583,7 +583,6 @@ Harpoons and Tow Cables:
   ammo: 2
   text: |
     Choose any mech. Move that mech to another position (ending position must be in Range).
-    If moving allied mechs, Range does not apply.
     If moving enemy mechs, inflict 1 Vulnerable.
 
 Dragonfire RPG:
@@ -672,9 +671,12 @@ Spatial Anchor:
   size: Small
   type: Electronics
   system: System
+  range: 2
   heat: 2
   text: |
-    Trigger: When an allied mech is forced to reposition, you may activate this to prevent it.
+    Trigger: When a mech is forced to reposition, you may activate this to prevent it.
+  tags:
+    - Weak-Watchlist
 
 Interception Protocol:
   size: Small
