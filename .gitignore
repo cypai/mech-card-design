@@ -4,3 +4,4 @@ outputs/
 *.pdf
 .envrc
 venv/
+data.db

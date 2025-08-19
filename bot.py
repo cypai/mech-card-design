@@ -6,6 +6,7 @@ import textwrap
 import logging
 import re
 import io
+import sqlite3
 import discord
 from discord import app_commands
 from discord.ext import commands
@@ -77,6 +78,27 @@ def build_query_response(queries: list[str]) -> str:
         message += bad_result_message
     message += "```"
     return message
+
+
+async def reply(
+    api: Union[commands.Context, discord.Interaction],
+    message: str,
+    fallback_filename: str = "results.txt",
+):
+    discord_file = discord.File(
+        io.BytesIO(message.encode("utf-8")), filename=fallback_filename
+    )
+    fallback_msg = "Reply too long. txt file attached."
+    if isinstance(api, commands.Context):
+        if len(message) >= 2000:
+            await api.reply(fallback_msg, file=discord_file)
+        else:
+            await api.reply(f"```\n{message}```")
+    elif isinstance(api, discord.Interaction):
+        if len(message) >= 2000:
+            await api.response.send_message(fallback_msg, file=discord_file)
+        else:
+            await api.response.send_message(f"```\n{message}```")
 
 
 @bot.command()
@@ -191,27 +213,6 @@ async def changelog(ctx: commands.Context):
     await reply(ctx, message, "changelog.txt")
 
 
-async def reply(
-    api: Union[commands.Context, discord.Interaction],
-    message: str,
-    fallback_filename: str,
-):
-    discord_file = discord.File(
-        io.BytesIO(message.encode("utf-8")), filename=fallback_filename
-    )
-    fallback_msg = "Reply too long. txt file attached."
-    if isinstance(api, commands.Context):
-        if len(message) >= 2000:
-            await api.reply(fallback_msg, file=discord_file)
-        else:
-            await api.reply(f"```\n{message}```")
-    elif isinstance(api, discord.Interaction):
-        if len(message) >= 2000:
-            await api.response.send_message(fallback_msg, file=discord_file)
-        else:
-            await api.response.send_message(f"```\n{message}```")
-
-
 @bot.tree.command()
 async def stats(interaction: discord.Interaction):
     message = equipment_stats()
@@ -284,6 +285,97 @@ async def tutorial(ctx: commands.Context):
     """
     message = textwrap.dedent(message)
     await reply(ctx, message, "tutorial.txt")
+
+
+@bot.command()
+async def db_init(ctx: commands.Context):
+    with sqlite3.connect("data.db") as conn:
+        cursor = conn.cursor()
+        cursor.execute("create table usage(name, timestamp)")
+        await reply(ctx, "DB Initialized.")
+
+
+@bot.command()
+async def db_add_usage(ctx: commands.Context, *, arg: str):
+    names = arg.split(",")
+    names = [name.strip() for name in names]
+    actual_names = []
+    bad_matches: list[
+        tuple[str, list[tuple[Union[Equipment, Mech, Drone, Maneuver], int]]]
+    ] = []
+    for name in names:
+        matches = db.fuzzy_query_name(name, 50)
+        if len(matches) == 0 or matches[0][1] < 90:
+            bad_matches.append((name, matches))
+        else:
+            actual_names.append(matches[0][0].name)
+    if len(bad_matches) == 0:
+        with sqlite3.connect("data.db") as conn:
+            cursor = conn.cursor()
+            cursor.executemany(
+                "insert into usage values(?, date())", [(x,) for x in actual_names]
+            )
+        message = "Added usage for the following cards:\n"
+        for name in actual_names:
+            message += f"{name}\n"
+        await reply(ctx, message)
+    else:
+        message = "Not all cards were found. Bad inputs:\n"
+        for match in bad_matches:
+            options = [option[0].name for option in match[1][:3]]
+            options_str = " or ".join(options)
+            message += f"{match[0]} not found. Did you mean: {options_str}"
+        await reply(ctx, message)
+
+
+@bot.command()
+async def db_usage(ctx: commands.Context, *, name: str):
+    results = db.fuzzy_query_name(name, 50)
+    if len(results) == 0 or results[0][1] < 90:
+        options = [x[0].name for x in results]
+        options_str = " or ".join(options)
+        message = f"{name} not found. Did you mean: {options_str}"
+        await reply(ctx, message)
+    else:
+        result = results[0][0]
+        with sqlite3.connect("data.db") as conn:
+            cursor = conn.cursor()
+            cursor.execute("select count(*) from usage where name = ?", (result.name,))
+            count = cursor.fetchall()[0][0]
+            message = f"{result.name} usage: {count}\nUsage times:\n"
+            cursor.execute("select timestamp from usage where name = ?", (result.name,))
+            rows = cursor.fetchall()
+            for row in rows:
+                message += f"{row[0]}\n"
+            await reply(ctx, message)
+
+
+@bot.command()
+async def db_usage_distribution(ctx: commands.Context):
+    with sqlite3.connect("data.db") as conn:
+        cursor = conn.cursor()
+        cursor.execute(
+            "select name, count(*) from usage group by name order by count(*) desc"
+        )
+        results = cursor.fetchall()
+        message = ""
+        for row in results:
+            message += f"{row[0]}: {row[1]}\n"
+        await reply(ctx, message)
+
+
+@bot.command()
+async def db_zero_usage(ctx: commands.Context):
+    with sqlite3.connect("data.db") as conn:
+        cursor = conn.cursor()
+        cursor.execute("select name, count(*) from usage group by name")
+        results = cursor.fetchall()
+    usage = [row[0] for row in results]
+    zero_usage = [e for e in db.equipment if e.name not in usage]
+    message = "The following equipment has 0 usage so far:\n"
+    for equipment in zero_usage:
+        message += f"{equipment.name}\n"
+    await reply(ctx, message, "zero_usage.txt")
 
 
 if args.sync:
