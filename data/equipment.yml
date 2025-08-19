@@ -674,7 +674,7 @@ Spatial Anchor:
   range: 2
   heat: 2
   text: |
-    Trigger: When a mech is forced to reposition, you may activate this to prevent it.
+    Trigger: When any mech is forced to reposition, you may activate this to prevent it.
   tags:
     - Weak-Watchlist
 
