@@ -8,7 +8,7 @@ Shield Drone:
 
 Scout Drone:
   ability: |
-    Action: All allied mechs may reposition for 0 Heat Cost, then destroy this drone.
+    Action: All allied mechs may reposition without Heat Cost, then destroy this drone.
 
 Jammer Drone:
   ability: |

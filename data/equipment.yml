@@ -70,15 +70,6 @@ Gauss Carbine:
   tags:
     - Strong-Watchlist
 
-Gauss Strike Rifle:
-  size: Medium
-  type: Ballistic
-  system: Weapon
-  range: 2
-  heat: 4
-  text: |
-    Deal 3 AP damage. -1 damage at Range 1.
-
 Sniper Rifle:
   size: Medium
   type: Ballistic
@@ -118,6 +109,24 @@ Gatling Cannon:
   heat: 2
   text: |
     Charge. Deal [Charge] damage.
+
+Light Machine Gun:
+  size: Medium
+  type: Ballistic
+  system: Weapon
+  range: 1
+  heat: 2
+  text: |
+    Deal 1 damage twice.
+
+Heavy Machine Gun:
+  size: Medium
+  type: Ballistic
+  system: Weapon
+  range: 1
+  heat: 4
+  text: |
+    Deal 2 damage twice.
 
 Heavy Mortar:
   size: Large
@@ -189,7 +198,7 @@ Mjolnir Railgun:
   range: 2
   heat: 5
   text: |
-    Deal 3 damage. If target is not shielded, Disable one of the target's equipment.
+    Deal 3 damage. If the target is not shielded, Disable one of the target's equipment.
 
 Hellbore AMR:
   size: Large
@@ -282,6 +291,15 @@ Autopulse Rifle:
     Max 3 Charge.
   tags:
     - AOE
+
+Plasma Blaster:
+  size: Medium
+  type: Energy
+  system: Weapon
+  range: 1
+  heat: 3
+  text: |
+    Deal 2 damage. The target gains 1 Heat.
 
 Repulsor Array:
   size: Medium
@@ -491,7 +509,7 @@ Heavy Combat Drill:
     Charge. Prepare: Deal [Charge+4] AP damage.
     If it is not the first time activating this weapon this battle, skip the Prepare.
 
-Heavy Chainaxe:
+Ripjaw Chainaxe:
   size: Large
   type: Melee
   system: Weapon
@@ -543,7 +561,7 @@ Scout Drone Launcher:
   heat: 1
   ammo: 2
   text: |
-    All allied mechs may immediately reposition for 0 Heat Cost, then summon 1 Scout Drone.
+    All allied mechs may immediately reposition without Heat Cost, then summon 1 Scout Drone.
 
 Jammer Drone Launcher:
   size: Small
@@ -613,6 +631,16 @@ Breach Missile:
   tags:
     - Strong-Watchlist
 
+Parasite Launcher:
+  size: Small
+  type: Missile
+  system: Weapon
+  range: 2
+  heat: 0
+  ammo: 2
+  text: |
+    Deal 1 damage. On the opponent's next turn, if the target does not change position, it takes 2 damage at the end of the turn.
+
 Ballistic Missile:
   size: Large
   type: Missile
@@ -625,6 +653,17 @@ Ballistic Missile:
   tags:
     - Strong-Watchlist
     - AOE
+
+Changeling Missile Rack:
+  size: Large
+  type: Missile
+  system: Weapon
+  range: 3
+  heat: 0
+  ammo: 2
+  text: |
+    Deal 2 damage.
+    Trigger: Other Missile Weapons on this mech may use this Weapon's Ammo instead of their own.
 
 "Cyberwarfare: MELTDOWN":
   size: Small
@@ -798,6 +837,20 @@ Camouflage:
   system: Attachment
   text: |
     Inert. At the start of combat, gain 2 Shield.
+
+Chameleon Paint:
+  size: Small
+  type: Auxiliary
+  system: Attachment
+  text: |
+    Inert. Trigger: 1/round, after this mech changes position, gain 1 Shield.
+
+Porcupine Armor:
+  size: Medium
+  type: Auxiliary
+  system: Attachment
+  text: |
+    Inert. Passive: Before this mech takes damage from Melee Weapons, deal 1 damage to the attacker.
 
 Reserved Rifle:
   size: Medium

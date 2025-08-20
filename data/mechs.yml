@@ -73,7 +73,7 @@ Amaterasu:
     Passive: All ammo weapons +1 ammo.
     Trigger: 1/round, when you Charge, Charge+1 instead.
 
-Resolute:
+Shahanshah:
   faction: Low Tech
   hp: 9
   armor: 2
@@ -82,9 +82,7 @@ Resolute:
   - Large
   - Medium
   ability: |
-    Trigger: 1/round, choose:
-    > Prevent forced movement on this mech.
-    > Ignore the effects of AP or Shred.
+    Passive: Reduce damage taken by 1 for other allied mechs in the same position.
 
 Inevitable:
   faction: Low Tech
@@ -149,7 +147,7 @@ Centurion:
   - Medium
   - Small
   ability: |
-    Passive: Whenever this mech loses Armor, lose 1 Heat.
+    Passive: Whenever this mech loses Armor, lose 2 Heat.
     Action: 1/round, lose 1 Armor, then take another Action with this mech.
 
 Aquarius:
