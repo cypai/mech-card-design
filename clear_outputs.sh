@@ -46,4 +46,10 @@ for i in "$@"; do
       rm outputs/changed_montages/*
     fi
   fi
+  if [ "$i" == "references" ]; then
+    echo "Clearing references"
+    if [ -n "$(ls -A outputs/references)" ]; then
+      rm outputs/references/*
+    fi
+  fi
 done

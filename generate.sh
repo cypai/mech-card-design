@@ -13,13 +13,14 @@ mkdir -p outputs/changed_montages
 
 for i in "$@"; do
   if [ "$i" == "all" ]; then
-    ./clear_outputs.sh mechs equipment drones maneuvers changed
+    ./clear_outputs.sh mechs equipment drones maneuvers changed references
     ./run_mechs.py generate
     ./run_drones.py generate
     ./run_equipment.py generate
     ./run_maneuvers.py generate
     ./run_changelog.py montage
-    ./make_pdf.sh mechs equipment drones maneuvers changed
+    ./run_references.py generate
+    ./make_pdf.sh mechs equipment drones maneuvers changed references
   fi
   if [ "$i" == "mechs" ]; then
     ./clear_outputs.sh mechs
@@ -45,5 +46,10 @@ for i in "$@"; do
     ./clear_outputs.sh changed
     ./run_changelog.py montage
     ./make_pdf.sh changed
+  fi
+  if [ "$i" == "references" ]; then
+    ./clear_outputs.sh references
+    ./run_references.py generate
+    ./make_pdf.sh references
   fi
 done

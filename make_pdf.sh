@@ -28,4 +28,10 @@ for i in "$@"; do
     montage outputs/changed/*.png -tile 3x3 -geometry 750x1050 -background white -density 300 outputs/changed_montages/output.png
     magick outputs/changed_montages/*.png -gravity Center changed.pdf
   fi
+  if [ "$i" == "references" ]; then
+    echo "Generating references PDF"
+    cp -r outputs/references /tmp/references
+    montage outputs/references/*.png /tmp/references/*.png -tile 3x3 -geometry 750x1050 -background white -density 300 /tmp/references.png
+    magick /tmp/references.png -gravity Center references.pdf
+  fi
 done
