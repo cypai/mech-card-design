@@ -197,10 +197,11 @@ def get_filtered_equipment(filters: list[str]) -> list[Equipment]:
     matching_equipment = []
     for equipment in all_equipment:
         ok = 0
+        tokenized_text = re.sub(r"[^a-zA-Z0-9\s]+", " ", equipment.text.lower()).split()
         for f in parsed_filters:
             if (
                 f != "move"
-                and f in equipment.text.lower()
+                and f in tokenized_text
                 or f in equipment.name.lower()
                 or f == equipment.type.lower()
                 or f == equipment.system.lower()
@@ -248,15 +249,12 @@ def get_filtered_equipment(filters: list[str]) -> list[Equipment]:
                     ok += 1
                 elif op == "<" and equipment.range and equipment.range < the_range:
                     ok += 1
-            elif (
-                f == "move"
-                and "remove" not in equipment.text.lower()
-                and (
-                    "advance" in equipment.text.lower()
-                    or "fall back" in equipment.text.lower()
-                    or "move" in equipment.text.lower()
-                    or "reposition" in equipment.text.lower()
-                )
+            elif f == "move" and (
+                "advance" in tokenized_text
+                or "fall back" in equipment.text.lower()
+                or "move" in tokenized_text
+                or "reposition" in tokenized_text
+                or "change position" in equipment.text.lower()
             ):
                 ok += 1
             elif f in [t.lower() for t in equipment.tags]:
