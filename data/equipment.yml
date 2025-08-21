@@ -254,10 +254,9 @@ Ion Cannon:
   type: Energy
   system: Weapon
   range: 1
-  heat: 3
+  heat: 4
   text: |
-    Deal 1 damage.
-    Overwatch: Disable one equipment on the target.
+    If the target has Vulnerable, Disable one of its equipment.
 
 Flamethrower:
   size: Medium
