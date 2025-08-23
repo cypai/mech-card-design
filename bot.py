@@ -68,7 +68,7 @@ def build_query_response(queries: list[str]) -> str:
             if top_result[1] == 100:
                 message += f"{top_result[0]}\n"
             else:
-                message += f"{top_result[0]}\n(Fuzzy match ratio of {top_result[1]} for {query})\n"
+                message += f"(Fuzzy match ratio of {top_result[1]} for {query})\n{top_result[0]}\n"
         else:
             top_3 = " or ".join(map(lambda x: f"[[{x[0].name}]]", results[:3]))
             bad_result_message += f"[[{query}]] not found. Did you mean: {top_3}?\n"
