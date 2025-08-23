@@ -29,6 +29,7 @@ Flechettes:
     Max 3 Charge.
   tags:
     - AOE
+    - Multihit
 
 TRAK-R Smart Gun:
   size: Small
@@ -118,6 +119,9 @@ Light Machine Gun:
   heat: 2
   text: |
     Deal 1 damage twice.
+  tags:
+    - AOE
+    - Multihit
 
 Heavy Machine Gun:
   size: Medium
@@ -127,6 +131,9 @@ Heavy Machine Gun:
   heat: 4
   text: |
     Deal 2 damage twice.
+  tags:
+    - AOE
+    - Multihit
 
 Heavy Mortar:
   size: Large
@@ -290,6 +297,7 @@ Autopulse Rifle:
     Max 3 Charge.
   tags:
     - AOE
+    - Multihit
 
 Plasma Blaster:
   size: Medium
@@ -423,6 +431,7 @@ Gigapulse Laser:
     Max 3 Charge.
   tags:
     - AOE
+    - Multihit
     - Strong-Watchlist
 
 Power Blade:
@@ -673,16 +682,6 @@ Changeling Missile Rack:
   text: |
     Inflict 1 Overheat.
 
-"Cyberwarfare: WHITENOISE":
-  size: Small
-  type: Electronics
-  system: System
-  heat: 5
-  text: |
-    1/battle: The opponent discards a card from their hand.
-  tags:
-    - Strong-Watchlist
-
 "Cyberwarfare: COOKOFF":
   size: Small
   type: Electronics
@@ -843,6 +842,36 @@ Chameleon Paint:
   system: Attachment
   text: |
     Inert. Trigger: 1/round, after this mech changes position, gain 1 Shield.
+
+Iron Sights:
+  size: Small
+  type: Auxiliary
+  system: Attachment
+  text: |
+    Inert. Passive: When this mech is in Melee Range, it may target rear guard mechs with Range 1 weapons.
+
+Excalibur Rounds:
+  size: Small
+  type: Auxiliary
+  system: Attachment
+  ammo: 1
+  text: |
+    Inert. Trigger: This turn, this mech's Ballistic Weapons deal +1 damage.
+
+Focusing Lens:
+  size: Small
+  type: Auxiliary
+  system: Attachment
+  ammo: 1
+  text: |
+    Inert. Trigger: This turn, this mech's Energy Weapons inflict 1 Overheat after dealing damage.
+
+Auto-Shields:
+  size: Small
+  type: Auxiliary
+  system: Attachment
+  text: |
+    Inert. Passive: When this mech is at max Heat, reduces its damage taken by 1.
 
 Porcupine Armor:
   size: Medium
