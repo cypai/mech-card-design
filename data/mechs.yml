@@ -234,14 +234,14 @@ Cockroach:
   faction: Pirate
   hp: 8
   armor: 0
-  hc: 7
+  hc: 6
   hardpoints:
   - Medium
   - Medium
   - Small
   - Small
   ability: |
-    Trigger: 1/round, when HP is reduced to 0, restore HP by 1 and Disable all equipment except 1.
+    Trigger: 1/round, when HP is reduced to 0, restore HP by 1, set Heat to 0, and Disable all equipment except 1.
 
 Monte Carlo:
   faction: Pirate

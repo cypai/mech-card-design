@@ -237,14 +237,15 @@ Heating Laser:
   text: |
     Deal 1 damage. Inflict 1 Overheat.
 
-Minipulser:
+EM Polarizer:
   size: Small
   type: Energy
   system: Weapon
   range: 1
   heat: 2
   text: |
-    Deal X damage, where X is the number of Small Energy Weapons mounted on this mech.
+    Deal 1 damage.
+    Trigger: This turn, Energy Weapons on other allied mechs deal +1 damage.
 
 Antimatter Blaster:
   size: Small
@@ -452,16 +453,6 @@ Power Fist:
   text: |
     Deal 3 damage. Move the target to the rear guard.
 
-One Two Punch:
-  size: Medium
-  type: Melee
-  system: Weapon
-  range: 0
-  heat: 4
-  text: |
-    Deal 2 damage. Prepare: Deal 2 damage.
-    This weapon deals +1 damage on targets with Vulnerable, otherwise it inflicts 1 Vulnerable.
-
 Explosive Fist:
   size: Medium
   type: Melee
@@ -635,7 +626,7 @@ Breach Missile:
   text: |
     Deal 1 damage. Choose:
     > Shred.
-    > Inflict 2 Vulnerable.
+    > Inflict 1 Vulnerable.
   tags:
     - Strong-Watchlist
 
@@ -707,7 +698,7 @@ Changeling Missile Rack:
   type: Electronics
   system: System
   range: 3
-  heat: 4
+  heat: 3
   text: |
     If the target is not at 0 Heat, Disable one of the target's equipment.
   tags:
@@ -780,15 +771,6 @@ Leading Crosshairs:
   text: |
     Trigger: After an enemy mech has changed position, you may activate this to inflict 1 Vulnerable on that mech.
 
-Field Modulator:
-  size: Medium
-  type: Electronics
-  system: System
-  heat: 2
-  ammo: 2
-  text: |
-    1/round, double Shield on all allied mechs at your position.
-
 Shield Projector:
   size: Small
   type: Electronics
@@ -821,6 +803,15 @@ Light Screen Projector:
   heat: 3
   text: |
     Give all allied mechs 1 Shield.
+
+Capacitor:
+  size: Medium
+  type: Electronics
+  system: System
+  heat: 3
+  text: |
+    If [Charge] = 0, Charge 3.
+    Passive: If this mech takes an Action that incurs Heat while [Charge]>0, reduce Heat Cost by [Charge], then Discharge.
 
 Charge Spool:
   size: Small
@@ -858,6 +849,16 @@ Excalibur Rounds:
   text: |
     Inert. Trigger: This turn, this mech's Ballistic Weapons deal +1 damage.
 
+Brutus Rounds:
+  size: Small
+  type: Auxiliary
+  system: Attachment
+  ammo: 1
+  text: |
+    Inert. Trigger: This turn, when this mech activates a Ballistic Weapon, before dealing any damage, choose:
+    - Remove all Shield from the target.
+    - Shred.
+
 Focusing Lens:
   size: Small
   type: Auxiliary
@@ -878,7 +879,8 @@ Porcupine Armor:
   type: Auxiliary
   system: Attachment
   text: |
-    Inert. Passive: Before this mech takes damage from Melee Weapons, deal 1 damage to the attacker.
+    Inert. Passive: Melee Weapons on this mech damage +1.
+    Passive: Before this mech takes damage from Melee Weapons, deal 1 damage to the attacker.
 
 Reserved Rifle:
   size: Medium
