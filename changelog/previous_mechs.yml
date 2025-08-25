@@ -8,7 +8,7 @@ Lancelot:
   - Medium
   - Small
   ability: |
-    Trigger: 1/battle, Heat Cost = 1.
+    Trigger: 1/battle, Heat Cost = 1 (ignoring Overheat) for this mech.
 
 Guanyin:
   faction: Midline
@@ -63,7 +63,7 @@ Tzitzimitl:
 Amaterasu:
   faction: Midline
   hp: 10
-  armor: 0
+  armor: 1
   hc: 7
   hardpoints:
   - Large
@@ -73,7 +73,7 @@ Amaterasu:
     Passive: All ammo weapons +1 ammo.
     Trigger: 1/round, when you Charge, Charge+1 instead.
 
-Resolute:
+Shahanshah:
   faction: Low Tech
   hp: 9
   armor: 2
@@ -82,9 +82,7 @@ Resolute:
   - Large
   - Medium
   ability: |
-    Trigger: 1/round, choose:
-    > Prevent forced movement on this mech.
-    > Ignore the effects of AP or Shred.
+    Passive: Reduce damage taken by 1 for other allied mechs in the same position.
 
 Inevitable:
   faction: Low Tech
@@ -137,7 +135,7 @@ Mahout:
   - Large
   - Small
   ability: |
-    Passive: Whenever this mech deals at least 3 damage (including to Shields), additionally inflict 1 Vulnerable.
+    Passive: Whenever this mech deals at least 3 damage, additionally inflict 1 Vulnerable.
 
 Centurion:
   faction: Low Tech
@@ -149,7 +147,7 @@ Centurion:
   - Medium
   - Small
   ability: |
-    Passive: Whenever this mech loses Armor, restore 1 Heat Capacity.
+    Passive: Whenever this mech loses Armor, lose 2 Heat.
     Action: 1/round, lose 1 Armor, then take another Action with this mech.
 
 Aquarius:
@@ -236,14 +234,14 @@ Cockroach:
   faction: Pirate
   hp: 8
   armor: 0
-  hc: 7
+  hc: 6
   hardpoints:
   - Medium
   - Medium
   - Small
   - Small
   ability: |
-    Trigger: 1/round, when HP is reduced to 0, restore HP by 1 and Disable all equipment except 1.
+    Trigger: 1/round, when HP is reduced to 0, restore HP by 1, set Heat to 0, and Disable all equipment except 1.
 
 Monte Carlo:
   faction: Pirate
@@ -268,7 +266,7 @@ Jolly Roger:
   - Small
   - Small
   ability: |
-    Passive: Whenever a mech has its HP reduced to 0, all allied mechs restore 1 Heat Capacity.
+    Passive: Whenever a mech has its HP reduced to 0, all allied mechs lose 1 Heat.
 
 Blackjack:
   faction: Pirate
@@ -306,3 +304,4 @@ Davy Jones:
   - Large
   ability: |
     Passive: When this mech takes damage, choose 1 Equipment on this mech and Disable it.
+    Passive: Whenever equipment on this mech becomes Disabled, lose 1 Heat.

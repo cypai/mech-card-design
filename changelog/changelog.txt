@@ -1,3 +1,276 @@
+pre-8/24 playtest
+-----------------
+
+Lancelot
+Trigger: 1/battle, Heat Cost = 1.
+|->
+Trigger: 1/battle, Heat Cost = 1 (ignoring Overheat) for this mech.
+
+Amaterasu
+Armor: 0 -> 1
+
+Mahout
+Passive: Whenever this mech deals at least 3 damage (including to Shields), additionally inflict 1 Vulnerable.
+|->
+Passive: Whenever this mech deals at least 3 damage, additionally inflict 1 Vulnerable.
+
+Centurion
+Passive: Whenever this mech loses Armor, restore 1 Heat Capacity.
+Action: 1/round, lose 1 Armor, then take another Action with this mech.
+|->
+Passive: Whenever this mech loses Armor, lose 2 Heat.
+Action: 1/round, lose 1 Armor, then take another Action with this mech.
+
+Cockroach
+Heat Capacity: 7 -> 6
+Trigger: 1/round, when HP is reduced to 0, restore HP by 1 and Disable all equipment except 1.
+|->
+Trigger: 1/round, when HP is reduced to 0, restore HP by 1, set Heat to 0, and Disable all equipment except 1.
+
+Jolly Roger
+Passive: Whenever a mech has its HP reduced to 0, all allied mechs restore 1 Heat Capacity.
+|->
+Passive: Whenever a mech has its HP reduced to 0, all allied mechs lose 1 Heat.
+
+Davy Jones
+Passive: When this mech takes damage, choose 1 Equipment on this mech and Disable it.
+|->
+Passive: When this mech takes damage, choose 1 Equipment on this mech and Disable it.
+Passive: Whenever equipment on this mech becomes Disabled, lose 1 Heat.
+
+Resolute -> Shahanshah
+Trigger: 1/round, choose:
+> Prevent forced movement on this mech.
+> Ignore the effects of AP or Shred.
+|->
+Passive: Reduce damage taken by 1 for other allied mechs in the same position.
+
+LINK-R Dumbfire Gun
+Deal 1 damage.
+Trigger: After activating a Medium or Large Weapon on this mech as an Action, you may activate this Weapon on the same target with -1 Heat Cost.
+|->
+Deal 1 damage.
+Trigger: After activating a Medium or Large Weapon on this mech as an Action, you may activate this Weapon on one of its targets with -1 Heat Cost.
+
+Mjolnir Railgun
+Deal 3 damage. If target is not shielded, Disable one of the target's equipment.
+|->
+Deal 3 damage. If the target is not shielded, Disable one of the target's equipment.
+
+Ion Cannon
+Heat: 3 -> 4
+Deal 1 damage.
+Overwatch: Disable one equipment on the target.
+|->
+If the target has Vulnerable, Disable one of its equipment.
+
+Repulsor Array
+Deal 2 damage. Choose:
+> Move the target to the rear guard.
+> Fall Back for 0 Heat Cost.
+|->
+Deal 2 damage. You may move the target to the rear guard. You may move this mech to the rear guard.
+
+Gigapulse Laser
+Charge. Choose:
+> Charge.
+> Deal 3 damage [Charge] times. Discharge.
+Rear guard activation: Charge 2.
+Max 4 Charge.
+|->
+Charge. Choose:
+> Charge.
+> Deal 3 damage [Charge] times. Discharge.
+Rear guard activation: Charge 2.
+Max 3 Charge.
+
+Scout Drone Launcher
+All allied mechs may immediately reposition for 0 Heat Cost, then summon 1 Scout Drone.
+|->
+All allied mechs may immediately reposition without Heat Cost, then summon 1 Scout Drone.
+
+Jammer Drone Launcher
+Range: None -> 1
+
+Smoke Grenade
+Ammo: 1 -> 2
+
+Harpoons and Tow Cables
+Choose any mech. Move that mech to another position (ending position must be in Range).
+If moving allied mechs, Range does not apply.
+If moving enemy mechs, inflict 1 Vulnerable.
+|->
+Choose any mech. Move that mech to another position (ending position must be in Range).
+If moving enemy mechs, inflict 1 Vulnerable.
+
+Breach Missile
+Deal 1 damage. Choose:
+> Shred.
+> Inflict 2 Vulnerable.
+|->
+Deal 1 damage. Choose:
+> Shred.
+> Inflict 1 Vulnerable.
+
+Cyberwarfare: SHORTCIRCUIT
+Heat: 4 -> 3
+If the target is not at maximum Heat Capacity, Disable one of the target's equipment.
+|->
+If the target is not at 0 Heat, Disable one of the target's equipment.
+
+Spatial Anchor
+Range: None -> 2
+Trigger: When an allied mech is forced to reposition, you may activate this to prevent it.
+|->
+Trigger: When any mech is forced to reposition, you may activate this to prevent it.
+
+Light Machine Gun was added.
+Light Machine Gun
+Medium Ballistic Weapon
+Range: 1
+Heat: 2
+Tags: ['AOE', 'Multihit']
+Deal 1 damage twice.
+
+Heavy Machine Gun was added.
+Heavy Machine Gun
+Medium Ballistic Weapon
+Range: 1
+Heat: 4
+Tags: ['AOE', 'Multihit']
+Deal 2 damage twice.
+
+Minipulser -> EM Polarizer
+Deal X damage, where X is the number of Small Energy Weapons mounted on this mech.
+|->
+Deal 1 damage.
+Trigger: This turn, Energy Weapons on other allied mechs deal +1 damage.
+
+Plasma Blaster was added.
+Plasma Blaster
+Medium Energy Weapon
+Range: 1
+Heat: 3
+Deal 2 damage. The target gains 1 Heat.
+
+Heavy Chainaxe -> Ripjaw Chainaxe
+
+Parasite Launcher was added.
+Parasite Launcher
+Small Missile Weapon
+Range: 2
+Heat: 0
+Ammo: 2
+Deal 1 damage. On the opponent's next turn, if the target does not change position, it takes 2 damage at the end of the turn.
+
+Changeling Missile Rack was added.
+Changeling Missile Rack
+Large Missile Weapon
+Range: 3
+Heat: 0
+Ammo: 2
+Deal 2 damage.
+Trigger: Other Missile Weapons on this mech may use this Weapon's Ammo instead of their own.
+
+Capacitor was added.
+Capacitor
+Medium Electronics System
+Heat: 3
+If [Charge] = 0, Charge 3.
+Passive: If this mech takes an Action that incurs Heat while [Charge]>0, reduce Heat Cost by [Charge], then Discharge.
+
+Chameleon Paint was added.
+Chameleon Paint
+Small Auxiliary Attachment
+Inert. Trigger: 1/round, after this mech changes position, gain 1 Shield.
+
+Iron Sights was added.
+Iron Sights
+Small Auxiliary Attachment
+Inert. Passive: When this mech is in Melee Range, it may target rear guard mechs with Range 1 weapons.
+
+Excalibur Rounds was added.
+Excalibur Rounds
+Small Auxiliary Attachment
+Ammo: 1
+Inert. Trigger: This turn, this mech's Ballistic Weapons deal +1 damage.
+
+Brutus Rounds was added.
+Brutus Rounds
+Small Auxiliary Attachment
+Ammo: 1
+Inert. Trigger: This turn, when this mech activates a Ballistic Weapon, before dealing any damage, choose:
+- Remove all Shield from the target.
+- Shred.
+
+Focusing Lens was added.
+Focusing Lens
+Small Auxiliary Attachment
+Ammo: 1
+Inert. Trigger: This turn, this mech's Energy Weapons inflict 1 Overheat after dealing damage.
+
+Auto-Shields was added.
+Auto-Shields
+Small Auxiliary Attachment
+Inert. Passive: When this mech is at max Heat, reduces its damage taken by 1.
+
+Porcupine Armor was added.
+Porcupine Armor
+Medium Auxiliary Attachment
+Inert. Passive: Melee Weapons on this mech damage +1.
+Passive: Before this mech takes damage from Melee Weapons, deal 1 damage to the attacker.
+
+Gauss Strike Rifle was deleted.
+Gauss Strike Rifle
+Medium Ballistic Weapon
+Range: 2
+Heat: 4
+Deal 3 AP damage. -1 damage at Range 1.
+
+One Two Punch was deleted.
+One Two Punch
+Medium Melee Weapon
+Range: 0
+Heat: 4
+Deal 2 damage. Prepare: Deal 2 damage.
+This weapon deals +1 damage on targets with Vulnerable, otherwise it inflicts 1 Vulnerable.
+
+Cyberwarfare: WHITENOISE was deleted.
+Cyberwarfare: WHITENOISE
+Small Electronics System
+Heat: 3
+1/battle: The opponent discards a card from their hand.
+
+Probability Manipulator was deleted.
+Probability Manipulator
+Medium Electronics System
+Heat: 4
+1/battle: Reduce your Evade Counter by 1 (min 0).
+
+Field Modulator was deleted.
+Field Modulator
+Medium Electronics System
+Heat: 2
+Ammo: 2
+1/round, double Shield on all allied mechs at your position.
+
+Scout Drone
+Action: All allied mechs may reposition for 0 Heat Cost, then destroy this drone.
+|->
+Action: All allied mechs may reposition without Heat Cost, then destroy this drone.
+
+System Reboot
+Action: Draw a card. Restore 1 Heat Capacity, and remove all Vulnerable, Overheat, Overwatch, and Disable tokens from an allied mech. That mech may immediately act.
+|->
+Action: Draw a card. Lose 1 Heat and remove all Vulnerable, Overheat, Overwatch, and Disable tokens from an allied mech. That mech may immediately act.
+
+High Ground
+Action: Draw a card. Activate any equipment, ignoring Range, and deal +1 damage until your turn is over.
+|->
+Action: Draw a card. This turn, you deal +1 damage. You may activate any equipment, ignoring Range until resolved.
+
+
+
 pre-8/17 playtest changes
 -------------------------
 
