@@ -25,7 +25,7 @@ Flechettes:
   heat: 1
   text: |
     Deal 1 damage [Charge] times. Discharge.
-    Trigger: You may activate this to Charge after this mech takes an Action.
+    Trigger: After this mech takes an Action (other than activating this equipment), activate this to Charge 1 instead.
     Max 3 Charge.
   tags:
     - AOE
@@ -664,7 +664,7 @@ Changeling Missile Rack:
   ammo: 2
   text: |
     Deal 2 damage.
-    Trigger: Other Missile Weapons on this mech may use this Weapon's Ammo instead of their own.
+    Trigger: 1/round, other Missile Weapons on this mech may use this Weapon's Ammo instead of their own.
 
 "Cyberwarfare: MELTDOWN":
   size: Small
@@ -793,9 +793,12 @@ Shield Capacitor:
   size: Small
   type: Electronics
   system: System
-  heat: 2
+  heat: 1
   text: |
-    Give allied mechs at your position 1 Shield.
+    Choose:
+    > Charge 2.
+    > Gain [Charge] Shield. Discharge.
+    Max 4 Charge.
 
 Light Screen Projector:
   size: Small
@@ -812,7 +815,7 @@ Flux Capacitor:
   heat: 3
   text: |
     If [Charge] = 0, Charge 3.
-    Passive: If this mech takes an Action that incurs Heat while [Charge]>0, reduce Heat Cost by [Charge], then Discharge.
+    Passive: If this mech takes an Action (other than activating this equipment) that incurs Heat while [Charge]>0, you must reduce Heat Cost by [Charge], then Discharge.
 
 Charge Spool:
   size: Small
