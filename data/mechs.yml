@@ -83,7 +83,7 @@ Shahanshah:
   - Medium
   - Small
   ability: |
-    Passive: Reduce damage taken by 1 for other allied mechs in the same position.
+    Passive: Reduce damage taken by 1 for all allied mechs in the same position.
 
 Inevitable:
   faction: Low Tech
@@ -297,11 +297,11 @@ Davy Jones:
   faction: Pirate
   hp: 10
   armor: 1
-  hc: 8
+  hc: 6
   hardpoints:
   - Large
   - Large
   - Large
   ability: |
     Passive: When this mech takes damage, choose 1 Equipment on this mech and Disable it.
-    Passive: Whenever equipment on this mech becomes Disabled, lose 1 Heat.
+    Passive: Whenever equipment on this mech becomes Disabled, lose 2 Heat.
