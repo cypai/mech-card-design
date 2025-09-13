@@ -185,7 +185,7 @@ Heavy Assault Cannon:
     > Shred.
     > Overwatch: Deal [Charge+1] damage.
 
-Anti Materiel Sniper Rifle:
+Nemesis Autocannon:
   size: Large
   type: Ballistic
   system: Weapon
@@ -228,7 +228,7 @@ Targeting Laser:
   text: |
     Inflict 2 Vulnerable.
 
-Heating Laser:
+Plasma Pistol:
   size: Small
   type: Energy
   system: Weapon
@@ -236,8 +236,6 @@ Heating Laser:
   heat: 2
   text: |
     Deal 1 damage. Inflict 1 Overheat.
-  tags:
-    - Weak-Watchlist
 
 EM Polarizer:
   size: Small
@@ -248,16 +246,6 @@ EM Polarizer:
   text: |
     Deal 1 damage.
     Trigger: This turn, Energy Weapons on other allied mechs deal +1 damage.
-
-Antimatter Blaster:
-  size: Small
-  type: Energy
-  system: Weapon
-  range: 1
-  heat: 6
-  ammo: 1
-  text: |
-    Deal 4 AP damage.
 
 Ion Cannon:
   size: Small
@@ -309,7 +297,7 @@ Plasma Blaster:
   range: 1
   heat: 3
   text: |
-    Deal 2 damage. The target gains 1 Heat.
+    Deal 2 damage. Inflict 1 Overheat.
 
 Repulsor Array:
   size: Medium
@@ -380,6 +368,8 @@ Wave Motion Cannon:
   heat: 6
   text: |
     Prepare: Deal 6 damage. Damage -2 if activated from the rear guard.
+  tags:
+    - Weak-Watchlist
 
 Turbolaser Array:
   size: Large
@@ -393,7 +383,7 @@ Turbolaser Array:
     > Charge.
     > Overwatch: Deal [Charge+1] damage.
 
-Plasma Heating Laser:
+Plasma Incinerator:
   size: Large
   type: Energy
   system: Weapon
@@ -597,16 +587,16 @@ Javelin Missile:
   text: |
     Deal 3 damage.
 
-Harpoons and Tow Cables:
+Anchor Harpoon:
   size: Small
   type: Missile
   system: Weapon
-  range: 2
+  range: 3
   heat: 0
-  ammo: 2
+  ammo: 3
   text: |
-    Choose any mech. Move that mech to another position (ending position must be in Range).
-    If moving enemy mechs, inflict 1 Vulnerable.
+    Action: Move any mech to any other valid position.
+    Trigger: If any mech would be forced to reposition, you may activate this to prevent it.
 
 Dragonfire RPG:
   size: Small
@@ -674,13 +664,15 @@ Changeling Missile Rack:
   heat: 2
   text: |
     Inflict 1 Overheat.
+  tags:
+    - Strong-Watchlist
 
 "Cyberwarfare: COOKOFF":
   size: Small
   type: Electronics
   system: System
   range: 3
-  heat: 2
+  heat: 1
   text: |
     Choose one of the target's equipment with Ammo or Charge, then decrease it by 1 and deal 1 damage.
 
@@ -706,24 +698,15 @@ Changeling Missile Rack:
   tags:
     - Weak-Watchlist
 
-Spatial Anchor:
-  size: Small
-  type: Electronics
-  system: System
-  range: 2
-  heat: 2
-  text: |
-    Trigger: When any mech is forced to reposition, you may activate this to prevent it.
-  tags:
-    - Weak-Watchlist
-
 Interception Protocol:
   size: Small
   type: Electronics
   system: System
-  heat: 3
+  heat: 2
   text: |
     Trigger: 1/round, redirect the target of any enemy equipment to this mech if in valid range.
+  tags:
+    - Weak-Watchlist
 
 Early Warning System:
   size: Medium
@@ -732,6 +715,8 @@ Early Warning System:
   heat: 1
   text: |
     Trigger: If all allied mechs are in the vanguard, you may activate this System to redirect enemy Weapons to target this mech.
+  tags:
+    - Strong-Watchlist
 
 Slipstream Optimizer:
   size: Small
@@ -849,19 +834,12 @@ Excalibur Rounds:
   size: Small
   type: Auxiliary
   system: Attachment
-  ammo: 1
+  ammo: 2
   text: |
-    Inert. Trigger: This turn, this mech's Ballistic Weapons deal +1 damage.
-
-Brutus Rounds:
-  size: Small
-  type: Auxiliary
-  system: Attachment
-  ammo: 1
-  text: |
-    Inert. Trigger: This turn, when this mech activates a Ballistic Weapon, before dealing any damage, choose:
-    - Remove all Shield from the target.
-    - Shred.
+    Inert. Trigger: 1/round, this turn, when this mech activates a Ballistic Weapon, choose:
+    > It deals +1 damage to the target(s).
+    > Before resolving damage calculation, Shred the target(s).
+    > Before resolving damage calculation, remove all Shield from the target(s).
 
 Focusing Lens:
   size: Small
@@ -878,7 +856,7 @@ Auto-Shields:
   text: |
     Inert. Passive: When this mech is at max Heat, reduces its damage taken by 1.
 
-Porcupine Armor:
+Spiked Pauldrons:
   size: Medium
   type: Auxiliary
   system: Attachment
