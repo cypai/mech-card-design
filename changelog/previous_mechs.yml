@@ -81,8 +81,9 @@ Shahanshah:
   hardpoints:
   - Large
   - Medium
+  - Small
   ability: |
-    Passive: Reduce damage taken by 1 for other allied mechs in the same position.
+    Passive: Reduce damage taken by 1 for all allied mechs in the same position.
 
 Inevitable:
   faction: Low Tech
@@ -91,8 +92,7 @@ Inevitable:
   hc: 6
   hardpoints:
   - Large
-  - Medium
-  - Medium
+  - Large
   ability: |
     Passive: Weapons mounted on this mech matching Large, Ballistic, or Range 3, deal +1 damage.
     If the Weapon matches all attributes, -1 Heat Cost.
@@ -253,7 +253,7 @@ Monte Carlo:
   - Medium
   - Medium
   ability: |
-    Action: 1/round, reveal cards from the deck until you reveal an Equipment. Immediately mount it on this mech, replacing previous equipment if necessary, then you may activate it at -1 Heat Cost.
+    Action: 1/round, reveal cards from the deck until you reveal an Equipment. Immediately mount it on this mech, replacing previous equipment if necessary, then you may activate it.
 
 Jolly Roger:
   faction: Pirate
@@ -295,13 +295,13 @@ Powder Keg:
 
 Davy Jones:
   faction: Pirate
-  hp: 12
+  hp: 10
   armor: 1
-  hc: 9
+  hc: 6
   hardpoints:
   - Large
   - Large
   - Large
   ability: |
     Passive: When this mech takes damage, choose 1 Equipment on this mech and Disable it.
-    Passive: Whenever equipment on this mech becomes Disabled, lose 1 Heat.
+    Passive: Whenever equipment on this mech becomes Disabled, lose 2 Heat.

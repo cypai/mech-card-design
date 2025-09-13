@@ -1,3 +1,114 @@
+pre-8/29 bday printout
+----------------------
+
+Shahanshah
+Hardpoints: L M -> L M S
+Passive: Reduce damage taken by 1 for other allied mechs in the same position.
+|->
+Passive: Reduce damage taken by 1 for all allied mechs in the same position.
+
+Inevitable
+Hardpoints: L M M -> L L
+
+Monte Carlo
+Action: 1/round, reveal cards from the deck until you reveal an Equipment. Immediately mount it on this mech, replacing previous equipment if necessary, then you may activate it at -1 Heat Cost.
+|->
+Action: 1/round, reveal cards from the deck until you reveal an Equipment. Immediately mount it on this mech, replacing previous equipment if necessary, then you may activate it.
+
+Davy Jones
+HP: 12 -> 10
+Heat Capacity: 9 -> 6
+Passive: When this mech takes damage, choose 1 Equipment on this mech and Disable it.
+Passive: Whenever equipment on this mech becomes Disabled, lose 1 Heat.
+|->
+Passive: When this mech takes damage, choose 1 Equipment on this mech and Disable it.
+Passive: Whenever equipment on this mech becomes Disabled, lose 2 Heat.
+
+Flechettes
+Deal 1 damage [Charge] times. Discharge.
+Trigger: You may activate this to Charge after this mech takes an Action.
+Max 3 Charge.
+|->
+Deal 1 damage [Charge] times. Discharge.
+Trigger: After this mech takes an Action (other than activating this equipment), activate this to Charge 1 instead.
+Max 3 Charge.
+
+Ion Cannon
+Heat: 4 -> 3
+If the target has Vulnerable, Disable one of its equipment.
+|->
+Deal 1 damage. Overwatch: Disable 1 equipment on the target.
+
+Ion Pulser
+Heat: 3 -> 4
+
+Shield Drone Launcher
+1/round, choose a position to grant 1 Shield to allied mechs there, then summon 1 Shield Drone.
+|->
+Choose a position to grant 1 Shield to allied mechs there, then summon 1 Shield Drone.
+
+Jammer Drone Launcher
+Heat: 2 -> 4
+
+Changeling Missile Rack
+Deal 2 damage.
+Trigger: Other Missile Weapons on this mech may use this Weapon's Ammo instead of their own.
+|->
+Deal 2 damage.
+Trigger: 1/round, other Missile Weapons on this mech may use this Weapon's Ammo instead of their own.
+
+Shield Projector
+Choose an allied mech to give it 1 Shield.
+Trigger: You may activate this at the start of the round.
+|->
+Choose an allied mech to give it 2 Shield.
+
+Shield Generator
+Heat: 1 -> 2
+Trigger: At the start of the round, you may activate this to gain 1 Shield.
+|->
+Trigger: At the start of the round, you may activate this to gain 2 Shield.
+
+Combat Knife was added.
+Combat Knife
+Small Melee Weapon
+Range: 0
+Heat: 2
+Deal 1 damage. Inflict 1 Vulnerable.
+
+Shield Capacitor was added.
+Shield Capacitor
+Small Electronics System
+Heat: 1
+Choose:
+> Charge 2.
+> Gain [Charge] Shield. Discharge.
+Max 4 Charge.
+
+Capacitor -> Flux Capacitor
+If [Charge] = 0, Charge 3.
+Passive: If this mech takes an Action that incurs Heat while [Charge]>0, reduce Heat Cost by [Charge], then Discharge.
+|->
+If [Charge] = 0, Charge 3.
+Passive: If this mech takes an Action (other than activating this equipment) that incurs Heat while [Charge]>0, you must reduce Heat Cost by [Charge], then Discharge.
+
+Shield Bashing Unit was deleted.
+Shield Bashing Unit
+Medium Melee Weapon
+Range: 0
+Heat: 4
+Deal 3+X damage, where X is your Shield.
+
+Light Screen was deleted.
+Light Screen
+Small Electronics System
+Heat: 2
+Give allied mechs at your position 1 Shield.
+
+Lock n' Load -> Lock and Load
+
+
+
 pre-8/24 playtest
 -----------------
 
