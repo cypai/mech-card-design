@@ -237,6 +237,19 @@ Plasma Pistol:
   text: |
     Deal 1 damage. Inflict 1 Overheat.
 
+Pulse Pistol:
+  size: Small
+  type: Energy
+  system: Weapon
+  range: 1
+  heat: 2
+  text: |
+    Charge. Choose:
+    > Charge.
+    > Deal 1 damage [Charge] times. Discharge.
+  tags:
+    - AOE
+
 EM Polarizer:
   size: Small
   type: Energy
@@ -351,7 +364,7 @@ Slagmaker:
   text: |
     Deal 6 damage, then Disable all other equipment on this mech.
 
-Gravity Cannon:
+Magnetic Cannon:
   size: Large
   type: Energy
   system: Weapon
@@ -360,16 +373,14 @@ Gravity Cannon:
   text: |
     Deal 3 damage. If the target is in the vanguard, move them to the rear guard, and vice versa.
 
-Wave Motion Cannon:
+Spectrum Distortion Cannon:
   size: Large
   type: Energy
   system: Weapon
   range: 3
   heat: 6
   text: |
-    Prepare: Deal 6 damage. Damage -2 if activated from the rear guard.
-  tags:
-    - Weak-Watchlist
+    Prepare: Deal 6 damage. If you control another mech, this mech cannot be targeted until your next turn.
 
 Turbolaser Array:
   size: Large
@@ -793,6 +804,22 @@ Light Screen Projector:
   text: |
     Give all allied mechs 1 Shield.
 
+Absolute Terminus Field:
+  size: Small
+  type: Electronics
+  system: System
+  heat: 1
+  text: |
+    Trigger: If this mech is targeted by a Weapon while being the only mech in the vanguard, reduce its damage taken from that Weapon this turn by 1.
+
+Advanced Targeting Algorithms:
+  size: Small
+  type: Electronics
+  system: System
+  heat: 3
+  text: |
+    Trigger: This turn, this mech's Missile and Ballistic Weapons cannot be evaded.
+
 Flux Capacitor:
   size: Medium
   type: Electronics
@@ -830,13 +857,13 @@ Iron Sights:
   text: |
     Inert. Passive: When this mech is in Melee Range, it may target rear guard mechs with Range 1 weapons.
 
-Excalibur Rounds:
+Special Issue Ammunition:
   size: Small
   type: Auxiliary
   system: Attachment
   ammo: 2
   text: |
-    Inert. Trigger: 1/round, this turn, when this mech activates a Ballistic Weapon, choose:
+    Inert. Trigger: 1/round, when this mech activates a Ballistic Weapon, choose:
     > It deals +1 damage to the target(s).
     > Before resolving damage calculation, Shred the target(s).
     > Before resolving damage calculation, remove all Shield from the target(s).
@@ -845,9 +872,9 @@ Focusing Lens:
   size: Small
   type: Auxiliary
   system: Attachment
-  ammo: 1
+  ammo: 2
   text: |
-    Inert. Trigger: This turn, this mech's Energy Weapons inflict 1 Overheat after dealing damage.
+    Inert. Trigger: 1/round, this mech's Energy Weapons inflict 1 Overheat after dealing damage.
 
 Auto-Shields:
   size: Small
