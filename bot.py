@@ -363,13 +363,16 @@ async def db_usage_distribution(ctx: commands.Context):
         results = cursor.fetchall()
         equipment_message = ""
         mechs_message = ""
+        maneuvers_message = ""
         for row in results:
             name, count = row
             if db.get_equipment(name) is not None:
                 equipment_message += f"{name}: {count}\n"
             elif db.get_mech(name) is not None:
                 mechs_message += f"{name}: {count}\n"
-        message = f"Equipment:\n{equipment_message}\nMechs:\n{mechs_message}"
+            elif db.get_maneuver(name) is not None:
+                maneuvers_message += f"{name}: {count}\n"
+        message = f"Equipment:\n{equipment_message}\nMechs:\n{mechs_message}\nManeuvers:\n{maneuvers_message}"
         await reply(ctx, message)
 
 
@@ -380,11 +383,21 @@ async def db_zero_usage(ctx: commands.Context):
         cursor.execute("select name, count(*) from usage group by name")
         results = cursor.fetchall()
     usage = [row[0] for row in results]
-    zero_usage = [e for e in db.equipment if e.name not in usage]
-    message = "The following equipment has 0 usage so far:\n"
-    for equipment in zero_usage:
-        message += f"{equipment.name}\n"
+    zero_usage = [
+        e for e in db.equipment + db.mechs + db.maneuvers if e.name not in usage
+    ]
+    message = "The following cards has 0 usage so far:\n"
+    for item in zero_usage:
+        message += f"{item.name}\n"
     await reply(ctx, message, "zero_usage.txt")
+
+
+@bot.command()
+async def db_migrate_usage(ctx: commands.Context, previous: str, current: str):
+    with sqlite3.connect("data.db") as conn:
+        cursor = conn.cursor()
+        cursor.execute("update usage set name = ? where name = ?", (current, previous))
+    await reply(ctx, f"Updated usage from {previous} to {current}.")
 
 
 if args.sync:

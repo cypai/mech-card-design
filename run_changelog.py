@@ -31,16 +31,37 @@ class Changelog:
         self.text = text
 
 
-def generate_changelog_text() -> str:
+class FullChangelog:
+    def __init__(
+        self,
+        mechs: Changelog,
+        equipment: Changelog,
+        drones: Changelog,
+        maneuvers: Changelog,
+    ):
+        self.mechs = mechs
+        self.equipment = equipment
+        self.drones = drones
+        self.maneuvers = maneuvers
+
+
+def generate_full_changelog() -> FullChangelog:
     mech_changelog = generate_changelog_for(db.mechs, prev_db.mechs)
     equipment_changelog = generate_changelog_for(db.equipment, prev_db.equipment)
     drone_changelog = generate_changelog_for(db.drones, prev_db.drones)
     maneuver_changelog = generate_changelog_for(db.maneuvers, prev_db.maneuvers)
+    return FullChangelog(
+        mech_changelog, equipment_changelog, drone_changelog, maneuver_changelog
+    )
+
+
+def generate_changelog_text() -> str:
+    changelog = generate_full_changelog()
     text_changelog = (
-        mech_changelog.text
-        + equipment_changelog.text
-        + drone_changelog.text
-        + maneuver_changelog.text
+        changelog.mechs.text
+        + changelog.equipment.text
+        + changelog.drones.text
+        + changelog.maneuvers.text
     )
 
     if len(text_changelog) == 0:

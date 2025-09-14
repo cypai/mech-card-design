@@ -351,6 +351,9 @@ class GameDatabase:
     def get_mech(self, name: str) -> Mech | None:
         return next((x for x in self.mechs if x.name == name), None)
 
+    def get_maneuver(self, name: str) -> Maneuver | None:
+        return next((x for x in self.maneuvers if x.name == name), None)
+
     def fuzzy_query_name(
         self, name: str, threshold: int
     ) -> list[tuple[Union[Equipment, Mech, Drone, Maneuver], int]]:
