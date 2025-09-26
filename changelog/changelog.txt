@@ -1,3 +1,116 @@
+9/14 printout sync
+------------------
+
+Guanyin
+HP: 11 -> 10
+
+Plasma Blaster
+Deal 2 damage. The target gains 1 Heat.
+|->
+Deal 2 damage. Inflict 1 Overheat.
+
+Cyberwarfare: COOKOFF
+Heat: 2 -> 1
+
+Interception Protocol
+Heat: 3 -> 2
+
+Focusing Lens
+Ammo: 1 -> 2
+Inert. Trigger: This turn, this mech's Energy Weapons inflict 1 Overheat after dealing damage.
+|->
+Inert. Trigger: 1/round, this mech's Energy Weapons inflict 1 Overheat after dealing damage.
+
+Anti Materiel Sniper Rifle -> Nemesis Autocannon
+
+Heating Laser -> Plasma Pistol
+
+Pulse Pistol was added.
+Pulse Pistol
+Small Energy Weapon
+Range: 1
+Heat: 2
+Tags: ['AOE']
+Charge. Choose:
+> Charge.
+> Deal 1 damage [Charge] times. Discharge.
+
+Gravity Cannon -> Magnetic Cannon
+
+Wave Motion Cannon -> Spectrum Distortion Cannon
+Prepare: Deal 6 damage. Damage -2 if activated from the rear guard.
+|->
+Prepare: Deal 6 damage. If you control another mech, this mech cannot be targeted until your next turn.
+
+Plasma Heating Laser -> Plasma Incinerator
+
+Anchor Harpoon was added.
+Anchor Harpoon
+Small Missile Weapon
+Range: 3
+Heat: 0
+Ammo: 3
+Action: Move any mech to any other valid position.
+Trigger: If any mech would be forced to reposition, you may activate this to prevent it.
+
+Absolute Terminus Field was added.
+Absolute Terminus Field
+Small Electronics System
+Heat: 1
+Trigger: If this mech is targeted by a Weapon while being the only mech in the vanguard, reduce its damage taken from that Weapon this turn by 1.
+
+Advanced Targeting Algorithms was added.
+Advanced Targeting Algorithms
+Small Electronics System
+Heat: 3
+Trigger: This turn, this mech's Missile and Ballistic Weapons cannot be evaded.
+
+Brutus Rounds -> Special Issue Ammunition
+Ammo: 1 -> 2
+Inert. Trigger: This turn, when this mech activates a Ballistic Weapon, before dealing any damage, choose:
+- Remove all Shield from the target.
+- Shred.
+|->
+Inert. Trigger: 1/round, when this mech activates a Ballistic Weapon, choose:
+> It deals +1 damage to the target(s).
+> Before resolving damage calculation, Shred the target(s).
+> Before resolving damage calculation, remove all Shield from the target(s).
+
+Porcupine Armor -> Spiked Pauldrons
+
+Antimatter Blaster was deleted.
+Antimatter Blaster
+Small Energy Weapon
+Range: 1
+Heat: 6
+Ammo: 1
+Deal 4 AP damage.
+
+Harpoons and Tow Cables was deleted.
+Harpoons and Tow Cables
+Small Missile Weapon
+Range: 2
+Heat: 0
+Ammo: 2
+Choose any mech. Move that mech to another position (ending position must be in Range).
+If moving enemy mechs, inflict 1 Vulnerable.
+
+Spatial Anchor was deleted.
+Spatial Anchor
+Small Electronics System
+Range: 2
+Heat: 2
+Tags: ['Weak-Watchlist']
+Trigger: When any mech is forced to reposition, you may activate this to prevent it.
+
+Excalibur Rounds was deleted.
+Excalibur Rounds
+Small Auxiliary Attachment
+Ammo: 1
+Inert. Trigger: This turn, this mech's Ballistic Weapons deal +1 damage.
+
+
+
 pre-8/29 bday printout
 ----------------------
 
