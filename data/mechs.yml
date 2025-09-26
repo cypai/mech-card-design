@@ -71,7 +71,7 @@ Amaterasu:
   - Small
   ability: |
     Passive: All ammo weapons +1 ammo.
-    Trigger: 1/round, when you Charge, Charge+1 instead.
+    Trigger: 1/battle, when you Charge, Charge+1 instead.
 
 Shahanshah:
   faction: Low Tech
@@ -111,7 +111,6 @@ Wolfblade:
   - Small
   ability: |
     Passive: Melee Weapons +1 damage.
-    Action: 1/round, activate a Melee or Range 1 Weapon, removing all Overwatch, Vulnerable, and Overheat from this mech. This mech cannot Fall Back for the remainder of the round.
 
 Hellstorm:
   faction: Low Tech

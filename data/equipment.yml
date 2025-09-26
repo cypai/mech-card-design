@@ -260,15 +260,6 @@ EM Polarizer:
     Deal 1 damage.
     Trigger: This turn, Energy Weapons on other allied mechs deal +1 damage.
 
-Ion Cannon:
-  size: Small
-  type: Energy
-  system: Weapon
-  range: 1
-  heat: 3
-  text: |
-    Deal 1 damage. Overwatch: Disable 1 equipment on the target.
-
 Flamethrower:
   size: Medium
   type: Energy
@@ -526,24 +517,11 @@ Combat Drone Launcher:
   type: Drone
   system: System
   range: 1
-  heat: 4
+  heat: 5
   ammo: 3
   text: |
     Deal 2 damage to the enemy vanguard.
     Summon 1 Combat Drone.
-  tags:
-    - AOE
-
-Combat Drone Hangar:
-  size: Large
-  type: Drone
-  system: System
-  range: 1
-  heat: 5
-  ammo: 2
-  text: |
-    Deal 2 damage to the enemy vanguard.
-    Summon 2 Combat Drones.
   tags:
     - AOE
 
@@ -703,7 +681,7 @@ Changeling Missile Rack:
   type: Electronics
   system: System
   range: 3
-  heat: 3
+  heat: 2
   text: |
     If the target is not at 0 Heat, Disable one of the target's equipment.
   tags:
@@ -808,9 +786,8 @@ Absolute Terminus Field:
   size: Small
   type: Electronics
   system: System
-  heat: 1
   text: |
-    Trigger: If this mech is targeted by a Weapon while being the only mech in the vanguard, reduce its damage taken from that Weapon this turn by 1.
+    Passive: If this mech is targeted by a Weapon while being the only mech in the vanguard, reduce its damage taken from that Weapon by 1.
 
 Advanced Targeting Algorithms:
   size: Small
@@ -875,13 +852,6 @@ Focusing Lens:
   ammo: 2
   text: |
     Inert. Trigger: 1/round, this mech's Energy Weapons inflict 1 Overheat after dealing damage.
-
-Auto-Shields:
-  size: Small
-  type: Auxiliary
-  system: Attachment
-  text: |
-    Inert. Passive: When this mech is at max Heat, reduces its damage taken by 1.
 
 Spiked Pauldrons:
   size: Medium
