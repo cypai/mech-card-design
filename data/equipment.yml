@@ -260,6 +260,15 @@ EM Polarizer:
     Deal 1 damage.
     Trigger: This turn, Energy Weapons on other allied mechs deal +1 damage.
 
+Tesla Coil:
+  size: Small
+  type: Energy
+  system: Weapon
+  range: 1
+  heat: 2
+  text: |
+    Deal X+1 damage, where X = the total amount of Overheat, Shield, and Vulnerable on the target.
+
 Flamethrower:
   size: Medium
   type: Energy
@@ -511,6 +520,18 @@ Ripjaw Chainaxe:
   text: |
     Charge. Deal [Charge+4] damage.
     If Charge is at least 2 or the target has Vulnerable, Shred.
+
+Adjudication Lance:
+  size: Large
+  type: Melee
+  system: Weapon
+  range: 0
+  heat: 5
+  text: |
+    Choose:
+    > Deal 5 AP damage.
+    > Deal 5 damage from Range 1 instead, then Disable this Weapon.
+    If this Weapon reduces the target's HP to 0, lose 2 Heat.
 
 Combat Drone Launcher:
   size: Medium
@@ -805,6 +826,14 @@ Flux Capacitor:
   text: |
     If [Charge] = 0, Charge 3.
     Passive: If this mech takes an Action (other than activating this equipment) that incurs Heat while [Charge]>0, you must reduce Heat Cost by [Charge], then Discharge.
+
+Accuracy Overclocker:
+  size: Medium
+  type: Electronics
+  system: System
+  heat: 1
+  text: |
+    Trigger: Discard a card. This turn, this mech's Weapons cannot be evaded.
 
 Charge Spool:
   size: Small
