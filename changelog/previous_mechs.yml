@@ -70,22 +70,9 @@ Amaterasu:
   - Medium
   - Small
   ability: |
-    Passive: All ammo weapons +1 ammo.
     Trigger: 1/round, when you Charge, Charge+1 instead.
 
-Shahanshah:
-  faction: Low Tech
-  hp: 9
-  armor: 2
-  hc: 7
-  hardpoints:
-  - Large
-  - Medium
-  - Small
-  ability: |
-    Passive: Reduce damage taken by 1 for all allied mechs in the same position.
-
-Inevitable:
+Ballistarius:
   faction: Low Tech
   hp: 6
   armor: 1
@@ -94,13 +81,9 @@ Inevitable:
   - Large
   - Large
   ability: |
-    Passive: Weapons mounted on this mech matching Large, Ballistic, or Range 3, deal +1 damage.
-    If the Weapon matches all attributes, -1 Heat Cost.
-    While in the vanguard, this mech cannot evade.
-  tags:
-  - card_rotation_icon
+    Passive: While in the back line, this mech's Medium or Large non-Missile weapons deal +1 damage.
 
-Wolfblade:
+Gladius:
   faction: Low Tech
   hp: 9
   armor: 2
@@ -111,9 +94,8 @@ Wolfblade:
   - Small
   ability: |
     Passive: Melee Weapons +1 damage.
-    Action: 1/round, activate a Melee or Range 1 Weapon, removing all Overwatch, Vulnerable, and Overheat from this mech. This mech cannot Fall Back for the remainder of the round.
 
-Hellstorm:
+Legionary:
   faction: Low Tech
   hp: 10
   armor: 1
@@ -149,6 +131,18 @@ Centurion:
   ability: |
     Passive: Whenever this mech loses Armor, lose 2 Heat.
     Action: 1/round, lose 1 Armor, then take another Action with this mech.
+
+Praetor:
+  faction: Low Tech
+  hp: 10
+  armor: 1
+  hc: 7
+  hardpoints:
+  - Medium
+  - Medium
+  - Small
+  ability: |
+    Passive: When another allied mech at this mech's position activates a Large Weapon targeting a single enemy mech, if the target did not gain Overwatch, Overwatch: Deal 2 damage.
 
 Aquarius:
   faction: High Tech
@@ -201,21 +195,17 @@ Libra:
     Trigger: 1/round, upon taking damage, turn it into Heat instead.
     You cannot trigger this if you do not have enough Heat Capacity.
 
-Sagittarius:
+Gemini:
   faction: High Tech
-  hp: 8
+  hp: 10
   armor: 0
-  hc: 7
+  hc: 8
   hardpoints:
-  - Large
   - Medium
-  - Small
+  - Medium
+  - Medium
   ability: |
-    Passive: Weapons mounted on this mech matching Large, Energy, or Range 3, deal +1 damage.
-    If the Weapon matches all attributes, -1 Heat Cost.
-    While in the vanguard, this mech cannot evade.
-  tags:
-  - card_rotation_icon
+    Trigger: 1/round, when this mech has exactly 8 Heat, deploy 1 drone of your choice.
 
 Taurus:
   faction: High Tech
@@ -293,15 +283,14 @@ Powder Keg:
     Action: Prepare: Self-destruct.
     Passive: If this mech is destroyed while in the vanguard, immediately deal 3 AP damage to the enemy vanguard. This ability cannot win the game.
 
-Davy Jones:
+Rapscallion:
   faction: Pirate
-  hp: 10
-  armor: 1
-  hc: 6
+  hp: 9
+  armor: 0
+  hc: 7
   hardpoints:
-  - Large
-  - Large
-  - Large
+  - Medium
+  - Medium
+  - Small
   ability: |
-    Passive: When this mech takes damage, choose 1 Equipment on this mech and Disable it.
-    Passive: Whenever equipment on this mech becomes Disabled, lose 2 Heat.
+    Passive: While this mech has 0 Heat and there is another allied mech in your front line, this mech cannot be targeted.

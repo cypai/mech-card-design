@@ -1,3 +1,137 @@
+9/28 printout
+-------------
+
+Amaterasu
+Passive: All ammo weapons +1 ammo.
+Trigger: 1/round, when you Charge, Charge+1 instead.
+|->
+Trigger: 1/round, when you Charge, Charge+1 instead.
+
+Inevitable -> Ballistarius
+Passive: Weapons mounted on this mech matching Large, Ballistic, or Range 3, deal +1 damage.
+If the Weapon matches all attributes, -1 Heat Cost.
+While in the vanguard, this mech cannot evade.
+|->
+Passive: While in the back line, this mech's Medium or Large non-Missile weapons deal +1 damage.
+
+Shahanshah -> Gladius
+Passive: Reduce damage taken by 1 for all allied mechs in the same position.
+|->
+Passive: Melee Weapons +1 damage.
+
+Hellstorm -> Legionary
+
+Praetor was added.
+Praetor
+HP: 10
+Armor: 1
+Heat: 7
+Hardpoints: M M S
+Ability: Passive: When another allied mech at this mech's position activates a Large Weapon targeting a single enemy mech, if the target did not gain Overwatch, Overwatch: Deal 2 damage.
+
+Gemini was added.
+Gemini
+HP: 10
+Armor: 0
+Heat: 8
+Hardpoints: M M M
+Ability: Trigger: 1/round, when this mech has exactly 8 Heat, deploy 1 drone of your choice.
+
+Rapscallion was added.
+Rapscallion
+HP: 9
+Armor: 0
+Heat: 7
+Hardpoints: M M S
+Ability: Passive: While this mech has 0 Heat and there is another allied mech in your front line, this mech cannot be targeted.
+
+Wolfblade was deleted.
+Wolfblade
+HP: 9
+Armor: 2
+Heat: 7
+Hardpoints: L M S
+Ability: Passive: Melee Weapons +1 damage.
+Action: 1/round, activate a Melee or Range 1 Weapon, removing all Overwatch, Vulnerable, and Overheat from this mech. This mech cannot Fall Back for the remainder of the round.
+
+Sagittarius was deleted.
+Sagittarius
+HP: 8
+Armor: 0
+Heat: 7
+Hardpoints: L M S
+Ability: Passive: Weapons mounted on this mech matching Large, Energy, or Range 3, deal +1 damage.
+If the Weapon matches all attributes, -1 Heat Cost.
+While in the vanguard, this mech cannot evade.
+
+Davy Jones was deleted.
+Davy Jones
+HP: 10
+Armor: 1
+Heat: 6
+Hardpoints: L L L
+Ability: Passive: When this mech takes damage, choose 1 Equipment on this mech and Disable it.
+Passive: Whenever equipment on this mech becomes Disabled, lose 2 Heat.
+
+Combat Drone Launcher
+Heat: 4 -> 5
+
+Cyberwarfare: SHORTCIRCUIT
+Heat: 3 -> 2
+
+Absolute Terminus Field
+Heat: 1 -> None
+Trigger: If this mech is targeted by a Weapon while being the only mech in the vanguard, reduce its damage taken from that Weapon this turn by 1.
+|->
+Passive: If this mech is targeted by a Weapon while being the only mech in the vanguard, reduce its damage taken from that Weapon by 1.
+
+Tesla Coil was added.
+Tesla Coil
+Small Energy Weapon
+Range: 1
+Heat: 2
+Deal X+1 damage, where X = the total amount of Overheat, Shield, and Vulnerable on the target.
+
+Adjudication Lance was added.
+Adjudication Lance
+Large Melee Weapon
+Range: 0
+Heat: 5
+Choose:
+> Deal 5 AP damage.
+> Deal 5 damage from Range 1 instead, then Disable this Weapon.
+If this Weapon reduces the target's HP to 0, lose 2 Heat.
+
+Accuracy Overclocker was added.
+Accuracy Overclocker
+Medium Electronics System
+Heat: 1
+Trigger: Discard a card. This turn, this mech's Weapons cannot be evaded.
+
+Ion Cannon was deleted.
+Ion Cannon
+Small Energy Weapon
+Range: 1
+Heat: 3
+Deal 1 damage. Overwatch: Disable 1 equipment on the target.
+
+Combat Drone Hangar was deleted.
+Combat Drone Hangar
+Large Drone System
+Range: 1
+Heat: 5
+Ammo: 2
+Tags: ['AOE']
+Deal 2 damage to the enemy vanguard.
+Summon 2 Combat Drones.
+
+Auto-Shields was deleted.
+Auto-Shields
+Small Auxiliary Attachment
+Inert. Passive: When this mech is at max Heat, reduces its damage taken by 1.
+
+
+
 9/14 printout sync
 ------------------
 
