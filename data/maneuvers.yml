@@ -10,10 +10,6 @@ Fog of War:
   text: |
     Action: Draw a card. All allied mechs gain 1 Shield.
 
-Unstoppable Force:
-  text: |
-    Action: Draw a card. Choose an enemy position and remove all Shield on enemy mechs there, then you may activate a Weapon.
-
 Lock and Load:
   text: |
     Action: Draw a card. Restore all ammo for 1 equipment, then immediately activate that equipment, dealing +1 damage with it this turn.
@@ -37,3 +33,7 @@ High Ground:
 Shock and Awe:
   text: |
     Action: Draw a card. Inflict 1 Vulnerable and 1 Overheat to the enemy vanguard.
+
+Outflank:
+  text: |
+    Action: Draw a card. Reposition any number of enemy mechs.
