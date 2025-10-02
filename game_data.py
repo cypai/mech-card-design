@@ -17,6 +17,7 @@ def parse_equipment(equipment) -> Equipment:
         range=data.get("range", None),
         text=data.get("text"),
         tags=data.get("tags", []),
+        alias=data.get("alias", []),
         copies=data.get("copies", 1),
     )
 
@@ -203,6 +204,7 @@ def get_filtered_equipment(filters: list[str]) -> list[Equipment]:
                 f != "move"
                 and f in tokenized_text
                 or f in equipment.name.lower()
+                or f in map(lambda x: x.lower(), equipment.alias)
                 or f == equipment.type.lower()
                 or f == equipment.system.lower()
                 or f == equipment.size.lower()
@@ -346,7 +348,9 @@ class GameDatabase:
         return get_filtered_mechs(filters)
 
     def get_equipment(self, name: str) -> Equipment | None:
-        return next((x for x in self.equipment if x.name == name), None)
+        return next(
+            (x for x in self.equipment if x.name == name or name in x.alias), None
+        )
 
     def get_mech(self, name: str) -> Mech | None:
         return next((x for x in self.mechs if x.name == name), None)
@@ -357,9 +361,20 @@ class GameDatabase:
     def fuzzy_query_name(
         self, name: str, threshold: int
     ) -> list[tuple[Union[Equipment, Mech, Drone, Maneuver], int]]:
-        results = [
-            (x, fuzz.ratio(name.lower(), x.name.lower())) for x in self.everything
+
+        lname = name.lower()
+        non_equipment = list(
+            itertools.chain.from_iterable([self.mechs, self.drones, self.maneuvers])
+        )
+        equipment_results = [
+            (x, max(map(lambda n: fuzz.ratio(lname, n.lower()), [x.name] + x.alias)))
+            for x in self.equipment
+        ]
+        non_equipment_results = [
+            (x, fuzz.ratio(lname, x.name.lower())) for x in non_equipment
         ]
         return sorted(
-            [x for x in results if x[1] > threshold], key=lambda x: x[1], reverse=True
+            [x for x in equipment_results + non_equipment_results if x[1] > threshold],
+            key=lambda x: x[1],
+            reverse=True,
         )

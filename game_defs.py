@@ -13,6 +13,7 @@ class Equipment:
     range: Optional[int]
     text: str
     tags: list[str]
+    alias: list[str]
     copies: int
 
     def __init__(self, **kwargs):
@@ -25,6 +26,7 @@ class Equipment:
         self.range = kwargs.get("range", None)
         self.text = str(kwargs.get("text"))
         self.tags = kwargs.get("tags", [])
+        self.alias = kwargs.get("alias", [])
         self.copies = kwargs.get("copies", 1)
 
         self.normalized_name = re.sub(r"\W", "", self.name)
