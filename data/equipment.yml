@@ -32,18 +32,6 @@ Flechettes:
     - Multihit
     - Strong-Watchlist
 
-TRAK-R Smart Gun:
-  size: Small
-  type: Ballistic
-  system: Weapon
-  range: 2
-  heat: 2
-  text: |
-    Deal 1 damage.
-    Trigger: After an enemy changes position, you may activate this Weapon on that target and additionally inflict 1 Vulnerable.
-  tags:
-    - Weak-Watchlist
-
 LINK-R Dumbfire Gun:
   size: Small
   type: Ballistic
@@ -53,6 +41,16 @@ LINK-R Dumbfire Gun:
   text: |
     Deal 1 damage.
     Trigger: After activating a Medium or Large Weapon on this mech as an Action, you may activate this Weapon on one of its targets with -1 Heat Cost.
+
+TRAK-R Smart Gun:
+  size: Small
+  type: Ballistic
+  system: Weapon
+  range: 2
+  heat: 1
+  text: |
+    Overwatch: Deal 1 damage.
+    Trigger: After this mech activates a Weapon targeting a single mech, if it did not apply Overwatch, you may activate this Weapon on its target.
 
 Gauss Rifle:
   size: Medium
@@ -267,7 +265,7 @@ Tesla Coil:
   range: 1
   heat: 2
   text: |
-    Deal X+1 damage, where X = the total amount of Overheat, Shield, and Vulnerable on the target.
+    Deal X+1 damage, where X = the total amount of Overheat and Shield on the target.
 
 Flamethrower:
   size: Medium
@@ -575,16 +573,16 @@ Jammer Drone Launcher:
   tags:
     - AOE
 
-Smoke Grenade:
+Hunter-Killer Nanites:
   size: Small
   type: Missile
   system: Weapon
+  range: 3
   heat: 0
-  ammo: 2
+  ammo: 3
   text: |
-    Choose an allied position. All allied mechs there gain 1 Shield.
-  tags:
-    - Weak-Watchlist
+    Inflict 1 Vulnerable. If the target has Vulnerable, deal 1 damage instead.
+    Trigger: After an enemy mech changes position, you may activate this Weapon and target it.
 
 Javelin Missile:
   size: Medium
