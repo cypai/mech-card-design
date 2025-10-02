@@ -354,6 +354,22 @@ async def db_usage(ctx: commands.Context, *, name: str):
 
 
 @bot.command()
+async def db_clear_usage(ctx: commands.Context, *, name: str):
+    results = db.fuzzy_query_name(name, 50)
+    if len(results) == 0 or results[0][1] < 90:
+        options = [x[0].name for x in results]
+        options_str = " or ".join(options)
+        message = f"{name} not found. Did you mean: {options_str}"
+        await reply(ctx, message)
+    else:
+        result = results[0][0]
+        with sqlite3.connect("data.db") as conn:
+            cursor = conn.cursor()
+            cursor.execute("delete from usage where name = ?", (result.name,))
+            await reply(ctx, f"Usage for {result.name} cleared.")
+
+
+@bot.command()
 async def db_usage_distribution(ctx: commands.Context):
     with sqlite3.connect("data.db") as conn:
         cursor = conn.cursor()
