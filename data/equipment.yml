@@ -551,22 +551,22 @@ Shield Drone Launcher:
   size: Medium
   type: Drone
   system: System
-  heat: 4
+  heat: 3
   ammo: 3
   text: |
-    Choose a position to grant 1 Shield to allied mechs there, then summon 1 Shield Drone.
+    Grant 2 Shield to an allied mech, then summon 1 Shield Drone.
 
 Scout Drone Launcher:
   size: Small
   type: Drone
   system: System
-  heat: 1
+  heat: 2
   ammo: 2
   text: |
-    All allied mechs may immediately reposition without Heat Cost, then summon 1 Scout Drone.
+    Reposition an allied mech without Heat Cost, then summon 1 Scout Drone.
 
 Jammer Drone Launcher:
-  size: Small
+  size: Medium
   type: Drone
   system: System
   range: 1
@@ -641,6 +641,19 @@ Parasite Launcher:
   text: |
     Deal 1 damage. On the opponent's next turn, if the target does not change position, it takes 2 damage at the end of the turn.
 
+Proximity-Swarm Nanites:
+  size: Small
+  type: Missile
+  system: Weapon
+  range: 1
+  heat: 0
+  ammo: 3
+  text: |
+    Choose:
+    > Inflict 1 Vulnerable.
+    > Gain 1 Shield.
+    Trigger: If this mech is targeted by a Weapon, you may activate this Weapon any number of times, targeting the activated mech if applicable.
+
 Ballistic Missile:
   size: Large
   type: Missile
@@ -663,6 +676,8 @@ Changeling Missile Rack:
   text: |
     Deal 2 damage.
     Trigger: 1/round, other Missile Weapons on this mech may use this Weapon's Ammo instead of their own.
+  tags:
+    - Sus
 
 Interception Protocol:
   size: Small
@@ -772,6 +787,8 @@ Leading Crosshairs:
   heat: 1
   text: |
     Trigger: After an enemy mech has changed position, you may activate this to inflict 1 Vulnerable on that mech.
+  tags:
+    - Sus
 
 Shield Projector:
   size: Small
@@ -799,6 +816,8 @@ Shield Capacitor:
     > Charge 2.
     > Gain [Charge] Shield. Discharge.
     Max 4 Charge.
+  tags:
+    - Sus
 
 Light Screen Projector:
   size: Small
@@ -815,22 +834,16 @@ Absolute Terminus Field:
   text: |
     Passive: If this mech is targeted by a Weapon while being the only mech in the vanguard, reduce its damage taken from that Weapon by 1.
 
-Advanced Targeting Algorithms:
-  size: Small
-  type: Electronics
-  system: System
-  heat: 3
-  text: |
-    Trigger: This turn, this mech's Missile and Ballistic Weapons cannot be evaded.
-
 Flux Capacitor:
   size: Medium
   type: Electronics
   system: System
-  heat: 3
+  heat: 2
   text: |
     If [Charge] = 0, Charge 3.
     Passive: If this mech takes an Action (other than activating this equipment) that incurs Heat while [Charge]>0, you must reduce Heat Cost by [Charge], then Discharge.
+  tags:
+    - Sus
 
 Accuracy Overclocker:
   size: Medium
