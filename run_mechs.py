@@ -19,7 +19,7 @@ def generate_all():
 
 def generate_card(mech: Mech):
     with Image(
-        width=CARD_WIDTH, height=CARD_HEIGHT
+        width=CARD_WIDTH, height=CARD_HEIGHT, background=Color("white")
     ) as img, Icons() as icons, Drawing() as draw_ctx:
         draw_border(draw_ctx)
         draw_ctx.font = "fonts/HackNerdFont-Regular.ttf"
@@ -163,7 +163,7 @@ def draw_card_rotation_icon(draw_ctx: Drawing, icons: Icons):
     icon = icons.card_rotation
     draw_ctx.push()
     draw_ctx.composite(
-        operator="overlay",
+        operator="multiply",
         left=int(CARD_WIDTH / 2 - icon.width / 2),
         top=int(CARD_HEIGHT - icon.height * 1.1),
         width=icon.width,

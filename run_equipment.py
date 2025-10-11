@@ -18,7 +18,9 @@ def generate_all():
 
 
 def generate_card(icons: Icons, equipment: Equipment):
-    with Image(width=CARD_WIDTH, height=CARD_HEIGHT) as img, Drawing() as draw_ctx:
+    with Image(
+        width=CARD_WIDTH, height=CARD_HEIGHT, background=Color("white")
+    ) as img, Drawing() as draw_ctx:
         draw_border(draw_ctx)
         draw_ctx.font = "fonts/HackNerdFont-Regular.ttf"
         draw_name(draw_ctx, equipment)
@@ -123,7 +125,7 @@ def draw_card_text(draw_ctx: Drawing, equipment: Equipment):
 def add_icon(draw_ctx: Drawing, icon: Image, x: int, y: int, text: str):
     draw_ctx.push()
     draw_ctx.composite(
-        operator="overlay",
+        operator="multiply",
         left=x,
         top=y,
         width=icon.width,

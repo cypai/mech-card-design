@@ -18,7 +18,9 @@ def generate_all():
 
 
 def generate_card(maneuver: Maneuver):
-    with Image(width=CARD_WIDTH, height=CARD_HEIGHT) as img, Drawing() as draw_ctx:
+    with Image(
+        width=CARD_WIDTH, height=CARD_HEIGHT, background=Color("white")
+    ) as img, Drawing() as draw_ctx:
         draw_border(draw_ctx)
         draw_ctx.font = "fonts/HackNerdFont-Regular.ttf"
         draw_name(draw_ctx, maneuver)
