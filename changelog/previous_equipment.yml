@@ -30,16 +30,7 @@ Flechettes:
   tags:
     - AOE
     - Multihit
-
-TRAK-R Smart Gun:
-  size: Small
-  type: Ballistic
-  system: Weapon
-  range: 2
-  heat: 2
-  text: |
-    Deal 1 damage.
-    Trigger: After an enemy changes position, you may activate this Weapon on that target and additionally inflict 1 Vulnerable.
+    - Strong-Watchlist
 
 LINK-R Dumbfire Gun:
   size: Small
@@ -50,6 +41,20 @@ LINK-R Dumbfire Gun:
   text: |
     Deal 1 damage.
     Trigger: After activating a Medium or Large Weapon on this mech as an Action, you may activate this Weapon on one of its targets with -1 Heat Cost.
+  alias:
+    - LINK-R
+
+TRAK-R Smart Gun:
+  size: Small
+  type: Ballistic
+  system: Weapon
+  range: 2
+  heat: 1
+  text: |
+    Overwatch: Deal 1 damage.
+    Trigger: After this mech activates a Weapon targeting a single mech, if it did not apply Overwatch, you may activate this Weapon on its target.
+  alias:
+    - TRAK-R
 
 Gauss Rifle:
   size: Medium
@@ -68,8 +73,6 @@ Gauss Carbine:
   heat: 2
   text: |
     Deal 2 damage. Overwatch: Deal 1 damage.
-  tags:
-    - Strong-Watchlist
 
 Sniper Rifle:
   size: Medium
@@ -109,7 +112,7 @@ Gatling Cannon:
   range: 1
   heat: 2
   text: |
-    Charge. Deal [Charge] damage.
+    Charge. Deal [Charge] damage. Max 4 Charge.
 
 Light Machine Gun:
   size: Medium
@@ -184,6 +187,7 @@ Heavy Assault Cannon:
     Choose:
     > Shred.
     > Overwatch: Deal [Charge+1] damage.
+    Max 4 Charge.
 
 Nemesis Autocannon:
   size: Large
@@ -195,8 +199,6 @@ Nemesis Autocannon:
   text: |
     Deal 4 damage.
     Overwatch: Deal 4 damage.
-  tags:
-    - Strong-Watchlist
 
 Mjolnir Railgun:
   size: Large
@@ -267,7 +269,7 @@ Tesla Coil:
   range: 1
   heat: 2
   text: |
-    Deal X+1 damage, where X = the total amount of Overheat, Shield, and Vulnerable on the target.
+    Deal X+1 damage, where X = the total amount of Overheat and Shield on the target.
 
 Flamethrower:
   size: Medium
@@ -373,14 +375,14 @@ Magnetic Cannon:
   text: |
     Deal 3 damage. If the target is in the vanguard, move them to the rear guard, and vice versa.
 
-Spectrum Distortion Cannon:
+Thermobaric Flame Cannon:
   size: Large
   type: Energy
   system: Weapon
-  range: 3
+  range: 2
   heat: 6
   text: |
-    Prepare: Deal 6 damage. If you control another mech, this mech cannot be targeted until your next turn.
+    Choose a position within range. Deal 3 damage and inflict 1 Overheat to mechs at that position.
 
 Turbolaser Array:
   size: Large
@@ -436,7 +438,6 @@ Gigapulse Laser:
   tags:
     - AOE
     - Multihit
-    - Strong-Watchlist
 
 Combat Knife:
   size: Small
@@ -550,22 +551,22 @@ Shield Drone Launcher:
   size: Medium
   type: Drone
   system: System
-  heat: 4
+  heat: 3
   ammo: 3
   text: |
-    Choose a position to grant 1 Shield to allied mechs there, then summon 1 Shield Drone.
+    Grant 2 Shield to an allied mech, then summon 1 Shield Drone.
 
 Scout Drone Launcher:
   size: Small
   type: Drone
   system: System
-  heat: 1
+  heat: 2
   ammo: 2
   text: |
-    All allied mechs may immediately reposition without Heat Cost, then summon 1 Scout Drone.
+    Reposition an allied mech without Heat Cost, then summon 1 Scout Drone.
 
 Jammer Drone Launcher:
-  size: Small
+  size: Medium
   type: Drone
   system: System
   range: 1
@@ -576,16 +577,16 @@ Jammer Drone Launcher:
   tags:
     - AOE
 
-Smoke Grenade:
+Hunter-Killer Nanites:
   size: Small
   type: Missile
   system: Weapon
+  range: 3
   heat: 0
-  ammo: 2
+  ammo: 3
   text: |
-    Choose an allied position. All allied mechs there gain 1 Shield.
-  tags:
-    - Weak-Watchlist
+    Inflict 1 Vulnerable. If the target has Vulnerable, deal 1 damage instead.
+    Trigger: After an enemy mech changes position, you may activate this Weapon and target it.
 
 Javelin Missile:
   size: Medium
@@ -629,8 +630,6 @@ Breach Missile:
     Deal 1 damage. Choose:
     > Shred.
     > Inflict 1 Vulnerable.
-  tags:
-    - Strong-Watchlist
 
 Parasite Launcher:
   size: Small
@@ -642,6 +641,19 @@ Parasite Launcher:
   text: |
     Deal 1 damage. On the opponent's next turn, if the target does not change position, it takes 2 damage at the end of the turn.
 
+Proximity-Swarm Nanites:
+  size: Small
+  type: Missile
+  system: Weapon
+  range: 1
+  heat: 0
+  ammo: 3
+  text: |
+    Choose:
+    > Inflict 1 Vulnerable.
+    > Gain 1 Shield.
+    Trigger: If this mech is targeted by a Weapon, you may activate this Weapon any number of times, targeting the activated mech if applicable.
+
 Ballistic Missile:
   size: Large
   type: Missile
@@ -652,7 +664,6 @@ Ballistic Missile:
   text: |
     Choose an enemy position. Prepare: Deal 3 AP damage to enemy mechs at that position.
   tags:
-    - Strong-Watchlist
     - AOE
 
 Changeling Missile Rack:
@@ -665,6 +676,18 @@ Changeling Missile Rack:
   text: |
     Deal 2 damage.
     Trigger: 1/round, other Missile Weapons on this mech may use this Weapon's Ammo instead of their own.
+  tags:
+    - Sus
+
+Interception Protocol:
+  size: Small
+  type: Electronics
+  system: System
+  heat: 2
+  text: |
+    Trigger: 1/round, redirect the target of any enemy equipment to this mech if in valid range.
+  tags:
+    - Weak-Watchlist
 
 "Cyberwarfare: MELTDOWN":
   size: Small
@@ -676,15 +699,8 @@ Changeling Missile Rack:
     Inflict 1 Overheat.
   tags:
     - Strong-Watchlist
-
-"Cyberwarfare: COOKOFF":
-  size: Small
-  type: Electronics
-  system: System
-  range: 3
-  heat: 1
-  text: |
-    Choose one of the target's equipment with Ammo or Charge, then decrease it by 1 and deal 1 damage.
+  alias:
+    - MELTDOWN
 
 "Cyberwarfare: EPIDEMIC":
   size: Small
@@ -693,30 +709,32 @@ Changeling Missile Rack:
   range: 3
   heat: 2
   text: |
-    Charge (max 4 Charge). Inflict Vulnerable [Charge] times.
+    Charge (max 3 Charge). Inflict Vulnerable [Charge] times.
   tags:
     - AOE
+  alias:
+    - EPIDEMIC
 
 "Cyberwarfare: SHORTCIRCUIT":
   size: Small
   type: Electronics
   system: System
   range: 3
-  heat: 2
+  heat: 3
   text: |
     If the target is not at 0 Heat, Disable one of the target's equipment.
-  tags:
-    - Weak-Watchlist
+  alias:
+    - SHORTCIRCUIT
 
-Interception Protocol:
-  size: Small
+"Cyberwarfare: JOKER":
+  size: Medium
   type: Electronics
   system: System
-  heat: 2
+  heat: 3
   text: |
-    Trigger: 1/round, redirect the target of any enemy equipment to this mech if in valid range.
-  tags:
-    - Weak-Watchlist
+    Choose a player. Move any number of Shield, Overheat and Vulnerable from mechs that player controls to other mechs that player controls.
+  alias:
+    - JOKER
 
 Early Warning System:
   size: Medium
@@ -742,6 +760,8 @@ Focus Fire Protocol:
   system: System
   text: |
     Trigger: After this mech activates Small Weapons as an Action, you may choose another mech in the vanguard and activate a Small Weapon on that mech.
+  tags:
+    - Weak-Watchlist
 
 Siege Support Protocol:
   size: Small
@@ -767,6 +787,8 @@ Leading Crosshairs:
   heat: 1
   text: |
     Trigger: After an enemy mech has changed position, you may activate this to inflict 1 Vulnerable on that mech.
+  tags:
+    - Sus
 
 Shield Projector:
   size: Small
@@ -794,6 +816,8 @@ Shield Capacitor:
     > Charge 2.
     > Gain [Charge] Shield. Discharge.
     Max 4 Charge.
+  tags:
+    - Sus
 
 Light Screen Projector:
   size: Small
@@ -809,23 +833,6 @@ Absolute Terminus Field:
   system: System
   text: |
     Passive: If this mech is targeted by a Weapon while being the only mech in the vanguard, reduce its damage taken from that Weapon by 1.
-
-Advanced Targeting Algorithms:
-  size: Small
-  type: Electronics
-  system: System
-  heat: 3
-  text: |
-    Trigger: This turn, this mech's Missile and Ballistic Weapons cannot be evaded.
-
-Flux Capacitor:
-  size: Medium
-  type: Electronics
-  system: System
-  heat: 3
-  text: |
-    If [Charge] = 0, Charge 3.
-    Passive: If this mech takes an Action (other than activating this equipment) that incurs Heat while [Charge]>0, you must reduce Heat Cost by [Charge], then Discharge.
 
 Accuracy Overclocker:
   size: Medium
@@ -862,6 +869,8 @@ Iron Sights:
   system: Attachment
   text: |
     Inert. Passive: When this mech is in Melee Range, it may target rear guard mechs with Range 1 weapons.
+  tags:
+    - Weak-Watchlist
 
 Special Issue Ammunition:
   size: Small
@@ -881,6 +890,14 @@ Focusing Lens:
   ammo: 2
   text: |
     Inert. Trigger: 1/round, this mech's Energy Weapons inflict 1 Overheat after dealing damage.
+
+Emergency Reactor Vents:
+  size: Small
+  type: Auxiliary
+  system: Attachment
+  ammo: 1
+  text: |
+    Trigger: When this mech is damaged by a Weapon, remove 2 Heat and all Overheat from it.
 
 Spiked Pauldrons:
   size: Medium

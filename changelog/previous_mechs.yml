@@ -75,7 +75,7 @@ Amaterasu:
 Ballistarius:
   faction: Low Tech
   hp: 6
-  armor: 1
+  armor: 2
   hc: 6
   hardpoints:
   - Large
@@ -107,7 +107,7 @@ Legionary:
   ability: |
     Passive: After dealing damage with Weapons on this mech, if the target did not have Vulnerable, inflict 1 Vulnerable.
 
-Mahout:
+Rubicon:
   faction: Low Tech
   hp: 11
   armor: 1
@@ -138,11 +138,11 @@ Praetor:
   armor: 1
   hc: 7
   hardpoints:
-  - Medium
+  - Large
   - Medium
   - Small
   ability: |
-    Passive: When another allied mech at this mech's position activates a Large Weapon targeting a single enemy mech, if the target did not gain Overwatch, Overwatch: Deal 2 damage.
+    Passive: When another allied mech at this mech's position activates a Large Weapon targeting a single enemy mech, if it did not apply Overwatch, it gains: Overwatch: Deal 2 damage.
 
 Aquarius:
   faction: High Tech

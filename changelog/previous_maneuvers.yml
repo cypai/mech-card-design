@@ -4,15 +4,11 @@ Coordinated Maneuvers:
 
 Airstrike:
   text: |
-    Action: Draw a card. Deal 2 damage.
+    Action: Draw a card. Deal 1 damage.
 
 Fog of War:
   text: |
     Action: Draw a card. All allied mechs gain 1 Shield.
-
-Unstoppable Force:
-  text: |
-    Action: Draw a card. Choose an enemy position and remove all Shield on enemy mechs there, then you may activate a Weapon.
 
 Lock and Load:
   text: |
@@ -37,3 +33,11 @@ High Ground:
 Shock and Awe:
   text: |
     Action: Draw a card. Inflict 1 Vulnerable and 1 Overheat to the enemy vanguard.
+
+Outflank:
+  text: |
+    Action: Draw a card. Reposition any number of enemy mechs.
+
+Combat Engineering:
+  text: |
+    Action: Draw a card. Look at an additional 5 cards in the deck, you may replace 1 equipment on any of your mechs with one of those cards or cards in your hand.

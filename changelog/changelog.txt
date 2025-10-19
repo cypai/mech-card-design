@@ -1,3 +1,166 @@
+10/18 playtest
+--------------
+
+Ballistarius
+Armor: 1 -> 2
+
+Praetor
+Hardpoints: M M S -> L M S
+Passive: When another allied mech at this mech's position activates a Large Weapon targeting a single enemy mech, if the target did not gain Overwatch, Overwatch: Deal 2 damage.
+|->
+Passive: When another allied mech at this mech's position activates a Large Weapon targeting a single enemy mech, if it did not apply Overwatch, it gains: Overwatch: Deal 2 damage.
+
+Mahout -> Rubicon
+
+TRAK-R Smart Gun
+Heat: 2 -> 1
+Deal 1 damage.
+Trigger: After an enemy changes position, you may activate this Weapon on that target and additionally inflict 1 Vulnerable.
+|->
+Overwatch: Deal 1 damage.
+Trigger: After this mech activates a Weapon targeting a single mech, if it did not apply Overwatch, you may activate this Weapon on its target.
+
+Gatling Cannon
+Charge. Deal [Charge] damage.
+|->
+Charge. Deal [Charge] damage. Max 4 Charge.
+
+Heavy Assault Cannon
+Charge. Deal [Charge+1] damage.
+Choose:
+> Shred.
+> Overwatch: Deal [Charge+1] damage.
+|->
+Charge. Deal [Charge+1] damage.
+Choose:
+> Shred.
+> Overwatch: Deal [Charge+1] damage.
+Max 4 Charge.
+
+Tesla Coil
+Deal X+1 damage, where X = the total amount of Overheat, Shield, and Vulnerable on the target.
+|->
+Deal X+1 damage, where X = the total amount of Overheat and Shield on the target.
+
+Shield Drone Launcher
+Heat: 4 -> 3
+Choose a position to grant 1 Shield to allied mechs there, then summon 1 Shield Drone.
+|->
+Grant 2 Shield to an allied mech, then summon 1 Shield Drone.
+
+Scout Drone Launcher
+Heat: 1 -> 2
+All allied mechs may immediately reposition without Heat Cost, then summon 1 Scout Drone.
+|->
+Reposition an allied mech without Heat Cost, then summon 1 Scout Drone.
+
+Jammer Drone Launcher
+Size: Small -> Medium
+
+Cyberwarfare: EPIDEMIC
+Charge (max 4 Charge). Inflict Vulnerable [Charge] times.
+|->
+Charge (max 3 Charge). Inflict Vulnerable [Charge] times.
+
+Cyberwarfare: SHORTCIRCUIT
+Heat: 2 -> 3
+
+Thermobaric Flame Cannon was added.
+Thermobaric Flame Cannon
+Large Energy Weapon
+Range: 2
+Heat: 6
+Choose a position within range. Deal 3 damage and inflict 1 Overheat to mechs at that position.
+
+Hunter-Killer Nanites was added.
+Hunter-Killer Nanites
+Small Missile Weapon
+Range: 3
+Heat: 0
+Ammo: 3
+Inflict 1 Vulnerable. If the target has Vulnerable, deal 1 damage instead.
+Trigger: After an enemy mech changes position, you may activate this Weapon and target it.
+
+Proximity-Swarm Nanites was added.
+Proximity-Swarm Nanites
+Small Missile Weapon
+Range: 1
+Heat: 0
+Ammo: 3
+Choose:
+> Inflict 1 Vulnerable.
+> Gain 1 Shield.
+Trigger: If this mech is targeted by a Weapon, you may activate this Weapon any number of times, targeting the activated mech if applicable.
+
+Flux Capacitor -> Cyberwarfare: JOKER
+If [Charge] = 0, Charge 3.
+Passive: If this mech takes an Action (other than activating this equipment) that incurs Heat while [Charge]>0, you must reduce Heat Cost by [Charge], then Discharge.
+|->
+Choose a player. Move any number of Shield, Overheat and Vulnerable from mechs that player controls to other mechs that player controls.
+
+Emergency Reactor Vents was added.
+Emergency Reactor Vents
+Small Auxiliary Attachment
+Ammo: 1
+Trigger: When this mech is damaged by a Weapon, remove 2 Heat and all Overheat from it.
+
+Spectrum Distortion Cannon was deleted.
+Spectrum Distortion Cannon
+Large Energy Weapon
+Range: 3
+Heat: 6
+Prepare: Deal 6 damage. If you control another mech, this mech cannot be targeted until your next turn.
+
+Smoke Grenade was deleted.
+Smoke Grenade
+Small Missile Weapon
+Heat: 0
+Ammo: 2
+Tags: ['Weak-Watchlist']
+Choose an allied position. All allied mechs there gain 1 Shield.
+
+Cyberwarfare: COOKOFF was deleted.
+Cyberwarfare: COOKOFF
+Small Electronics System
+Range: 3
+Heat: 1
+Choose one of the target's equipment with Ammo or Charge, then decrease it by 1 and deal 1 damage.
+
+Advanced Targeting Algorithms was deleted.
+Advanced Targeting Algorithms
+Small Electronics System
+Heat: 3
+Trigger: This turn, this mech's Missile and Ballistic Weapons cannot be evaded.
+
+Shield Drone
+Passive: At the start of the round, choose a position to grant 1 Shield to allied mechs there, then destroy this drone.
+|->
+Trigger: Grant 2 Shield to an allied mech, then destroy this drone.
+
+Scout Drone
+Action: All allied mechs may reposition without Heat Cost, then destroy this drone.
+|->
+Action: An allied mech may reposition without Heat Cost, then activate a Weapon, then destroy this drone.
+
+Airstrike
+Action: Draw a card. Deal 2 damage.
+|->
+Action: Draw a card. Deal 1 damage.
+
+Outflank was added.
+Outflank
+Action: Draw a card. Reposition any number of enemy mechs.
+
+Combat Engineering was added.
+Combat Engineering
+Action: Draw a card. Look at an additional 5 cards in the deck, you may replace 1 equipment on any of your mechs with one of those cards or cards in your hand.
+
+Unstoppable Force was deleted.
+Unstoppable Force
+Action: Draw a card. Choose an enemy position and remove all Shield on enemy mechs there, then you may activate a Weapon.
+
+
+
 9/28 printout
 -------------
 
