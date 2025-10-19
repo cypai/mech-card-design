@@ -105,7 +105,7 @@ Legionary:
   - Medium
   - Small
   ability: |
-    Passive: After dealing damage with Weapons on this mech, if the target did not have Vulnerable, inflict 1 Vulnerable.
+    Passive: After dealing damage with Weapons on this mech, if the target does not have Vulnerable, inflict 1 Vulnerable.
 
 Rubicon:
   faction: Low Tech

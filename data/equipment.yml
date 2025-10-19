@@ -730,6 +730,7 @@ Interception Protocol:
   size: Medium
   type: Electronics
   system: System
+  range: 3
   heat: 3
   text: |
     Choose a player. Move any number of Shield, Overheat and Vulnerable from mechs that player controls to other mechs that player controls.

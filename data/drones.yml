@@ -4,7 +4,7 @@ Combat Drone:
 
 Shield Drone:
   ability: |
-    Trigger: Grant 2 Shield to an allied mech, then destroy this drone.
+    Trigger: When targeted by a Weapon, grant 2 Shield to an allied mech, then destroy this drone.
 
 Scout Drone:
   ability: |
