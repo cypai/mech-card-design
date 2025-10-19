@@ -375,14 +375,14 @@ Magnetic Cannon:
   text: |
     Deal 3 damage. If the target is in the vanguard, move them to the rear guard, and vice versa.
 
-Spectrum Distortion Cannon:
+Thermobaric Flame Cannon:
   size: Large
   type: Energy
   system: Weapon
-  range: 3
+  range: 2
   heat: 6
   text: |
-    Prepare: Deal 6 damage. If you control another mech, this mech cannot be targeted until your next turn.
+    Choose a position within range. Deal 3 damage and inflict 1 Overheat to mechs at that position.
 
 Turbolaser Array:
   size: Large
@@ -834,17 +834,6 @@ Absolute Terminus Field:
   text: |
     Passive: If this mech is targeted by a Weapon while being the only mech in the vanguard, reduce its damage taken from that Weapon by 1.
 
-Flux Capacitor:
-  size: Medium
-  type: Electronics
-  system: System
-  heat: 2
-  text: |
-    If [Charge] = 0, Charge 3.
-    Passive: If this mech takes an Action (other than activating this equipment) that incurs Heat while [Charge]>0, you must reduce Heat Cost by [Charge], then Discharge.
-  tags:
-    - Sus
-
 Accuracy Overclocker:
   size: Medium
   type: Electronics
@@ -901,6 +890,14 @@ Focusing Lens:
   ammo: 2
   text: |
     Inert. Trigger: 1/round, this mech's Energy Weapons inflict 1 Overheat after dealing damage.
+
+Emergency Reactor Vents:
+  size: Small
+  type: Auxiliary
+  system: Attachment
+  ammo: 1
+  text: |
+    Trigger: When this mech is damaged by a Weapon, remove 2 Heat and all Overheat from it.
 
 Spiked Pauldrons:
   size: Medium

@@ -37,3 +37,7 @@ Shock and Awe:
 Outflank:
   text: |
     Action: Draw a card. Reposition any number of enemy mechs.
+
+Combat Engineering:
+  text: |
+    Action: Draw a card. Look at an additional 5 cards in the deck, you may replace 1 equipment on any of your mechs with one of those cards or cards in your hand.
