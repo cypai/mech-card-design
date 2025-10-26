@@ -39,7 +39,7 @@ Anansi:
   faction: Midline
   hp: 9
   armor: 0
-  hc: 8
+  hc: 7
   hardpoints:
   - Medium
   - Medium
@@ -197,7 +197,7 @@ Libra:
 
 Gemini:
   faction: High Tech
-  hp: 10
+  hp: 8
   armor: 0
   hc: 8
   hardpoints:
@@ -226,12 +226,10 @@ Cockroach:
   armor: 0
   hc: 6
   hardpoints:
-  - Medium
-  - Medium
-  - Small
+  - Large
   - Small
   ability: |
-    Trigger: 1/round, when HP is reduced to 0, restore HP by 1, set Heat to 0, and Disable all equipment except 1.
+    Trigger: 1/round, when HP is reduced to 0, restore HP by 1, set Heat to 0, remove all Vulnerable, Overheat, and Overwatch from it, then Disable all equipment except 1.
 
 Monte Carlo:
   faction: Pirate

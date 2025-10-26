@@ -246,8 +246,8 @@ Pulse Pistol:
   range: 1
   heat: 2
   text: |
-    Charge. Choose:
-    > Charge.
+    Choose:
+    > Charge 2. Max 4 Charge.
     > Deal 1 damage [Charge] times. Discharge.
   tags:
     - AOE
@@ -382,7 +382,7 @@ Thermobaric Flame Cannon:
   range: 2
   heat: 6
   text: |
-    Choose a position within range. Deal 3 damage and inflict 1 Overheat to mechs at that position.
+    Choose a position within range. Deal 2 damage and inflict 1 Overheat to mechs at that position.
 
 Turbolaser Array:
   size: Large
@@ -509,8 +509,8 @@ Heavy Combat Drill:
   range: 0
   heat: 5
   text: |
-    Charge. Prepare: Deal [Charge+4] AP damage.
-    If it is not the first time activating this weapon this battle, skip the Prepare.
+    Charge. If Charge > 1, skip the Prepare. Prepare: Deal [Charge+4] AP damage.
+    Trigger: If the Prepared effect does not activate next turn, Charge 1.
 
 Ripjaw Chainaxe:
   size: Large
@@ -628,7 +628,7 @@ Anchor Harpoon:
   system: Weapon
   range: 3
   heat: 0
-  ammo: 3
+  ammo: 2
   text: |
     Action: Move any mech to any other valid position.
     Trigger: If any mech would be forced to reposition, you may activate this to prevent it.
@@ -698,6 +698,7 @@ Razortooth Missile:
     Choose an enemy position. Shred all enemy mechs there.
   tags:
     - AOE
+    - Strong-Watchlist
 
 Ion Torpedo:
   size: Small
@@ -817,7 +818,7 @@ CAS Uplink:
   type: Electronics
   system: System
   text: |
-    Passive: Your Airstrikes deal +1 damage.
+    Passive: At the start of battle, put an Airstrike in your hand. Your Airstrikes deal +1 damage.
 
 Slipstream Optimizer:
   size: Small
@@ -913,6 +914,8 @@ Accuracy Overclocker:
   heat: 1
   text: |
     Trigger: Discard a card. This turn, this mech's Weapons cannot be evaded.
+  tags:
+    - Strong-Watchlist
 
 Enhanced C2 Suite:
   size: Medium
@@ -921,6 +924,8 @@ Enhanced C2 Suite:
   heat: 2
   text: |
     Look at the top 5 cards of the deck. If there is a Maneuver among them, you may use it immediately. Otherwise, put an Equipment among them into your hand.
+  tags:
+    - Sus
 
 Charge Spool:
   size: Small
@@ -982,6 +987,8 @@ Reactive Stabilizers:
   system: Attachment
   text: |
     Passive: When this mech Evades, it loses 2 Heat.
+  tags:
+    - Strong-Watchlist
 
 Spiked Pauldrons:
   size: Medium
@@ -1008,6 +1015,7 @@ Reserved Rifle:
     Deal 3 damage.
   tags:
     - Spare
+    - Sus
 
 Reserved Mortar:
   size: Medium
