@@ -103,6 +103,7 @@ def equipment_stats():
         "Energy": 0,
         "Melee": 0,
         "Missile": 0,
+        "Nanite": 0,
         "Electronics": 0,
         "Drone": 0,
         "Auxiliary": 0,
