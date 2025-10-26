@@ -72,7 +72,7 @@ def get_color(equipment: Equipment) -> Color:
         return Color("#ff7f00")
     elif equipment.type == "Energy":
         return Color("#ff40ff")
-    elif equipment.type == "Missile" or equipment.type == "Drone":
+    elif equipment.type in ["Missile", "Drone", "Nanite"]:
         return Color("#888888")
     elif equipment.type == "Melee":
         return Color("#FF0000")
