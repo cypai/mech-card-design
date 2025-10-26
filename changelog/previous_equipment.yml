@@ -520,7 +520,7 @@ Ripjaw Chainaxe:
   heat: 5
   text: |
     Charge. Deal [Charge+4] damage.
-    If Charge is at least 2 or the target has Vulnerable, Shred.
+    If Charge is at least 2, Shred.
 
 Adjudication Lance:
   size: Large
@@ -531,7 +531,7 @@ Adjudication Lance:
   text: |
     Choose:
     > Deal 5 AP damage.
-    > Deal 5 damage from Range 1 instead, then Disable this Weapon.
+    > Deal 5 damage from Range 2 instead, then discard this Weapon.
     If this Weapon reduces the target's HP to 0, lose 2 Heat.
 
 Combat Drone Launcher:
@@ -577,9 +577,20 @@ Jammer Drone Launcher:
   tags:
     - AOE
 
+Omni-Drone Launcher:
+  size: Medium
+  type: Drone
+  system: System
+  heat: 2
+  ammo: 3
+  text: |
+    Deploy a drone that you do not currently have deployed.
+  tags:
+    - AOE
+
 Hunter-Killer Nanites:
   size: Small
-  type: Missile
+  type: Nanite
   system: Weapon
   range: 3
   heat: 0
@@ -588,11 +599,24 @@ Hunter-Killer Nanites:
     Inflict 1 Vulnerable. If the target has Vulnerable, deal 1 damage instead.
     Trigger: After an enemy mech changes position, you may activate this Weapon and target it.
 
+Proximity-Swarm Nanites:
+  size: Small
+  type: Nanite
+  system: Weapon
+  range: 1
+  heat: 0
+  ammo: 3
+  text: |
+    Choose:
+    > Inflict 1 Vulnerable.
+    > Gain 1 Shield.
+    Trigger: If this mech is targeted by a Weapon, you may activate this Weapon any number of times, targeting the activated mech if applicable.
+
 Javelin Missile:
   size: Medium
   type: Missile
   system: Weapon
-  range: 1
+  range: 2
   heat: 0
   ammo: 1
   text: |
@@ -609,7 +633,7 @@ Anchor Harpoon:
     Action: Move any mech to any other valid position.
     Trigger: If any mech would be forced to reposition, you may activate this to prevent it.
 
-Dragonfire RPG:
+Dragonfire Missile:
   size: Small
   type: Missile
   system: Weapon
@@ -627,9 +651,7 @@ Breach Missile:
   heat: 0
   ammo: 2
   text: |
-    Deal 1 damage. Choose:
-    > Shred.
-    > Inflict 1 Vulnerable.
+    Deal 1 damage. Shred.
 
 Parasite Launcher:
   size: Small
@@ -640,19 +662,6 @@ Parasite Launcher:
   ammo: 2
   text: |
     Deal 1 damage. On the opponent's next turn, if the target does not change position, it takes 2 damage at the end of the turn.
-
-Proximity-Swarm Nanites:
-  size: Small
-  type: Missile
-  system: Weapon
-  range: 1
-  heat: 0
-  ammo: 3
-  text: |
-    Choose:
-    > Inflict 1 Vulnerable.
-    > Gain 1 Shield.
-    Trigger: If this mech is targeted by a Weapon, you may activate this Weapon any number of times, targeting the activated mech if applicable.
 
 Ballistic Missile:
   size: Large
@@ -666,18 +675,62 @@ Ballistic Missile:
   tags:
     - AOE
 
-Changeling Missile Rack:
-  size: Large
+Fragmentation Missile:
+  size: Small
+  type: Missile
+  system: Weapon
+  range: 2
+  heat: 0
+  ammo: 2
+  text: |
+    Choose an enemy position. Deal 1 damage to enemy mechs there.
+  tags:
+    - AOE
+
+Razortooth Missile:
+  size: Small
+  type: Missile
+  system: Weapon
+  range: 1
+  heat: 0
+  ammo: 2
+  text: |
+    Choose an enemy position. Shred all enemy mechs there.
+  tags:
+    - AOE
+
+Ion Torpedo:
+  size: Small
+  type: Missile
+  system: Weapon
+  range: 1
+  heat: 0
+  ammo: 2
+  text: |
+    Choose an enemy position. Your opponent chooses 1 Equipment on each mech there and Disables it.
+  tags:
+    - AOE
+
+Thanatos Missile:
+  size: Medium
+  type: Missile
+  system: Weapon
+  range: 1
+  heat: 0
+  ammo: 1
+  text: |
+    Discard a card. Deal 4 damage. This Weapon cannot be Evaded.
+
+Advanced Missile Launcher:
+  size: Medium
   type: Missile
   system: Weapon
   range: 3
   heat: 0
-  ammo: 2
+  ammo: 1
   text: |
-    Deal 2 damage.
-    Trigger: 1/round, other Missile Weapons on this mech may use this Weapon's Ammo instead of their own.
-  tags:
-    - Sus
+    Deal 1 damage.
+    Passive: All Missile weapons on this mech +1 Range (max 3 Range).
 
 Interception Protocol:
   size: Small
@@ -726,25 +779,45 @@ Interception Protocol:
   alias:
     - SHORTCIRCUIT
 
+"Cyberwarfare: PROMETHEUS":
+  size: Medium
+  type: Electronics
+  system: System
+  range: 3
+  heat: 4
+  text: |
+    Inflict 2 Overheat. Select 1 Equipment on an allied mech and increase its Charge by 1.
+  alias:
+    - PROMETHEUS
+
 "Cyberwarfare: JOKER":
   size: Medium
   type: Electronics
   system: System
+  range: 3
   heat: 3
   text: |
     Choose a player. Move any number of Shield, Overheat and Vulnerable from mechs that player controls to other mechs that player controls.
   alias:
     - JOKER
 
-Early Warning System:
+"Cyberwarfare: MEDUSA":
   size: Medium
   type: Electronics
   system: System
-  heat: 1
+  range: 3
+  heat: 3
   text: |
-    Trigger: If all allied mechs are in the vanguard, you may activate this System to redirect enemy Weapons to target this mech.
-  tags:
-    - Strong-Watchlist
+    Discard a card. Charge. Disable [Charge] equipment on a single enemy mech.
+  alias:
+    - MEDUSA
+
+CAS Uplink:
+  size: Small
+  type: Electronics
+  system: System
+  text: |
+    Passive: Your Airstrikes deal +1 damage.
 
 Slipstream Optimizer:
   size: Small
@@ -778,17 +851,6 @@ Targeting Computer:
   heat: 1
   text: |
     Trigger: At the start of the round, you may activate this to inflict 2 Vulnerable.
-
-Leading Crosshairs:
-  size: Small
-  type: Electronics
-  system: System
-  range: 3
-  heat: 1
-  text: |
-    Trigger: After an enemy mech has changed position, you may activate this to inflict 1 Vulnerable on that mech.
-  tags:
-    - Sus
 
 Shield Projector:
   size: Small
@@ -834,6 +896,16 @@ Absolute Terminus Field:
   text: |
     Passive: If this mech is targeted by a Weapon while being the only mech in the vanguard, reduce its damage taken from that Weapon by 1.
 
+Early Warning System:
+  size: Medium
+  type: Electronics
+  system: System
+  heat: 1
+  text: |
+    Trigger: If all allied mechs are in the vanguard, you may activate this System to redirect enemy Weapons to target this mech.
+  tags:
+    - Strong-Watchlist
+
 Accuracy Overclocker:
   size: Medium
   type: Electronics
@@ -841,6 +913,14 @@ Accuracy Overclocker:
   heat: 1
   text: |
     Trigger: Discard a card. This turn, this mech's Weapons cannot be evaded.
+
+Enhanced C2 Suite:
+  size: Medium
+  type: Electronics
+  system: System
+  heat: 2
+  text: |
+    Look at the top 5 cards of the deck. If there is a Maneuver among them, you may use it immediately. Otherwise, put an Equipment among them into your hand.
 
 Charge Spool:
   size: Small
@@ -868,20 +948,17 @@ Iron Sights:
   type: Auxiliary
   system: Attachment
   text: |
-    Inert. Passive: When this mech is in Melee Range, it may target rear guard mechs with Range 1 weapons.
-  tags:
-    - Weak-Watchlist
+    Inert. Passive: When activating a non-Melee Weapon that you activated last turn this Round, it has +1 Range. Max Range 2.
 
-Special Issue Ammunition:
+Excalibur Rounds:
   size: Small
   type: Auxiliary
   system: Attachment
   ammo: 2
   text: |
-    Inert. Trigger: 1/round, when this mech activates a Ballistic Weapon, choose:
-    > It deals +1 damage to the target(s).
-    > Before resolving damage calculation, Shred the target(s).
-    > Before resolving damage calculation, remove all Shield from the target(s).
+    Inert. Trigger: This turn, the first time this mech activates a Ballistic Weapon, before resolving damage calculation, choose:
+    > Shred the target(s).
+    > Remove all Shield from the target(s).
 
 Focusing Lens:
   size: Small
@@ -899,6 +976,13 @@ Emergency Reactor Vents:
   text: |
     Trigger: When this mech is damaged by a Weapon, remove 2 Heat and all Overheat from it.
 
+Reactive Stabilizers:
+  size: Small
+  type: Auxiliary
+  system: Attachment
+  text: |
+    Passive: When this mech Evades, it loses 2 Heat.
+
 Spiked Pauldrons:
   size: Medium
   type: Auxiliary
@@ -906,6 +990,13 @@ Spiked Pauldrons:
   text: |
     Inert. Passive: Melee Weapons on this mech damage +1.
     Passive: Before this mech takes damage from Melee Weapons, deal 1 damage to the attacker.
+
+Reinforced Frame:
+  size: Large
+  type: Auxiliary
+  system: Attachment
+  text: |
+    Inert. Passive: While attached, this mech has +1 Armor. If this mech is Shredded, discard this equipment.
 
 Reserved Rifle:
   size: Medium
@@ -918,14 +1009,15 @@ Reserved Rifle:
   tags:
     - Spare
 
-Reserved Sidearm:
-  size: Small
+Reserved Mortar:
+  size: Medium
   type: Ballistic
   system: Weapon
-  range: 1
-  heat: 3
+  range: 3
+  heat: 5
+  ammo: 2
   text: |
-    Deal 2 damage.
+    Deal 3 damage. If activated at Range 1, deal 1 damage to yourself.
   tags:
     - Spare
 
@@ -937,5 +1029,16 @@ Reserved Power Fist:
   heat: 3
   text: |
     Deal 3 damage.
+  tags:
+    - Spare
+
+Reserved Megalaser:
+  size: Large
+  type: Energy
+  system: Weapon
+  range: 1
+  heat: 6
+  text: |
+    Deal 5 damage.
   tags:
     - Spare

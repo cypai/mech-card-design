@@ -1,3 +1,217 @@
+pre 10/25 playtest
+------------------
+
+Lancelot
+Trigger: 1/battle, Heat Cost = 1 (ignoring Overheat) for this mech.
+|->
+Trigger: 1/battle, Heat Cost = 0 (ignoring Overheat) for this mech.
+
+Legionary
+Passive: After dealing damage with Weapons on this mech, if the target did not have Vulnerable, inflict 1 Vulnerable.
+|->
+Passive: After dealing damage with Weapons on this mech, if the target does not have Vulnerable, inflict 1 Vulnerable.
+
+Gemini
+Trigger: 1/round, when this mech has exactly 8 Heat, deploy 1 drone of your choice.
+|->
+Action: 1/round, if this mech has Shield, deploy 1 drone of your choice.
+
+Ripjaw Chainaxe
+Charge. Deal [Charge+4] damage.
+If Charge is at least 2 or the target has Vulnerable, Shred.
+|->
+Charge. Deal [Charge+4] damage.
+If Charge is at least 2, Shred.
+
+Adjudication Lance
+Choose:
+> Deal 5 AP damage.
+> Deal 5 damage from Range 1 instead, then Disable this Weapon.
+If this Weapon reduces the target's HP to 0, lose 2 Heat.
+|->
+Choose:
+> Deal 5 AP damage.
+> Deal 5 damage from Range 2 instead, then discard this Weapon.
+If this Weapon reduces the target's HP to 0, lose 2 Heat.
+
+Hunter-Killer Nanites
+Type: Missile -> Nanite
+
+Proximity-Swarm Nanites
+Type: Missile -> Nanite
+
+Javelin Missile
+Range: 1 -> 2
+
+Breach Missile
+Deal 1 damage. Choose:
+> Shred.
+> Inflict 1 Vulnerable.
+|->
+Deal 1 damage. Shred.
+
+Cyberwarfare: JOKER
+Range: None -> 3
+
+Iron Sights
+Inert. Passive: When this mech is in Melee Range, it may target rear guard mechs with Range 1 weapons.
+|->
+Inert. Passive: When activating a non-Melee Weapon that you activated last turn this Round, it has +1 Range. Max Range 2.
+
+Omni-Drone Launcher was added.
+Omni-Drone Launcher
+Medium Drone System
+Heat: 2
+Ammo: 3
+Tags: ['AOE']
+Deploy a drone that you do not currently have deployed.
+
+Dragonfire RPG -> Dragonfire Missile
+
+Fragmentation Missile was added.
+Fragmentation Missile
+Small Missile Weapon
+Range: 2
+Heat: 0
+Ammo: 2
+Tags: ['AOE']
+Choose an enemy position. Deal 1 damage to enemy mechs there.
+
+Razortooth Missile was added.
+Razortooth Missile
+Small Missile Weapon
+Range: 1
+Heat: 0
+Ammo: 2
+Tags: ['AOE']
+Choose an enemy position. Shred all enemy mechs there.
+
+Ion Torpedo was added.
+Ion Torpedo
+Small Missile Weapon
+Range: 1
+Heat: 0
+Ammo: 2
+Tags: ['AOE']
+Choose an enemy position. Your opponent chooses 1 Equipment on each mech there and Disables it.
+
+Thanatos Missile was added.
+Thanatos Missile
+Medium Missile Weapon
+Range: 1
+Heat: 0
+Ammo: 1
+Discard a card. Deal 4 damage. This Weapon cannot be Evaded.
+
+Advanced Missile Launcher was added.
+Advanced Missile Launcher
+Medium Missile Weapon
+Range: 3
+Heat: 0
+Ammo: 1
+Deal 1 damage.
+Passive: All Missile weapons on this mech +1 Range (max 3 Range).
+
+Cyberwarfare: PROMETHEUS was added.
+Cyberwarfare: PROMETHEUS
+Medium Electronics System
+Range: 3
+Heat: 4
+Inflict 2 Overheat. Select 1 Equipment on an allied mech and increase its Charge by 1.
+
+Cyberwarfare: MEDUSA was added.
+Cyberwarfare: MEDUSA
+Medium Electronics System
+Range: 3
+Heat: 3
+Discard a card. Charge. Disable [Charge] equipment on a single enemy mech.
+
+CAS Uplink was added.
+CAS Uplink
+Small Electronics System
+Passive: Your Airstrikes deal +1 damage.
+
+Enhanced C2 Suite was added.
+Enhanced C2 Suite
+Medium Electronics System
+Heat: 2
+Look at the top 5 cards of the deck. If there is a Maneuver among them, you may use it immediately. Otherwise, put an Equipment among them into your hand.
+
+Special Issue Ammunition -> Excalibur Rounds
+Inert. Trigger: 1/round, when this mech activates a Ballistic Weapon, choose:
+> It deals +1 damage to the target(s).
+> Before resolving damage calculation, Shred the target(s).
+> Before resolving damage calculation, remove all Shield from the target(s).
+|->
+Inert. Trigger: This turn, the first time this mech activates a Ballistic Weapon, before resolving damage calculation, choose:
+> Shred the target(s).
+> Remove all Shield from the target(s).
+
+Reactive Stabilizers was added.
+Reactive Stabilizers
+Small Auxiliary Attachment
+Passive: When this mech Evades, it loses 2 Heat.
+
+Reinforced Frame was added.
+Reinforced Frame
+Large Auxiliary Attachment
+Inert. Passive: While attached, this mech has +1 Armor. If this mech is Shredded, discard this equipment.
+
+Reserved Mortar was added.
+Reserved Mortar
+Medium Ballistic Weapon
+Range: 3
+Heat: 5
+Ammo: 2
+Tags: ['Spare']
+Deal 3 damage. If activated at Range 1, deal 1 damage to yourself.
+
+Reserved Megalaser was added.
+Reserved Megalaser
+Large Energy Weapon
+Range: 1
+Heat: 6
+Tags: ['Spare']
+Deal 5 damage.
+
+Changeling Missile Rack was deleted.
+Changeling Missile Rack
+Large Missile Weapon
+Range: 3
+Heat: 0
+Ammo: 2
+Tags: ['Sus']
+Deal 2 damage.
+Trigger: 1/round, other Missile Weapons on this mech may use this Weapon's Ammo instead of their own.
+
+Leading Crosshairs was deleted.
+Leading Crosshairs
+Small Electronics System
+Range: 3
+Heat: 1
+Tags: ['Sus']
+Trigger: After an enemy mech has changed position, you may activate this to inflict 1 Vulnerable on that mech.
+
+Reserved Sidearm was deleted.
+Reserved Sidearm
+Small Ballistic Weapon
+Range: 1
+Heat: 3
+Tags: ['Spare']
+Deal 2 damage.
+
+Shield Drone
+Trigger: Grant 2 Shield to an allied mech, then destroy this drone.
+|->
+Trigger: When targeted by a Weapon, grant 2 Shield to an allied mech, then destroy this drone.
+
+Lock and Load
+Action: Draw a card. Restore all ammo for 1 equipment, then immediately activate that equipment, dealing +1 damage with it this turn.
+|->
+Action: Draw a card. Restore all ammo for 1 equipment, then you may immediately activate that equipment, dealing +1 damage with it this turn.
+
+
+
 10/18 playtest
 --------------
 

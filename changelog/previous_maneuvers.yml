@@ -12,7 +12,7 @@ Fog of War:
 
 Lock and Load:
   text: |
-    Action: Draw a card. Restore all ammo for 1 equipment, then immediately activate that equipment, dealing +1 damage with it this turn.
+    Action: Draw a card. Restore all ammo for 1 equipment, then you may immediately activate that equipment, dealing +1 damage with it this turn.
 
 EMP Airburst:
   text: |

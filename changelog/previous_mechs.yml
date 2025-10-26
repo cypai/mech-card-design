@@ -8,7 +8,7 @@ Lancelot:
   - Medium
   - Small
   ability: |
-    Trigger: 1/battle, Heat Cost = 1 (ignoring Overheat) for this mech.
+    Trigger: 1/battle, Heat Cost = 0 (ignoring Overheat) for this mech.
 
 Guanyin:
   faction: Midline
@@ -105,7 +105,7 @@ Legionary:
   - Medium
   - Small
   ability: |
-    Passive: After dealing damage with Weapons on this mech, if the target did not have Vulnerable, inflict 1 Vulnerable.
+    Passive: After dealing damage with Weapons on this mech, if the target does not have Vulnerable, inflict 1 Vulnerable.
 
 Rubicon:
   faction: Low Tech
@@ -205,7 +205,7 @@ Gemini:
   - Medium
   - Medium
   ability: |
-    Trigger: 1/round, when this mech has exactly 8 Heat, deploy 1 drone of your choice.
+    Action: 1/round, if this mech has Shield, deploy 1 drone of your choice.
 
 Taurus:
   faction: High Tech
