@@ -257,6 +257,16 @@ async def weak(ctx: commands.Context):
 
 
 @bot.command()
+async def sus(ctx: commands.Context):
+    sus = db.get_filtered_equipment(["Sus"])
+    message = "Sus Watchlist\n"
+    message += "-------------\n"
+    for item in sus:
+        message += f"{item}\n"
+    await reply(ctx, message, "sus_watchlist.txt")
+
+
+@bot.command()
 async def tutorial(ctx: commands.Context):
     message = """
     Feds
