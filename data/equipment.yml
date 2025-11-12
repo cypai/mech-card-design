@@ -493,6 +493,17 @@ Phase Lance:
   text: |
     Remove all Shield from the target. Deal 3 AP damage.
 
+Vacuum Grappler:
+  size: Medium
+  type: Melee
+  system: Weapon
+  range: 0
+  heat: 4
+  text: |
+    Deal 2 damage. Choose:
+    > The target is now considered to be in Melee range.
+    > Move the target to the rear guard.
+
 Arondight Starsword:
   size: Large
   type: Melee
@@ -733,15 +744,14 @@ Advanced Missile Launcher:
     Deal 1 damage.
     Passive: All Missile weapons on this mech +1 Range (max 3 Range).
 
-Interception Protocol:
+Interception Afterburners:
   size: Small
   type: Electronics
   system: System
   heat: 2
+  ammo: 2
   text: |
-    Trigger: 1/round, redirect the target of any enemy equipment to this mech if in valid range.
-  tags:
-    - Weak-Watchlist
+    Trigger: Redirect the target of an enemy Weapon to this mech if in valid range.
 
 "Cyberwarfare: MELTDOWN":
   size: Small
@@ -842,7 +852,7 @@ Siege Support Protocol:
   type: Electronics
   system: System
   text: |
-    Trigger: After this mech activates Weapons with Range 3 as an Action, you may choose another mech in the vanguard and activate a Small Weapon on that mech.
+    Trigger: After this mech activates Weapons with Range 2 or 3 as an Action, you may choose another mech in the vanguard and activate a Small Weapon on that mech.
 
 Targeting Computer:
   size: Small
@@ -860,33 +870,23 @@ Shield Projector:
   heat: 2
   text: |
     Choose an allied mech to give it 2 Shield.
-
-Shield Generator:
-  size: Small
-  type: Electronics
-  system: System
-  heat: 2
-  text: |
-    Trigger: At the start of the round, you may activate this to gain 2 Shield.
+  tags:
+    - Weak-Watchlist
 
 Shield Capacitor:
   size: Small
   type: Electronics
   system: System
-  heat: 1
   text: |
-    Choose:
-    > Charge 2.
-    > Gain [Charge] Shield. Discharge.
-    Max 4 Charge.
+    Passive: At the start of Rounds after the first Round, gain 1+X Shield, where X is the unused Heat on this mech from the previous Round.
   tags:
-    - Sus
+    - Weak-Watchlist
 
 Light Screen Projector:
   size: Small
   type: Electronics
   system: System
-  heat: 3
+  heat: 2
   text: |
     Give all allied mechs 1 Shield.
 
@@ -916,16 +916,6 @@ Accuracy Overclocker:
     Trigger: Discard a card. This turn, this mech's Weapons cannot be evaded.
   tags:
     - Strong-Watchlist
-
-Enhanced C2 Suite:
-  size: Medium
-  type: Electronics
-  system: System
-  heat: 2
-  text: |
-    Look at the top 5 cards of the deck. If there is a Maneuver among them, you may use it immediately. Otherwise, put an Equipment among them into your hand.
-  tags:
-    - Sus
 
 Charge Spool:
   size: Small
@@ -1005,6 +995,13 @@ Reinforced Frame:
   text: |
     Inert. Passive: While attached, this mech has +1 Armor. If this mech is Shredded, discard this equipment.
 
+Adaptive Heat Sink:
+  size: Large
+  type: Auxiliary
+  system: Attachment
+  text: |
+    Inert. Passive: This mech cannot gain Overheat. If this mech is Shredded, discard this equipment.
+
 Reserved Rifle:
   size: Medium
   type: Ballistic
@@ -1048,5 +1045,15 @@ Reserved Megalaser:
   heat: 6
   text: |
     Deal 5 damage.
+  tags:
+    - Spare
+
+Shield Generator:
+  size: Small
+  type: Electronics
+  system: System
+  heat: 2
+  text: |
+    Trigger: At the start of the round, you may activate this to gain 2 Shield.
   tags:
     - Spare
