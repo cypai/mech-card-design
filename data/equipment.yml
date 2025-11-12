@@ -823,6 +823,17 @@ Interception Afterburners:
   alias:
     - MEDUSA
 
+"Cyberwarfare: HIJACK":
+  size: Medium
+  type: Electronics
+  system: System
+  range: 3
+  heat: 3
+  text: |
+    Choose a Weapon on an enemy mech with a legal target. Your opponent activates it.
+  alias:
+    - HIJACK
+
 CAS Uplink:
   size: Small
   type: Electronics
@@ -838,21 +849,12 @@ Slipstream Optimizer:
   text: |
     Trigger: After this mech acts, you may activate this System to allow 1 other allied mech to reposition for 0 Heat Cost immediately.
 
-Focus Fire Protocol:
+Fire Support Protocol:
   size: Small
   type: Electronics
   system: System
   text: |
-    Trigger: After this mech activates Small Weapons as an Action, you may choose another mech in the vanguard and activate a Small Weapon on that mech.
-  tags:
-    - Weak-Watchlist
-
-Siege Support Protocol:
-  size: Small
-  type: Electronics
-  system: System
-  text: |
-    Trigger: After this mech activates Weapons with Range 2 or 3 as an Action, you may choose another mech in the vanguard and activate a Small Weapon on that mech.
+    Trigger: After another allied mech activates a Weapon as an Action, this mech may activate a Small Weapon on the same target.
 
 Targeting Computer:
   size: Small
