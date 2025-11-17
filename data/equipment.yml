@@ -885,9 +885,7 @@ Shield Capacitor:
   type: Electronics
   system: System
   text: |
-    Passive: At the start of Rounds after the first Round, gain 1+X Shield, where X is the unused Heat on this mech from the previous Round.
-  tags:
-    - Weak-Watchlist
+    Passive: At the start of Rounds after the first Round, gain X Shield (max 4), where X is the unused Heat on this mech from the previous Round.
 
 Light Screen Projector:
   size: Small

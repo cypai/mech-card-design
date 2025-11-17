@@ -129,8 +129,7 @@ Centurion:
   - Medium
   - Small
   ability: |
-    Passive: Whenever this mech loses Armor, lose 2 Heat.
-    Action: 1/round, lose 1 Armor, then take another Action with this mech.
+    Trigger: 1/battle, this mech's Melee Weapons deal additional damage equal to its Armor.
 
 Praetor:
   faction: Low Tech
