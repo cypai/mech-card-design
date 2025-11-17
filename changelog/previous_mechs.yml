@@ -285,10 +285,9 @@ Rapscallion:
   faction: Pirate
   hp: 9
   armor: 0
-  hc: 7
+  hc: 6
   hardpoints:
   - Medium
   - Medium
-  - Small
   ability: |
     Passive: While this mech has 0 Heat and there is another allied mech in your front line, this mech cannot be targeted.

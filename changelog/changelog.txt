@@ -1,3 +1,24 @@
+post 11/16 changes 1
+--------------------
+
+Rapscallion
+Heat Capacity: 7 -> 6
+Hardpoints: M M S -> M M
+
+Razortooth Missile
+Ammo: 2 -> 1
+
+Cyberwarfare: MEDUSA
+Heat: 3 -> 2
+Discard a card. Charge. Disable [Charge] equipment on a single enemy mech.
+|->
+Discard a card. Disable 2 equipment.
+
+Targeting Computer
+Range: 1 -> 2
+
+
+
 11/16 playtest
 --------------
 
