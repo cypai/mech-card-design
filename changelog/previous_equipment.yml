@@ -246,8 +246,8 @@ Pulse Pistol:
   range: 1
   heat: 2
   text: |
-    Charge. Choose:
-    > Charge.
+    Choose:
+    > Charge 2. Max 4 Charge.
     > Deal 1 damage [Charge] times. Discharge.
   tags:
     - AOE
@@ -382,7 +382,7 @@ Thermobaric Flame Cannon:
   range: 2
   heat: 6
   text: |
-    Choose a position within range. Deal 3 damage and inflict 1 Overheat to mechs at that position.
+    Choose a position within range. Deal 2 damage and inflict 1 Overheat to mechs at that position.
 
 Turbolaser Array:
   size: Large
@@ -493,6 +493,17 @@ Phase Lance:
   text: |
     Remove all Shield from the target. Deal 3 AP damage.
 
+Vacuum Grappler:
+  size: Medium
+  type: Melee
+  system: Weapon
+  range: 0
+  heat: 4
+  text: |
+    Deal 2 damage. Choose:
+    > The target is now considered to be in Melee range.
+    > Move the target to the rear guard.
+
 Arondight Starsword:
   size: Large
   type: Melee
@@ -509,8 +520,8 @@ Heavy Combat Drill:
   range: 0
   heat: 5
   text: |
-    Charge. Prepare: Deal [Charge+4] AP damage.
-    If it is not the first time activating this weapon this battle, skip the Prepare.
+    Charge. If Charge > 1, skip the Prepare. Prepare: Deal [Charge+4] AP damage.
+    Trigger: If the Prepared effect does not activate next turn, Charge 1.
 
 Ripjaw Chainaxe:
   size: Large
@@ -628,7 +639,7 @@ Anchor Harpoon:
   system: Weapon
   range: 3
   heat: 0
-  ammo: 3
+  ammo: 2
   text: |
     Action: Move any mech to any other valid position.
     Trigger: If any mech would be forced to reposition, you may activate this to prevent it.
@@ -698,6 +709,7 @@ Razortooth Missile:
     Choose an enemy position. Shred all enemy mechs there.
   tags:
     - AOE
+    - Strong-Watchlist
 
 Ion Torpedo:
   size: Small
@@ -732,15 +744,14 @@ Advanced Missile Launcher:
     Deal 1 damage.
     Passive: All Missile weapons on this mech +1 Range (max 3 Range).
 
-Interception Protocol:
+Interception Afterburners:
   size: Small
   type: Electronics
   system: System
   heat: 2
+  ammo: 2
   text: |
-    Trigger: 1/round, redirect the target of any enemy equipment to this mech if in valid range.
-  tags:
-    - Weak-Watchlist
+    Trigger: Redirect the target of an enemy Weapon to this mech if in valid range.
 
 "Cyberwarfare: MELTDOWN":
   size: Small
@@ -812,12 +823,23 @@ Interception Protocol:
   alias:
     - MEDUSA
 
+"Cyberwarfare: HIJACK":
+  size: Medium
+  type: Electronics
+  system: System
+  range: 3
+  heat: 3
+  text: |
+    Choose a Weapon on an enemy mech with a legal target. Your opponent activates it.
+  alias:
+    - HIJACK
+
 CAS Uplink:
   size: Small
   type: Electronics
   system: System
   text: |
-    Passive: Your Airstrikes deal +1 damage.
+    Passive: At the start of battle, put an Airstrike in your hand. Your Airstrikes deal +1 damage.
 
 Slipstream Optimizer:
   size: Small
@@ -827,21 +849,12 @@ Slipstream Optimizer:
   text: |
     Trigger: After this mech acts, you may activate this System to allow 1 other allied mech to reposition for 0 Heat Cost immediately.
 
-Focus Fire Protocol:
+Fire Support Protocol:
   size: Small
   type: Electronics
   system: System
   text: |
-    Trigger: After this mech activates Small Weapons as an Action, you may choose another mech in the vanguard and activate a Small Weapon on that mech.
-  tags:
-    - Weak-Watchlist
-
-Siege Support Protocol:
-  size: Small
-  type: Electronics
-  system: System
-  text: |
-    Trigger: After this mech activates Weapons with Range 3 as an Action, you may choose another mech in the vanguard and activate a Small Weapon on that mech.
+    Trigger: After another allied mech activates a Weapon as an Action, this mech may activate a Small Weapon on the same target.
 
 Targeting Computer:
   size: Small
@@ -859,33 +872,23 @@ Shield Projector:
   heat: 2
   text: |
     Choose an allied mech to give it 2 Shield.
-
-Shield Generator:
-  size: Small
-  type: Electronics
-  system: System
-  heat: 2
-  text: |
-    Trigger: At the start of the round, you may activate this to gain 2 Shield.
+  tags:
+    - Weak-Watchlist
 
 Shield Capacitor:
   size: Small
   type: Electronics
   system: System
-  heat: 1
   text: |
-    Choose:
-    > Charge 2.
-    > Gain [Charge] Shield. Discharge.
-    Max 4 Charge.
+    Passive: At the start of Rounds after the first Round, gain 1+X Shield, where X is the unused Heat on this mech from the previous Round.
   tags:
-    - Sus
+    - Weak-Watchlist
 
 Light Screen Projector:
   size: Small
   type: Electronics
   system: System
-  heat: 3
+  heat: 2
   text: |
     Give all allied mechs 1 Shield.
 
@@ -913,14 +916,8 @@ Accuracy Overclocker:
   heat: 1
   text: |
     Trigger: Discard a card. This turn, this mech's Weapons cannot be evaded.
-
-Enhanced C2 Suite:
-  size: Medium
-  type: Electronics
-  system: System
-  heat: 2
-  text: |
-    Look at the top 5 cards of the deck. If there is a Maneuver among them, you may use it immediately. Otherwise, put an Equipment among them into your hand.
+  tags:
+    - Strong-Watchlist
 
 Charge Spool:
   size: Small
@@ -982,6 +979,8 @@ Reactive Stabilizers:
   system: Attachment
   text: |
     Passive: When this mech Evades, it loses 2 Heat.
+  tags:
+    - Strong-Watchlist
 
 Spiked Pauldrons:
   size: Medium
@@ -998,6 +997,13 @@ Reinforced Frame:
   text: |
     Inert. Passive: While attached, this mech has +1 Armor. If this mech is Shredded, discard this equipment.
 
+Adaptive Heat Sink:
+  size: Large
+  type: Auxiliary
+  system: Attachment
+  text: |
+    Inert. Passive: This mech cannot gain Overheat. If this mech is Shredded, discard this equipment.
+
 Reserved Rifle:
   size: Medium
   type: Ballistic
@@ -1008,6 +1014,7 @@ Reserved Rifle:
     Deal 3 damage.
   tags:
     - Spare
+    - Sus
 
 Reserved Mortar:
   size: Medium
@@ -1040,5 +1047,15 @@ Reserved Megalaser:
   heat: 6
   text: |
     Deal 5 damage.
+  tags:
+    - Spare
+
+Shield Generator:
+  size: Small
+  type: Electronics
+  system: System
+  heat: 2
+  text: |
+    Trigger: At the start of the round, you may activate this to gain 2 Shield.
   tags:
     - Spare

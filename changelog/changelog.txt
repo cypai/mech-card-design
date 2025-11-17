@@ -1,3 +1,104 @@
+11/16 playtest
+--------------
+
+Anansi
+Heat Capacity: 8 -> 7
+
+Gemini
+HP: 10 -> 8
+
+Cockroach
+Hardpoints: M M S S -> L S
+Trigger: 1/round, when HP is reduced to 0, restore HP by 1, set Heat to 0, and Disable all equipment except 1.
+|->
+Trigger: 1/round, when HP is reduced to 0, restore HP by 1, set Heat to 0, remove all Vulnerable, Overheat, and Overwatch from it, then Disable all equipment except 1.
+
+Pulse Pistol
+Charge. Choose:
+> Charge.
+> Deal 1 damage [Charge] times. Discharge.
+|->
+Choose:
+> Charge 2. Max 4 Charge.
+> Deal 1 damage [Charge] times. Discharge.
+
+Thermobaric Flame Cannon
+Choose a position within range. Deal 3 damage and inflict 1 Overheat to mechs at that position.
+|->
+Choose a position within range. Deal 2 damage and inflict 1 Overheat to mechs at that position.
+
+Heavy Combat Drill
+Charge. Prepare: Deal [Charge+4] AP damage.
+If it is not the first time activating this weapon this battle, skip the Prepare.
+|->
+Charge. If Charge > 1, skip the Prepare. Prepare: Deal [Charge+4] AP damage.
+Trigger: If the Prepared effect does not activate next turn, Charge 1.
+
+Anchor Harpoon
+Ammo: 3 -> 2
+
+CAS Uplink
+Passive: Your Airstrikes deal +1 damage.
+|->
+Passive: At the start of battle, put an Airstrike in your hand. Your Airstrikes deal +1 damage.
+
+Shield Capacitor
+Heat: 1 -> None
+Choose:
+> Charge 2.
+> Gain [Charge] Shield. Discharge.
+Max 4 Charge.
+|->
+Passive: At the start of Rounds after the first Round, gain 1+X Shield, where X is the unused Heat on this mech from the previous Round.
+
+Light Screen Projector
+Heat: 3 -> 2
+
+Vacuum Grappler was added.
+Vacuum Grappler
+Medium Melee Weapon
+Range: 0
+Heat: 4
+Deal 2 damage. Choose:
+> The target is now considered to be in Melee range.
+> Move the target to the rear guard.
+
+Interception Protocol -> Interception Afterburners
+Ammo: None -> 2
+Trigger: 1/round, redirect the target of any enemy equipment to this mech if in valid range.
+|->
+Trigger: Redirect the target of an enemy Weapon to this mech if in valid range.
+
+Cyberwarfare: HIJACK was added.
+Cyberwarfare: HIJACK
+Medium Electronics System
+Range: 3
+Heat: 3
+Choose a Weapon on an enemy mech with a legal target. Your opponent activates it.
+
+Focus Fire Protocol -> Fire Support Protocol
+Trigger: After this mech activates Small Weapons as an Action, you may choose another mech in the vanguard and activate a Small Weapon on that mech.
+|->
+Trigger: After another allied mech activates a Weapon as an Action, this mech may activate a Small Weapon on the same target.
+
+Adaptive Heat Sink was added.
+Adaptive Heat Sink
+Large Auxiliary Attachment
+Inert. Passive: This mech cannot gain Overheat. If this mech is Shredded, discard this equipment.
+
+Siege Support Protocol was deleted.
+Siege Support Protocol
+Small Electronics System
+Trigger: After this mech activates Weapons with Range 3 as an Action, you may choose another mech in the vanguard and activate a Small Weapon on that mech.
+
+Enhanced C2 Suite was deleted.
+Enhanced C2 Suite
+Medium Electronics System
+Heat: 2
+Look at the top 5 cards of the deck. If there is a Maneuver among them, you may use it immediately. Otherwise, put an Equipment among them into your hand.
+
+
+
 pre 10/25 playtest
 ------------------
 
