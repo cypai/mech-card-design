@@ -1,3 +1,42 @@
+11/29 playtest
+--------------
+
+Centurion
+Passive: Whenever this mech loses Armor, lose 2 Heat.
+Action: 1/round, lose 1 Armor, then take another Action with this mech.
+|->
+Trigger: 1/battle, this mech's Melee Weapons deal additional damage equal to its Armor.
+
+Sniper Rifle
+Deal 3 damage. -1 damage at Range 1.
+|->
+Deal 3 damage. +1 Heat Cost if activated at Range 1.
+
+Thermobaric Flame Cannon
+Choose a position within range. Deal 2 damage and inflict 1 Overheat to mechs at that position.
+|->
+Choose a position that is not at Range 1. Deal 3 damage to mechs at that position.
+
+Shield Capacitor
+Passive: At the start of Rounds after the first Round, gain 1+X Shield, where X is the unused Heat on this mech from the previous Round.
+|->
+Passive: At the start of Rounds after the first Round, gain X Shield (max 4), where X is the unused Heat on this mech from the previous Round.
+
+Iron Sights
+Inert. Passive: When activating a non-Melee Weapon that you activated last turn this Round, it has +1 Range. Max Range 2.
+|->
+Inert. Passive: If this mech did not activate anything or change position since the start of your last turn this Round, its Range 1 Weapons get +1 Range.
+
+Emergency Reactor Vents
+Trigger: When this mech is damaged by a Weapon, remove 2 Heat and all Overheat from it.
+|->
+Trigger: When this mech is damaged by a Weapon, you may remove 2 Heat and all Overheat from it.
+
+Reactive Stabilizers
+Size: Small -> Medium
+
+
+
 post 11/16 changes 1
 --------------------
 
