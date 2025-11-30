@@ -1,6 +1,6 @@
 Lancelot:
   faction: Midline
-  hp: 12
+  hp: 11
   armor: 0
   hc: 7
   hardpoints:
@@ -81,7 +81,7 @@ Ballistarius:
   - Large
   - Large
   ability: |
-    Passive: While in the back line, this mech's Medium or Large non-Missile weapons deal +1 damage.
+    Passive: While in the back line, this mech's Medium or Large Weapons deal +1 damage.
 
 Gladius:
   faction: Low Tech
@@ -90,7 +90,7 @@ Gladius:
   hc: 7
   hardpoints:
   - Large
-  - Medium
+  - Small
   - Small
   ability: |
     Passive: Melee Weapons +1 damage.
@@ -237,10 +237,10 @@ Monte Carlo:
   hc: 7
   hardpoints:
   - Large
-  - Medium
-  - Medium
+  - Large
+  - Small
   ability: |
-    Action: 1/round, reveal cards from the deck until you reveal an Equipment. Immediately mount it on this mech, replacing previous equipment if necessary, then you may activate it.
+    Action: 1/round, reveal cards from the deck until you reveal an Equipment. You must immediately mount it on this mech, replacing previous equipment if necessary, then you may activate it.
 
 Jolly Roger:
   faction: Pirate

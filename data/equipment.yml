@@ -188,6 +188,8 @@ Heavy Assault Cannon:
     > Shred.
     > Overwatch: Deal [Charge+1] damage.
     Max 4 Charge.
+  tags:
+    - Strong-Watchlist
 
 Nemesis Autocannon:
   size: Large
@@ -396,7 +398,7 @@ Turbolaser Array:
     Charge. Deal [Charge+1] damage.
     Choose:
     > Charge.
-    > Overwatch: Deal [Charge+1] damage.
+    > Inflict 1 Overheat.
 
 Plasma Incinerator:
   size: Large
@@ -623,7 +625,9 @@ Proximity-Swarm Nanites:
     Choose:
     > Inflict 1 Vulnerable.
     > Gain 1 Shield.
-    Trigger: If this mech is targeted by a Weapon, you may activate this Weapon any number of times, targeting the activated mech if applicable.
+    Trigger: If this mech is targeted by a Weapon, you may activate this Weapon, targeting the activated mech if applicable.
+  tags:
+    - Strong-Watchlist
 
 Javelin Missile:
   size: Medium
