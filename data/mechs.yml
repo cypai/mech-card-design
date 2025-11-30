@@ -23,17 +23,17 @@ Guanyin:
   ability: |
     Trigger: 1/round, redirect the target of any enemy equipment to this mech if valid, reducing damage taken by 2.
 
-Yurlungur:
+Osiris:
   faction: Midline
-  hp: 11
+  hp: 8
   armor: 1
-  hc: 7
+  hc: 8
   hardpoints:
   - Large
-  - Small
+  - Medium
   - Small
   ability: |
-    Trigger: Whenever this mech uses equipment with a Heat Cost of at least 3, remove 1 Heat from a different allied mech.
+    Trigger: 1/round, when this mech activates a System as an Action: it may then activate a Weapon.
 
 Anansi:
   faction: Midline
