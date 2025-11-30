@@ -81,7 +81,7 @@ Sniper Rifle:
   range: 3
   heat: 4
   text: |
-    Deal 3 damage. -1 damage at Range 1.
+    Deal 3 damage. +1 Heat Cost if activated at Range 1.
 
 Automatic Shotgun:
   size: Medium
@@ -382,10 +382,9 @@ Thermobaric Flame Cannon:
   range: 2
   heat: 6
   text: |
-    Choose a position within range. Deal 2 damage and inflict 1 Overheat to mechs at that position.
+    Choose a position that is not at Range 1. Deal 3 damage to mechs at that position.
   tags:
     - AOE
-    - Strong-Watchlist
 
 Turbolaser Array:
   size: Large
@@ -948,7 +947,7 @@ Iron Sights:
   type: Auxiliary
   system: Attachment
   text: |
-    Inert. Passive: When activating a non-Melee Weapon that you activated last turn this Round, it has +1 Range. Max Range 2.
+    Inert. Passive: If this mech did not activate anything or change position since the start of your last turn this Round, its Range 1 Weapons get +1 Range.
 
 Excalibur Rounds:
   size: Small
@@ -974,10 +973,10 @@ Emergency Reactor Vents:
   system: Attachment
   ammo: 1
   text: |
-    Trigger: When this mech is damaged by a Weapon, remove 2 Heat and all Overheat from it.
+    Trigger: When this mech is damaged by a Weapon, you may remove 2 Heat and all Overheat from it.
 
 Reactive Stabilizers:
-  size: Small
+  size: Medium
   type: Auxiliary
   system: Attachment
   text: |
