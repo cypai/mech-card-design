@@ -1,3 +1,29 @@
+11/29 mid-playtest
+------------------
+
+Cockroach
+Trigger: 1/round, when HP is reduced to 0, restore HP by 1, set Heat to 0, remove all Vulnerable, Overheat, and Overwatch from it, then Disable all equipment except 1.
+|->
+Trigger: 1/round, if this mech's HP would be reduced to 0, set HP to 1 instead, then set Heat to 0.
+
+Osiris was added.
+Osiris
+HP: 8
+Armor: 1
+Heat: 8
+Hardpoints: L M S
+Ability: Trigger: 1/round, when this mech activates a System as an Action: it may then activate a Weapon.
+
+Yurlungur was deleted.
+Yurlungur
+HP: 11
+Armor: 1
+Heat: 7
+Hardpoints: L S S
+Ability: Trigger: Whenever this mech uses equipment with a Heat Cost of at least 3, remove 1 Heat from a different allied mech.
+
+
+
 11/29 playtest
 --------------
 
