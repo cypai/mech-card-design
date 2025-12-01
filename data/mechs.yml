@@ -8,7 +8,7 @@ Lancelot:
   - Medium
   - Small
   ability: |
-    Trigger: 1/battle, Heat Cost = 0 (ignoring Overheat) for this mech.
+    Trigger: 1/battle, this mech's Equipment has 0 Heat Cost.
 
 Guanyin:
   faction: Midline
@@ -25,8 +25,8 @@ Guanyin:
 
 Osiris:
   faction: Midline
-  hp: 8
-  armor: 1
+  hp: 10
+  armor: 0
   hc: 8
   hardpoints:
   - Large
@@ -50,15 +50,15 @@ Anansi:
 
 Tzitzimitl:
   faction: Midline
-  hp: 10
-  armor: 0
+  hp: 9
+  armor: 2
   hc: 7
   hardpoints:
   - Medium
   - Medium
   - Medium
   ability: |
-    Passive: Reduce damage taken by 1. At the start of the round, all allied mechs in the same position gain 1 Shield.
+    Passive: At the start of the round, all allied mechs at this mech's position gain 1 Shield.
 
 Amaterasu:
   faction: Midline
@@ -74,14 +74,14 @@ Amaterasu:
 
 Ballistarius:
   faction: Low Tech
-  hp: 6
+  hp: 7
   armor: 2
-  hc: 6
+  hc: 7
   hardpoints:
   - Large
   - Large
   ability: |
-    Passive: While in the back line, this mech's Medium or Large Weapons deal +1 damage.
+    Passive: While in the back line, this mech's Range 1 Medium or Large Weapons get +1 Range.
 
 Gladius:
   faction: Low Tech
@@ -133,15 +133,15 @@ Centurion:
 
 Praetor:
   faction: Low Tech
-  hp: 10
-  armor: 1
+  hp: 9
+  armor: 2
   hc: 7
   hardpoints:
   - Large
   - Medium
   - Small
   ability: |
-    Passive: When another allied mech at this mech's position activates a Large Weapon targeting a single enemy mech, if it did not apply Overwatch, it gains: Overwatch: Deal 2 damage.
+    Trigger: After you resolve a Maneuver: if an allied mech activated an Equipment as part of its effect, it gains 1 Shield. Otherwise, inflict 1 Vulnerable to 1 enemy mech.
 
 Aquarius:
   faction: High Tech
@@ -232,8 +232,8 @@ Cockroach:
 
 Monte Carlo:
   faction: Pirate
-  hp: 10
-  armor: 0
+  hp: 9
+  armor: 1
   hc: 7
   hardpoints:
   - Large
@@ -244,8 +244,8 @@ Monte Carlo:
 
 Jolly Roger:
   faction: Pirate
-  hp: 10
-  armor: 1
+  hp: 9
+  armor: 2
   hc: 7
   hardpoints:
   - Medium
@@ -253,7 +253,7 @@ Jolly Roger:
   - Small
   - Small
   ability: |
-    Passive: Whenever a mech has its HP reduced to 0, all allied mechs lose 1 Heat.
+    Passive: At the start of the Round, inflict 1 Vulnerable on up to X different enemy mechs, where X is the unused Heat on this mech the previous Round.
 
 Blackjack:
   faction: Pirate
@@ -282,7 +282,7 @@ Powder Keg:
 
 Rapscallion:
   faction: Pirate
-  hp: 9
+  hp: 8
   armor: 0
   hc: 6
   hardpoints:

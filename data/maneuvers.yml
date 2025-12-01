@@ -16,7 +16,7 @@ Lock and Load:
 
 EMP Airburst:
   text: |
-    Action: Draw a card. Disable 1 equipment for each player.
+    Action: Draw a card. Disable 1 equipment on an unshielded enemy mech. Disable 1 equipment on your mech.
 
 System Reboot:
   text: |
