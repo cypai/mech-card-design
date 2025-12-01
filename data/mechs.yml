@@ -81,7 +81,7 @@ Ballistarius:
   - Large
   - Large
   ability: |
-    Passive: While in the back line, this mech's Range 1 Medium or Large Weapons get +1 Range.
+    Passive: While in the back line, this mech's Range 1 Medium or Large Weapons have Range 2.
 
 Gladius:
   faction: Low Tech

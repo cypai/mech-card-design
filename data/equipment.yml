@@ -15,7 +15,7 @@ Gunslinger's Justice:
   heat: 1
   ammo: 6
   text: |
-    Deal 1 damage. If it is your first action this Round, deals +2 damage.
+    Deal 1 damage. If it is your first turn this Round, deals +2 damage.
 
 Flechettes:
   size: Small
@@ -114,7 +114,19 @@ Gatling Cannon:
   text: |
     Charge. Deal [Charge] damage. Max 4 Charge.
 
-Light Machine Gun:
+Assault Rifle:
+  size: Medium
+  type: Ballistic
+  system: Weapon
+  range: 1
+  heat: 4
+  text: |
+    Deal 2 damage twice.
+  tags:
+    - AOE
+    - Multihit
+
+Machine Gun:
   size: Medium
   type: Ballistic
   system: Weapon
@@ -127,12 +139,12 @@ Light Machine Gun:
     - AOE
     - Multihit
 
-Heavy Machine Gun:
-  size: Medium
+Panoptic Autocannon:
+  size: Large
   type: Ballistic
   system: Weapon
   range: 1
-  heat: 5
+  heat: 6
   text: |
     Deal 2 AP damage twice.
     Inflict on each target: Overwatch: Deal 2 AP damage.
@@ -193,17 +205,6 @@ Heavy Assault Cannon:
     Max 4 Charge.
   tags:
     - Strong-Watchlist
-
-Nemesis Autocannon:
-  size: Large
-  type: Ballistic
-  system: Weapon
-  range: 3
-  heat: 5
-  ammo: 3
-  text: |
-    Deal 4 damage.
-    Overwatch: Deal 4 damage.
 
 Mjolnir Railgun:
   size: Large
@@ -956,7 +957,7 @@ Iron Sights:
   type: Auxiliary
   system: Attachment
   text: |
-    Inert. Passive: If this mech did not activate anything or change position since the start of your last turn this Round, its Range 1 Weapons get +1 Range.
+    Inert. Passive: If this mech did not activate anything or change position since the start of your last turn this Round, its Range 1 Weapons have Range 2.
 
 Excalibur Rounds:
   size: Small
