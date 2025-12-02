@@ -36,7 +36,7 @@ Shock and Awe:
 
 Outflank:
   text: |
-    Action: Draw a card. Reposition any number of enemy mechs.
+    Action: Draw a card. Reposition any number of enemy mechs. At least 1 mech must be in the front line.
 
 Combat Engineering:
   text: |

@@ -371,15 +371,6 @@ Slagmaker:
   text: |
     Deal 6 damage, then Disable all other equipment on this mech.
 
-Magnetic Cannon:
-  size: Large
-  type: Energy
-  system: Weapon
-  range: 3
-  heat: 5
-  text: |
-    Deal 3 damage. If the target is in the vanguard, move them to the rear guard, and vice versa.
-
 Thermobaric Flame Cannon:
   size: Large
   type: Energy
@@ -412,14 +403,16 @@ Plasma Incinerator:
   text: |
     Deal 5 damage. Inflict 1 Overheat and 1 Vulnerable.
 
-Rift Inducer:
+Portal Inducer:
   size: Large
   type: Energy
   system: Weapon
-  range: 1
-  heat: 4
+  range: 3
+  heat: 5
   text: |
-    Bypasses Shield. Deal 3 AP damage. Shred.
+    Choose twice:
+    > Reposition a mech.
+    > Deal 2 AP damage.
 
 Causality Inverter:
   size: Large
@@ -455,6 +448,16 @@ Combat Knife:
   text: |
     Deal 1 damage. Inflict 1 Vulnerable.
 
+Power Buckler:
+  size: Small
+  type: Melee
+  system: Weapon
+  range: 0
+  heat: 2
+  text: |
+    Deal 1 damage. Gain 1 Shield.
+    Passive: Reduce damage this mech takes from Melee Weapons by 1.
+
 Power Blade:
   size: Medium
   type: Melee
@@ -473,14 +476,16 @@ Power Fist:
   text: |
     Deal 3 damage. Move the target to the rear guard.
 
-Explosive Fist:
+Iaijutsu Blade:
   size: Medium
   type: Melee
   system: Weapon
   range: 0
-  heat: 3
+  heat: 4
   text: |
-    Deal 3 damage. Shred.
+    Choose:
+    > Deal 3 damage. Shred.
+    > Discard a card. Destroy the target if it has 5 HP or less.
 
 Ion Knuckle:
   size: Medium
@@ -540,17 +545,15 @@ Ripjaw Chainaxe:
     Charge. Deal [Charge+4] damage.
     If Charge is at least 2, Shred.
 
-Adjudication Lance:
+Gungnir Shock Lance:
   size: Large
   type: Melee
   system: Weapon
   range: 0
   heat: 5
   text: |
-    Choose:
-    > Deal 5 AP damage.
-    > Deal 5 damage from Range 2 instead, then discard this Weapon.
-    If this Weapon reduces the target's HP to 0, lose 2 Heat.
+    Deal 4 AP damage. The target is now considered to be in Melee range.
+    You may activate this with Range 2. If so, discard this Weapon.
 
 Combat Drone Launcher:
   size: Medium
@@ -592,17 +595,6 @@ Jammer Drone Launcher:
   ammo: 2
   text: |
     Inflict 1 Overheat on the enemy vanguard, then summon 1 Jammer Drone.
-  tags:
-    - AOE
-
-Omni-Drone Launcher:
-  size: Medium
-  type: Drone
-  system: System
-  heat: 2
-  ammo: 3
-  text: |
-    Deploy a drone that you do not currently have deployed.
   tags:
     - AOE
 
@@ -715,7 +707,7 @@ Razortooth Missile:
   heat: 0
   ammo: 1
   text: |
-    Choose an enemy position. Shred all enemy mechs there.
+    Choose an enemy position. Shred all unshielded enemy mechs there.
   tags:
     - AOE
     - Strong-Watchlist
@@ -794,7 +786,7 @@ Advanced Missile Launcher:
   size: Small
   type: Electronics
   system: System
-  heat: 3
+  heat: 2
   text: |
     Only usable in the vanguard.
     On your opponent's next turn, they can only target this mech.
@@ -911,16 +903,6 @@ Absolute Terminus Field:
   text: |
     Passive: If this mech is targeted by a Weapon while being the only mech in the vanguard, reduce its damage taken from that Weapon by 1.
 
-Early Warning System:
-  size: Medium
-  type: Electronics
-  system: System
-  heat: 1
-  text: |
-    Trigger: If all allied mechs are in the vanguard, you may activate this System to redirect enemy Weapons to target this mech.
-  tags:
-    - Strong-Watchlist
-
 Accuracy Overclocker:
   size: Medium
   type: Electronics
@@ -984,6 +966,15 @@ Emergency Reactor Vents:
   ammo: 1
   text: |
     Trigger: When this mech is damaged by a Weapon, you may remove 2 Heat and all Overheat from it.
+
+Afterburners:
+  size: Small
+  type: Auxiliary
+  system: Attachment
+  ammo: 2
+  text: |
+    Trigger: Advance or Fall Back -1 Heat Cost.
+    Trigger: When your opponent targets an allied mech, Advance and redirect the target to this mech.
 
 Reactive Stabilizers:
   size: Medium
