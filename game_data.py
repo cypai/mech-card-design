@@ -201,7 +201,9 @@ def get_filtered_equipment(filters: list[str]) -> list[Equipment]:
         ok = 0
         tokenized_text = re.sub(r"[^a-zA-Z0-9\s]+", " ", equipment.text.lower()).split()
         for f in parsed_filters:
-            if (
+            if f == "true":
+                ok += 1
+            elif (
                 f != "move"
                 and f in tokenized_text
                 or f in equipment.name.lower()

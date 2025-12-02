@@ -63,7 +63,7 @@ Gauss Rifle:
   range: 1
   heat: 3
   text: |
-    Deal 2 AP damage. Inflict 1 Vulnerable.
+    Deal 3 AP damage.
 
 Gauss Carbine:
   size: Medium
@@ -152,15 +152,14 @@ Panoptic Autocannon:
     - AOE
     - Multihit
 
-Heavy Mortar:
+Railgun:
   size: Large
   type: Ballistic
   system: Weapon
   range: 3
-  heat: 4
-  ammo: 3
+  heat: 7
   text: |
-    Deal 3 damage. If activated at Range 1, deal 1 damage to yourself.
+    Deal 5 AP damage.
 
 Devastator:
   size: Large
@@ -206,7 +205,7 @@ Heavy Assault Cannon:
   tags:
     - Strong-Watchlist
 
-Mjolnir Railgun:
+Mjolnir Cannon:
   size: Large
   type: Ballistic
   system: Weapon
@@ -361,6 +360,17 @@ Ion Pulser:
     Max 3 Charge.
   tags:
     - AOE
+
+Pulsar Beam Cannon:
+  size: Large
+  type: Energy
+  system: Weapon
+  range: 2
+  heat: 3
+  text: |
+    Choose:
+    > Deal 2 damage. Charge.
+    > If [Charge]>2, Disable 1 Equipment on the target if unshielded. Deal 4 damage. Discharge.
 
 Slagmaker:
   size: Large
