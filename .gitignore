@@ -5,3 +5,5 @@ outputs/
 .envrc
 venv/
 data.db
+steelvanguard/
+*.zip
