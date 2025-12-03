@@ -2,3 +2,5 @@ wand
 pyyaml
 discord.py
 thefuzz
+pycairo
+PyGObject

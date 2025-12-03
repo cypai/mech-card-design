@@ -245,7 +245,7 @@ Plasma Pistol:
   range: 1
   heat: 2
   text: |
-    Deal 1 damage. Inflict 1 Overheat.
+    Deal 1 damage. Inflict 1 🔥.
 
 Pulse Pistol:
   size: Small
