@@ -42,6 +42,9 @@ def generate_card(icons: Icons, equipment: Equipment):
         if equipment.ammo is not None:
             add_icon(draw_ctx, icons.ammo, pad_x, icon_y, str(equipment.ammo))
             icon_y += icons.ammo.height + pad_x
+        if equipment.maxcharge is not None:
+            add_icon(draw_ctx, icons.maxcharge, pad_x, icon_y, str(equipment.maxcharge))
+            icon_y += icons.maxcharge.height + pad_x
         if equipment.range == 0:
             add_icon(
                 draw_ctx,

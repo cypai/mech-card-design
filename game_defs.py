@@ -9,8 +9,9 @@ class Equipment:
     size: str
     type: str
     heat: Optional[int]
-    ammo: Optional[int]
     range: Optional[int]
+    ammo: Optional[int]
+    maxcharge: Optional[int]
     text: str
     tags: list[str]
     alias: list[str]
@@ -22,8 +23,9 @@ class Equipment:
         self.type = str(kwargs.get("type"))
         self.system = str(kwargs.get("system"))
         self.heat = kwargs.get("heat", None)
-        self.ammo = kwargs.get("ammo", None)
         self.range = kwargs.get("range", None)
+        self.ammo = kwargs.get("ammo", None)
+        self.maxcharge = kwargs.get("maxcharge", None)
         self.text = str(kwargs.get("text"))
         self.tags = kwargs.get("tags", [])
         self.alias = kwargs.get("alias", [])
@@ -42,6 +44,8 @@ class Equipment:
             text += f"Heat: {self.heat}\n"
         if self.ammo is not None:
             text += f"Ammo: {self.ammo}\n"
+        if self.maxcharge is not None:
+            text += f"Max Charge: {self.maxcharge}\n"
         if len(self.tags) > 0:
             text += f"Tags: {self.tags}\n"
         text += f"{self.text}"
@@ -62,9 +66,11 @@ class Equipment:
             diffs += 1
         if self.heat != other.heat:
             diffs += 1
+        if self.range != other.range:
+            diffs += 1
         if self.ammo != other.ammo:
             diffs += 1
-        if self.range != other.range:
+        if self.maxcharge != other.maxcharge:
             diffs += 1
         text_ratio = fuzz.token_set_ratio(self.text, other.text)
         if text_ratio < 100:
@@ -92,12 +98,15 @@ class Equipment:
         if self.heat != other.heat:
             is_diff = True
             diffs += f"Heat: {other.heat} -> {self.heat}\n"
-        if self.ammo != other.ammo:
-            is_diff = True
-            diffs += f"Ammo: {other.ammo} -> {self.ammo}\n"
         if self.range != other.range:
             is_diff = True
             diffs += f"Range: {other.range} -> {self.range}\n"
+        if self.ammo != other.ammo:
+            is_diff = True
+            diffs += f"Ammo: {other.ammo} -> {self.ammo}\n"
+        if self.maxcharge != other.maxcharge:
+            is_diff = True
+            diffs += f"Max Charge: {other.maxcharge} -> {self.maxcharge}\n"
         if self.text != other.text:
             is_diff = True
             diffs += f"{other.text}|->\n{self.text}"

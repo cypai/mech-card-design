@@ -23,6 +23,7 @@ class Icons:
         self.melee = Image(filename="textures/melee.png")
         self.range = Image(filename="textures/range.png")
         self.ammo = Image(filename="textures/ammo.png")
+        self.maxcharge = Image(filename="textures/maxcharge.png")
         self.armor = Image(filename="textures/armor.png")
         self.card_rotation = Image(filename="textures/card-rotation.png")
 
@@ -30,6 +31,7 @@ class Icons:
         self.melee.resize(ICON_SIZE, ICON_SIZE)
         self.range.resize(ICON_SIZE, ICON_SIZE)
         self.ammo.resize(ICON_SIZE, ICON_SIZE)
+        self.maxcharge.resize(ICON_SIZE, ICON_SIZE)
         self.armor.resize(LARGE_FONT_SIZE, LARGE_FONT_SIZE)
         self.card_rotation.resize(LARGE_ICON_SIZE, LARGE_ICON_SIZE)
         return self
@@ -39,3 +41,6 @@ class Icons:
         self.melee.close()
         self.range.close()
         self.ammo.close()
+        self.maxcharge.close()
+        self.armor.close()
+        self.card_rotation.close()
