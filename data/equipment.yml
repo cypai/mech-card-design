@@ -1047,8 +1047,8 @@ Reserved Mortar:
   type: Ballistic
   system: Weapon
   range: 3
-  heat: 4
-  ammo: 2
+  heat: 5
+  ammo: 3
   text: |
     Deal 3 damage. If activated at Range 1, deal 1 damage to yourself.
   tags:
