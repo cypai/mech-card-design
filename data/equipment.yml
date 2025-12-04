@@ -993,6 +993,7 @@ Emergency Vents:
   size: Small
   type: Auxiliary
   system: Attachment
+  heat: 0
   text: |
     Inert. Action: 1/round, this mech gains 1 Vulnerable and loses all Overheat.
 
