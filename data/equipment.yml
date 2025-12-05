@@ -137,11 +137,12 @@ Machine Gun:
   size: Medium
   type: Ballistic
   system: Weapon
-  range: 1
   heat: 3
-  text: |
-    Deal 1 <:damage:> twice.
-    Inflict on each target: <:overwatch:>: Deal 1 <:damage:>.
+  range: 1
+  target: 2
+  actions:
+    - |
+      Deal 1 <:damage:>. Inflict <:overwatch:>(1 <:damage:>).
   tags:
     - AOE
     - Multihit
@@ -172,14 +173,16 @@ Devastator:
   size: Large
   type: Ballistic
   system: Weapon
-  range: 1
   heat: 3
+  range: 1
+  target: 1
   maxcharge: 4
-  text: |
-    Charge. Choose:
-    > Inflict [Charge+1] <:vulnerable:>.
-    > Deal [Charge+1] AP <:damage:>.
-    <:overwatch:>: Deal [Charge] AP <:damage:>.
+  actions:
+    - |
+      Charge. Choose:
+      > Inflict [Charge+1] <:vulnerable:>.
+      > Deal [Charge+1] AP <:damage:>.
+      Inflict <:overwatch:>([Charge] AP <:damage:>).
 
 Mass Driver:
   size: Large
@@ -451,14 +454,17 @@ Gigapulse Laser:
   size: Large
   type: Energy
   system: Weapon
-  range: 1
   heat: 4
+  range: 1
+  target: C
   maxcharge: 3
-  text: |
-    Charge. Choose:
-    > Charge.
-    > Deal 3 <:damage:> [Charge] times. Discharge.
-    Rear guard activation: Charge 2.
+  actions:
+    - |
+      Charge. Choose:
+      > Charge.
+      > Deal 3 <:damage:>. Discharge.
+    - |
+      While in the backline: Charge 2.
   tags:
     - AOE
     - Multihit

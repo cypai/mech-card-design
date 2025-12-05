@@ -19,7 +19,7 @@ def wrap_text(ctx: Drawing, text: str, roi_width: int):
 
 
 EMOJI_REGEX = re.compile("<:[a-zA-Z0-9_-]{1,32}:>")
-NUMBER_TAG_REGEX = re.compile(r"(\d|AP) <:")
+NUMBER_TAG_REGEX = re.compile(r"(\d|AP|\]) <:")
 HEAT_COST_REGEX = re.compile(r"<:heat:> Cost")
 
 

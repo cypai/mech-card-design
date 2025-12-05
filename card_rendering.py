@@ -93,7 +93,7 @@ class CardRenderer(ABC):
             self.image,
             source=SteelVanguardSource,
             render_custom_emoji=True,
-            emoji_position_offset=(4, -3),
+            emoji_position_offset=(7, -2),
         )
         self.draw = ImageDraw.Draw(self.image)
         return self
@@ -271,5 +271,6 @@ class EquipmentCardRenderer(CardRenderer):
 game_db = GameDatabase()
 with Icons() as icons:
     for equipment in game_db.equipment:
-        with EquipmentCardRenderer(equipment, icons) as card:
-            card.render()
+        if not equipment.legacy_text:
+            with EquipmentCardRenderer(equipment, icons) as card:
+                card.render()
