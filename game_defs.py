@@ -14,9 +14,13 @@ class Equipment:
     ammo: Optional[int]
     maxcharge: Optional[int]
     text: str
+    info: Optional[str]
+    actions: list[str]
+    triggers: list[str]
     tags: list[str]
     alias: list[str]
     copies: int
+    legacy_text: bool
 
     def __init__(self, **kwargs):
         self.name = str(kwargs.get("name"))
@@ -28,7 +32,9 @@ class Equipment:
         self.target = kwargs.get("target", None)
         self.ammo = kwargs.get("ammo", None)
         self.maxcharge = kwargs.get("maxcharge", None)
-        self.text = str(kwargs.get("text"))
+        self.info = kwargs.get("info", None)
+        self.actions = kwargs.get("actions", [])
+        self.triggers = kwargs.get("triggers", [])
         self.tags = kwargs.get("tags", [])
         self.alias = kwargs.get("alias", [])
         self.copies = kwargs.get("copies", 1)
@@ -36,6 +42,24 @@ class Equipment:
         self.normalized_name = re.sub(r"\W", "", self.name)
         self.normalized_name = self.normalized_name.lower()
         self.filename = f"outputs/equipment/{self.normalized_name}.png"
+        self.legacy_text = (
+            self.info is None and len(self.actions) == 0 and len(self.triggers) == 0
+        )
+        if self.legacy_text:
+            self.text = kwargs.get("text", "")
+        else:
+            self.text = self.pretty_text()
+
+    def pretty_text(self):
+        if self.info is None:
+            text = ""
+        else:
+            text = self.info + "\n"
+        for action in self.actions:
+            text += f"Action: {action}\n"
+        for trigger in self.triggers:
+            text += f"Trigger: {trigger}\n"
+        return text
 
     def __str__(self):
         text = self.name + "\n"

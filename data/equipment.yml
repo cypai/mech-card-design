@@ -5,8 +5,8 @@ Light Cannon:
   heat: 2
   range: 1
   target: 1
-  text: |
-    Deal 2 damage.
+  actions:
+    - Deal 2 <:damage:>.
 
 Gunslinger's Justice:
   size: Small
@@ -17,7 +17,7 @@ Gunslinger's Justice:
   target: 1
   ammo: 6
   text: |
-    Deal 1 damage. If it is your first turn this Round, deals +2 damage.
+    Deal 1 <:damage:>. If it is your first turn this Round, deals +2 <:damage:>.
 
 Flechettes:
   size: Small
@@ -28,7 +28,7 @@ Flechettes:
   target: C
   maxcharge: 3
   text: |
-    Deal 1 damage. Discharge.
+    Deal 1 <:damage:>. Discharge.
     Trigger: After this mech takes an Action (other than activating this equipment), activate this to Charge 1 instead.
   tags:
     - AOE
@@ -42,8 +42,8 @@ LINK-R Dumbfire Gun:
   range: 2
   target: 1
   text: |
-    Deal 1 damage.
-    Trigger: After activating a Medium or Large Weapon on this mech as an Action, you may activate this Weapon on one of its targets with -1 Heat Cost.
+    Deal 1 <:damage:>.
+    Trigger: After activating a Medium or Large Weapon on this mech as an Action, you may activate this Weapon on one of its targets with -1 <:heat:> Cost.
   alias:
     - LINK-R
 
@@ -55,7 +55,7 @@ TRAK-R Smart Gun:
   range: 2
   target: 1
   text: |
-    Trigger: When an allied mech targets an enemy mech(s) with another Equipment, you may activate this to inflict "Overwatch: Deal 1 damage" to each target.
+    Trigger: When an allied mech targets an enemy mech(s) with another Equipment, you may activate this to inflict "<:overwatch:>: Deal 1 <:damage:>" to each target.
   tags:
     - AOE
   alias:
@@ -69,7 +69,7 @@ Gauss Rifle:
   range: 1
   target: 1
   text: |
-    Deal 3 AP damage.
+    Deal 3 AP <:damage:>.
 
 Assault Carbine:
   size: Medium
@@ -78,7 +78,7 @@ Assault Carbine:
   range: 1
   heat: 2
   text: |
-    Deal 2 damage. Overwatch: Deal 1 damage.
+    Deal 2 <:damage:>. <:overwatch:>: Deal 1 <:damage:>.
 
 Sniper Rifle:
   size: Medium
@@ -87,7 +87,7 @@ Sniper Rifle:
   range: 3
   heat: 4
   text: |
-    Deal 3 damage. +1 Heat Cost if activated at Range 1.
+    Deal 3 <:damage:>. +1 <:heat:> Cost if activated at Range 1.
 
 Automatic Shotgun:
   size: Medium
@@ -96,7 +96,7 @@ Automatic Shotgun:
   range: 1
   heat: 3
   text: |
-    Deal 2 damage to the enemy vanguard.
+    Deal 2 <:damage:> to the enemy vanguard.
   tags:
     - AOE
 
@@ -107,9 +107,9 @@ Assault Cannon:
   range: 1
   heat: 3
   text: |
-    Deal 2 damage. Choose:
+    Deal 2 <:damage:>. Choose:
     > Shred.
-    > Overwatch: Deal 2 damage.
+    > <:overwatch:>: Deal 2 <:damage:>.
 
 Gatling Cannon:
   size: Medium
@@ -119,7 +119,7 @@ Gatling Cannon:
   heat: 2
   maxcharge: 4
   text: |
-    Charge. Deal [Charge] damage.
+    Charge. Deal [Charge] <:damage:>.
 
 Assault Rifle:
   size: Medium
@@ -128,7 +128,7 @@ Assault Rifle:
   range: 1
   heat: 4
   text: |
-    Deal 2 damage twice.
+    Deal 2 <:damage:> twice.
   tags:
     - AOE
     - Multihit
@@ -140,8 +140,8 @@ Machine Gun:
   range: 1
   heat: 3
   text: |
-    Deal 1 damage twice.
-    Inflict on each target: Overwatch: Deal 1 damage.
+    Deal 1 <:damage:> twice.
+    Inflict on each target: <:overwatch:>: Deal 1 <:damage:>.
   tags:
     - AOE
     - Multihit
@@ -153,8 +153,8 @@ Panoptic Autocannon:
   range: 1
   heat: 6
   text: |
-    Deal 2 AP damage twice.
-    Inflict on each target: Overwatch: Deal 2 AP damage.
+    Deal 2 AP <:damage:> twice.
+    Inflict on each target: <:overwatch:>: Deal 2 AP <:damage:>.
   tags:
     - AOE
     - Multihit
@@ -166,7 +166,7 @@ Railgun:
   range: 3
   heat: 7
   text: |
-    Deal 5 AP damage.
+    Deal 5 AP <:damage:>.
 
 Devastator:
   size: Large
@@ -177,9 +177,9 @@ Devastator:
   maxcharge: 4
   text: |
     Charge. Choose:
-    > Inflict [Charge+1] Vulnerable.
-    > Deal [Charge+1] AP damage.
-    Overwatch: Deal [Charge] AP damage.
+    > Inflict [Charge+1] <:vulnerable:>.
+    > Deal [Charge+1] AP <:damage:>.
+    <:overwatch:>: Deal [Charge] AP <:damage:>.
 
 Mass Driver:
   size: Large
@@ -188,7 +188,7 @@ Mass Driver:
   range: 2
   heat: 5
   text: |
-    Deal 4 damage. If the target is in the vanguard, move the target to the rear guard.
+    Deal 4 <:damage:>. If the target is in the vanguard, move the target to the rear guard.
 
 Annihilator Siege Cannon:
   size: Large
@@ -198,7 +198,7 @@ Annihilator Siege Cannon:
   heat: 6
   ammo: 2
   text: |
-    Prepare: Deal 8 AP damage.
+    Prepare: Deal 8 AP <:damage:>.
 
 Heavy Assault Cannon:
   size: Large
@@ -208,10 +208,10 @@ Heavy Assault Cannon:
   heat: 3
   maxcharge: 4
   text: |
-    Charge. Deal [Charge+1] damage.
+    Charge. Deal [Charge+1] <:damage:>.
     Choose:
     > Shred.
-    > Overwatch: Deal [Charge+1] damage.
+    > <:overwatch:>: Deal [Charge+1] <:damage:>.
   tags:
     - Strong-Watchlist
 
@@ -222,7 +222,7 @@ Mjolnir Cannon:
   range: 2
   heat: 5
   text: |
-    If the target is not shielded, Disable one of the target's equipment. Deal 3 damage.
+    If the target is not shielded, Disable one of the target's equipment. Deal 3 <:damage:>.
 
 Hellbore AMR:
   size: Large
@@ -231,7 +231,7 @@ Hellbore AMR:
   range: 2
   heat: 5
   text: |
-    Deal 4 AP damage. If targeting a mech in the vanguard, you may additionally target a mech in the rear guard, dealing 1 damage.
+    Deal 4 AP <:damage:>. If targeting a mech in the vanguard, you may additionally target a mech in the rear guard, dealing 1 <:damage:>.
   tags:
     - AOE
 
@@ -242,7 +242,7 @@ Targeting Laser:
   range: 1
   heat: 2
   text: |
-    Inflict 2 Vulnerable.
+    Inflict 2 <:vulnerable:>.
 
 Plasma Pistol:
   size: Small
@@ -251,7 +251,7 @@ Plasma Pistol:
   range: 1
   heat: 2
   text: |
-    Deal 1 damage. Inflict 1 🔥.
+    Deal 1 <:damage:>. Inflict 1 <:overheat:>.
 
 Pulse Pistol:
   size: Small
@@ -263,7 +263,7 @@ Pulse Pistol:
   text: |
     Choose:
     > Charge 2.
-    > Deal 1 damage [Charge] times. Discharge.
+    > Deal 1 <:damage:> [Charge] times. Discharge.
   tags:
     - AOE
 
@@ -274,8 +274,8 @@ EM Polarizer:
   range: 1
   heat: 2
   text: |
-    Deal 1 damage.
-    Trigger: This turn, Energy Weapons on other allied mechs deal +1 damage.
+    Deal 1 <:damage:>.
+    Trigger: This turn, Energy Weapons on other allied mechs deal +1 <:damage:>.
 
 Tesla Coil:
   size: Small
@@ -284,7 +284,7 @@ Tesla Coil:
   range: 1
   heat: 2
   text: |
-    Deal X+1 damage, where X = the total amount of Overheat and Shield on the target.
+    Deal X+1 <:damage:>, where X = the total amount of <:overheat:> and <:shield:> on the target.
 
 Flamethrower:
   size: Medium
@@ -293,7 +293,7 @@ Flamethrower:
   range: 1
   heat: 3
   text: |
-    Deal 1 damage and inflict 1 Overheat to the enemy vanguard.
+    Deal 1 <:damage:> and inflict 1 <:overheat:> to the enemy vanguard.
   tags:
     - AOE
 
@@ -304,7 +304,7 @@ Laser Rifle:
   range: 1
   heat: 3
   text: |
-    Deal 3 damage. Overwatch: Inflict 1 Overheat.
+    Deal 3 <:damage:>. <:overwatch:>: Inflict 1 <:overheat:>.
 
 Autopulse Rifle:
   size: Medium
@@ -314,7 +314,7 @@ Autopulse Rifle:
   heat: 3
   maxcharge: 3
   text: |
-    Charge. Deal 3 damage [Charge] times. Discharge.
+    Charge. Deal 3 <:damage:> [Charge] times. Discharge.
     Rear guard activation: Charge.
   tags:
     - AOE
@@ -327,7 +327,7 @@ Plasma Blaster:
   range: 1
   heat: 3
   text: |
-    Deal 2 damage. Inflict 1 Overheat.
+    Deal 2 <:damage:>. Inflict 1 <:overheat:>.
 
 Repulsor Array:
   size: Medium
@@ -336,7 +336,7 @@ Repulsor Array:
   range: 1
   heat: 3
   text: |
-    Deal 2 damage. You may move the target to the rear guard. You may move this mech to the rear guard.
+    Deal 2 <:damage:>. You may move the target to the rear guard. You may move this mech to the rear guard.
 
 Magnetic Harpoon:
   size: Medium
@@ -345,8 +345,8 @@ Magnetic Harpoon:
   range: 2
   heat: 3
   text: |
-    Deal 1 damage. If the target is in the rear guard, move it to the vanguard.
-    Overwatch: Deal 1 damage.
+    Deal 1 <:damage:>. If the target is in the rear guard, move it to the vanguard.
+    <:overwatch:>: Deal 1 <:damage:>.
 
 Ion Beam:
   size: Medium
@@ -381,8 +381,8 @@ Pulsar Beam Cannon:
   maxcharge: 3
   text: |
     Choose:
-    > Deal 2 damage. Charge.
-    > If [Charge]>2, Disable 1 Equipment on the target if unshielded. Deal 4 damage. Discharge.
+    > Deal 2 <:damage:>. Charge.
+    > If [Charge]>2, Disable 1 Equipment on the target if unshielded. Deal 4 <:damage:>. Discharge.
 
 Slagmaker:
   size: Large
@@ -391,7 +391,7 @@ Slagmaker:
   range: 1
   heat: 5
   text: |
-    Deal 6 damage, then Disable all other equipment on this mech.
+    Deal 6 <:damage:>, then Disable all other equipment on this mech.
 
 Thermobaric Flame Cannon:
   size: Large
@@ -400,7 +400,7 @@ Thermobaric Flame Cannon:
   range: 2
   heat: 6
   text: |
-    Choose a position within Range. Inflict 1 Overheat to unshielded mechs there. Deal 2 damage to mechs there.
+    Choose a position within Range. Inflict 1 <:overheat:> to unshielded mechs there. Deal 2 <:damage:> to mechs there.
   tags:
     - AOE
     - Strong-Watchlist
@@ -413,10 +413,10 @@ Turbolaser Array:
   heat: 5
   maxcharge: 4
   text: |
-    Charge. Deal [Charge+1] damage.
+    Charge. Deal [Charge+1] <:damage:>.
     Choose:
     > Charge.
-    > Inflict 1 Overheat.
+    > Inflict 1 <:overheat:>.
 
 Plasma Incinerator:
   size: Large
@@ -425,7 +425,7 @@ Plasma Incinerator:
   range: 1
   heat: 6
   text: |
-    Deal 5 damage. Inflict 1 Overheat and 1 Vulnerable.
+    Deal 5 <:damage:>. Inflict 1 <:overheat:> and 1 <:vulnerable:>.
 
 Portal Inducer:
   size: Large
@@ -436,7 +436,7 @@ Portal Inducer:
   text: |
     Choose twice:
     > Reposition a mech.
-    > Deal 2 AP damage.
+    > Deal 2 AP <:damage:>.
 
 Causality Inverter:
   size: Large
@@ -445,7 +445,7 @@ Causality Inverter:
   range: 1
   heat: 5
   text: |
-    Cannot be evaded. Prepare: Deal 6 damage.
+    Cannot be evaded. Prepare: Deal 6 <:damage:>.
 
 Gigapulse Laser:
   size: Large
@@ -457,7 +457,7 @@ Gigapulse Laser:
   text: |
     Charge. Choose:
     > Charge.
-    > Deal 3 damage [Charge] times. Discharge.
+    > Deal 3 <:damage:> [Charge] times. Discharge.
     Rear guard activation: Charge 2.
   tags:
     - AOE
@@ -470,7 +470,7 @@ Combat Knife:
   range: 0
   heat: 2
   text: |
-    Deal 1 damage. Inflict 1 Vulnerable.
+    Deal 1 <:damage:>. Inflict 1 <:vulnerable:>.
 
 Power Buckler:
   size: Small
@@ -479,8 +479,8 @@ Power Buckler:
   range: 0
   heat: 2
   text: |
-    Deal 1 damage. Gain 1 Shield.
-    Passive: Reduce damage this mech takes from Melee Weapons by 1.
+    Deal 1 <:damage:>. Gain 1 <:shield:>.
+    Passive: Reduce <:damage:> this mech takes from Melee Weapons by 1.
 
 Power Blade:
   size: Medium
@@ -489,7 +489,7 @@ Power Blade:
   range: 0
   heat: 4
   text: |
-    Deal 4 damage. Overwatch: Deal 2 damage.
+    Deal 4 <:damage:>. <:overwatch:>: Deal 2 <:damage:>.
 
 Power Fist:
   size: Medium
@@ -498,7 +498,7 @@ Power Fist:
   range: 0
   heat: 3
   text: |
-    Deal 3 damage. Move the target to the rear guard.
+    Deal 3 <:damage:>. Move the target to the rear guard.
 
 Iaijutsu Blade:
   size: Medium
@@ -508,7 +508,7 @@ Iaijutsu Blade:
   heat: 4
   text: |
     Choose:
-    > Deal 3 damage. Shred.
+    > Deal 3 <:damage:>. Shred.
     > Discard a card. Destroy the target if it has 5 HP or less.
 
 Ion Knuckle:
@@ -518,7 +518,7 @@ Ion Knuckle:
   range: 0
   heat: 4
   text: |
-    Deal 2 damage. Disable one of the target's equipment.
+    Deal 2 <:damage:>. Disable one of the target's equipment.
 
 Phase Lance:
   size: Medium
@@ -527,7 +527,7 @@ Phase Lance:
   range: 0
   heat: 3
   text: |
-    Remove all Shield from the target. Deal 3 AP damage.
+    Remove all <:shield:> from the target. Deal 3 AP <:damage:>.
 
 Vacuum Grappler:
   size: Medium
@@ -536,7 +536,7 @@ Vacuum Grappler:
   range: 0
   heat: 3
   text: |
-    Deal 2 damage. Choose:
+    Deal 2 <:damage:>. Choose:
     > The target is now considered to be in Melee range.
     > Move the target to the rear guard.
 
@@ -547,7 +547,7 @@ Arondight Starsword:
   range: 0
   heat: 5
   text: |
-    Deal 6 damage.
+    Deal 6 <:damage:>.
 
 Heavy Combat Drill:
   size: Large
@@ -558,8 +558,8 @@ Heavy Combat Drill:
   target: 1
   maxcharge: 4
   text: |
-    Charge. Deal 2 AP damage. Shred.
-    Prepare: Deal [Charge+2] AP damage. Shred.
+    Charge. Deal 2 AP <:damage:>. Shred.
+    Prepare: Deal [Charge+2] AP <:damage:>. Shred.
 
 Ripjaw Chainaxe:
   size: Large
@@ -569,7 +569,7 @@ Ripjaw Chainaxe:
   heat: 5
   maxcharge: 4
   text: |
-    Charge. Deal [Charge+4] damage.
+    Charge. Deal [Charge+4] <:damage:>.
     If Charge is at least 2, Shred.
 
 Gungnir Shock Lance:
@@ -579,7 +579,7 @@ Gungnir Shock Lance:
   range: 0
   heat: 5
   text: |
-    Deal 4 AP damage. The target is now considered to be in Melee range.
+    Deal 4 AP <:damage:>. The target is now considered to be in Melee range.
     You may activate this with Range 2. If so, discard this Weapon.
 
 Combat Drone Launcher:
@@ -590,7 +590,7 @@ Combat Drone Launcher:
   heat: 5
   ammo: 3
   text: |
-    Deal 2 damage to the enemy vanguard.
+    Deal 2 <:damage:> to the enemy vanguard.
     Summon 1 Combat Drone.
   tags:
     - AOE
@@ -602,7 +602,7 @@ Shield Drone Launcher:
   heat: 3
   ammo: 3
   text: |
-    Grant 2 Shield to an allied mech, then summon 1 Shield Drone.
+    Grant 2 <:shield:> to an allied mech, then summon 1 Shield Drone.
 
 Scout Drone Launcher:
   size: Small
@@ -611,7 +611,7 @@ Scout Drone Launcher:
   heat: 2
   ammo: 2
   text: |
-    Reposition an allied mech without Heat Cost, then summon 1 Scout Drone.
+    Reposition an allied mech without <:heat:> Cost, then summon 1 Scout Drone.
 
 Jammer Drone Launcher:
   size: Medium
@@ -621,7 +621,7 @@ Jammer Drone Launcher:
   heat: 4
   ammo: 2
   text: |
-    Inflict 1 Overheat on the enemy vanguard, then summon 1 Jammer Drone.
+    Inflict 1 <:overheat:> on the enemy vanguard, then summon 1 Jammer Drone.
   tags:
     - AOE
 
@@ -633,7 +633,7 @@ Hunter-Killer Nanites:
   heat: 0
   ammo: 3
   text: |
-    Inflict 1 Vulnerable. If the target has Vulnerable, deal 1 damage instead.
+    Inflict 1 <:vulnerable:>. If the target has Vulnerable, deal 1 <:damage:> instead.
     Trigger: After an enemy mech changes position, you may activate this Weapon and target it.
 
 Proximity-Swarm Nanites:
@@ -645,8 +645,8 @@ Proximity-Swarm Nanites:
   ammo: 3
   text: |
     Choose:
-    > Inflict 1 Vulnerable.
-    > Gain 1 Shield.
+    > Inflict 1 <:vulnerable:>.
+    > Gain 1 <:shield:>.
     Trigger: If this mech is targeted by a Weapon, you may activate this Weapon, targeting the activated mech if applicable.
   tags:
     - Strong-Watchlist
@@ -659,7 +659,7 @@ Javelin Missile:
   heat: 0
   ammo: 1
   text: |
-    Deal 3 damage.
+    Deal 3 <:damage:>.
 
 Anchor Harpoon:
   size: Small
@@ -680,7 +680,7 @@ Dragonfire Missile:
   heat: 0
   ammo: 2
   text: |
-    Deal 1 damage. Inflict 1 Overheat.
+    Deal 1 <:damage:>. Inflict 1 <:overheat:>.
 
 Breach Missile:
   size: Small
@@ -690,7 +690,7 @@ Breach Missile:
   heat: 0
   ammo: 2
   text: |
-    Deal 1 damage. Shred.
+    Deal 1 <:damage:>. Shred.
 
 Parasite Launcher:
   size: Small
@@ -700,7 +700,7 @@ Parasite Launcher:
   heat: 0
   ammo: 2
   text: |
-    Deal 1 damage. On the opponent's next turn, if the target does not change position, it takes 2 damage at the end of the turn.
+    Deal 1 <:damage:>. On the opponent's next turn, if the target does not change position, it takes 2 <:damage:> at the end of the turn.
 
 Ballistic Missile:
   size: Large
@@ -710,7 +710,7 @@ Ballistic Missile:
   heat: 0
   ammo: 1
   text: |
-    Choose an enemy position. Prepare: Deal 3 AP damage to enemy mechs at that position.
+    Choose an enemy position. Prepare: Deal 3 AP <:damage:> to enemy mechs at that position.
   tags:
     - AOE
 
@@ -722,7 +722,7 @@ Fragmentation Missile:
   heat: 0
   ammo: 2
   text: |
-    Choose an enemy position. Deal 1 damage to enemy mechs there.
+    Choose an enemy position. Deal 1 <:damage:> to enemy mechs there.
   tags:
     - AOE
 
@@ -759,7 +759,7 @@ Thanatos Missile:
   heat: 0
   ammo: 1
   text: |
-    Discard a card. Deal 4 damage. This Weapon cannot be Evaded.
+    Discard a card. Deal 4 <:damage:>. This Weapon cannot be Evaded.
 
 Advanced Missile Launcher:
   size: Medium
@@ -769,7 +769,7 @@ Advanced Missile Launcher:
   heat: 0
   ammo: 2
   text: |
-    Deal 1 damage.
+    Deal 1 <:damage:>.
     Passive: All Missile weapons on this mech +1 Range (max 3 Range).
 
 "Cyberwarfare: MELTDOWN":
@@ -779,7 +779,7 @@ Advanced Missile Launcher:
   range: 3
   heat: 2
   text: |
-    Inflict 1 Overheat.
+    Inflict 1 <:overheat:>.
   tags:
     - Strong-Watchlist
   alias:
@@ -793,7 +793,7 @@ Advanced Missile Launcher:
   heat: 2
   maxcharge: 3
   text: |
-    Charge. Inflict Vulnerable [Charge] times.
+    Charge. Inflict <:vulnerable:> [Charge] times.
   tags:
     - AOE
   alias:
@@ -806,7 +806,7 @@ Advanced Missile Launcher:
   range: 3
   heat: 3
   text: |
-    If the target is not at 0 Heat, Disable one of the target's equipment.
+    If the target is not at 0 <:heat:>, Disable one of the target's equipment.
   alias:
     - SHORTCIRCUIT
 
@@ -840,7 +840,7 @@ Advanced Missile Launcher:
   range: 3
   heat: 4
   text: |
-    Inflict 2 Overheat. Select 1 Equipment on an allied mech and increase its Charge by 1.
+    Inflict 2 <:overheat:>. Select 1 Equipment on an allied mech and increase its Charge by 1.
   alias:
     - PROMETHEUS
 
@@ -851,7 +851,7 @@ Advanced Missile Launcher:
   range: 3
   heat: 3
   text: |
-    Choose a player. Move any number of Shield, Overheat and Vulnerable from mechs that player controls to other mechs that player controls.
+    Choose a player. Move any number of <:shield:>, <:overheat:> and <:vulnerable:> from mechs that player controls to other mechs that player controls.
   alias:
     - JOKER
 
@@ -882,7 +882,7 @@ CAS Uplink:
   type: Electronics
   system: System
   text: |
-    Passive: At the start of battle, put an Airstrike in your hand. Your Airstrikes deal +1 damage.
+    Passive: At the start of battle, put an Airstrike in your hand. Your Airstrikes deal +1 <:damage:>.
   tags:
     - Weak-Watchlist
 
@@ -892,7 +892,7 @@ Slipstream Optimizer:
   system: System
   heat: 1
   text: |
-    Trigger: After this mech acts, you may activate this System to allow 1 other allied mech to reposition for 0 Heat Cost immediately.
+    Trigger: After this mech acts, you may activate this System to allow 1 other allied mech to reposition for 0 <:heat:> Cost immediately.
 
 Fire Support Protocol:
   size: Small
@@ -908,7 +908,7 @@ Targeting Computer:
   range: 2
   heat: 1
   text: |
-    Trigger: At the start of the round, you may activate this to inflict 2 Vulnerable.
+    Trigger: At the start of the round, you may activate this to inflict 2 <:vulnerable:>.
 
 Shield Projector:
   size: Small
@@ -916,7 +916,7 @@ Shield Projector:
   system: System
   heat: 2
   text: |
-    Choose an allied mech to give it 2 Shield.
+    Choose an allied mech to give it 2 <:shield:>.
   tags:
     - Weak-Watchlist
 
@@ -925,7 +925,7 @@ Shield Capacitor:
   type: Electronics
   system: System
   text: |
-    Passive: At the start of Rounds after the first Round, gain X Shield (max 4), where X is the unused Heat on this mech from the previous Round.
+    Passive: At the start of Rounds after the first Round, gain X <:shield:> (max 4), where X is the unused <:heat:> on this mech from the previous Round.
 
 Light Screen Projector:
   size: Small
@@ -933,14 +933,14 @@ Light Screen Projector:
   system: System
   heat: 2
   text: |
-    Give all allied mechs 1 Shield.
+    Give all allied mechs 1 <:shield:>.
 
 Absolute Terminus Field:
   size: Small
   type: Electronics
   system: System
   text: |
-    Passive: If this mech is targeted by a Weapon while being the only mech in the vanguard, reduce its damage taken from that Weapon by 1.
+    Passive: If this mech is targeted by a Weapon while being the only mech in the vanguard, reduce its <:damage:> taken from that Weapon by 1.
 
 Accuracy Overclocker:
   size: Medium
@@ -956,22 +956,24 @@ Charge Spool:
   size: Small
   type: Auxiliary
   system: Attachment
-  text: |
-    Inert. Trigger: 1/battle, when you Charge on this mech, Charge again.
+  info: |
+    Inert.
+  triggers:
+    - 1/battle, when you Charge on this mech, Charge again.
 
 Camouflage:
   size: Small
   type: Auxiliary
   system: Attachment
   text: |
-    Inert. At the start of combat, gain 2 Shield.
+    Inert. At the start of combat, gain 2 <:shield:>.
 
 Chameleon Paint:
   size: Small
   type: Auxiliary
   system: Attachment
   text: |
-    Inert. Trigger: 1/round, after this mech changes position, gain 1 Shield.
+    Inert. Trigger: 1/round, after this mech changes position, gain 1 <:shield:>.
 
 Iron Sights:
   size: Small
@@ -986,9 +988,9 @@ Excalibur Rounds:
   system: Attachment
   ammo: 2
   text: |
-    Inert. Trigger: This turn, the first time this mech activates a Ballistic Weapon, before resolving damage calculation, choose:
+    Inert. Trigger: This turn, the first time this mech activates a Ballistic Weapon, before resolving <:damage:> calculation, choose:
     > Shred the target(s).
-    > Remove all Shield from the target(s).
+    > Remove all <:shield:> from the target(s).
 
 Focusing Lens:
   size: Small
@@ -996,7 +998,7 @@ Focusing Lens:
   system: Attachment
   ammo: 2
   text: |
-    Inert. Trigger: 1/round, this mech's Energy Weapons inflict 1 Overheat after dealing damage.
+    Inert. Trigger: 1/round, this mech's Energy Weapons inflict 1 <:overheat:> after dealing <:damage:>.
 
 Emergency Vents:
   size: Small
@@ -1004,24 +1006,24 @@ Emergency Vents:
   system: Attachment
   heat: 0
   text: |
-    Inert. Action: 1/round, this mech gains 1 Vulnerable and loses all Overheat.
+    Inert. Action: 1/round, this mech gains 1 <:vulnerable:> and loses all <:overheat:>.
 
 Afterburners:
   size: Small
   type: Auxiliary
   system: System
   ammo: 2
-  text: |
-    Trigger: Advance or Fall Back -1 Heat Cost.
-    Trigger: When your opponent targets an allied mech, Advance and redirect the target to this mech.
+  triggers:
+    - Advance or Fall Back -1 <:heat:> Cost.
+    - When your opponent targets an allied mech, Advance and redirect the target to this mech.
 
 Spiked Pauldrons:
   size: Medium
   type: Auxiliary
   system: Attachment
   text: |
-    Inert. Passive: Melee Weapons on this mech damage +1.
-    Passive: Before this mech takes damage from Melee Weapons, deal 1 damage to the attacker.
+    Inert. Passive: Melee Weapons on this mech <:damage:> +1.
+    Passive: Before this mech takes <:damage:> from Melee Weapons, deal 1 <:damage:> to the attacker.
 
 Reinforced Frame:
   size: Large
@@ -1035,7 +1037,7 @@ Adaptive Heat Sink:
   type: Auxiliary
   system: Attachment
   text: |
-    Inert. Passive: This mech cannot gain Overheat. If this mech is Shredded, discard this equipment.
+    Inert. Passive: This mech cannot gain <:overheat:>. If this mech is Shredded, discard this equipment.
 
 Reserved Rifle:
   size: Medium
@@ -1044,7 +1046,7 @@ Reserved Rifle:
   range: 1
   heat: 4
   text: |
-    Deal 3 damage.
+    Deal 3 <:damage:>.
   tags:
     - Spare
     - Sus
@@ -1057,7 +1059,7 @@ Reserved Mortar:
   heat: 5
   ammo: 3
   text: |
-    Deal 3 damage. If activated at Range 1, deal 1 damage to yourself.
+    Deal 3 <:damage:>. If activated at Range 1, deal 1 <:damage:> to yourself.
   tags:
     - Spare
 
@@ -1068,7 +1070,7 @@ Reserved Power Fist:
   range: 0
   heat: 3
   text: |
-    Deal 3 damage.
+    Deal 3 <:damage:>.
   tags:
     - Spare
 
@@ -1079,7 +1081,7 @@ Reserved Megalaser:
   range: 1
   heat: 6
   text: |
-    Deal 5 damage.
+    Deal 5 <:damage:>.
   tags:
     - Spare
 
@@ -1089,6 +1091,6 @@ Shield Generator:
   system: System
   heat: 2
   text: |
-    Trigger: At the start of the round, you may activate this to gain 2 Shield.
+    Trigger: At the start of the round, you may activate this to gain 2 <:shield:>.
   tags:
     - Spare

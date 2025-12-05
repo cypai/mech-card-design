@@ -18,12 +18,12 @@ from lib import wrap_text, wrap_text_tagged
 CARD_WIDTH = 750
 CARD_HEIGHT = 1050
 
-ICON_SIZE = int(CARD_WIDTH / 10)
-LARGE_ICON_SIZE = int(ICON_SIZE * 1.5)
-
 LARGE_FONT_SIZE = int(CARD_HEIGHT / 17.5)
 TRACKER_FONT_SIZE = int(CARD_HEIGHT / 20)
 SMALL_FONT_SIZE = int(CARD_HEIGHT / 28)
+
+ICON_SIZE = int(CARD_WIDTH / 10)
+SECTION_ICON_SIZE = int(SMALL_FONT_SIZE * 1.2)
 
 TRACKER_SIZE = int(CARD_HEIGHT / 10)
 
@@ -45,6 +45,9 @@ class Icons:
         target = Image.open("textures/target.png")
         ammo = Image.open("textures/ammo.png")
         maxcharge = Image.open("textures/maxcharge.png")
+        info = Image.open("textures/info.png")
+        action = Image.open("textures/action.png")
+        trigger = Image.open("textures/trigger.png")
 
         self.heat = heat.resize((ICON_SIZE, ICON_SIZE))
         self.melee = melee.resize((ICON_SIZE, ICON_SIZE))
@@ -52,6 +55,9 @@ class Icons:
         self.target = target.resize((ICON_SIZE, ICON_SIZE))
         self.ammo = ammo.resize((ICON_SIZE, ICON_SIZE))
         self.maxcharge = maxcharge.resize((ICON_SIZE, ICON_SIZE))
+        self.info = info.resize((SECTION_ICON_SIZE, SECTION_ICON_SIZE))
+        self.action = action.resize((SECTION_ICON_SIZE, SECTION_ICON_SIZE))
+        self.trigger = trigger.resize((SECTION_ICON_SIZE, SECTION_ICON_SIZE))
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
@@ -60,6 +66,9 @@ class Icons:
         self.range.close()
         self.ammo.close()
         self.maxcharge.close()
+        self.info.close()
+        self.action.close()
+        self.trigger.close()
 
 
 class CardRenderer(ABC):
@@ -115,7 +124,7 @@ class CardRenderer(ABC):
     def draw_card_text(self, text: str):
         width_in_characters = int(CARD_WIDTH / (SMALL_FONT_SIZE * 0.6)) - 4
         wrapped_text = wrap_text_tagged(text, width_in_characters)
-        self.draw.text(
+        self.pilmoji.text(
             (MARGIN, CardRenderer.CARD_TEXT_Y),
             wrapped_text,
             "#000000",
@@ -157,7 +166,7 @@ class EquipmentCardRenderer(CardRenderer):
         return "#000000"
 
     def draw_name(self):
-        width_in_characters = int(CARD_WIDTH / (LARGE_FONT_SIZE * 0.6)) - 4
+        width_in_characters = int(CARD_WIDTH / (LARGE_FONT_SIZE * 0.6)) - 5
         wrapped_text = wrap_text_tagged(self.equipment.name, width_in_characters)
         text = ImageText.Text(wrapped_text, self.large_font)
         text.embed_color()
@@ -215,6 +224,48 @@ class EquipmentCardRenderer(CardRenderer):
             "#000000",
             font=self.small_font,
         )
+
+    def draw_card_text(self, text: str):
+        if self.equipment.legacy_text:
+            super().draw_card_text(text)
+        else:
+            section = 0
+            if self.equipment.info is not None:
+                self.draw_card_text_section(
+                    EquipmentCardRenderer.CARD_TEXT_Y,
+                    self.icons.info,
+                    self.equipment.info,
+                )
+                section += 1.5
+            for action in self.equipment.actions:
+                num_lines = self.draw_card_text_section(
+                    EquipmentCardRenderer.CARD_TEXT_Y
+                    + int(section * (SMALL_FONT_SIZE + 10)),
+                    self.icons.action,
+                    action,
+                )
+                section += num_lines + 0.5
+            for trigger in self.equipment.triggers:
+                num_lines = self.draw_card_text_section(
+                    EquipmentCardRenderer.CARD_TEXT_Y
+                    + int(section * (SMALL_FONT_SIZE + 10)),
+                    self.icons.trigger,
+                    trigger,
+                )
+                section += num_lines + 0.5
+
+    def draw_card_text_section(self, y: int, icon: Image.Image, text: str) -> int:
+        self.image.alpha_composite(icon, (MARGIN, y - 1))
+        width_in_characters = int(CARD_WIDTH / (SMALL_FONT_SIZE * 0.6)) - 6
+        wrapped_text = wrap_text_tagged(text, width_in_characters)
+        self.pilmoji.text(
+            (int(MARGIN + SMALL_FONT_SIZE * 1.5), y),
+            wrapped_text,
+            "#000000",
+            font=self.small_font,
+            spacing=10,
+        )
+        return len(wrapped_text.splitlines())
 
 
 game_db = GameDatabase()
