@@ -2,5 +2,6 @@ wand
 pyyaml
 discord.py
 thefuzz
-pycairo
-PyGObject
+pilmoji
+pillow
+emoji==2.11.1

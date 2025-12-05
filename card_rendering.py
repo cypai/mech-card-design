@@ -1,100 +1,224 @@
-import math
-import cairo
-import gi
+#!/usr/bin/env python3
 
-gi.require_version("Pango", "1.0")
-gi.require_version("PangoCairo", "1.0")
+from abc import ABC, abstractmethod
+from io import BytesIO
+import textwrap
+import re
 
-from gi.repository import Pango, PangoCairo
+from pilmoji import Pilmoji
+from pilmoji.source import Twemoji
+from PIL import Image, ImageFont, ImageDraw, ImageText
 
-surface = cairo.SVGSurface("test.svg", 480, 480)
-ctx = cairo.Context(surface)
-ctx.set_source_rgb(1, 1, 1)
-ctx.rectangle(0, 0, 480, 480)
-ctx.fill()
+from typing import Optional
 
-layout = PangoCairo.create_layout(ctx)
+from game_data import GameDatabase, get_all_equipment
+from game_defs import Equipment
+from lib import wrap_text, wrap_text_tagged
 
-font_map = PangoCairo.font_map_get_default()
-font_family = font_map.get_family("Hack Nerd Font Mono")
-font_face = font_family.get_face("Bold")
-font_description = font_face.describe()
-font_description.set_size(45 * Pango.SCALE)
-layout.set_font_description(font_description)
+CARD_WIDTH = 750
+CARD_HEIGHT = 1050
 
-# Set the origin a little ways into the canvas to give some margin
-ctx.translate(16, 16)
-# Needed whenever the Cairo context's transformation (or target surface) changes.
-PangoCairo.update_layout(ctx, layout)
+ICON_SIZE = int(CARD_WIDTH / 10)
+LARGE_ICON_SIZE = int(ICON_SIZE * 1.5)
 
+LARGE_FONT_SIZE = int(CARD_HEIGHT / 17.5)
+TRACKER_FONT_SIZE = int(CARD_HEIGHT / 20)
+SMALL_FONT_SIZE = int(CARD_HEIGHT / 28)
 
-def draw_text_and_bounds(ctx, layout, text):
-    """Returns the text's logical rectangle."""
-    layout.set_text(text)
+TRACKER_SIZE = int(CARD_HEIGHT / 10)
 
-    # The ink_rect gives the bounds of the glyphs in aggregate.  The
-    # logical_rect covers the total area of the font; basically the full line.
-    #
-    # As with all Pango measurements, these are scaled integers.  You need to
-    # divide them by Pango.SCALE to get Cairo units.
-    ink_rect, logical_rect = layout.get_extents()
-    baseline = layout.get_baseline()
-
-    ctx.set_line_width(2)
-
-    # Baseline in orange.  Offset to account for stroke thickness.
-    ctx.set_source_rgb(1, 0.5, 0.25)
-    ctx.move_to(-8, baseline / Pango.SCALE + 1)
-    ctx.line_to(
-        (logical_rect.x + logical_rect.width) / Pango.SCALE + 8,
-        baseline / Pango.SCALE + 1,
-    )
-    ctx.stroke()
-
-    # logical rect in red
-    ctx.set_source_rgb(0.75, 0, 0)
-    ctx.rectangle(
-        logical_rect.x / Pango.SCALE - 1,
-        logical_rect.y / Pango.SCALE - 1,
-        logical_rect.width / Pango.SCALE + 2,
-        logical_rect.height / Pango.SCALE + 2,
-    )
-    ctx.stroke()
-
-    # ink rect in blue
-    ctx.set_source_rgb(0, 0, 0.75)
-    ctx.rectangle(
-        ink_rect.x / Pango.SCALE - 1,
-        ink_rect.y / Pango.SCALE - 1,
-        ink_rect.width / Pango.SCALE + 2,
-        ink_rect.height / Pango.SCALE + 2,
-    )
-    ctx.stroke()
-
-    # Origin in dark blue
-    ctx.set_source_rgb(0, 0, 0.5)
-    ctx.arc(0, 0, 2 * math.sqrt(2), 0, 2 * math.pi)
-    ctx.fill()
-
-    # Output the text
-    ctx.set_source_rgb(0, 0, 0)
-    # Since the origin was changed via translation, the text just goes in
-    # at (0, 0).
-    ctx.move_to(0, 0)
-    PangoCairo.show_layout(ctx, layout)
-
-    return logical_rect
+MARGIN = int(CARD_WIDTH * 0.05)
 
 
-logical_rect = draw_text_and_bounds(ctx, layout, "Aa Ee Rr 🔥")
+class SteelVanguardSource(Twemoji):
+    def get_custom_emoji(self, tag: str, /) -> Optional[BytesIO]:
+        with open(f"./textures/{tag}.png", "rb") as f:
+            buf = BytesIO(f.read())
+        return buf
 
-ctx.translate(0, 16 + logical_rect.height / Pango.SCALE)
-PangoCairo.update_layout(ctx, layout)
 
-logical_rect = draw_text_and_bounds(ctx, layout, "Bb Gg Jj 🔥")
+class Icons:
+    def __enter__(self):
+        heat = Image.open("textures/heat.png")
+        melee = Image.open("textures/melee.png")
+        rng = Image.open("textures/range.png")
+        target = Image.open("textures/target.png")
+        ammo = Image.open("textures/ammo.png")
+        maxcharge = Image.open("textures/maxcharge.png")
 
-ctx.translate(0, 16 + logical_rect.height / Pango.SCALE)
-PangoCairo.update_layout(ctx, layout)
+        self.heat = heat.resize((ICON_SIZE, ICON_SIZE))
+        self.melee = melee.resize((ICON_SIZE, ICON_SIZE))
+        self.range = rng.resize((ICON_SIZE, ICON_SIZE))
+        self.target = target.resize((ICON_SIZE, ICON_SIZE))
+        self.ammo = ammo.resize((ICON_SIZE, ICON_SIZE))
+        self.maxcharge = maxcharge.resize((ICON_SIZE, ICON_SIZE))
+        return self
 
-surface.finish()
-surface.flush()
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        self.heat.close()
+        self.melee.close()
+        self.range.close()
+        self.ammo.close()
+        self.maxcharge.close()
+
+
+class CardRenderer(ABC):
+    CARD_TEXT_Y = int(CARD_HEIGHT * 0.55)
+
+    def __init__(self, icons: Icons, filename: str):
+        self.icons = icons
+        self.filename = filename
+        self.large_font = ImageFont.truetype(
+            "./fonts/HackNerdFont-Bold.ttf", LARGE_FONT_SIZE
+        )
+        self.small_font = ImageFont.truetype(
+            "./fonts/HackNerdFont-Regular.ttf", SMALL_FONT_SIZE
+        )
+        self.icon_font = ImageFont.truetype(
+            "./fonts/HackNerdFont-Regular.ttf", int(ICON_SIZE * 0.8)
+        )
+
+    def __enter__(self):
+        self.image = Image.new("RGBA", (CARD_WIDTH, CARD_HEIGHT), (255, 255, 255))
+        self.pilmoji = Pilmoji(
+            self.image,
+            source=SteelVanguardSource,
+            render_custom_emoji=True,
+            emoji_position_offset=(4, -3),
+        )
+        self.draw = ImageDraw.Draw(self.image)
+        return self
+
+    def __exit__(self, exception_type, exception_value, exception_traceback):
+        print(f"Saving {self.filename}")
+        self.image.save(self.filename)
+        self.image.close()
+        self.pilmoji.close()
+
+    @abstractmethod
+    def render(self):
+        pass
+
+    def draw_border(self):
+        self.draw.line(
+            [
+                (0, 0),
+                (0, CARD_HEIGHT),
+                (CARD_WIDTH, CARD_HEIGHT),
+                (CARD_WIDTH, 0),
+                (0, 0),
+            ],
+            fill="#000000",
+            width=2,
+        )
+
+    def draw_card_text(self, text: str):
+        width_in_characters = int(CARD_WIDTH / (SMALL_FONT_SIZE * 0.6)) - 4
+        wrapped_text = wrap_text_tagged(text, width_in_characters)
+        self.draw.text(
+            (MARGIN, CardRenderer.CARD_TEXT_Y),
+            wrapped_text,
+            "#000000",
+            font=self.small_font,
+            spacing=10,
+        )
+
+
+class EquipmentCardRenderer(CardRenderer):
+    NAME_X = int(ICON_SIZE * 2.2)
+    ICON_X = int(MARGIN * 0.5)
+    ICON_TEXT_X = ICON_X + ICON_SIZE
+    CARD_TYPE_TEXT_Y = int(CARD_HEIGHT * 0.45)
+
+    def __init__(self, equipment: Equipment, icons: Icons):
+        super().__init__(icons, equipment.filename)
+        self.equipment = equipment
+
+    def render(self):
+        self.draw_border()
+        self.draw_name()
+        self.draw_top_icons()
+        self.draw_card_type()
+        self.draw_card_text(self.equipment.text)
+
+    def get_name_color(self) -> str:
+        if self.equipment.type == "Ballistic":
+            return "#ff7f00"
+        elif self.equipment.type == "Energy":
+            return "#ff40ff"
+        elif self.equipment.type in ["Missile", "Drone", "Nanite"]:
+            return "#888888"
+        elif self.equipment.type == "Melee":
+            return "#FF0000"
+        elif self.equipment.type == "Electronics":
+            return "#00f0ff"
+        elif self.equipment.type == "Auxiliary":
+            return "#000000"
+        return "#000000"
+
+    def draw_name(self):
+        width_in_characters = int(CARD_WIDTH / (LARGE_FONT_SIZE * 0.6)) - 4
+        wrapped_text = wrap_text_tagged(self.equipment.name, width_in_characters)
+        text = ImageText.Text(wrapped_text, self.large_font)
+        text.embed_color()
+        text.stroke(1, "#000000")
+        self.draw.text(
+            (
+                int(ICON_SIZE * 2.2),
+                int(MARGIN * 1.1),
+            ),
+            text,
+            self.get_name_color(),
+            align="left",
+            spacing=10,
+        )
+
+    def draw_top_icons(self):
+        row = 0
+        if self.equipment.heat is not None:
+            self.draw_top_icon(row, self.icons.heat, str(self.equipment.heat))
+            row += 1
+        if self.equipment.range is not None:
+            if self.equipment.range == 0:
+                self.draw_top_icon(row, self.icons.melee, "")
+            else:
+                self.draw_top_icon(row, self.icons.range, str(self.equipment.range))
+            row += 1
+        if self.equipment.target is not None:
+            self.draw_top_icon(row, self.icons.target, str(self.equipment.target))
+            row += 1
+        if self.equipment.ammo is not None:
+            self.draw_top_icon(row, self.icons.ammo, str(self.equipment.ammo))
+            row += 1
+        if self.equipment.maxcharge is not None:
+            self.draw_top_icon(row, self.icons.maxcharge, str(self.equipment.maxcharge))
+            row += 1
+
+    def draw_top_icon(self, row: int, icon: Image.Image, text: str):
+        self.image.alpha_composite(
+            icon, (EquipmentCardRenderer.ICON_X, int(MARGIN + row * ICON_SIZE * 1.1))
+        )
+        self.draw.text(
+            (
+                EquipmentCardRenderer.ICON_TEXT_X,
+                int(MARGIN * 1.1 + row * ICON_SIZE * 1.1),
+            ),
+            text,
+            "#000000",
+            font=self.icon_font,
+        )
+
+    def draw_card_type(self):
+        self.draw.text(
+            (MARGIN, EquipmentCardRenderer.CARD_TYPE_TEXT_Y),
+            f"{self.equipment.size} {self.equipment.type} {self.equipment.system}",
+            "#000000",
+            font=self.small_font,
+        )
+
+
+game_db = GameDatabase()
+with Icons() as icons:
+    for equipment in game_db.equipment:
+        with EquipmentCardRenderer(equipment, icons) as card:
+            card.render()

@@ -10,6 +10,7 @@ class Equipment:
     type: str
     heat: Optional[int]
     range: Optional[int]
+    target: Optional[str]
     ammo: Optional[int]
     maxcharge: Optional[int]
     text: str
@@ -24,6 +25,7 @@ class Equipment:
         self.system = str(kwargs.get("system"))
         self.heat = kwargs.get("heat", None)
         self.range = kwargs.get("range", None)
+        self.target = kwargs.get("target", None)
         self.ammo = kwargs.get("ammo", None)
         self.maxcharge = kwargs.get("maxcharge", None)
         self.text = str(kwargs.get("text"))
@@ -38,10 +40,12 @@ class Equipment:
     def __str__(self):
         text = self.name + "\n"
         text += f"{self.size} {self.type} {self.system}\n"
-        if self.range is not None:
-            text += f"Range: {self.range}\n"
         if self.heat is not None:
             text += f"Heat: {self.heat}\n"
+        if self.range is not None:
+            text += f"Range: {self.range}\n"
+        if self.target is not None:
+            text += f"Target: {self.target}\n"
         if self.ammo is not None:
             text += f"Ammo: {self.ammo}\n"
         if self.maxcharge is not None:
@@ -67,6 +71,8 @@ class Equipment:
         if self.heat != other.heat:
             diffs += 1
         if self.range != other.range:
+            diffs += 1
+        if self.target != other.target:
             diffs += 1
         if self.ammo != other.ammo:
             diffs += 1
@@ -101,6 +107,9 @@ class Equipment:
         if self.range != other.range:
             is_diff = True
             diffs += f"Range: {other.range} -> {self.range}\n"
+        if self.target != other.target:
+            is_diff = True
+            diffs += f"Target: {other.target} -> {self.target}\n"
         if self.ammo != other.ammo:
             is_diff = True
             diffs += f"Ammo: {other.ammo} -> {self.ammo}\n"

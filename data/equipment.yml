@@ -1,18 +1,20 @@
 Light Cannon:
   size: Small
   type: Ballistic
-  range: 1
   system: Weapon
   heat: 2
+  range: 1
+  target: 1
   text: |
     Deal 2 damage.
 
 Gunslinger's Justice:
   size: Small
   type: Ballistic
-  range: 1
   system: Weapon
   heat: 1
+  range: 1
+  target: 1
   ammo: 6
   text: |
     Deal 1 damage. If it is your first turn this Round, deals +2 damage.
@@ -20,12 +22,13 @@ Gunslinger's Justice:
 Flechettes:
   size: Small
   type: Ballistic
-  range: 1
   system: Weapon
   heat: 1
+  range: 1
+  target: C
   maxcharge: 3
   text: |
-    Deal 1 damage [Charge] times. Discharge.
+    Deal 1 damage. Discharge.
     Trigger: After this mech takes an Action (other than activating this equipment), activate this to Charge 1 instead.
   tags:
     - AOE
@@ -35,8 +38,9 @@ LINK-R Dumbfire Gun:
   size: Small
   type: Ballistic
   system: Weapon
-  range: 2
   heat: 2
+  range: 2
+  target: 1
   text: |
     Deal 1 damage.
     Trigger: After activating a Medium or Large Weapon on this mech as an Action, you may activate this Weapon on one of its targets with -1 Heat Cost.
@@ -47,8 +51,9 @@ TRAK-R Smart Gun:
   size: Small
   type: Ballistic
   system: Weapon
-  range: 2
   heat: 1
+  range: 2
+  target: 1
   text: |
     Trigger: When an allied mech targets an enemy mech(s) with another Equipment, you may activate this to inflict "Overwatch: Deal 1 damage" to each target.
   tags:
@@ -60,8 +65,9 @@ Gauss Rifle:
   size: Medium
   type: Ballistic
   system: Weapon
-  range: 1
   heat: 3
+  range: 1
+  target: 1
   text: |
     Deal 3 AP damage.
 
@@ -547,8 +553,9 @@ Heavy Combat Drill:
   size: Large
   type: Melee
   system: Weapon
-  range: 0
   heat: 5
+  range: 0
+  target: 1
   maxcharge: 4
   text: |
     Charge. Deal 2 AP damage. Shred.

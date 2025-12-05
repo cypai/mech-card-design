@@ -14,6 +14,7 @@ def parse_equipment(equipment) -> Equipment:
         system=data.get("system"),
         heat=data.get("heat", None),
         range=data.get("range", None),
+        target=data.get("target", None),
         ammo=data.get("ammo", None),
         maxcharge=data.get("maxcharge", None),
         text=data.get("text"),
