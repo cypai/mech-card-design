@@ -42,9 +42,13 @@ LINK-R Dumbfire Gun:
   heat: 2
   range: 2
   target: 1
-  text: |
-    Deal 1 <:damage:>.
-    Trigger: After activating a Medium or Large Weapon on this mech as an Action, you may activate this Weapon on one of its targets with -1 <:heat:> Cost.
+  actions:
+    - |
+      Deal 1 <:damage:>.
+  triggers:
+    - |
+      On resolving a Medium or Large Weapon on this mech as an Action:
+      <:action:> this Weapon with -1 <:heat:> Cost on one of its <:target:>.
   alias:
     - LINK-R
 

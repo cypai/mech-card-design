@@ -265,7 +265,7 @@ class EquipmentCardRenderer(CardRenderer):
 
     def draw_card_text_section(self, y: int, icon: Image.Image, text: str) -> int:
         self.image.alpha_composite(icon, (MARGIN, y - 1))
-        width_in_characters = int(CARD_WIDTH / (SMALL_FONT_SIZE * 0.6)) - 6
+        width_in_characters = int(CARD_WIDTH / (SMALL_FONT_SIZE * 0.6)) - 7
         wrapped_text = wrap_text_tagged(text, width_in_characters)
         self.pilmoji.text(
             (int(MARGIN + SMALL_FONT_SIZE * 1.5), y),
@@ -280,6 +280,5 @@ class EquipmentCardRenderer(CardRenderer):
 game_db = GameDatabase()
 with Icons() as icons:
     for equipment in game_db.equipment:
-        if not equipment.legacy_text:
-            with EquipmentCardRenderer(equipment, icons) as card:
-                card.render()
+        with EquipmentCardRenderer(equipment, icons) as card:
+            card.render()
