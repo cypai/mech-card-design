@@ -6,7 +6,8 @@ Light Cannon:
   range: 1
   target: 1
   actions:
-    - Deal 2 <:damage:>.
+    - |
+      Deal 2 <:damage:>.
 
 Gunslinger's Justice:
   size: Small
@@ -400,10 +401,13 @@ Thermobaric Flame Cannon:
   size: Large
   type: Energy
   system: Weapon
-  range: 2
   heat: 6
-  text: |
-    Choose a position within Range. Inflict 1 <:overheat:> to unshielded mechs there. Deal 2 <:damage:> to mechs there.
+  range: 2
+  target: Z
+  actions:
+    - |
+      Inflict 1 <:overheat:> to unshielded mechs at <:target:>.
+      Deal 2 <:damage:> to mechs at <:target:>.
   tags:
     - AOE
     - Strong-Watchlist
@@ -482,11 +486,17 @@ Power Buckler:
   size: Small
   type: Melee
   system: Weapon
-  range: 0
   heat: 2
-  text: |
-    Deal 1 <:damage:>. Gain 1 <:shield:>.
-    Passive: Reduce <:damage:> this mech takes from Melee Weapons by 1.
+  range: 0
+  target: 1
+  info: |
+    Melee <:card-rotation:>.
+  actions:
+    - |
+      Deal 1 <:damage:>. Gain 1 <:shield:>.
+  passives:
+    - |
+      Reduce <:damage:> this mech takes from Melee Weapons by 1.
 
 Power Blade:
   size: Medium
@@ -582,11 +592,15 @@ Gungnir Shock Lance:
   size: Large
   type: Melee
   system: Weapon
-  range: 0
   heat: 5
-  text: |
-    Deal 4 AP <:damage:>. The target is now considered to be in Melee range.
-    You may activate this with Range 2. If so, discard this Weapon.
+  range: 0
+  target: 1
+  info: |
+    Melee <:card-rotation:>.
+  actions:
+    - |
+      Deal 4 AP <:damage:>. <:card-rotation:> the <:target:>.
+      You may activate this with <:range:> 2. If so, discard this Weapon.
 
 Combat Drone Launcher:
   size: Medium
@@ -712,11 +726,13 @@ Ballistic Missile:
   size: Large
   type: Missile
   system: Weapon
-  range: 3
   heat: 0
+  range: 3
+  target: Z
   ammo: 1
-  text: |
-    Choose an enemy position. Prepare: Deal 3 AP <:damage:> to enemy mechs at that position.
+  actions:
+    - |
+      Prepare: Deal 3 AP <:damage:> to mechs at <:target:>.
   tags:
     - AOE
 
@@ -821,10 +837,11 @@ Advanced Missile Launcher:
   type: Electronics
   system: System
   heat: 2
-  text: |
-    Only usable in the vanguard.
-    On your opponent's next turn, they can only target this mech.
-    Other allied mechs may Advance or Fall Back.
+  info: |
+    Only activatable in the frontline.
+  actions:
+    - |
+      On the opponent's next turn, all enemy mechs can only <:target:> this mech. Other allied mechs may Advance or Fall Back.
   alias:
     - TAUNT
 
@@ -965,7 +982,9 @@ Charge Spool:
   info: |
     Inert.
   triggers:
-    - 1/battle, when you Charge on this mech, Charge again.
+    - |
+      1/battle, on Charge:
+      Charge the same equipment.
 
 Camouflage:
   size: Small

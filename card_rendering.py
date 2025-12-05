@@ -48,6 +48,7 @@ class Icons:
         info = Image.open("textures/info.png")
         action = Image.open("textures/action.png")
         trigger = Image.open("textures/trigger.png")
+        passive = Image.open("textures/passive.png")
 
         self.heat = heat.resize((ICON_SIZE, ICON_SIZE))
         self.melee = melee.resize((ICON_SIZE, ICON_SIZE))
@@ -58,6 +59,7 @@ class Icons:
         self.info = info.resize((SECTION_ICON_SIZE, SECTION_ICON_SIZE))
         self.action = action.resize((SECTION_ICON_SIZE, SECTION_ICON_SIZE))
         self.trigger = trigger.resize((SECTION_ICON_SIZE, SECTION_ICON_SIZE))
+        self.passive = passive.resize((SECTION_ICON_SIZE, SECTION_ICON_SIZE))
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
@@ -144,6 +146,7 @@ class EquipmentCardRenderer(CardRenderer):
         self.equipment = equipment
 
     def render(self):
+        print(self.equipment)
         self.draw_border()
         self.draw_name()
         self.draw_top_icons()
@@ -231,12 +234,12 @@ class EquipmentCardRenderer(CardRenderer):
         else:
             section = 0
             if self.equipment.info is not None:
-                self.draw_card_text_section(
+                num_lines = self.draw_card_text_section(
                     EquipmentCardRenderer.CARD_TEXT_Y,
                     self.icons.info,
                     self.equipment.info,
                 )
-                section += 1.5
+                section += num_lines + 0.5
             for action in self.equipment.actions:
                 num_lines = self.draw_card_text_section(
                     EquipmentCardRenderer.CARD_TEXT_Y
@@ -251,6 +254,14 @@ class EquipmentCardRenderer(CardRenderer):
                     + int(section * (SMALL_FONT_SIZE + 10)),
                     self.icons.trigger,
                     trigger,
+                )
+                section += num_lines + 0.5
+            for passive in self.equipment.passives:
+                num_lines = self.draw_card_text_section(
+                    EquipmentCardRenderer.CARD_TEXT_Y
+                    + int(section * (SMALL_FONT_SIZE + 10)),
+                    self.icons.passive,
+                    passive,
                 )
                 section += num_lines + 0.5
 
