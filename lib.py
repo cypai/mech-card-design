@@ -21,6 +21,7 @@ def wrap_text(ctx: Drawing, text: str, roi_width: int):
 EMOJI_REGEX = re.compile("<:[a-zA-Z0-9_-]{1,32}:>")
 NUMBER_TAG_REGEX = re.compile(r"(\d|AP|\]) <:")
 HEAT_COST_REGEX = re.compile(r"<:heat:> Cost")
+TAG_NUMBER_REGEX = re.compile(r":> (\d)")
 
 
 def wrap_text_tagged(text: str, width: int) -> str:
@@ -43,6 +44,7 @@ def wrap_text_tagged(text: str, width: int) -> str:
         while "!" in actual_para:
             actual_para = actual_para.replace("!", tags.pop(0), 1)
         actual_para = re.sub(NUMBER_TAG_REGEX, r"\1<:", actual_para)
+        actual_para = re.sub(TAG_NUMBER_REGEX, r":>\1", actual_para)
         actual_para = re.sub(HEAT_COST_REGEX, "<:heat:>Cost", actual_para)
         actual_paras.append(actual_para)
 

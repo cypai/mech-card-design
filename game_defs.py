@@ -17,6 +17,7 @@ class Equipment:
     info: Optional[str]
     actions: list[str]
     triggers: list[str]
+    passives: list[str]
     tags: list[str]
     alias: list[str]
     copies: int
@@ -35,6 +36,7 @@ class Equipment:
         self.info = kwargs.get("info", None)
         self.actions = kwargs.get("actions", [])
         self.triggers = kwargs.get("triggers", [])
+        self.passives = kwargs.get("passives", [])
         self.tags = kwargs.get("tags", [])
         self.alias = kwargs.get("alias", [])
         self.copies = kwargs.get("copies", 1)
@@ -54,11 +56,13 @@ class Equipment:
         if self.info is None:
             text = ""
         else:
-            text = self.info + "\n"
+            text = f"Info: {self.info}"
         for action in self.actions:
-            text += f"Action: {action}\n"
+            text += f"Action: {action}"
         for trigger in self.triggers:
-            text += f"Trigger: {trigger}\n"
+            text += f"Trigger: {trigger}"
+        for passive in self.passives:
+            text += f"Passive: {passive}"
         return text
 
     def __str__(self):
