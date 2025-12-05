@@ -16,7 +16,7 @@ for i in "$@"; do
     ./clear_outputs.sh mechs equipment drones maneuvers changed
     ./run_mechs.py generate
     ./run_drones.py generate
-    ./run_equipment.py generate
+    ./card_rendering.py
     ./run_maneuvers.py generate
     ./run_changelog.py montage
     ./make_pdf.sh mechs equipment drones maneuvers changed
@@ -28,7 +28,7 @@ for i in "$@"; do
   fi
   if [ "$i" == "equipment" ]; then
     ./clear_outputs.sh equipment
-    ./run_equipment.py generate
+    ./card_rendering.py
     ./make_pdf.sh equipment
   fi
   if [ "$i" == "drones" ]; then
