@@ -3,8 +3,6 @@
 import argparse
 from abc import ABC, abstractmethod
 from io import BytesIO
-import textwrap
-import re
 
 from pilmoji import Pilmoji
 from pilmoji.source import Twemoji
@@ -12,9 +10,9 @@ from PIL import Image, ImageFont, ImageDraw, ImageText
 
 from typing import Optional
 
-from game_data import GameDatabase, get_all_equipment
+from game_data import GameDatabase
 from game_defs import Equipment
-from lib import wrap_text, wrap_text_tagged
+from lib import wrap_text_tagged
 
 CARD_WIDTH = 750
 CARD_HEIGHT = 1050

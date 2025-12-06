@@ -1,6 +1,5 @@
 import re
 import textwrap
-from PIL.Image import merge
 from wand.drawing import Drawing
 
 
