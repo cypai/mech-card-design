@@ -75,7 +75,7 @@ class Icons:
 
 
 class CardRenderer(ABC):
-    CARD_TEXT_Y = int(CARD_HEIGHT * 0.55)
+    CARD_TEXT_Y = int(CARD_HEIGHT * 0.52)
 
     def __init__(self, icons: Icons, filename: str):
         self.icons = icons
@@ -96,7 +96,7 @@ class CardRenderer(ABC):
             self.image,
             source=SteelVanguardSource,
             render_custom_emoji=True,
-            emoji_position_offset=(7, -2),
+            emoji_position_offset=(7, -3),
         )
         self.draw = ImageDraw.Draw(self.image)
         return self
@@ -266,7 +266,7 @@ class EquipmentCardRenderer(CardRenderer):
 
     def draw_card_text_section(self, y: int, icon: Image.Image, text: str) -> int:
         self.image.alpha_composite(icon, (MARGIN, y - 1))
-        width_in_characters = int(CARD_WIDTH / (SMALL_FONT_SIZE * 0.6)) - 7
+        width_in_characters = int(CARD_WIDTH / (SMALL_FONT_SIZE * 0.6)) - 8
         wrapped_text = wrap_text_tagged(text, width_in_characters)
         self.pilmoji.text(
             (int(MARGIN + SMALL_FONT_SIZE * 1.5), y),
@@ -286,10 +286,10 @@ def main():
     parser.add_argument("--filter", "-f", action="append")
     args = parser.parse_args()
     with Icons() as icons:
-        if len(args.filter) > 0:
-            eq_list = game_db.get_filtered_equipment(args.filter)
-        else:
+        if args.filter is None:
             eq_list = game_db.equipment
+        else:
+            eq_list = game_db.get_filtered_equipment(args.filter)
         for equipment in eq_list:
             with EquipmentCardRenderer(equipment, icons) as card:
                 card.render()

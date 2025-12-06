@@ -45,7 +45,10 @@ class Equipment:
         self.normalized_name = self.normalized_name.lower()
         self.filename = f"outputs/equipment/{self.normalized_name}.png"
         self.legacy_text = (
-            self.info is None and len(self.actions) == 0 and len(self.triggers) == 0
+            self.info is None
+            and len(self.actions) == 0
+            and len(self.triggers) == 0
+            and len(self.passives) == 0
         )
         if self.legacy_text:
             self.text = kwargs.get("text", "")
