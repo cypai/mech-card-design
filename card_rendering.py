@@ -112,9 +112,9 @@ class CardRenderer(ABC):
         self.draw.line(
             [
                 (0, 0),
-                (0, CARD_HEIGHT),
-                (CARD_WIDTH, CARD_HEIGHT),
-                (CARD_WIDTH, 0),
+                (0, CARD_HEIGHT - 1),
+                (CARD_WIDTH - 1, CARD_HEIGHT - 1),
+                (CARD_WIDTH - 1, 0),
                 (0, 0),
             ],
             fill="#000000",
