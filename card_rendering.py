@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import argparse
 from abc import ABC, abstractmethod
 from io import BytesIO
 import textwrap
@@ -278,7 +279,20 @@ class EquipmentCardRenderer(CardRenderer):
 
 
 game_db = GameDatabase()
-with Icons() as icons:
-    for equipment in game_db.equipment:
-        with EquipmentCardRenderer(equipment, icons) as card:
-            card.render()
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--filter", "-f", action="append")
+    args = parser.parse_args()
+    with Icons() as icons:
+        if len(args.filter) > 0:
+            eq_list = game_db.get_filtered_equipment(args.filter)
+        else:
+            eq_list = game_db.equipment
+        for equipment in eq_list:
+            with EquipmentCardRenderer(equipment, icons) as card:
+                card.render()
+
+
+main()

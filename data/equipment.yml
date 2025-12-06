@@ -846,7 +846,7 @@ Advanced Missile Launcher:
     Only activatable in the frontline.
   actions:
     - |
-      On the opponent's next turn, all enemy mechs can only <:target:> this mech. Other allied mechs may Advance or Fall Back.
+      On the opponent's next turn, all enemy mechs can only <:target:> this mech when <:target:> individuals. Other allied mechs may Advance or Fall Back.
   alias:
     - TAUNT
 
