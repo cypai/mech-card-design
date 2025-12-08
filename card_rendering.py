@@ -14,8 +14,8 @@ from game_data import GameDatabase
 from game_defs import Equipment
 from lib import wrap_text_tagged
 
-CARD_WIDTH = 750
-CARD_HEIGHT = 1050
+CARD_WIDTH = 1500
+CARD_HEIGHT = 2100
 
 LARGE_FONT_SIZE = int(CARD_HEIGHT / 17.5)
 TRACKER_FONT_SIZE = int(CARD_HEIGHT / 20)
@@ -170,7 +170,8 @@ class EquipmentCardRenderer(CardRenderer):
         wrapped_text = wrap_text_tagged(self.equipment.name, width_in_characters)
         text = ImageText.Text(wrapped_text, self.large_font)
         text.embed_color()
-        text.stroke(1, "#000000")
+        text.stroke(3, "#000000")
+        text.spacing = 10
         self.draw.text(
             (
                 int(ICON_SIZE * 2.2),
@@ -179,7 +180,6 @@ class EquipmentCardRenderer(CardRenderer):
             text,
             self.get_name_color(),
             align="left",
-            spacing=10,
         )
 
     def draw_top_icons(self):
