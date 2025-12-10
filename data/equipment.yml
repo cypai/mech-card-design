@@ -595,19 +595,6 @@ Power Buckler:
     - |
       Reduce <:damage:> this mech takes from Melee Weapons by 1.
 
-Power Blade:
-  size: Medium
-  type: Melee
-  system: Weapon
-  heat: 4
-  range: 0
-  target: 1
-  info: |
-    Melee <:card-rotation:>.
-  actions:
-    - |
-      Deal 4 <:damage:>. Inflict <:overwatch:>(2 <:damage:>).
-
 Power Fist:
   size: Medium
   type: Melee
@@ -662,7 +649,7 @@ Phase Lance:
     - |
       Remove all <:shield:> from the <:target:>. Deal 3 AP <:damage:>.
 
-Vacuum Grappler:
+Magnetic Grappler:
   size: Medium
   type: Melee
   system: Weapon
@@ -676,6 +663,23 @@ Vacuum Grappler:
       Deal 2 <:damage:>. Choose:
       > <:card-rotation:> the <:target:>.
       > Move the <:target:> to the backline.
+
+Rocket Fists:
+  size: Medium
+  type: Melee
+  system: Weapon
+  heat: 4
+  range: 0
+  target: 1
+  ammo: 2
+  info: |
+    Melee <:card-rotation:>.
+  actions:
+    - |
+      Deal 4 <:damage:>.
+      This does not consume Ammo.
+    - |
+      Deal 2 <:damage:> with <:range:> 2. Move the <:target:> to the backline.
 
 Arondight Starsword:
   size: Large
@@ -780,6 +784,22 @@ Jammer Drone Launcher:
   actions:
     - |
       Inflict 1 <:overheat:> on the enemy frontline, then summon 1 Jammer Drone.
+  tags:
+    - AOE
+
+Drone Command Nexus:
+  size: Medium
+  type: Drone
+  system: System
+  heat: 3
+  ammo: 3
+  actions:
+    - |
+      Choose any drone that you do not currently have deployed, and deploy it.
+  passives:
+    - |
+      Whenever an allied drone is destroyed:
+      <:target:> 1 at <:range:> 1. Deal 1 damage.
   tags:
     - AOE
 
@@ -1015,7 +1035,7 @@ Advanced Missile Launcher:
   alias:
     - SHORTCIRCUIT
 
-"Cyberwarfare: TAUNT":
+"Cyberwarfare: MIRAGE":
   size: Small
   type: Electronics
   system: System
@@ -1024,10 +1044,10 @@ Advanced Missile Launcher:
     Only activatable in the frontline. Does not apply to <:target:>Z.
   actions:
     - |
-      Other allied mechs may Advance or Fall Back.
+      Other allied mechs may Advance or Fall Back for 0 <:heat:> Cost.
       During the opponent's next turn, all enemy mechs can only <:target:> this mech.
   alias:
-    - TAUNT
+    - MIRAGE
 
 "Cyberwarfare: TANGO":
   size: Small
@@ -1136,16 +1156,15 @@ Targeting Computer:
       On the start of the Round:
       Inflict 2 <:vulnerable:>.
 
-Shield Projector:
+Shield Generator:
   size: Small
   type: Electronics
   system: System
   heat: 2
-  actions:
+  triggers:
     - |
-      Grant 2 <:shield:> to an allied mech.
-  tags:
-    - Weak-Watchlist
+      On the start of the Round:
+      Gain 2 <:shield:>.
 
 Shield Capacitor:
   size: Small
@@ -1195,17 +1214,6 @@ Charge Spool:
     - |
       1/battle, on Charge:
       Charge the same equipment.
-
-Camouflage:
-  size: Small
-  type: Auxiliary
-  system: Attachment
-  info: |
-    Inert.
-  passives:
-    - |
-      On the start of battle:
-      Gain 2 <:shield:>.
 
 Chameleon Paint:
   size: Small
@@ -1377,16 +1385,28 @@ Reserved Megalaser:
   tags:
     - Spare
 
-Shield Generator:
+Camouflage:
+  size: Small
+  type: Auxiliary
+  system: Attachment
+  info: |
+    Reserved. Inert.
+  passives:
+    - |
+      On the start of battle:
+      Gain 2 <:shield:>.
+  tags:
+    - Spare
+
+Shield Projector:
   size: Small
   type: Electronics
   system: System
   heat: 2
   info: |
     Reserved.
-  triggers:
+  actions:
     - |
-      On the start of the Round:
-      Gain 2 <:shield:>.
+      Grant 2 <:shield:> to an allied mech.
   tags:
     - Spare

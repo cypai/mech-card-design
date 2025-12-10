@@ -281,16 +281,18 @@ game_db = GameDatabase()
 
 def main():
     parser = argparse.ArgumentParser()
+    parser.add_argument("action")
     parser.add_argument("--filter", "-f", action="append")
     args = parser.parse_args()
     with Icons() as icons:
-        if args.filter is None:
-            eq_list = game_db.equipment
-        else:
-            eq_list = game_db.get_filtered_equipment(args.filter)
-        for equipment in eq_list:
-            with EquipmentCardRenderer(equipment, icons) as card:
-                card.render()
+        if args.action == "equipment":
+            if args.filter is None:
+                eq_list = game_db.equipment
+            else:
+                eq_list = game_db.get_filtered_equipment(args.filter)
+            for equipment in eq_list:
+                with EquipmentCardRenderer(equipment, icons) as card:
+                    card.render()
 
 
 main()

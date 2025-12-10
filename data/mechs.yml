@@ -246,14 +246,13 @@ Jolly Roger:
   faction: Pirate
   hp: 9
   armor: 2
-  hc: 7
+  hc: 6
   hardpoints:
+  - Large
   - Medium
-  - Medium
-  - Small
   - Small
   ability: |
-    Passive: At the start of the Round, inflict 1 Vulnerable on up to X different enemy mechs, where X is the unused Heat on this mech the previous Round.
+    Trigger: 1/round, on a mech being destroyed: Equip 1 Equipment from that mech onto this mech, replacing Equipment if necessary. It has 0 Ammo and 0 Charge if applicable. You may activate it immediately.
 
 Blackjack:
   faction: Pirate
