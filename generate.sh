@@ -43,4 +43,24 @@ for i in "$@"; do
     ./run_changelog.py montage
     ./make_pdf.sh changed
   fi
+  if [ "$i" == "pngs" ]; then
+    ./clear_outputs.sh mechs equipment drones maneuvers
+    ./card_rendering.py all
+  fi
+  if [ "$i" == "mech-pngs" ]; then
+    ./clear_outputs.sh mechs
+    ./card_rendering.py mechs
+  fi
+  if [ "$i" == "equipment-pngs" ]; then
+    ./clear_outputs.sh equipment
+    ./card_rendering.py equipment
+  fi
+  if [ "$i" == "maneuver-pngs" ]; then
+    ./clear_outputs.sh maneuvers
+    ./card_rendering.py maneuvers
+  fi
+  if [ "$i" == "drone-pngs" ]; then
+    ./clear_outputs.sh drones
+    ./card_rendering.py drones
+  fi
 done
