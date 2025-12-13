@@ -591,9 +591,6 @@ Power Buckler:
   actions:
     - |
       Deal 1 <:damage:>. Gain 1 <:shield:>.
-  passives:
-    - |
-      Reduce <:damage:> this mech takes from Melee Weapons by 1.
 
 Power Fist:
   size: Medium
@@ -1290,8 +1287,6 @@ Spiked Pauldrons:
   passives:
     - |
       Melee Weapons on this mech deal +1 <:damage:>.
-    - |
-      Before this mech takes <:damage:> from Melee Weapons, deal 1 <:damage:> to the attacker.
 
 Reinforced Frame:
   size: Large
@@ -1351,7 +1346,7 @@ Reserved Mortar:
   tags:
     - Spare
 
-Reserved Power Fist:
+Reserved Power Blade:
   size: Medium
   type: Melee
   system: Weapon
