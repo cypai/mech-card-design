@@ -162,8 +162,13 @@ class Mech:
     hardpoints: list[str]
     hardpoints_str: str
     ability: str
+    info: Optional[str]
+    actions: list[str]
+    triggers: list[str]
+    passives: list[str]
     tags: list[str]
     copies: int
+    legacy_text: bool
 
     def __init__(self, **kwargs):
         self.name = str(kwargs.get("name"))
@@ -174,13 +179,26 @@ class Mech:
         self.hardpoints = kwargs.get("hardpoints", [])
         self.hardpoints_str = reduce(lambda x, y: x + y[0] + " ", self.hardpoints, "")
         self.hardpoints_str = self.hardpoints_str[:-1]
-        self.ability = str(kwargs.get("ability"))
+        self.info = kwargs.get("info", None)
+        self.actions = kwargs.get("actions", [])
+        self.triggers = kwargs.get("triggers", [])
+        self.passives = kwargs.get("passives", [])
         self.tags = kwargs.get("tags", [])
         self.copies = kwargs.get("copies", 1)
 
         self.normalized_name = re.sub(r"\W", "", self.name)
         self.normalized_name = self.normalized_name.lower()
         self.filename = f"outputs/mechs/{self.normalized_name}.png"
+        self.legacy_text = (
+            self.info is None
+            and len(self.actions) == 0
+            and len(self.triggers) == 0
+            and len(self.passives) == 0
+        )
+        if self.legacy_text:
+            self.ability = kwargs.get("ability", "")
+        else:
+            self.ability = self.pretty_text()
 
     def __str__(self):
         text = self.name + "\n"
@@ -188,7 +206,19 @@ class Mech:
         text += f"Armor: {self.armor}\n"
         text += f"Heat: {self.hc}\n"
         text += f"Hardpoints: {self.hardpoints_str}\n"
-        text += f"Ability: {self.ability}"
+        text += f"Ability: \n{self.ability}"
+        return text
+
+    def pretty_text(self):
+        text = ""
+        if self.info is not None:
+            text += f"Info: {self.info}"
+        for action in self.actions:
+            text += f"Action: {action}"
+        for trigger in self.triggers:
+            text += f"Trigger: {trigger}"
+        for passive in self.passives:
+            text += f"Passive: {passive}"
         return text
 
     def is_similar(self, other: Self) -> bool:
@@ -242,15 +272,47 @@ class Drone:
     name: str
     ability: str
     copies: int
+    info: Optional[str]
+    actions: list[str]
+    triggers: list[str]
+    passives: list[str]
+    legacy_text: bool
 
     def __init__(self, **kwargs):
         self.name = str(kwargs.get("name"))
         self.ability = str(kwargs.get("ability"))
+        self.info = kwargs.get("info", None)
+        self.actions = kwargs.get("actions", [])
+        self.triggers = kwargs.get("triggers", [])
+        self.passives = kwargs.get("passives", [])
         self.copies = kwargs.get("copies", 2)
 
         self.normalized_name = re.sub(r"\W", "", self.name)
         self.normalized_name = self.normalized_name.lower()
         self.filename = f"outputs/drones/{self.normalized_name}.png"
+
+        self.legacy_text = (
+            self.info is None
+            and len(self.actions) == 0
+            and len(self.triggers) == 0
+            and len(self.passives) == 0
+        )
+        if self.legacy_text:
+            self.ability = kwargs.get("ability", "")
+        else:
+            self.ability = self.pretty_text()
+
+    def pretty_text(self):
+        text = ""
+        if self.info is not None:
+            text += f"Info: {self.info}"
+        for action in self.actions:
+            text += f"Action: {action}"
+        for trigger in self.triggers:
+            text += f"Trigger: {trigger}"
+        for passive in self.passives:
+            text += f"Passive: {passive}"
+        return text
 
     def __str__(self):
         text = self.name + "\n"

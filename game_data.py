@@ -3,6 +3,7 @@ import yaml
 import itertools
 from thefuzz import fuzz
 from typing import Union
+import string
 
 
 def parse_equipment(equipment) -> Equipment:
@@ -47,6 +48,10 @@ def parse_mechs(mechs) -> Mech:
         hc=data.get("hc"),
         hardpoints=data.get("hardpoints", []),
         ability=data.get("ability"),
+        info=data.get("info", None),
+        actions=data.get("actions", []),
+        triggers=data.get("triggers", []),
+        passives=data.get("passives", []),
         tags=data.get("tags", []),
         copies=data.get("copies", 1),
     )
@@ -66,6 +71,10 @@ def parse_drones(drones) -> Drone:
     return Drone(
         name=name,
         ability=data.get("ability"),
+        info=data.get("info", None),
+        actions=data.get("actions", []),
+        triggers=data.get("triggers", []),
+        passives=data.get("passives", []),
         copies=data.get("copies", 2),
     )
 
@@ -260,6 +269,11 @@ def get_filtered_equipment(filters: list[str]) -> list[Equipment]:
                     ok += 1
                 elif op == "<" and equipment.range and equipment.range < the_range:
                     ok += 1
+            elif f.startswith("target"):
+                op = f[6]
+                the_target = str(f[7]).upper()
+                if op == "=" and equipment.target == the_target:
+                    ok += 1
             elif f == "move" and (
                 "advance" in tokenized_text
                 or "fall back" in equipment.text.lower()
@@ -286,21 +300,20 @@ def get_filtered_mechs(filters: list[str]):
                 f == mech.name.lower()
                 or f == mech.faction.lower()
                 or f in [h.lower() for h in mech.hardpoints]
-                or f in mech.ability.lower()
             ):
                 ok += 1
-            elif f in ["feds", "terrans"] and mech.faction == "Midline":
+            elif f in ["feds", "terrans"] and mech.faction == "Feds":
                 ok += 1
-            elif f in ["ares"] and mech.faction == "Low Tech":
+            elif f in ["ares"] and mech.faction == "Ares":
                 ok += 1
-            elif f in ["jovians", "jovian"] and mech.faction == "High Tech":
+            elif f in ["jovians", "jovian"] and mech.faction == "Jovians":
                 ok += 1
             elif (
                 f in ["pirates", "pirate", "belter", "belters"]
-                and mech.faction == "Pirate"
+                and mech.faction == "Pirates"
             ):
                 ok += 1
-            elif f.startswith("heat"):
+            elif f.startswith("heat") and len(f) > 4:
                 op = f[4]
                 heat = int(f[5:])
                 if op == "=" and mech.hc == heat:
@@ -309,7 +322,7 @@ def get_filtered_mechs(filters: list[str]):
                     ok += 1
                 elif op == "<" and mech.hc and mech.hc < heat:
                     ok += 1
-            elif f.startswith("hp"):
+            elif f.startswith("hp") and len(f) > 2:
                 op = f[2]
                 hp = int(f[3:])
                 if op == "=" and mech.hp == hp:
@@ -318,7 +331,7 @@ def get_filtered_mechs(filters: list[str]):
                     ok += 1
                 elif op == "<" and mech.hp and mech.hp < hp:
                     ok += 1
-            elif f.startswith("armor"):
+            elif f.startswith("armor") and len(f) > 5:
                 op = f[5]
                 armor = int(f[6:])
                 if op == "=" and mech.armor == armor:
@@ -327,6 +340,13 @@ def get_filtered_mechs(filters: list[str]):
                     ok += 1
                 elif op == "<" and mech.armor and mech.armor < armor:
                     ok += 1
+            elif f in re.split(
+                " |\n",
+                mech.ability.lower().translate(
+                    str.maketrans("", "", string.punctuation)
+                ),
+            ):  # This removes punctuation from the string and splits it into tokens
+                ok += 1
         if ok == len(filters):
             matching_mechs.append(mech)
     return matching_mechs

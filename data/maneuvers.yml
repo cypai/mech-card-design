@@ -1,43 +1,43 @@
 Coordinated Maneuvers:
   text: |
-    Action: Draw a card. Reposition all allied mechs for 0 Heat, then you may activate any equipment.
+    Draw a card. Reposition all allied mechs for 0 <:heat:>, then you may activate any Equipment.
 
 Airstrike:
   text: |
-    Action: Draw a card. Deal 1 damage.
+    Draw a card. Deal 1 <:damage:>.
 
 Fog of War:
   text: |
-    Action: Draw a card. All allied mechs gain 1 Shield.
+    Draw a card. All allied mechs gain 1 <:shield:>.
 
 Lock and Load:
   text: |
-    Action: Draw a card. Restore all ammo for 1 equipment, then you may immediately activate that equipment, dealing +1 damage with it this turn.
+    Draw a card. Restore all Ammo for 1 Equipment, then you may immediately activate it, dealing +1 <:damage:> with it this turn.
 
 EMP Airburst:
   text: |
-    Action: Draw a card. Disable 1 equipment on an unshielded enemy mech. Disable 1 equipment on your mech.
+    Draw a card. Disable 1 Equipment on an enemy mech with no <:shield:>. Disable 1 Equipment on your mech.
 
 System Reboot:
   text: |
-    Action: Draw a card. Lose 1 Heat and remove all Vulnerable, Overheat, Overwatch, and Disable tokens from an allied mech. That mech may immediately act.
+    Draw a card. Remove all <:vulnerable:>, <:overheat:>, <:overwatch:>, and Disable from an allied mech. You may take an Action with that mech.
 
 Ramming Speed:
   text: |
-    Action: Draw a card. Activate a Melee weapon. This turn, that Melee weapon does +2 damage.
+    Draw a card. Move an allied mech into the front line if not already there, then activate a Melee Weapon on that mech. This turn, that Melee weapon does +1 <:damage:>.
 
 High Ground:
   text: |
-    Action: Draw a card. This turn, you deal +1 damage. You may activate any equipment, ignoring Range until resolved.
+    Draw a card. Prepare: Activate a non-Melee Equipment. That Equipment has <:range:> 3 until resolved.
 
 Shock and Awe:
   text: |
-    Action: Draw a card. Inflict 1 Vulnerable and 1 Overheat to the enemy vanguard.
+    Draw a card. Inflict 1 <:vulnerable:> and 1 <:overheat:> to the enemy front line.
 
 Outflank:
   text: |
-    Action: Draw a card. Reposition any number of enemy mechs. At least 1 mech must be in the front line.
+    Draw a card. Reposition any number of enemy mechs. At least 1 mech must be in the front line.
 
 Combat Engineering:
   text: |
-    Action: Draw a card. Look at an additional 5 cards in the deck, you may replace 1 equipment on any of your mechs with one of those cards or cards in your hand.
+    Draw a card. Look at an additional 5 cards in the deck. You may replace 1 Equipment on any of your mechs with one of those cards or cards in your hand.

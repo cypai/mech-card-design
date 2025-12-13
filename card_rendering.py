@@ -3,6 +3,7 @@
 import argparse
 from abc import ABC, abstractmethod
 from io import BytesIO
+from textwrap import fill
 
 from pilmoji import Pilmoji
 from pilmoji.source import Twemoji
@@ -11,7 +12,7 @@ from PIL import Image, ImageFont, ImageDraw, ImageText
 from typing import Optional
 
 from game_data import GameDatabase
-from game_defs import Equipment
+from game_defs import Drone, Equipment, Maneuver, Mech
 from lib import wrap_text_tagged
 
 CARD_WIDTH = 1500
@@ -27,6 +28,9 @@ SECTION_ICON_SIZE = int(SMALL_FONT_SIZE * 1.2)
 TRACKER_SIZE = int(CARD_HEIGHT / 10)
 
 MARGIN = int(CARD_WIDTH * 0.05)
+MECH_MARGIN = int(TRACKER_SIZE * 1.2)
+
+SPACING = 10
 
 
 class SteelVanguardSource(Twemoji):
@@ -121,15 +125,22 @@ class CardRenderer(ABC):
             width=2,
         )
 
-    def draw_card_text(self, text: str):
-        width_in_characters = int(CARD_WIDTH / (SMALL_FONT_SIZE * 0.6)) - 4
-        wrapped_text = wrap_text_tagged(text, width_in_characters)
-        self.pilmoji.text(
-            (MARGIN, CardRenderer.CARD_TEXT_Y),
-            wrapped_text,
-            "#000000",
-            font=self.small_font,
-            spacing=10,
+    def draw_name(self, name: str, color: str):
+        width_in_characters = int(CARD_WIDTH / (LARGE_FONT_SIZE * 0.6)) - 2
+        wrapped_text = wrap_text_tagged(name, width_in_characters)
+        text = ImageText.Text(wrapped_text, self.large_font)
+        text.embed_color()
+        text.stroke(2, "#000000")
+        text.spacing = 10
+        self.draw.text(
+            (
+                int(CARD_WIDTH * 0.5),
+                int(TRACKER_SIZE / 2),
+            ),
+            text,
+            color,
+            align="center",
+            anchor="ma",
         )
 
 
@@ -145,10 +156,10 @@ class EquipmentCardRenderer(CardRenderer):
 
     def render(self):
         self.draw_border()
-        self.draw_name()
+        self.draw_equipment_name()
         self.draw_top_icons()
         self.draw_card_type()
-        self.draw_card_text(self.equipment.text)
+        self.draw_card_text()
 
     def get_name_color(self) -> str:
         if self.equipment.type == "Ballistic":
@@ -165,12 +176,12 @@ class EquipmentCardRenderer(CardRenderer):
             return "#000000"
         return "#000000"
 
-    def draw_name(self):
+    def draw_equipment_name(self):
         width_in_characters = int(CARD_WIDTH / (LARGE_FONT_SIZE * 0.6)) - 5
         wrapped_text = wrap_text_tagged(self.equipment.name, width_in_characters)
         text = ImageText.Text(wrapped_text, self.large_font)
         text.embed_color()
-        text.stroke(3, "#000000")
+        text.stroke(2, "#000000")
         text.spacing = 10
         self.draw.text(
             (
@@ -225,9 +236,9 @@ class EquipmentCardRenderer(CardRenderer):
             font=self.small_font,
         )
 
-    def draw_card_text(self, text: str):
+    def draw_card_text(self):
         if self.equipment.legacy_text:
-            super().draw_card_text(text)
+            self.draw_card_text_legacy()
         else:
             section = 0
             if self.equipment.info is not None:
@@ -271,9 +282,317 @@ class EquipmentCardRenderer(CardRenderer):
             wrapped_text,
             "#000000",
             font=self.small_font,
-            spacing=10,
+            spacing=SPACING,
         )
         return len(wrapped_text.splitlines())
+
+    def draw_card_text_legacy(self):
+        text = self.equipment.text
+        width_in_characters = int(CARD_WIDTH / (SMALL_FONT_SIZE * 0.6)) - 4
+        wrapped_text = wrap_text_tagged(text, width_in_characters)
+        self.pilmoji.text(
+            (TRACKER_SIZE, CardRenderer.CARD_TEXT_Y),
+            wrapped_text,
+            "#000000",
+            font=self.small_font,
+            spacing=SPACING,
+        )
+
+
+class MechCardRenderer(CardRenderer):
+    ABILITY_TEXT_Y = int(CARD_HEIGHT / 2)
+
+    def __init__(self, mech: Mech, icons: Icons):
+        super().__init__(icons, mech.filename)
+        self.mech = mech
+
+    def render(self):
+        self.draw_border()
+        self.draw_name(self.mech.name, self.get_name_color())
+        self.draw_stats()
+        self.draw_hp()
+        self.draw_heat()
+        self.draw_card_text()
+
+    def get_name_color(self) -> str:
+        if self.mech.faction == "Ares":
+            return "#ff7f00"
+        elif self.mech.faction == "Jovians":
+            return "#ff40ff"
+        elif self.mech.faction == "Pirates":
+            return "#ff0000"
+        elif self.mech.faction == "Feds":
+            return "#00f0ff"
+        return "#000000"
+
+    def draw_hp(self):
+        self.draw.line(
+            [
+                (TRACKER_SIZE, 0),
+                (TRACKER_SIZE, CARD_HEIGHT - 1),
+            ],
+            fill="#000000",
+            width=2,
+        )
+        for i in range(1, min(self.mech.hp + 1, 11)):
+            self.draw.line(
+                [
+                    (0, TRACKER_SIZE * i),
+                    (TRACKER_SIZE, TRACKER_SIZE * i),
+                ],
+                fill="#000000",
+                width=2,
+            )
+            self.draw.text(
+                (int(TRACKER_SIZE / 2), TRACKER_SIZE * (i - 1) + int(TRACKER_SIZE / 2)),
+                str(i),
+                stroke_width=2,
+                stroke_fill="#000000",
+                fill="#00ff00",
+                align="center",
+                anchor="mm",
+                embedded_color=True,
+                font=self.icon_font,
+            )
+
+    def draw_heat(self):
+        self.draw.line(
+            [
+                (CARD_WIDTH - TRACKER_SIZE, 0),
+                (CARD_WIDTH - TRACKER_SIZE, CARD_HEIGHT - 1),
+            ],
+            fill="#000000",
+            width=2,
+        )
+        for i in range(0, self.mech.hc + 1):
+            self.draw.line(
+                [
+                    (CARD_WIDTH - TRACKER_SIZE, TRACKER_SIZE * (i + 1)),
+                    (CARD_WIDTH, TRACKER_SIZE * (i + 1)),
+                ],
+                fill="#000000",
+                width=2,
+            )
+            self.draw.text(
+                (
+                    CARD_WIDTH - int(TRACKER_SIZE / 2),
+                    TRACKER_SIZE * i + int(TRACKER_SIZE / 2),
+                ),
+                str(i),
+                stroke_width=2,
+                stroke_fill="#000000",
+                fill="#ff0000",
+                align="center",
+                anchor="mm",
+                embedded_color=True,
+                font=self.icon_font,
+            )
+
+    def draw_stats(self):
+        margin = int(TRACKER_SIZE * 1.2)
+        self.draw.text(
+            (margin, int(LARGE_FONT_SIZE * 3)),
+            f"HP:{self.mech.hp}",
+            fill="#000000",
+            align="left",
+            anchor="la",
+            font=self.icon_font,
+        )
+        self.draw.text(
+            (CARD_WIDTH - margin, int(LARGE_FONT_SIZE * 3)),
+            f"Heat:{self.mech.hc}",
+            fill="#000000",
+            align="right",
+            anchor="ra",
+            font=self.icon_font,
+        )
+        self.draw.text(
+            (margin, int(LARGE_FONT_SIZE * 4.5)),
+            f"Armor:{self.mech.armor}",
+            fill="#000000",
+            align="left",
+            anchor="la",
+            font=self.icon_font,
+        )
+        self.draw.text(
+            (int(CARD_WIDTH / 2), int(LARGE_FONT_SIZE * 6)),
+            self.mech.hardpoints_str,
+            fill="#000000",
+            align="center",
+            anchor="ma",
+            font=self.icon_font,
+        )
+
+    def draw_card_text(self):
+        if self.mech.legacy_text:
+            self.draw_card_text_legacy()
+        else:
+            section = 0
+            if self.mech.info is not None:
+                num_lines = self.draw_card_text_section(
+                    MechCardRenderer.ABILITY_TEXT_Y,
+                    self.icons.info,
+                    self.mech.info,
+                )
+                section += num_lines + 0.5
+            for action in self.mech.actions:
+                num_lines = self.draw_card_text_section(
+                    MechCardRenderer.ABILITY_TEXT_Y
+                    + int(section * (SMALL_FONT_SIZE + 10)),
+                    self.icons.action,
+                    action,
+                )
+                section += num_lines + 0.5
+            for trigger in self.mech.triggers:
+                num_lines = self.draw_card_text_section(
+                    MechCardRenderer.ABILITY_TEXT_Y
+                    + int(section * (SMALL_FONT_SIZE + 10)),
+                    self.icons.trigger,
+                    trigger,
+                )
+                section += num_lines + 0.5
+            for passive in self.mech.passives:
+                num_lines = self.draw_card_text_section(
+                    MechCardRenderer.ABILITY_TEXT_Y
+                    + int(section * (SMALL_FONT_SIZE + 10)),
+                    self.icons.passive,
+                    passive,
+                )
+                section += num_lines + 0.5
+
+    def draw_card_text_section(self, y: int, icon: Image.Image, text: str) -> int:
+        self.image.alpha_composite(icon, (MECH_MARGIN, y - 1))
+        width_in_characters = (
+            int((CARD_WIDTH - 2.2 * TRACKER_SIZE) / (SMALL_FONT_SIZE * 0.6)) - 4
+        )
+        wrapped_text = wrap_text_tagged(text, width_in_characters)
+        self.pilmoji.text(
+            (int(MECH_MARGIN + SMALL_FONT_SIZE * 1.5), y),
+            wrapped_text,
+            "#000000",
+            font=self.small_font,
+            spacing=SPACING,
+        )
+        return len(wrapped_text.splitlines())
+
+    def draw_card_text_legacy(self):
+        text = self.mech.ability
+        width_in_characters = (
+            int((CARD_WIDTH - 2.2 * TRACKER_SIZE) / (SMALL_FONT_SIZE * 0.6)) - 2
+        )
+        wrapped_text = wrap_text_tagged(text, width_in_characters)
+        self.pilmoji.text(
+            (MECH_MARGIN, CardRenderer.CARD_TEXT_Y),
+            wrapped_text,
+            "#000000",
+            font=self.small_font,
+            spacing=SPACING,
+        )
+
+
+class ManeuverCardRenderer(CardRenderer):
+    TEXT_Y = int(CARD_HEIGHT / 2)
+
+    def __init__(self, maneuver: Maneuver, icons: Icons):
+        super().__init__(icons, maneuver.filename)
+        self.maneuver = maneuver
+
+    def render(self):
+        self.draw_border()
+        self.draw_name(self.maneuver.name, "#00ff00")
+        self.draw_card_text()
+
+    def draw_card_text(self):
+        text = self.maneuver.text
+        self.image.alpha_composite(
+            self.icons.action, (MARGIN, ManeuverCardRenderer.TEXT_Y)
+        )
+        width_in_characters = (
+            int((CARD_WIDTH - 2.2 * MARGIN) / (SMALL_FONT_SIZE * 0.6)) - 2
+        )
+        wrapped_text = wrap_text_tagged(text, width_in_characters)
+        self.pilmoji.text(
+            (int(MARGIN + SMALL_FONT_SIZE * 1.5), ManeuverCardRenderer.TEXT_Y),
+            wrapped_text,
+            "#000000",
+            font=self.small_font,
+            spacing=SPACING,
+        )
+
+
+class DroneCardRenderer(CardRenderer):
+    TEXT_Y = int(CARD_HEIGHT / 2)
+
+    def __init__(self, drone: Drone, icons: Icons):
+        super().__init__(icons, drone.filename)
+        self.drone = drone
+
+    def render(self):
+        self.draw_border()
+        self.draw_name(self.drone.name, "#000000")
+        self.draw_card_text()
+
+    def draw_card_text(self):
+        if self.drone.legacy_text:
+            self.draw_card_text_legacy()
+        else:
+            section = 0
+            if self.drone.info is not None:
+                num_lines = self.draw_card_text_section(
+                    DroneCardRenderer.CARD_TEXT_Y,
+                    self.icons.info,
+                    self.drone.info,
+                )
+                section += num_lines + 0.5
+            for action in self.drone.actions:
+                num_lines = self.draw_card_text_section(
+                    DroneCardRenderer.CARD_TEXT_Y
+                    + int(section * (SMALL_FONT_SIZE + 10)),
+                    self.icons.action,
+                    action,
+                )
+                section += num_lines + 0.5
+            for trigger in self.drone.triggers:
+                num_lines = self.draw_card_text_section(
+                    DroneCardRenderer.CARD_TEXT_Y
+                    + int(section * (SMALL_FONT_SIZE + 10)),
+                    self.icons.trigger,
+                    trigger,
+                )
+                section += num_lines + 0.5
+            for passive in self.drone.passives:
+                num_lines = self.draw_card_text_section(
+                    DroneCardRenderer.CARD_TEXT_Y
+                    + int(section * (SMALL_FONT_SIZE + 10)),
+                    self.icons.passive,
+                    passive,
+                )
+                section += num_lines + 0.5
+
+    def draw_card_text_section(self, y: int, icon: Image.Image, text: str) -> int:
+        self.image.alpha_composite(icon, (MARGIN, y - 1))
+        width_in_characters = int(CARD_WIDTH / (SMALL_FONT_SIZE * 0.6)) - 8
+        wrapped_text = wrap_text_tagged(text, width_in_characters)
+        self.pilmoji.text(
+            (int(MARGIN + SMALL_FONT_SIZE * 1.5), y),
+            wrapped_text,
+            "#000000",
+            font=self.small_font,
+            spacing=SPACING,
+        )
+        return len(wrapped_text.splitlines())
+
+    def draw_card_text_legacy(self):
+        text = self.drone.ability
+        width_in_characters = int(CARD_WIDTH / (SMALL_FONT_SIZE * 0.6)) - 4
+        wrapped_text = wrap_text_tagged(text, width_in_characters)
+        self.pilmoji.text(
+            (TRACKER_SIZE, CardRenderer.CARD_TEXT_Y),
+            wrapped_text,
+            "#000000",
+            font=self.small_font,
+            spacing=SPACING,
+        )
 
 
 game_db = GameDatabase()
@@ -285,13 +604,39 @@ def main():
     parser.add_argument("--filter", "-f", action="append")
     args = parser.parse_args()
     with Icons() as icons:
-        if args.action == "equipment":
+        if args.action == "equipment" or args.action == "all":
+            print("Rendering equipment...")
             if args.filter is None:
                 eq_list = game_db.equipment
             else:
                 eq_list = game_db.get_filtered_equipment(args.filter)
             for equipment in eq_list:
                 with EquipmentCardRenderer(equipment, icons) as card:
+                    card.render()
+        if args.action == "mechs" or args.action == "all":
+            print("Rendering mechs...")
+            if args.filter is None:
+                eq_list = game_db.mechs
+            else:
+                eq_list = game_db.get_filtered_mechs(args.filter)
+            for mech in eq_list:
+                with MechCardRenderer(mech, icons) as card:
+                    card.render()
+        if args.action == "maneuvers" or args.action == "all":
+            print("Rendering maneuvers...")
+            if args.filter is None:
+                for maneuver in game_db.maneuvers:
+                    with ManeuverCardRenderer(maneuver, icons) as card:
+                        card.render()
+            else:
+                maneuver = game_db.get_maneuver(args.filter)
+                if maneuver is not None:
+                    with ManeuverCardRenderer(maneuver, icons) as card:
+                        card.render()
+        if args.action == "drones" or args.action == "all":
+            print("Rendering drones...")
+            for drone in game_db.drones:
+                with DroneCardRenderer(drone, icons) as card:
                     card.render()
 
 

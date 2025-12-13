@@ -34,7 +34,7 @@ Flechettes:
       Deal 1 <:damage:> to each <:target:>. Discharge.
   triggers:
     - |
-      On this mech resolving an Action other than this Equipment:
+      When this mechs resolves an Action other than this Equipment:
       Charge.
   tags:
     - AOE
@@ -52,8 +52,8 @@ LINK-R Dumbfire Gun:
       Deal 1 <:damage:>.
   triggers:
     - |
-      On resolving a Medium or Large Weapon on this mech as an Action:
-      <:action:> this Weapon with -1 <:heat:> Cost on one of its <:target:>.
+      When resolving a Medium or Large Weapon on this mech as an Action:
+      Activate this Weapon with -1 <:heat:> Cost on one of its <:target:>.
   alias:
     - LINK-R
 
@@ -69,8 +69,8 @@ TRAK-R Smart Gun:
       Inflict <:overwatch:>(1 <:damage:>).
   triggers:
     - |
-      On resolving other non<:target:>Z Equipment on any allied mech as an Action:
-      <:action:> this Weapon on all of that Equipment's <:target:>.
+      When resolving other non<:target:>Z Equipment on any allied mech as an Action:
+      Activate this Weapon on all of that Equipment's <:target:>.
   tags:
     - AOE
   alias:
@@ -118,7 +118,7 @@ Automatic Shotgun:
   target: Z
   actions:
     - |
-      Deal 2 <:damage:> to the enemy frontline.
+      Deal 2 <:damage:> to the enemy front line.
   tags:
     - AOE
 
@@ -224,7 +224,7 @@ Mass Driver:
   target: 1
   actions:
     - |
-      Deal 4 <:damage:>. If the <:target:> is in the frontline, move it to the backline.
+      Deal 4 <:damage:>. If the <:target:> is in the front line, move it to the back line.
 
 Annihilator Siege Cannon:
   size: Large
@@ -277,7 +277,7 @@ Hellbore AMR:
   actions:
     - |
       Deal 4 AP <:damage:>.
-      If you <:target:> a mech in the frontline, you may additionally <:target:> a mech in the backline, dealing 1 <:damage:>.
+      If you <:target:> a mech in the front line, you may additionally <:target:> a mech in the back line, dealing 1 <:damage:>.
   tags:
     - AOE
 
@@ -331,7 +331,7 @@ EM Polarizer:
       Deal 1 <:damage:>.
   triggers:
     - |
-      On activating an Energy Weapon on another allied mech:
+      When activating an Energy Weapon on another allied mech:
       That Weapon deals +1 <:damage:> this turn.
 
 Tesla Coil:
@@ -354,7 +354,7 @@ Flamethrower:
   target: Z
   actions:
     - |
-      Deal 1 <:damage:> and inflict 1 <:overheat:> to the enemy frontline.
+      Deal 1 <:damage:> and inflict 1 <:overheat:> to the enemy front line.
   tags:
     - AOE
 
@@ -379,7 +379,7 @@ Autopulse Rifle:
     - |
       Charge. Deal 3 <:damage:> to each <:target:>. Discharge.
     - |
-      While in the backline: Charge.
+      While in the back line: Charge.
   tags:
     - AOE
     - Multihit
@@ -405,8 +405,8 @@ Repulsor Array:
   actions:
     - |
       Deal 2 <:damage:>.
-      You may move the <:target:> to the backline.
-      You may move this mech to the backline.
+      You may move the <:target:> to the back line.
+      You may move this mech to the back line.
 
 Magnetic Harpoon:
   size: Medium
@@ -418,7 +418,7 @@ Magnetic Harpoon:
   actions:
     - |
       Deal 1 <:damage:>.
-      If the target is in the backline, move it to the frontline.
+      If the target is in the back line, move it to the front line.
       Inflict <:overwatch:>(1 <:damage:>).
 
 Ion Beam:
@@ -444,7 +444,7 @@ Ion Pulser:
     - |
       Charge.
     - |
-      While in the backline: Charge 2.
+      While in the back line: Charge 2.
     - |
       Disable 1 Equipment on each <:target:>. Discharge.
   tags:
@@ -561,7 +561,7 @@ Gigapulse Laser:
       > Deal 3 <:damage:> to each <:target:>.
         Discharge.
     - |
-      While in the backline: Charge 2.
+      While in the back line: Charge 2.
   tags:
     - AOE
     - Multihit
@@ -606,7 +606,7 @@ Power Fist:
     Melee <:card-rotation:>.
   actions:
     - |
-      Deal 3 <:damage:>. Move the <:target:> to the backline.
+      Deal 3 <:damage:>. Move the <:target:> to the back line.
 
 Iaijutsu Blade:
   size: Medium
@@ -662,7 +662,7 @@ Magnetic Grappler:
     - |
       Deal 2 <:damage:>. Choose:
       > <:card-rotation:> the <:target:>.
-      > Move the <:target:> to the backline.
+      > Move the <:target:> to the back line.
 
 Rocket Fists:
   size: Medium
@@ -677,9 +677,9 @@ Rocket Fists:
   actions:
     - |
       Deal 4 <:damage:>.
-      This does not consume Ammo.
+      Requires <:ammo:>, but does not consume <:ammo:>.
     - |
-      Deal 2 <:damage:> with <:range:> 2. Move the <:target:> to the backline.
+      Deal 2 <:damage:> with <:range:> 2. Move the <:target:> to the back line.
 
 Arondight Starsword:
   size: Large
@@ -748,7 +748,7 @@ Combat Drone Launcher:
   ammo: 3
   actions:
     - |
-      Deal 2 <:damage:> to the enemy frontline.
+      Deal 2 <:damage:> to the enemy front line.
       Summon 1 Combat Drone.
   tags:
     - AOE
@@ -783,7 +783,7 @@ Jammer Drone Launcher:
   ammo: 2
   actions:
     - |
-      Inflict 1 <:overheat:> on the enemy frontline, then summon 1 Jammer Drone.
+      Inflict 1 <:overheat:> on the enemy front line, then summon 1 Jammer Drone.
   tags:
     - AOE
 
@@ -798,8 +798,8 @@ Drone Command Nexus:
       Choose any drone that you do not currently have deployed, and deploy it.
   passives:
     - |
-      Whenever an allied drone is destroyed:
-      <:target:> 1 at <:range:> 1. Deal 1 damage.
+      When an allied drone is destroyed:
+      <:target:> 1 <:range:> 3: Deal 1 damage.
   tags:
     - AOE
 
@@ -816,8 +816,8 @@ Hunter-Killer Nanites:
       If the <:target:> has Vulnerable, deal 1 <:damage:>, otherwise inflict 1 <:vulnerable:>.
   triggers:
     - |
-      On an enemy mech changing position:
-      <:action:> this Weapon and <:target:> that mech.
+      When an enemy mech changes position:
+      Activate this Weapon and <:target:> that mech.
 
 Proximity-Swarm Nanites:
   size: Small
@@ -834,8 +834,8 @@ Proximity-Swarm Nanites:
       > Gain 1 <:shield:> on this mech.
   triggers:
     - |
-      On resolving an enemy mech's Weapon that had this mech as its <:target:>:
-      <:action:> this Weapon, setting that mech as the <:target:> if applicable.
+      When resolving an enemy mech's Weapon that had this mech as its <:target:>:
+      Activate this Weapon, setting that mech as the <:target:> if applicable.
   tags:
     - Strong-Watchlist
 
@@ -864,7 +864,7 @@ Anchor Harpoon:
       Move any mech to any other valid position.
   triggers:
     - |
-      On any mech being forced to reposition:
+      When any mech is forced to reposition:
       Prevent the reposition.
 
 Dragonfire Missile:
@@ -901,7 +901,7 @@ Parasite Launcher:
   ammo: 2
   actions:
     - |
-      Deal 1 <:damage:>. On the opponent's next turn, if the <:target:> does not change position, it takes 2 <:damage:> at the end of the turn.
+      Deal 1 <:damage:>. During the opponent's next turn, if the <:target:> does not change position, it takes 2 <:damage:> at the end of the turn.
 
 Ballistic Missile:
   size: Large
@@ -975,21 +975,6 @@ Thanatos Missile:
     - |
       Discard a card. Deal 4 <:damage:>.
 
-Advanced Missile Launcher:
-  size: Medium
-  type: Missile
-  system: Weapon
-  heat: 0
-  range: 3
-  target: 1
-  ammo: 2
-  actions:
-    - |
-      Deal 1 <:damage:>.
-  passives:
-    - |
-      All Missile Weapons on this mech +1 <:range:>.
-
 "Cyberwarfare: MELTDOWN":
   size: Small
   type: Electronics
@@ -1041,11 +1026,11 @@ Advanced Missile Launcher:
   system: System
   heat: 2
   info: |
-    Only activatable in the frontline. Does not apply to <:target:>Z.
+    Only activatable in the front line.
   actions:
     - |
       Other allied mechs may Advance or Fall Back for 0 <:heat:> Cost.
-      During the opponent's next turn, all enemy mechs can only <:target:> this mech.
+      During the opponent's next turn, when designating a non-<:target:>Z <:target:>, the opponent can only <:target:> this mech.
   alias:
     - MIRAGE
 
@@ -1071,7 +1056,7 @@ Advanced Missile Launcher:
   target: 1
   actions:
     - |
-      Inflict 2 <:overheat:>. Select 1 Equipment on an allied mech and increase its Charge by 1.
+      Inflict 2 <:overheat:>. Charge 1 Equipment on an allied mech.
   alias:
     - PROMETHEUS
 
@@ -1119,7 +1104,7 @@ CAS Uplink:
   system: System
   passives:
     - |
-      On the start of battle, put an Airstrike in your hand.
+      When the battle starts, put an Airstrike in your hand.
     - |
       Your Airstrikes deal +1 <:damage:>.
   tags:
@@ -1132,7 +1117,7 @@ Slipstream Optimizer:
   heat: 1
   triggers:
     - |
-      On resolving an Action from this mech:
+      When resolving an Action from this mech:
       Reposition another allied mech for 0 <:heat:> Cost.
 
 Fire Support Protocol:
@@ -1141,8 +1126,8 @@ Fire Support Protocol:
   system: System
   triggers:
     - |
-      On resolving a Weapon as an Action from another allied mech:
-      <:action:> a Small Weapon on this mech on the same <:target:>.
+      When resolving a Weapon as an Action from another allied mech:
+      Activate a Small Weapon on this mech on the same <:target:>.
 
 Targeting Computer:
   size: Small
@@ -1153,7 +1138,7 @@ Targeting Computer:
   target: 1
   triggers:
     - |
-      On the start of the Round:
+      When the Round starts:
       Inflict 2 <:vulnerable:>.
 
 Shield Generator:
@@ -1163,7 +1148,7 @@ Shield Generator:
   heat: 2
   triggers:
     - |
-      On the start of the Round:
+      When the Round starts:
       Gain 2 <:shield:>.
 
 Shield Capacitor:
@@ -1172,7 +1157,7 @@ Shield Capacitor:
   system: System
   passives:
     - |
-      On the start of the Round:
+      When the Round starts:
       Gain <:shield:> equal to the unused <:heat:> on this mech from the previous Round (max 4).
 
 Light Screen Projector:
@@ -1190,7 +1175,7 @@ Absolute Terminus Field:
   system: System
   passives:
     - |
-      While this mech is the only mech in the frontline, reduce <:damage:> taken by 1 from Weapons that <:target:> this mech.
+      While this mech is the only mech in the front line, reduce <:damage:> taken by 1 from Weapons that <:target:> this mech.
 
 Accuracy Overclocker:
   size: Medium
@@ -1199,7 +1184,7 @@ Accuracy Overclocker:
   heat: 1
   triggers:
     - |
-      On activating a Weapon on this mech:
+      When activating a Weapon on this mech:
       Discard a card. That Weapon cannot be Evaded this turn.
   tags:
     - Strong-Watchlist
@@ -1236,20 +1221,29 @@ Iron Sights:
     - |
       If this mech did not activate anything or change position since the start of your last turn this Round, its <:range:> 1 Weapons have <:range:> 2.
 
-Excalibur Rounds:
+Heartpiercer Rounds:
   size: Small
   type: Auxiliary
   system: Attachment
   ammo: 2
   info: |
-    Inert. This Equipment works with <:target:>Z.
+    Inert.
   triggers:
     - |
-      On this mech activating a Ballistic Weapon:
-      Choose an effect:
-      > Shred.
-      > Remove all <:shield:>.
-      This turn, that Weapon applies that to the <:target:> before resolving.
+      When this mech activates a Ballistic Weapon:
+      That Weapon's damage is AP this turn.
+
+Earthshaker Rounds:
+  size: Small
+  type: Auxiliary
+  system: Attachment
+  ammo: 2
+  info: |
+    Inert.
+  triggers:
+    - |
+      1/round, when this mech activates a Ballistic Weapon:
+      After resolving that Weapon, reposition all mechs damaged by it.
 
 Focusing Lens:
   size: Small
@@ -1281,11 +1275,11 @@ Afterburners:
   ammo: 2
   triggers:
     - |
-      On Advance or Fall Back:
+      When this mech Advances or Falls Back:
       -1 <:heat:> Cost.
     - |
-      On <:target:> of an allied mech:
-      Advance and redirect the <:target:> to this mech.
+      When an opponent declares a <:target:> on an allied mech:
+      Advance this mech and redirect the <:target:> to this mech.
 
 Spiked Pauldrons:
   size: Medium
@@ -1309,7 +1303,8 @@ Reinforced Frame:
     - |
       While attached, this mech has +1 Armor.
     - |
-      On this mech receiving Shred, discard this Equipment.
+      When this mech receives Shred:
+      Discard this Equipment.
 
 Adaptive Heat Sink:
   size: Large
@@ -1321,7 +1316,8 @@ Adaptive Heat Sink:
     - |
       This mech cannot gain <:overheat:>.
     - |
-      On this mech receiving Shred, discard this Equipment.
+      When this mech receives Shred:
+      Discard this Equipment.
 
 Reserved Rifle:
   size: Medium
@@ -1393,7 +1389,7 @@ Camouflage:
     Reserved. Inert.
   passives:
     - |
-      On the start of battle:
+      When the battle starts:
       Gain 2 <:shield:>.
   tags:
     - Spare
