@@ -135,7 +135,7 @@ class CardRenderer(ABC):
         self.draw.text(
             (
                 int(CARD_WIDTH * 0.5),
-                int(TRACKER_SIZE / 2),
+                int(TRACKER_SIZE * 0.5),
             ),
             text,
             color,
@@ -300,7 +300,7 @@ class EquipmentCardRenderer(CardRenderer):
 
 
 class MechCardRenderer(CardRenderer):
-    ABILITY_TEXT_Y = int(CARD_HEIGHT / 2)
+    ABILITY_TEXT_Y = int(CARD_HEIGHT * 0.45)
 
     def __init__(self, mech: Mech, icons: Icons):
         super().__init__(icons, mech.filename)
@@ -390,8 +390,9 @@ class MechCardRenderer(CardRenderer):
 
     def draw_stats(self):
         margin = int(TRACKER_SIZE * 1.2)
+        y_value = LARGE_FONT_SIZE * 2.75
         self.draw.text(
-            (margin, int(LARGE_FONT_SIZE * 3)),
+            (margin, int(y_value)),
             f"HP:{self.mech.hp}",
             fill="#000000",
             align="left",
@@ -399,7 +400,7 @@ class MechCardRenderer(CardRenderer):
             font=self.icon_font,
         )
         self.draw.text(
-            (CARD_WIDTH - margin, int(LARGE_FONT_SIZE * 3)),
+            (CARD_WIDTH - margin, int(y_value)),
             f"Heat:{self.mech.hc}",
             fill="#000000",
             align="right",
@@ -407,7 +408,7 @@ class MechCardRenderer(CardRenderer):
             font=self.icon_font,
         )
         self.draw.text(
-            (margin, int(LARGE_FONT_SIZE * 4.5)),
+            (margin, int(y_value + LARGE_FONT_SIZE * 1.5)),
             f"Armor:{self.mech.armor}",
             fill="#000000",
             align="left",
@@ -415,7 +416,7 @@ class MechCardRenderer(CardRenderer):
             font=self.icon_font,
         )
         self.draw.text(
-            (int(CARD_WIDTH / 2), int(LARGE_FONT_SIZE * 6)),
+            (int(CARD_WIDTH / 2), int(y_value + LARGE_FONT_SIZE * 3)),
             self.mech.hardpoints_str,
             fill="#000000",
             align="center",

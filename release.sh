@@ -5,3 +5,4 @@ cp -r ./outputs ./steelvanguard/pngs
 cp ./*.pdf ./steelvanguard
 cp ./changelog/changelog.txt ./steelvanguard
 zip -r steelvanguard.zip ./steelvanguard
+zip -r outputs.zip ./outputs

@@ -34,6 +34,9 @@ intents.message_content = True
 bot = commands.Bot(command_prefix="$", intents=intents)
 db = GameDatabase()
 
+QUERY_REGEX = re.compile(r"\[\[([\w\- :]+)\]\]")
+RENDER_REGEX = re.compile(r"\{\{([\w\- :]+)\}\}")
+
 
 @bot.event
 async def on_ready():
@@ -48,9 +51,13 @@ async def on_message(message: discord.Message):
     if bot.user is not None and message.author.id == bot.user.id:
         return
 
-    query_groups = re.findall(r"\[\[([\w\- :]+)\]\]", message.content)
+    query_groups = re.findall(QUERY_REGEX, message.content)
     if len(query_groups) > 0:
         await message.reply(build_query_response(query_groups))
+    render_groups = re.findall(RENDER_REGEX, message.content)
+    if len(render_groups) > 0:
+        reply_msg, pngs = build_render_response(render_groups)
+        await message.reply(reply_msg, files=pngs)
 
     await bot.process_commands(message)
 
@@ -78,6 +85,31 @@ def build_query_response(queries: list[str]) -> str:
         message += bad_result_message
     message += "```"
     return message
+
+
+def build_render_response(queries: list[str]) -> tuple[str, list[discord.File]]:
+    message = "```\nCard PNGs for: "
+    bad_result_message = ""
+    cards: list[tuple[Equipment | Mech | Maneuver | Drone, int]] = []
+    for query in queries:
+        results = db.fuzzy_query_name(query, 50)
+        good_results = [x for x in results if x[1] > 90]
+        if len(good_results) > 0:
+            top_result = results[0]
+            cards.append(top_result)
+        else:
+            top_3 = " or ".join(map(lambda x: f"{{{{{x[0].name}}}}}", results[:3]))
+            bad_result_message += f"{{{{{query}}}}} not found. Did you mean: {top_3}?\n"
+    name_list = [
+        card[0].name + ("" if card[1] == 100 else f" (fuzzy {card[1]})")
+        for card in cards
+    ]
+    message += ", ".join(name_list) + "\n"
+    if len(cards) != len(queries):
+        message += bad_result_message
+    message += "```"
+    pngs = [discord.File(card[0].filename) for card in cards]
+    return message, pngs
 
 
 async def reply(
