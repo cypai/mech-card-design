@@ -334,7 +334,7 @@ Pulse Pistol:
   range: 1
   target: C
   maxcharge: 4
-  rating: Cadet
+  rating: Veteran
   actions:
     - |
       Charge 2.
@@ -405,7 +405,7 @@ Autopulse Rifle:
   target: C
   range: 1
   maxcharge: 3
-  rating: Cadet
+  rating: Veteran
   actions:
     - |
       Charge. Deal 3 <:damage:> to each <:target:>. Discharge.
@@ -475,7 +475,7 @@ Ion Pulser:
   range: 1
   target: C
   maxcharge: 3
-  rating: Cadet
+  rating: Veteran
   actions:
     - |
       Charge.
@@ -597,7 +597,7 @@ Gigapulse Laser:
   range: 1
   target: C
   maxcharge: 3
-  rating: Cadet
+  rating: Veteran
   actions:
     - |
       Charge. Choose:
