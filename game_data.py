@@ -143,12 +143,21 @@ def equipment_stats():
         "Shred": 0,
         "AP": 0,
         "Charge": 0,
-        "Shield": 0,
-        "Vulnerable": 0,
-        "Overheat": 0,
         "Disable": 0,
-        "Overwatch": 0,
     }
+    icon_keywords = {
+        "<:shield:>": 0,
+        "<:vulnerable:>": 0,
+        "<:overheat:>": 0,
+        "<:overwatch:>": 0,
+    }
+    icon_keyword_map = {
+        "<:shield:>": "Shield",
+        "<:vulnerable:>": "Vulnerable",
+        "<:overheat:>": "Overheat",
+        "<:overwatch:>": "Overwatch",
+    }
+    tag_counts = {}
     spare_equipment = 0
     move_equipment = 0
     total = 0
@@ -171,6 +180,9 @@ def equipment_stats():
         for key in keywords.keys():
             if key in equipment.text:
                 keywords[key] += 1
+        for key in icon_keywords.keys():
+            if key in equipment.text:
+                icon_keywords[key] += 1
         text = equipment.text.lower()
         if "remove" not in text and (
             "move" in text
@@ -180,10 +192,10 @@ def equipment_stats():
         ):
             move_equipment += 1
         for tag in equipment.tags:
-            if tag not in keywords:
-                keywords[tag] = 1
+            if tag not in tag_counts:
+                tag_counts[tag] = 1
             else:
-                keywords[tag] += 1
+                tag_counts[tag] += 1
     output += "Sizes\n"
     for k, v in sizes.items():
         output += f"{k}: {v}\n"
@@ -201,6 +213,10 @@ def equipment_stats():
         output += f"{k[0]} {k[1]}: {v}\n"
     output += f"\nAmmo Equipment: {ammo_weapons}\n"
     for k, v in keywords.items():
+        output += f"{k} Equipment: {v}\n"
+    for k, v in icon_keywords.items():
+        output += f"{icon_keyword_map[k]} Equipment: {v}\n"
+    for k, v in tag_counts.items():
         output += f"{k} Equipment: {v}\n"
     output += f"Move Equipment: {move_equipment}\n"
     output += f"Spare Equipment (not counted in other stats): {spare_equipment}\n"
