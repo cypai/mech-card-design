@@ -364,8 +364,10 @@ Laser Rifle:
   system: Weapon
   heat: 3
   range: 1
-  text: |
-    Deal 3 <:damage:>. Inflict <:overwatch:>(1 <:overheat:>).
+  target: 1
+  actions:
+    - |
+      Deal 3 <:damage:>. Inflict <:overwatch:>(1 <:overheat:>).
 
 Autopulse Rifle:
   size: Medium
@@ -1172,7 +1174,8 @@ Absolute Terminus Field:
   system: System
   passives:
     - |
-      While this mech is the only mech in the front line, reduce <:damage:> taken by 1 from Weapons that <:target:> this mech.
+      When your turn ends, and this mech is the only mech in the front line and has no <:shield:>:
+      Gain 1 <:shield:>.
 
 Accuracy Overclocker:
   size: Medium

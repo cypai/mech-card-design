@@ -28,7 +28,7 @@ Ramming Speed:
 
 High Ground:
   text: |
-    Draw a card. Prepare: Activate a non-Melee Equipment. That Equipment has <:range:> 3 until resolved.
+    Draw a card. Activate a non-Melee Equipment. It has <:range:> 3 until resolved.
 
 Shock and Awe:
   text: |
