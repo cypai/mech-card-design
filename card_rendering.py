@@ -231,7 +231,7 @@ class EquipmentCardRenderer(CardRenderer):
     def draw_card_type(self):
         self.draw.text(
             (MARGIN, EquipmentCardRenderer.CARD_TYPE_TEXT_Y),
-            f"{self.equipment.size} {self.equipment.type} {self.equipment.system}",
+            f"{self.equipment.size} {self.equipment.type} {self.equipment.form}",
             "#000000",
             font=self.small_font,
         )

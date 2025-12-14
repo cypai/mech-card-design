@@ -12,7 +12,7 @@ def parse_equipment(equipment) -> Equipment:
         name=name,
         size=data.get("size"),
         type=data.get("type"),
-        system=data.get("system"),
+        form=data.get("form"),
         heat=data.get("heat", None),
         range=data.get("range", None),
         target=data.get("target", None),
@@ -150,7 +150,7 @@ def equipment_stats():
         "Overwatch": 0,
     }
     spare_equipment = 0
-    move_systems = 0
+    move_equipment = 0
     total = 0
     all_equipment = get_all_equipment()
     for equipment in all_equipment:
@@ -178,7 +178,7 @@ def equipment_stats():
             or "fall back" in text
             or "advance" in text
         ):
-            move_systems += 1
+            move_equipment += 1
         for tag in equipment.tags:
             if tag not in keywords:
                 keywords[tag] = 1
@@ -202,7 +202,7 @@ def equipment_stats():
     output += f"\nAmmo Equipment: {ammo_weapons}\n"
     for k, v in keywords.items():
         output += f"{k} Equipment: {v}\n"
-    output += f"Move Equipment: {move_systems}\n"
+    output += f"Move Equipment: {move_equipment}\n"
     output += f"Spare Equipment (not counted in other stats): {spare_equipment}\n"
     output += f"Total Equipment: {total}"
     return output
@@ -224,7 +224,7 @@ def get_filtered_equipment(filters: list[str]) -> list[Equipment]:
                 or f in equipment.name.lower()
                 or f in map(lambda x: x.lower(), equipment.alias)
                 or f == equipment.type.lower()
-                or f == equipment.system.lower()
+                or f == equipment.form.lower()
                 or f == equipment.size.lower()
             ):
                 ok += 1
@@ -246,10 +246,10 @@ def get_filtered_equipment(filters: list[str]) -> list[Equipment]:
                 the_type = f[5:]
                 if op == "=" and equipment.type.lower() == the_type:
                     ok += 1
-            elif f.startswith("system"):
-                op = f[6]
-                system = f[7:]
-                if op == "=" and equipment.system.lower() == system:
+            elif f.startswith("form"):
+                op = f[4]
+                form = f[5:]
+                if op == "=" and equipment.form.lower() == form:
                     ok += 1
             elif f.startswith("heat"):
                 op = f[4]

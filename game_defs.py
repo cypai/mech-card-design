@@ -8,6 +8,7 @@ class Equipment:
     name: str
     size: str
     type: str
+    form: str
     heat: Optional[int]
     range: Optional[int]
     target: Optional[str]
@@ -27,7 +28,7 @@ class Equipment:
         self.name = str(kwargs.get("name"))
         self.size = str(kwargs.get("size"))
         self.type = str(kwargs.get("type"))
-        self.system = str(kwargs.get("system"))
+        self.form = str(kwargs.get("form"))
         self.heat = kwargs.get("heat", None)
         self.range = kwargs.get("range", None)
         self.target = kwargs.get("target", None)
@@ -70,7 +71,7 @@ class Equipment:
 
     def __str__(self):
         text = self.name + "\n"
-        text += f"{self.size} {self.type} {self.system}\n"
+        text += f"{self.size} {self.type} {self.form}\n"
         if self.heat is not None:
             text += f"Heat: {self.heat}\n"
         if self.range is not None:
@@ -97,7 +98,7 @@ class Equipment:
             diffs += 1
         if self.type != other.type:
             diffs += 1
-        if self.system != other.system:
+        if self.form != other.form:
             diffs += 1
         if self.heat != other.heat:
             diffs += 1
@@ -129,9 +130,9 @@ class Equipment:
         if self.type != other.type:
             is_diff = True
             diffs += f"Type: {other.type} -> {self.type}\n"
-        if self.system != other.system:
+        if self.form != other.form:
             is_diff = True
-            diffs += f"{other.system} -> {self.system}\n"
+            diffs += f"{other.form} -> {self.form}\n"
         if self.heat != other.heat:
             is_diff = True
             diffs += f"Heat: {other.heat} -> {self.heat}\n"

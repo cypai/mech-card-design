@@ -108,7 +108,7 @@ def draw_card_type(draw_ctx: Drawing, equipment: Equipment):
     draw_ctx.text(
         int(CARD_WIDTH * 0.05),
         int(CARD_HEIGHT * 0.45),
-        f"{equipment.size} {equipment.type} {equipment.system}",
+        f"{equipment.size} {equipment.type} {equipment.form}",
     )
     draw_ctx.pop()
 

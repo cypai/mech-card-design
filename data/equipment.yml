@@ -1,7 +1,7 @@
 Light Cannon:
   size: Small
   type: Ballistic
-  system: Weapon
+  form: Weapon
   heat: 2
   range: 1
   target: 1
@@ -12,7 +12,7 @@ Light Cannon:
 Gunslinger's Justice:
   size: Small
   type: Ballistic
-  system: Weapon
+  form: Weapon
   heat: 1
   range: 1
   target: 1
@@ -24,7 +24,7 @@ Gunslinger's Justice:
 Flechettes:
   size: Small
   type: Ballistic
-  system: Weapon
+  form: Weapon
   heat: 1
   range: 1
   target: C
@@ -43,7 +43,7 @@ Flechettes:
 LINK-R Dumbfire Gun:
   size: Small
   type: Ballistic
-  system: Weapon
+  form: Weapon
   heat: 2
   range: 2
   target: 1
@@ -60,7 +60,7 @@ LINK-R Dumbfire Gun:
 TRAK-R Smart Gun:
   size: Small
   type: Ballistic
-  system: Weapon
+  form: Weapon
   heat: 1
   range: 2
   target: 1
@@ -79,7 +79,7 @@ TRAK-R Smart Gun:
 Gauss Rifle:
   size: Medium
   type: Ballistic
-  system: Weapon
+  form: Weapon
   heat: 3
   range: 1
   target: 1
@@ -90,7 +90,7 @@ Gauss Rifle:
 Assault Carbine:
   size: Medium
   type: Ballistic
-  system: Weapon
+  form: Weapon
   heat: 2
   range: 1
   target: 1
@@ -101,7 +101,7 @@ Assault Carbine:
 Sniper Rifle:
   size: Medium
   type: Ballistic
-  system: Weapon
+  form: Weapon
   heat: 4
   range: 3
   target: 1
@@ -112,7 +112,7 @@ Sniper Rifle:
 Automatic Shotgun:
   size: Medium
   type: Ballistic
-  system: Weapon
+  form: Weapon
   heat: 3
   range: 1
   target: Z
@@ -125,7 +125,7 @@ Automatic Shotgun:
 Assault Cannon:
   size: Medium
   type: Ballistic
-  system: Weapon
+  form: Weapon
   heat: 3
   range: 1
   target: 1
@@ -138,7 +138,7 @@ Assault Cannon:
 Gatling Cannon:
   size: Medium
   type: Ballistic
-  system: Weapon
+  form: Weapon
   heat: 2
   range: 1
   target: 1
@@ -150,7 +150,7 @@ Gatling Cannon:
 Assault Rifle:
   size: Medium
   type: Ballistic
-  system: Weapon
+  form: Weapon
   heat: 4
   range: 1
   target: 2
@@ -164,7 +164,7 @@ Assault Rifle:
 Machine Gun:
   size: Medium
   type: Ballistic
-  system: Weapon
+  form: Weapon
   heat: 3
   range: 1
   target: 2
@@ -178,7 +178,7 @@ Machine Gun:
 Panoptic Autocannon:
   size: Large
   type: Ballistic
-  system: Weapon
+  form: Weapon
   heat: 6
   range: 1
   target: 2
@@ -192,7 +192,7 @@ Panoptic Autocannon:
 Railgun:
   size: Large
   type: Ballistic
-  system: Weapon
+  form: Weapon
   heat: 7
   range: 3
   target: 1
@@ -203,7 +203,7 @@ Railgun:
 Devastator:
   size: Large
   type: Ballistic
-  system: Weapon
+  form: Weapon
   heat: 3
   range: 1
   target: 1
@@ -218,7 +218,7 @@ Devastator:
 Mass Driver:
   size: Large
   type: Ballistic
-  system: Weapon
+  form: Weapon
   heat: 5
   range: 2
   target: 1
@@ -229,7 +229,7 @@ Mass Driver:
 Annihilator Siege Cannon:
   size: Large
   type: Ballistic
-  system: Weapon
+  form: Weapon
   heat: 6
   range: 1
   target: 1
@@ -241,7 +241,7 @@ Annihilator Siege Cannon:
 Heavy Assault Cannon:
   size: Large
   type: Ballistic
-  system: Weapon
+  form: Weapon
   heat: 3
   range: 1
   target: 1
@@ -259,7 +259,7 @@ Heavy Assault Cannon:
 Mjolnir Cannon:
   size: Large
   type: Ballistic
-  system: Weapon
+  form: Weapon
   heat: 5
   range: 2
   target: 1
@@ -270,7 +270,7 @@ Mjolnir Cannon:
 Hellbore AMR:
   size: Large
   type: Ballistic
-  system: Weapon
+  form: Weapon
   heat: 5
   range: 2
   target: 1
@@ -284,7 +284,7 @@ Hellbore AMR:
 Targeting Laser:
   size: Small
   type: Energy
-  system: Weapon
+  form: Weapon
   heat: 2
   range: 1
   target: 1
@@ -295,7 +295,7 @@ Targeting Laser:
 Plasma Pistol:
   size: Small
   type: Energy
-  system: Weapon
+  form: Weapon
   heat: 2
   range: 1
   target: 1
@@ -306,7 +306,7 @@ Plasma Pistol:
 Pulse Pistol:
   size: Small
   type: Energy
-  system: Weapon
+  form: Weapon
   heat: 2
   range: 1
   target: C
@@ -322,7 +322,7 @@ Pulse Pistol:
 EM Polarizer:
   size: Small
   type: Energy
-  system: Weapon
+  form: Weapon
   heat: 2
   range: 1
   target: 1
@@ -337,7 +337,7 @@ EM Polarizer:
 Tesla Coil:
   size: Small
   type: Energy
-  system: Weapon
+  form: Weapon
   heat: 2
   range: 1
   target: 1
@@ -348,7 +348,7 @@ Tesla Coil:
 Flamethrower:
   size: Medium
   type: Energy
-  system: Weapon
+  form: Weapon
   heat: 3
   range: 1
   target: Z
@@ -361,7 +361,7 @@ Flamethrower:
 Laser Rifle:
   size: Medium
   type: Energy
-  system: Weapon
+  form: Weapon
   heat: 3
   range: 1
   target: 1
@@ -372,7 +372,7 @@ Laser Rifle:
 Autopulse Rifle:
   size: Medium
   type: Energy
-  system: Weapon
+  form: Weapon
   heat: 3
   target: C
   range: 1
@@ -389,7 +389,7 @@ Autopulse Rifle:
 Plasma Blaster:
   size: Medium
   type: Energy
-  system: Weapon
+  form: Weapon
   heat: 3
   range: 1
   target: 1
@@ -400,7 +400,7 @@ Plasma Blaster:
 Repulsor Array:
   size: Medium
   type: Energy
-  system: Weapon
+  form: Weapon
   heat: 3
   range: 1
   target: 1
@@ -413,7 +413,7 @@ Repulsor Array:
 Magnetic Harpoon:
   size: Medium
   type: Energy
-  system: Weapon
+  form: Weapon
   heat: 3
   range: 2
   target: 1
@@ -426,7 +426,7 @@ Magnetic Harpoon:
 Ion Beam:
   size: Medium
   type: Energy
-  system: Weapon
+  form: Weapon
   heat: 4
   range: 1
   target: 1
@@ -437,7 +437,7 @@ Ion Beam:
 Ion Pulser:
   size: Medium
   type: Energy
-  system: Weapon
+  form: Weapon
   heat: 3
   range: 1
   target: C
@@ -456,7 +456,7 @@ Ion Pulser:
 Pulsar Beam Cannon:
   size: Large
   type: Energy
-  system: Weapon
+  form: Weapon
   heat: 3
   range: 2
   target: 1
@@ -471,7 +471,7 @@ Pulsar Beam Cannon:
 Slagmaker:
   size: Large
   type: Energy
-  system: Weapon
+  form: Weapon
   heat: 5
   range: 1
   target: 1
@@ -482,7 +482,7 @@ Slagmaker:
 Thermobaric Flame Cannon:
   size: Large
   type: Energy
-  system: Weapon
+  form: Weapon
   heat: 6
   range: 2
   target: Z
@@ -497,7 +497,7 @@ Thermobaric Flame Cannon:
 Turbolaser Array:
   size: Large
   type: Energy
-  system: Weapon
+  form: Weapon
   heat: 5
   range: 2
   target: 1
@@ -512,7 +512,7 @@ Turbolaser Array:
 Plasma Incinerator:
   size: Large
   type: Energy
-  system: Weapon
+  form: Weapon
   heat: 6
   range: 1
   target: 1
@@ -523,7 +523,7 @@ Plasma Incinerator:
 Portal Inducer:
   size: Large
   type: Energy
-  system: Weapon
+  form: Weapon
   heat: 5
   range: 3
   target: 2
@@ -538,7 +538,7 @@ Portal Inducer:
 Causality Inverter:
   size: Large
   type: Energy
-  system: Weapon
+  form: Weapon
   heat: 5
   range: 1
   target: 1
@@ -551,7 +551,7 @@ Causality Inverter:
 Gigapulse Laser:
   size: Large
   type: Energy
-  system: Weapon
+  form: Weapon
   heat: 4
   range: 1
   target: C
@@ -571,7 +571,7 @@ Gigapulse Laser:
 Combat Knife:
   size: Small
   type: Melee
-  system: Weapon
+  form: Weapon
   heat: 2
   range: 0
   target: 1
@@ -584,7 +584,7 @@ Combat Knife:
 Power Buckler:
   size: Small
   type: Melee
-  system: Weapon
+  form: Weapon
   heat: 2
   range: 0
   target: 1
@@ -597,7 +597,7 @@ Power Buckler:
 Power Fist:
   size: Medium
   type: Melee
-  system: Weapon
+  form: Weapon
   heat: 3
   range: 0
   target: 1
@@ -610,7 +610,7 @@ Power Fist:
 Iaijutsu Blade:
   size: Medium
   type: Melee
-  system: Weapon
+  form: Weapon
   heat: 4
   range: 0
   target: 1
@@ -625,7 +625,7 @@ Iaijutsu Blade:
 Ion Knuckle:
   size: Medium
   type: Melee
-  system: Weapon
+  form: Weapon
   heat: 4
   range: 0
   target: 1
@@ -638,7 +638,7 @@ Ion Knuckle:
 Phase Lance:
   size: Medium
   type: Melee
-  system: Weapon
+  form: Weapon
   heat: 3
   range: 0
   target: 1
@@ -651,7 +651,7 @@ Phase Lance:
 Magnetic Grappler:
   size: Medium
   type: Melee
-  system: Weapon
+  form: Weapon
   heat: 3
   range: 0
   target: 1
@@ -666,7 +666,7 @@ Magnetic Grappler:
 Rocket Fists:
   size: Medium
   type: Melee
-  system: Weapon
+  form: Weapon
   heat: 4
   range: 0
   target: 1
@@ -683,7 +683,7 @@ Rocket Fists:
 Arondight Starsword:
   size: Large
   type: Melee
-  system: Weapon
+  form: Weapon
   heat: 5
   range: 0
   target: 1
@@ -696,7 +696,7 @@ Arondight Starsword:
 Heavy Combat Drill:
   size: Large
   type: Melee
-  system: Weapon
+  form: Weapon
   heat: 5
   range: 0
   target: 1
@@ -711,7 +711,7 @@ Heavy Combat Drill:
 Ripjaw Chainaxe:
   size: Large
   type: Melee
-  system: Weapon
+  form: Weapon
   heat: 5
   range: 0
   target: 1
@@ -726,7 +726,7 @@ Ripjaw Chainaxe:
 Gungnir Shock Lance:
   size: Large
   type: Melee
-  system: Weapon
+  form: Weapon
   heat: 5
   range: 0
   target: 1
@@ -740,7 +740,7 @@ Gungnir Shock Lance:
 Combat Drone Launcher:
   size: Medium
   type: Drone
-  system: System
+  form: System
   heat: 5
   range: 1
   target: Z
@@ -755,7 +755,7 @@ Combat Drone Launcher:
 Shield Drone Launcher:
   size: Medium
   type: Drone
-  system: System
+  form: System
   heat: 3
   ammo: 3
   actions:
@@ -765,7 +765,7 @@ Shield Drone Launcher:
 Scout Drone Launcher:
   size: Small
   type: Drone
-  system: System
+  form: System
   heat: 2
   ammo: 2
   actions:
@@ -775,7 +775,7 @@ Scout Drone Launcher:
 Jammer Drone Launcher:
   size: Medium
   type: Drone
-  system: System
+  form: System
   heat: 4
   range: 1
   target: Z
@@ -789,7 +789,7 @@ Jammer Drone Launcher:
 Drone Command Nexus:
   size: Medium
   type: Drone
-  system: System
+  form: System
   heat: 3
   ammo: 3
   actions:
@@ -805,7 +805,7 @@ Drone Command Nexus:
 Hunter-Killer Nanites:
   size: Small
   type: Nanite
-  system: Weapon
+  form: Weapon
   heat: 0
   range: 3
   target: 1
@@ -821,7 +821,7 @@ Hunter-Killer Nanites:
 Proximity-Swarm Nanites:
   size: Small
   type: Nanite
-  system: Weapon
+  form: Weapon
   heat: 0
   range: 1
   target: 1
@@ -841,7 +841,7 @@ Proximity-Swarm Nanites:
 Javelin Missile:
   size: Medium
   type: Missile
-  system: Weapon
+  form: Weapon
   heat: 0
   range: 2
   target: 1
@@ -853,7 +853,7 @@ Javelin Missile:
 Anchor Harpoon:
   size: Small
   type: Missile
-  system: Weapon
+  form: Weapon
   heat: 0
   range: 3
   target: 1
@@ -869,7 +869,7 @@ Anchor Harpoon:
 Dragonfire Missile:
   size: Small
   type: Missile
-  system: Weapon
+  form: Weapon
   heat: 0
   range: 1
   target: 1
@@ -881,7 +881,7 @@ Dragonfire Missile:
 Breach Missile:
   size: Small
   type: Missile
-  system: Weapon
+  form: Weapon
   heat: 0
   range: 1
   target: 1
@@ -893,7 +893,7 @@ Breach Missile:
 Parasite Launcher:
   size: Small
   type: Missile
-  system: Weapon
+  form: Weapon
   heat: 0
   range: 2
   target: 1
@@ -905,7 +905,7 @@ Parasite Launcher:
 Ballistic Missile:
   size: Large
   type: Missile
-  system: Weapon
+  form: Weapon
   heat: 0
   range: 3
   target: Z
@@ -920,7 +920,7 @@ Ballistic Missile:
 Fragmentation Missile:
   size: Small
   type: Missile
-  system: Weapon
+  form: Weapon
   heat: 0
   range: 2
   target: Z
@@ -934,7 +934,7 @@ Fragmentation Missile:
 Razortooth Missile:
   size: Small
   type: Missile
-  system: Weapon
+  form: Weapon
   heat: 0
   range: 1
   target: Z
@@ -949,7 +949,7 @@ Razortooth Missile:
 Ion Torpedo:
   size: Small
   type: Missile
-  system: Weapon
+  form: Weapon
   heat: 0
   range: 1
   target: Z
@@ -963,7 +963,7 @@ Ion Torpedo:
 Thanatos Missile:
   size: Medium
   type: Missile
-  system: Weapon
+  form: Weapon
   heat: 0
   range: 1
   target: 1
@@ -977,7 +977,7 @@ Thanatos Missile:
 "Cyberwarfare: MELTDOWN":
   size: Small
   type: Electronics
-  system: System
+  form: System
   heat: 2
   range: 3
   target: 1
@@ -992,7 +992,7 @@ Thanatos Missile:
 "Cyberwarfare: EPIDEMIC":
   size: Small
   type: Electronics
-  system: System
+  form: System
   heat: 2
   range: 3
   target: C
@@ -1009,7 +1009,7 @@ Thanatos Missile:
 "Cyberwarfare: SHORTCIRCUIT":
   size: Small
   type: Electronics
-  system: System
+  form: System
   heat: 3
   range: 3
   target: 1
@@ -1022,7 +1022,7 @@ Thanatos Missile:
 "Cyberwarfare: MIRAGE":
   size: Small
   type: Electronics
-  system: System
+  form: System
   heat: 2
   info: |
     Only activatable in the front line.
@@ -1036,7 +1036,7 @@ Thanatos Missile:
 "Cyberwarfare: TANGO":
   size: Small
   type: Electronics
-  system: System
+  form: System
   heat: 2
   range: 3
   target: 1
@@ -1049,7 +1049,7 @@ Thanatos Missile:
 "Cyberwarfare: PROMETHEUS":
   size: Medium
   type: Electronics
-  system: System
+  form: System
   heat: 4
   range: 3
   target: 1
@@ -1062,7 +1062,7 @@ Thanatos Missile:
 "Cyberwarfare: JOKER":
   size: Medium
   type: Electronics
-  system: System
+  form: System
   heat: 3
   range: 3
   actions:
@@ -1074,7 +1074,7 @@ Thanatos Missile:
 "Cyberwarfare: MEDUSA":
   size: Medium
   type: Electronics
-  system: System
+  form: System
   heat: 2
   range: 3
   target: 2
@@ -1087,7 +1087,7 @@ Thanatos Missile:
 "Cyberwarfare: HIJACK":
   size: Medium
   type: Electronics
-  system: System
+  form: System
   heat: 3
   range: 3
   target: 1
@@ -1100,7 +1100,7 @@ Thanatos Missile:
 CAS Uplink:
   size: Small
   type: Electronics
-  system: System
+  form: System
   passives:
     - |
       When the battle starts, put an Airstrike in your hand.
@@ -1112,7 +1112,7 @@ CAS Uplink:
 Slipstream Optimizer:
   size: Small
   type: Electronics
-  system: System
+  form: System
   heat: 1
   triggers:
     - |
@@ -1122,7 +1122,7 @@ Slipstream Optimizer:
 Fire Support Protocol:
   size: Small
   type: Electronics
-  system: System
+  form: System
   triggers:
     - |
       When resolving a Weapon as an Action from another allied mech:
@@ -1131,7 +1131,7 @@ Fire Support Protocol:
 Targeting Computer:
   size: Small
   type: Electronics
-  system: System
+  form: System
   heat: 1
   range: 2
   target: 1
@@ -1143,7 +1143,7 @@ Targeting Computer:
 Shield Generator:
   size: Small
   type: Electronics
-  system: System
+  form: System
   heat: 2
   triggers:
     - |
@@ -1153,7 +1153,7 @@ Shield Generator:
 Shield Capacitor:
   size: Small
   type: Electronics
-  system: System
+  form: System
   passives:
     - |
       When the Round starts:
@@ -1162,7 +1162,7 @@ Shield Capacitor:
 Light Screen Projector:
   size: Small
   type: Electronics
-  system: System
+  form: System
   heat: 2
   actions:
     - |
@@ -1171,7 +1171,7 @@ Light Screen Projector:
 Absolute Terminus Field:
   size: Small
   type: Electronics
-  system: System
+  form: System
   passives:
     - |
       When your turn ends, and this mech is the only mech in the front line and has no <:shield:>:
@@ -1182,7 +1182,7 @@ Absolute Terminus Field:
 Accuracy Overclocker:
   size: Medium
   type: Electronics
-  system: System
+  form: System
   heat: 1
   triggers:
     - |
@@ -1194,7 +1194,7 @@ Accuracy Overclocker:
 Charge Spool:
   size: Small
   type: Auxiliary
-  system: Attachment
+  form: Attachment
   info: |
     Inert.
   triggers:
@@ -1205,7 +1205,7 @@ Charge Spool:
 Chameleon Paint:
   size: Small
   type: Auxiliary
-  system: Attachment
+  form: Attachment
   info: |
     Inert.
   triggers:
@@ -1216,7 +1216,7 @@ Chameleon Paint:
 Iron Sights:
   size: Small
   type: Auxiliary
-  system: Attachment
+  form: Attachment
   info: |
     Inert.
   passives:
@@ -1226,7 +1226,7 @@ Iron Sights:
 Heartpiercer Rounds:
   size: Small
   type: Auxiliary
-  system: Attachment
+  form: Attachment
   ammo: 2
   info: |
     Inert.
@@ -1238,7 +1238,7 @@ Heartpiercer Rounds:
 Earthshaker Rounds:
   size: Small
   type: Auxiliary
-  system: Attachment
+  form: Attachment
   ammo: 2
   info: |
     Inert.
@@ -1250,7 +1250,7 @@ Earthshaker Rounds:
 Focusing Lens:
   size: Small
   type: Auxiliary
-  system: Attachment
+  form: Attachment
   ammo: 2
   info: |
     Inert.
@@ -1262,7 +1262,7 @@ Focusing Lens:
 Emergency Vents:
   size: Small
   type: Auxiliary
-  system: Attachment
+  form: Attachment
   heat: 0
   info: |
     Inert.
@@ -1273,7 +1273,7 @@ Emergency Vents:
 Afterburners:
   size: Small
   type: Auxiliary
-  system: System
+  form: System
   ammo: 2
   triggers:
     - |
@@ -1286,7 +1286,7 @@ Afterburners:
 Spiked Pauldrons:
   size: Medium
   type: Auxiliary
-  system: Attachment
+  form: Attachment
   info: |
     Inert.
   passives:
@@ -1296,7 +1296,7 @@ Spiked Pauldrons:
 Reinforced Frame:
   size: Large
   type: Auxiliary
-  system: Attachment
+  form: Attachment
   info: |
     Inert.
   passives:
@@ -1309,7 +1309,7 @@ Reinforced Frame:
 Adaptive Heat Sink:
   size: Large
   type: Auxiliary
-  system: Attachment
+  form: Attachment
   info: |
     Inert.
   passives:
@@ -1322,7 +1322,7 @@ Adaptive Heat Sink:
 Reserved Rifle:
   size: Medium
   type: Ballistic
-  system: Weapon
+  form: Weapon
   heat: 4
   range: 1
   target: 1
@@ -1338,7 +1338,7 @@ Reserved Rifle:
 Reserved Mortar:
   size: Medium
   type: Ballistic
-  system: Weapon
+  form: Weapon
   heat: 5
   range: 3
   target: 1
@@ -1354,7 +1354,7 @@ Reserved Mortar:
 Reserved Power Blade:
   size: Medium
   type: Melee
-  system: Weapon
+  form: Weapon
   heat: 3
   range: 0
   target: 1
@@ -1369,7 +1369,7 @@ Reserved Power Blade:
 Reserved Megalaser:
   size: Large
   type: Energy
-  system: Weapon
+  form: Weapon
   heat: 6
   range: 1
   target: 1
@@ -1384,7 +1384,7 @@ Reserved Megalaser:
 Camouflage:
   size: Small
   type: Auxiliary
-  system: Attachment
+  form: Attachment
   info: |
     Reserved. Inert.
   passives:
@@ -1397,7 +1397,7 @@ Camouflage:
 Shield Projector:
   size: Small
   type: Electronics
-  system: System
+  form: System
   heat: 2
   info: |
     Reserved.
