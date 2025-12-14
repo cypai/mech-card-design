@@ -4,9 +4,9 @@ Lancelot:
   armor: 0
   hc: 7
   hardpoints:
-  - Large
-  - Medium
-  - Small
+    - Large
+    - Medium
+    - Small
   actions:
     - |
       1/battle, activate an Equipment on this mech for 0 <:heat:> Cost (<:overheat:> still applies).
@@ -17,10 +17,10 @@ Guanyin:
   armor: 1
   hc: 7
   hardpoints:
-  - Medium
-  - Medium
-  - Small
-  - Small
+    - Medium
+    - Medium
+    - Small
+    - Small
   triggers:
     - |
       1/round, when an opponent declares a <:target:> on an allied mech for a Weapon:
@@ -32,9 +32,9 @@ Osiris:
   armor: 0
   hc: 8
   hardpoints:
-  - Large
-  - Medium
-  - Small
+    - Large
+    - Medium
+    - Small
   triggers:
     - |
       1/round, when this mech activates a System as an Action:
@@ -46,10 +46,10 @@ Anansi:
   armor: 0
   hc: 7
   hardpoints:
-  - Medium
-  - Medium
-  - Small
-  - Small
+    - Medium
+    - Medium
+    - Small
+    - Small
   triggers:
     - |
       When this mech resolves an Equipment with <:target:> 1 as an Action:
@@ -61,9 +61,9 @@ Tzitzimitl:
   armor: 2
   hc: 7
   hardpoints:
-  - Medium
-  - Medium
-  - Medium
+    - Medium
+    - Medium
+    - Medium
   passives:
     - |
       When the Round starts:
@@ -75,9 +75,9 @@ Amaterasu:
   armor: 1
   hc: 7
   hardpoints:
-  - Large
-  - Medium
-  - Small
+    - Large
+    - Medium
+    - Small
   triggers:
     - |
       1/round, when Equipment on this mech gains Charge:
@@ -89,8 +89,8 @@ Ballistarius:
   armor: 2
   hc: 7
   hardpoints:
-  - Large
-  - Large
+    - Large
+    - Large
   passives:
     - |
       While this mech is in the back line, this mech's <:range:> 1 Medium or Large Weapons have <:range:> 2.
@@ -101,9 +101,9 @@ Gladius:
   armor: 2
   hc: 7
   hardpoints:
-  - Large
-  - Small
-  - Small
+    - Large
+    - Small
+    - Small
   passives:
     - |
       Melee Weapons on this mech +1 <:damage:>.
@@ -114,9 +114,9 @@ Legionary:
   armor: 1
   hc: 7
   hardpoints:
-  - Large
-  - Medium
-  - Small
+    - Large
+    - Medium
+    - Small
   actions:
     - |
       Activate a Small or Medium Weapon. After resolving it, all enemy mechs affected by that Weapon gain 1 <:vulnerable:>.
@@ -127,9 +127,9 @@ Rubicon:
   armor: 2
   hc: 7
   hardpoints:
-  - Large
-  - Large
-  - Large
+    - Large
+    - Large
+    - Large
   actions:
     - |
       1/round, choose a Weapon on this mech.
@@ -141,9 +141,9 @@ Centurion:
   armor: 3
   hc: 7
   hardpoints:
-  - Large
-  - Medium
-  - Small
+    - Large
+    - Medium
+    - Small
   triggers:
     - |
       1/battle, when activating a Melee Weapon on this mech:
@@ -155,9 +155,9 @@ Praetor:
   armor: 3
   hc: 7
   hardpoints:
-  - Large
-  - Medium
-  - Small
+    - Large
+    - Medium
+    - Small
   actions:
     - |
       <:card-rotation:> this mech.
@@ -175,10 +175,10 @@ Aquarius:
   armor: 0
   hc: 7
   hardpoints:
-  - Medium
-  - Medium
-  - Small
-  - Small
+    - Medium
+    - Medium
+    - Small
+    - Small
   passives:
     - |
       While this mech has <:shield:>, Equipment on this mech <:heat:> Cost -1 (min 1 <:heat:> Cost).
@@ -189,10 +189,10 @@ Pegasus:
   armor: 0
   hc: 8
   hardpoints:
-  - Medium
-  - Medium
-  - Small
-  - Small
+    - Medium
+    - Medium
+    - Small
+    - Small
   triggers:
     - |
       When this mech resolves an Action:
@@ -204,9 +204,9 @@ Cygnus:
   armor: 0
   hc: 8
   hardpoints:
-  - Large
-  - Medium
-  - Small
+    - Large
+    - Medium
+    - Small
   actions:
     - |
       1/round, Advance this mech for 0 <:heat:> Cost, then allied mechs in the front line gain 1 <:shield:>.
@@ -221,8 +221,8 @@ Libra:
   armor: 0
   hc: 8
   hardpoints:
-  - Large
-  - Small
+    - Large
+    - Small
   triggers:
     - |
       1/round, when this mech takes <:damage:> and has enough <:heat:> Capacity:
@@ -234,9 +234,9 @@ Gemini:
   armor: 0
   hc: 8
   hardpoints:
-  - Medium
-  - Medium
-  - Medium
+    - Medium
+    - Medium
+    - Medium
   actions:
     - |
       1/round, if this mech has <:shield:>, deploy 1 drone of your choice.
@@ -247,10 +247,10 @@ Capricornus:
   armor: 0
   hc: 8
   hardpoints:
-  - Large
-  - Small
-  - Small
-  - Small
+    - Large
+    - Small
+    - Small
+    - Small
   triggers:
     - |
       When this mech changes position:
@@ -262,8 +262,8 @@ Cockroach:
   armor: 0
   hc: 6
   hardpoints:
-  - Large
-  - Small
+    - Large
+    - Small
   triggers:
     - |
       1/round, when this mech's HP would be reduced to 0:
@@ -275,9 +275,9 @@ Monte Carlo:
   armor: 1
   hc: 7
   hardpoints:
-  - Large
-  - Large
-  - Small
+    - Large
+    - Large
+    - Small
   actions:
     - |
       1/round, reveal cards from the deck until you reveal an Equipment. You must immediately mount it on this mech, replacing previous Equipment if necessary, then you may activate it.
@@ -288,9 +288,9 @@ Jolly Roger:
   armor: 2
   hc: 6
   hardpoints:
-  - Large
-  - Medium
-  - Small
+    - Large
+    - Medium
+    - Small
   triggers:
     - |
       1/round, when a mech is destroyed:
@@ -302,9 +302,9 @@ Blackjack:
   armor: 1
   hc: 7
   hardpoints:
-  - Large
-  - Medium
-  - Small
+    - Large
+    - Medium
+    - Small
   actions:
     - |
       1/round, discard a card. Reveal cards from the top of the deck until you reveal a Maneuver, then use it immediately.
@@ -315,9 +315,9 @@ Powder Keg:
   armor: 0
   hc: 7
   hardpoints:
-  - Large
-  - Medium
-  - Small
+    - Large
+    - Medium
+    - Small
   actions:
     - |
       Prepare: Self-destruct.
@@ -331,8 +331,8 @@ Rapscallion:
   armor: 0
   hc: 6
   hardpoints:
-  - Medium
-  - Medium
+    - Medium
+    - Medium
   passives:
     - |
       While this mech has 0 <:heat:> and there is another allied mech in your front line, the opponent cannot <:target:> this mech.
