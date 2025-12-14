@@ -630,7 +630,7 @@ def main():
                     with ManeuverCardRenderer(maneuver, icons) as card:
                         card.render()
             else:
-                maneuver = game_db.get_maneuver(args.filter)
+                maneuver = game_db.get_maneuver(args.filter[0])
                 if maneuver is not None:
                     with ManeuverCardRenderer(maneuver, icons) as card:
                         card.render()

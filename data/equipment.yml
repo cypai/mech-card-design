@@ -798,7 +798,7 @@ Drone Command Nexus:
   passives:
     - |
       When an allied drone is destroyed:
-      <:target:> 1 <:range:> 3: Deal 1 damage.
+      <:target:> 1 <:range:> 3: Deal 1 <:damage:>.
   tags:
     - AOE
 
