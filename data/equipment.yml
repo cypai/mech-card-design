@@ -1176,6 +1176,8 @@ Absolute Terminus Field:
     - |
       When your turn ends, and this mech is the only mech in the front line and has no <:shield:>:
       Gain 1 <:shield:>.
+  alias:
+    - AT Field
 
 Accuracy Overclocker:
   size: Medium
