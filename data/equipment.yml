@@ -5,6 +5,7 @@ Light Cannon:
   heat: 2
   range: 1
   target: 1
+  rating: Cadet
   actions:
     - |
       Deal 2 <:damage:>.
@@ -17,6 +18,7 @@ Gunslinger's Justice:
   range: 1
   target: 1
   ammo: 6
+  rating: Cadet
   actions:
     - |
       Deal 1 <:damage:>. If it is your first turn this Round, deals +2 <:damage:>.
@@ -29,6 +31,7 @@ Flechettes:
   range: 1
   target: C
   maxcharge: 3
+  rating: Veteran
   actions:
     - |
       Deal 1 <:damage:> to each <:target:>. Discharge.
@@ -47,6 +50,7 @@ LINK-R Dumbfire Gun:
   heat: 2
   range: 2
   target: 1
+  rating: Veteran
   actions:
     - |
       Deal 1 <:damage:>.
@@ -64,6 +68,7 @@ TRAK-R Smart Gun:
   heat: 1
   range: 2
   target: 1
+  rating: Ace
   actions:
     - |
       Inflict <:overwatch:>(1 <:damage:>).
@@ -83,6 +88,7 @@ Gauss Rifle:
   heat: 3
   range: 1
   target: 1
+  rating: Cadet
   actions:
     - |
       Deal 3 AP <:damage:>.
@@ -94,6 +100,7 @@ Assault Carbine:
   heat: 2
   range: 1
   target: 1
+  rating: Veteran
   actions:
     - |
       Deal 2 <:damage:>. Inflict <:overwatch:>(1 <:damage:>).
@@ -105,6 +112,7 @@ Sniper Rifle:
   heat: 4
   range: 3
   target: 1
+  rating: Cadet
   actions:
     - |
       Deal 3 <:damage:>. +1 <:heat:> Cost if activated at Range 1.
@@ -116,6 +124,7 @@ Automatic Shotgun:
   heat: 3
   range: 1
   target: Z
+  rating: Cadet
   actions:
     - |
       Deal 2 <:damage:> to the enemy front line.
@@ -129,6 +138,7 @@ Assault Cannon:
   heat: 3
   range: 1
   target: 1
+  rating: Veteran
   actions:
     - |
       Deal 2 <:damage:>. Choose:
@@ -142,6 +152,7 @@ Gatling Cannon:
   heat: 2
   range: 1
   target: 1
+  rating: Cadet
   maxcharge: 4
   actions:
     - |
@@ -154,6 +165,7 @@ Assault Rifle:
   heat: 4
   range: 1
   target: 2
+  rating: Cadet
   actions:
     - |
       Deal 2 <:damage:> to each <:target:>.
@@ -168,6 +180,7 @@ Machine Gun:
   heat: 3
   range: 1
   target: 2
+  rating: Veteran
   actions:
     - |
       Deal 1 <:damage:> and inflict <:overwatch:>(1 <:damage:>) to each <:target:>.
@@ -182,6 +195,7 @@ Panoptic Autocannon:
   heat: 6
   range: 1
   target: 2
+  rating: Veteran
   actions:
     - |
       Deal 2 AP <:damage:> and inflict <:overwatch:>(2 AP <:damage:>) to each <:target:>.
@@ -196,6 +210,7 @@ Railgun:
   heat: 7
   range: 3
   target: 1
+  rating: Cadet
   actions:
     - |
       Deal 5 AP <:damage:>.
@@ -208,6 +223,7 @@ Devastator:
   range: 1
   target: 1
   maxcharge: 4
+  rating: Veteran
   actions:
     - |
       Charge. Choose:
@@ -222,6 +238,7 @@ Mass Driver:
   heat: 5
   range: 2
   target: 1
+  rating: Cadet
   actions:
     - |
       Deal 4 <:damage:>. If the <:target:> is in the front line, move it to the back line.
@@ -234,6 +251,7 @@ Annihilator Siege Cannon:
   range: 1
   target: 1
   ammo: 2
+  rating: Veteran
   actions:
     - |
       Prepare: Deal 8 AP <:damage:>.
@@ -246,6 +264,7 @@ Heavy Assault Cannon:
   range: 1
   target: 1
   maxcharge: 4
+  rating: Veteran
   actions:
     - |
       Charge.
@@ -263,6 +282,7 @@ Mjolnir Cannon:
   heat: 5
   range: 2
   target: 1
+  rating: Cadet
   actions:
     - |
       If the <:target:> has no <:shield:>, Disable 1 Equipment on the <:target:>. Deal 3 <:damage:>.
@@ -274,6 +294,7 @@ Hellbore AMR:
   heat: 5
   range: 2
   target: 1
+  rating: Cadet
   actions:
     - |
       Deal 4 AP <:damage:>.
@@ -288,6 +309,7 @@ Targeting Laser:
   heat: 2
   range: 1
   target: 1
+  rating: Cadet
   actions:
     - |
       Inflict 2 <:vulnerable:>.
@@ -299,6 +321,7 @@ Plasma Pistol:
   heat: 2
   range: 1
   target: 1
+  rating: Cadet
   actions:
     - |
       Deal 1 <:damage:>. Inflict 1 <:overheat:>.
@@ -311,6 +334,7 @@ Pulse Pistol:
   range: 1
   target: C
   maxcharge: 4
+  rating: Cadet
   actions:
     - |
       Charge 2.
@@ -326,6 +350,7 @@ EM Polarizer:
   heat: 2
   range: 1
   target: 1
+  rating: Cadet
   actions:
     - |
       Deal 1 <:damage:>.
@@ -341,6 +366,7 @@ Tesla Coil:
   heat: 2
   range: 1
   target: 1
+  rating: Cadet
   actions:
     - |
       Deal X+1 <:damage:>, where X is the total amount of <:overheat:> and <:shield:> on the <:target:>.
@@ -352,6 +378,7 @@ Flamethrower:
   heat: 3
   range: 1
   target: Z
+  rating: Cadet
   actions:
     - |
       Deal 1 <:damage:> and inflict 1 <:overheat:> to the enemy front line.
@@ -365,6 +392,7 @@ Laser Rifle:
   heat: 3
   range: 1
   target: 1
+  rating: Veteran
   actions:
     - |
       Deal 3 <:damage:>. Inflict <:overwatch:>(1 <:overheat:>).
@@ -377,6 +405,7 @@ Autopulse Rifle:
   target: C
   range: 1
   maxcharge: 3
+  rating: Cadet
   actions:
     - |
       Charge. Deal 3 <:damage:> to each <:target:>. Discharge.
@@ -393,6 +422,7 @@ Plasma Blaster:
   heat: 3
   range: 1
   target: 1
+  rating: Cadet
   actions:
     - |
       Deal 2 <:damage:>. Inflict 1 <:overheat:>.
@@ -404,6 +434,7 @@ Repulsor Array:
   heat: 3
   range: 1
   target: 1
+  rating: Cadet
   actions:
     - |
       Deal 2 <:damage:>.
@@ -417,6 +448,7 @@ Magnetic Harpoon:
   heat: 3
   range: 2
   target: 1
+  rating: Veteran
   actions:
     - |
       Deal 1 <:damage:>.
@@ -430,6 +462,7 @@ Ion Beam:
   heat: 4
   range: 1
   target: 1
+  rating: Cadet
   actions:
     - |
       Disable 1 Equipment on the <:target:>.
@@ -442,6 +475,7 @@ Ion Pulser:
   range: 1
   target: C
   maxcharge: 3
+  rating: Cadet
   actions:
     - |
       Charge.
@@ -461,6 +495,7 @@ Pulsar Beam Cannon:
   range: 2
   target: 1
   maxcharge: 3
+  rating: Cadet
   actions:
     - |
       Deal 2 <:damage:>. Charge.
@@ -475,6 +510,7 @@ Slagmaker:
   heat: 5
   range: 1
   target: 1
+  rating: Cadet
   actions:
     - |
       Deal 6 <:damage:>, then Disable all other Equipment on this mech.
@@ -486,6 +522,7 @@ Thermobaric Flame Cannon:
   heat: 6
   range: 2
   target: Z
+  rating: Cadet
   actions:
     - |
       Inflict 1 <:overheat:> to mechs with no <:shield:> at <:target:>.
@@ -502,6 +539,7 @@ Turbolaser Array:
   range: 2
   target: 1
   maxcharge: 4
+  rating: Cadet
   actions:
     - |
       Charge. Deal [Charge+1] <:damage:>.
@@ -516,6 +554,7 @@ Plasma Incinerator:
   heat: 6
   range: 1
   target: 1
+  rating: Cadet
   actions:
     - |
       Deal 5 <:damage:>. Inflict 1 <:overheat:> and 1 <:vulnerable:>.
@@ -527,6 +566,7 @@ Portal Inducer:
   heat: 5
   range: 3
   target: 2
+  rating: Cadet
   info: |
     This Weapon may <:target:> allied mechs.
   actions:
@@ -542,6 +582,7 @@ Causality Inverter:
   heat: 5
   range: 1
   target: 1
+  rating: Veteran
   info: |
     This Weapon cannot be Evaded.
   actions:
@@ -556,6 +597,7 @@ Gigapulse Laser:
   range: 1
   target: C
   maxcharge: 3
+  rating: Cadet
   actions:
     - |
       Charge. Choose:
@@ -575,6 +617,7 @@ Combat Knife:
   heat: 2
   range: 0
   target: 1
+  rating: Cadet
   info: |
     Melee <:card-rotation:>.
   actions:
@@ -588,6 +631,7 @@ Power Buckler:
   heat: 2
   range: 0
   target: 1
+  rating: Cadet
   info: |
     Melee <:card-rotation:>.
   actions:
@@ -601,6 +645,7 @@ Power Fist:
   heat: 3
   range: 0
   target: 1
+  rating: Cadet
   info: |
     Melee <:card-rotation:>.
   actions:
@@ -614,6 +659,7 @@ Iaijutsu Blade:
   heat: 4
   range: 0
   target: 1
+  rating: Cadet
   info: |
     Melee <:card-rotation:>.
   actions:
@@ -629,6 +675,7 @@ Ion Knuckle:
   heat: 4
   range: 0
   target: 1
+  rating: Cadet
   info: |
     Melee <:card-rotation:>.
   actions:
@@ -642,6 +689,7 @@ Phase Lance:
   heat: 3
   range: 0
   target: 1
+  rating: Cadet
   info: |
     Melee <:card-rotation:>.
   actions:
@@ -655,6 +703,7 @@ Magnetic Grappler:
   heat: 3
   range: 0
   target: 1
+  rating: Veteran
   info: |
     Melee <:card-rotation:>.
   actions:
@@ -671,6 +720,7 @@ Rocket Fists:
   range: 0
   target: 1
   ammo: 2
+  rating: Veteran
   info: |
     Melee <:card-rotation:>.
   actions:
@@ -687,6 +737,7 @@ Arondight Starsword:
   heat: 5
   range: 0
   target: 1
+  rating: Cadet
   info: |
     Melee <:card-rotation:>.
   actions:
@@ -701,6 +752,7 @@ Heavy Combat Drill:
   range: 0
   target: 1
   maxcharge: 4
+  rating: Ace
   info: |
     Melee <:card-rotation:>.
   actions:
@@ -716,6 +768,7 @@ Ripjaw Chainaxe:
   range: 0
   target: 1
   maxcharge: 4
+  rating: Cadet
   info: |
     Melee <:card-rotation:>.
   actions:
@@ -730,6 +783,7 @@ Gungnir Shock Lance:
   heat: 5
   range: 0
   target: 1
+  rating: Ace
   info: |
     Melee <:card-rotation:>.
   actions:
@@ -745,6 +799,7 @@ Combat Drone Launcher:
   range: 1
   target: Z
   ammo: 3
+  rating: Veteran
   actions:
     - |
       Deal 2 <:damage:> to the enemy front line.
@@ -758,6 +813,7 @@ Shield Drone Launcher:
   form: System
   heat: 3
   ammo: 3
+  rating: Ace
   actions:
     - |
       Grant 2 <:shield:> to an allied mech, then summon 1 Shield Drone.
@@ -768,6 +824,7 @@ Scout Drone Launcher:
   form: System
   heat: 2
   ammo: 2
+  rating: Veteran
   actions:
     - |
       Reposition an allied mech without <:heat:> Cost, then summon 1 Scout Drone.
@@ -780,6 +837,7 @@ Jammer Drone Launcher:
   range: 1
   target: Z
   ammo: 2
+  rating: Veteran
   actions:
     - |
       Inflict 1 <:overheat:> on the enemy front line, then summon 1 Jammer Drone.
@@ -792,6 +850,7 @@ Drone Command Nexus:
   form: System
   heat: 3
   ammo: 3
+  rating: Ace
   actions:
     - |
       Choose any drone that you do not currently have deployed, and deploy it.
@@ -810,6 +869,7 @@ Hunter-Killer Nanites:
   range: 3
   target: 1
   ammo: 3
+  rating: Veteran
   actions:
     - |
       If the <:target:> has Vulnerable, deal 1 <:damage:>, otherwise inflict 1 <:vulnerable:>.
@@ -826,6 +886,7 @@ Proximity-Swarm Nanites:
   range: 1
   target: 1
   ammo: 3
+  rating: Ace
   actions:
     - |
       Choose:
@@ -846,6 +907,7 @@ Javelin Missile:
   range: 2
   target: 1
   ammo: 1
+  rating: Cadet
   actions:
     - |
       Deal 3 <:damage:>.
@@ -858,6 +920,7 @@ Anchor Harpoon:
   range: 3
   target: 1
   ammo: 2
+  rating: Cadet
   actions:
     - |
       Move any mech to any other valid position.
@@ -874,6 +937,7 @@ Dragonfire Missile:
   range: 1
   target: 1
   ammo: 2
+  rating: Cadet
   actions:
     - |
       Deal 1 <:damage:>. Inflict 1 <:overheat:>.
@@ -886,6 +950,7 @@ Breach Missile:
   range: 1
   target: 1
   ammo: 2
+  rating: Cadet
   actions:
     - |
       Deal 1 <:damage:>. Shred.
@@ -898,6 +963,7 @@ Parasite Launcher:
   range: 2
   target: 1
   ammo: 2
+  rating: Veteran
   actions:
     - |
       Deal 1 <:damage:>. During the opponent's next turn, if the <:target:> does not change position, it takes 2 <:damage:> at the end of the turn.
@@ -910,6 +976,7 @@ Ballistic Missile:
   range: 3
   target: Z
   ammo: 1
+  rating: Veteran
   actions:
     - |
       <:target:> a Zone.
@@ -925,6 +992,7 @@ Fragmentation Missile:
   range: 2
   target: Z
   ammo: 2
+  rating: Cadet
   actions:
     - |
       Deal 1 <:damage:> to enemy mechs at the <:target:>.
@@ -939,6 +1007,7 @@ Razortooth Missile:
   range: 1
   target: Z
   ammo: 1
+  rating: Cadet
   actions:
     - |
       Shred all enemy mechs with no <:shield:> at the <:target:>.
@@ -954,6 +1023,7 @@ Ion Torpedo:
   range: 1
   target: Z
   ammo: 1
+  rating: Cadet
   actions:
     - |
       Disable 1 Equipment on each mech with no <:shield:> at the <:target:>.
@@ -968,6 +1038,7 @@ Thanatos Missile:
   range: 1
   target: 1
   ammo: 1
+  rating: Cadet
   info: |
     This Weapon cannot be Evaded.
   actions:
@@ -981,6 +1052,7 @@ Thanatos Missile:
   heat: 2
   range: 3
   target: 1
+  rating: Cadet
   actions:
     - |
       Inflict 1 <:overheat:>.
@@ -997,6 +1069,7 @@ Thanatos Missile:
   range: 3
   target: C
   maxcharge: 3
+  rating: Veteran
   actions:
     - |
       Charge.
@@ -1013,6 +1086,7 @@ Thanatos Missile:
   heat: 3
   range: 3
   target: 1
+  rating: Cadet
   actions:
     - |
       If the <:target:> is not at 0 <:heat:>, Disable 1 Equipment on the <:target:>.
@@ -1024,6 +1098,7 @@ Thanatos Missile:
   type: Electronics
   form: System
   heat: 2
+  rating: Ace
   info: |
     Only activatable in the front line.
   actions:
@@ -1040,6 +1115,7 @@ Thanatos Missile:
   heat: 2
   range: 3
   target: 1
+  rating: Cadet
   actions:
     - |
       Reposition both the <:target:> and this mech.
@@ -1053,6 +1129,7 @@ Thanatos Missile:
   heat: 4
   range: 3
   target: 1
+  rating: Cadet
   actions:
     - |
       Inflict 2 <:overheat:>. Charge 1 Equipment on an allied mech.
@@ -1065,6 +1142,7 @@ Thanatos Missile:
   form: System
   heat: 3
   range: 3
+  rating: Ace
   actions:
     - |
       Choose a player. Move any number of <:shield:>, <:overheat:>, and <:vulnerable:> from mechs that player controls to other mechs that player controls.
@@ -1078,6 +1156,7 @@ Thanatos Missile:
   heat: 2
   range: 3
   target: 2
+  rating: Veteran
   actions:
     - |
       Discard a card. Disable 1 Equipment on each <:target:>.
@@ -1091,6 +1170,7 @@ Thanatos Missile:
   heat: 3
   range: 3
   target: 1
+  rating: Ace
   actions:
     - |
       Choose a Weapon on an enemy mech with a legal <:target:>. Your opponent activates it.
@@ -1101,6 +1181,7 @@ CAS Uplink:
   size: Small
   type: Electronics
   form: System
+  rating: Veteran
   passives:
     - |
       When the battle starts, put an Airstrike in your hand.
@@ -1114,6 +1195,7 @@ Slipstream Optimizer:
   type: Electronics
   form: System
   heat: 1
+  rating: Veteran
   triggers:
     - |
       When resolving an Action from this mech:
@@ -1123,6 +1205,7 @@ Fire Support Protocol:
   size: Small
   type: Electronics
   form: System
+  rating: Veteran
   triggers:
     - |
       When resolving a Weapon as an Action from another allied mech:
@@ -1135,6 +1218,7 @@ Targeting Computer:
   heat: 1
   range: 2
   target: 1
+  rating: Cadet
   triggers:
     - |
       When the Round starts:
@@ -1145,6 +1229,7 @@ Shield Generator:
   type: Electronics
   form: System
   heat: 2
+  rating: Cadet
   triggers:
     - |
       When the Round starts:
@@ -1154,6 +1239,7 @@ Shield Capacitor:
   size: Small
   type: Electronics
   form: System
+  rating: Veteran
   passives:
     - |
       When the Round starts:
@@ -1164,6 +1250,7 @@ Light Screen Projector:
   type: Electronics
   form: System
   heat: 2
+  rating: Cadet
   actions:
     - |
       All allied mechs gain 1 <:shield:>.
@@ -1172,6 +1259,7 @@ Absolute Terminus Field:
   size: Small
   type: Electronics
   form: System
+  rating: Cadet
   passives:
     - |
       When your turn ends, and this mech is the only mech in the front line and has no <:shield:>:
@@ -1184,6 +1272,7 @@ Accuracy Overclocker:
   type: Electronics
   form: System
   heat: 1
+  rating: Cadet
   triggers:
     - |
       When activating a Weapon on this mech:
@@ -1195,6 +1284,7 @@ Charge Spool:
   size: Small
   type: Auxiliary
   form: Attachment
+  rating: Cadet
   info: |
     Inert.
   triggers:
@@ -1206,6 +1296,7 @@ Chameleon Paint:
   size: Small
   type: Auxiliary
   form: Attachment
+  rating: Cadet
   info: |
     Inert.
   triggers:
@@ -1217,6 +1308,7 @@ Iron Sights:
   size: Small
   type: Auxiliary
   form: Attachment
+  rating: Veteran
   info: |
     Inert.
   passives:
@@ -1228,6 +1320,7 @@ Heartpiercer Rounds:
   type: Auxiliary
   form: Attachment
   ammo: 2
+  rating: Veteran
   info: |
     Inert.
   triggers:
@@ -1240,6 +1333,7 @@ Earthshaker Rounds:
   type: Auxiliary
   form: Attachment
   ammo: 2
+  rating: Veteran
   info: |
     Inert.
   triggers:
@@ -1252,6 +1346,7 @@ Focusing Lens:
   type: Auxiliary
   form: Attachment
   ammo: 2
+  rating: Veteran
   info: |
     Inert.
   triggers:
@@ -1264,6 +1359,7 @@ Emergency Vents:
   type: Auxiliary
   form: Attachment
   heat: 0
+  rating: Cadet
   info: |
     Inert.
   actions:
@@ -1275,6 +1371,7 @@ Afterburners:
   type: Auxiliary
   form: System
   ammo: 2
+  rating: Ace
   triggers:
     - |
       When this mech Advances or Falls Back:
@@ -1287,6 +1384,7 @@ Spiked Pauldrons:
   size: Medium
   type: Auxiliary
   form: Attachment
+  rating: Cadet
   info: |
     Inert.
   passives:
@@ -1297,6 +1395,7 @@ Reinforced Frame:
   size: Large
   type: Auxiliary
   form: Attachment
+  rating: Veteran
   info: |
     Inert.
   passives:
@@ -1310,6 +1409,7 @@ Adaptive Heat Sink:
   size: Large
   type: Auxiliary
   form: Attachment
+  rating: Veteran
   info: |
     Inert.
   passives:
@@ -1326,6 +1426,7 @@ Reserved Rifle:
   heat: 4
   range: 1
   target: 1
+  rating: Cadet
   info: |
     Reserved.
   actions:
@@ -1343,6 +1444,7 @@ Reserved Mortar:
   range: 3
   target: 1
   ammo: 3
+  rating: Cadet
   info: |
     Reserved.
   actions:
@@ -1358,6 +1460,7 @@ Reserved Power Blade:
   heat: 3
   range: 0
   target: 1
+  rating: Cadet
   info: |
     Reserved. Melee <:card-rotation:>.
   actions:
@@ -1373,6 +1476,7 @@ Reserved Megalaser:
   heat: 6
   range: 1
   target: 1
+  rating: Cadet
   info: |
     Reserved.
   actions:
@@ -1385,6 +1489,7 @@ Camouflage:
   size: Small
   type: Auxiliary
   form: Attachment
+  rating: Cadet
   info: |
     Reserved. Inert.
   passives:
@@ -1399,6 +1504,7 @@ Shield Projector:
   type: Electronics
   form: System
   heat: 2
+  rating: Cadet
   info: |
     Reserved.
   actions:

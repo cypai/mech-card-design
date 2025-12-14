@@ -26,6 +26,7 @@ def parse_equipment(equipment) -> Equipment:
         tags=data.get("tags", []),
         alias=data.get("alias", []),
         copies=data.get("copies", 1),
+        rating=data.get("rating", None),
     )
 
 
@@ -158,6 +159,7 @@ def equipment_stats():
         "<:overwatch:>": "Overwatch",
     }
     tag_counts = {}
+    ratings = {}
     spare_equipment = 0
     move_equipment = 0
     total = 0
@@ -192,10 +194,14 @@ def equipment_stats():
         ):
             move_equipment += 1
         for tag in equipment.tags:
-            if tag not in tag_counts:
-                tag_counts[tag] = 1
-            else:
+            if tag in tag_counts:
                 tag_counts[tag] += 1
+            else:
+                tag_counts[tag] = 1
+        if equipment.rating in ratings:
+            ratings[equipment.rating] += 1
+        else:
+            ratings[equipment.rating] = 1
     output += "Sizes\n"
     for k, v in sizes.items():
         output += f"{k}: {v}\n"
@@ -219,6 +225,8 @@ def equipment_stats():
     for k, v in tag_counts.items():
         output += f"{k} Equipment: {v}\n"
     output += f"Move Equipment: {move_equipment}\n"
+    for k, v in ratings.items():
+        output += f"{k} Equipment: {v}\n"
     output += f"Spare Equipment (not counted in other stats): {spare_equipment}\n"
     output += f"Total Equipment: {total}"
     return output
@@ -289,6 +297,14 @@ def get_filtered_equipment(filters: list[str]) -> list[Equipment]:
                 op = f[6]
                 the_target = str(f[7]).upper()
                 if op == "=" and equipment.target == the_target:
+                    ok += 1
+            elif f.startswith("rating"):
+                op = f[6]
+                the_rating = f[7:]
+                eq_rating = (
+                    "None" if equipment.rating is None else equipment.rating.lower()
+                )
+                if op == "=" and eq_rating == the_rating:
                     ok += 1
             elif f == "move" and (
                 "advance" in tokenized_text

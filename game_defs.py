@@ -23,6 +23,7 @@ class Equipment:
     alias: list[str]
     copies: int
     legacy_text: bool
+    rating: Optional[str]
 
     def __init__(self, **kwargs):
         self.name = str(kwargs.get("name"))
@@ -41,6 +42,7 @@ class Equipment:
         self.tags = kwargs.get("tags", [])
         self.alias = kwargs.get("alias", [])
         self.copies = kwargs.get("copies", 1)
+        self.rating = kwargs.get("rating", None)
 
         self.normalized_name = re.sub(r"\W", "", self.name)
         self.normalized_name = self.normalized_name.lower()
@@ -84,6 +86,8 @@ class Equipment:
             text += f"Max Charge: {self.maxcharge}\n"
         if len(self.tags) > 0:
             text += f"Tags: {self.tags}\n"
+        if self.rating is not None:
+            text += f"Rating: {self.rating}\n"
         text += f"{self.text}"
         return text
 
