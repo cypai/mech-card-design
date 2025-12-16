@@ -180,7 +180,7 @@ Machine Gun:
   heat: 3
   range: 1
   target: 2
-  rating: Veteran
+  rating: Ace
   actions:
     - |
       Deal 1 <:damage:> and inflict <:suppressed:>(1 <:damage:>) to each <:target:>.
@@ -195,7 +195,7 @@ Panoptic Autocannon:
   heat: 6
   range: 1
   target: 2
-  rating: Veteran
+  rating: Ace
   actions:
     - |
       Deal 2 AP <:damage:> and inflict <:suppressed:>(2 AP <:damage:>) to each <:target:>.
