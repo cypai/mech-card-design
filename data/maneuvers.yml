@@ -20,7 +20,7 @@ EMP Airburst:
 
 System Reboot:
   text: |
-    Draw a card. Remove all <:vulnerable:>, <:overheat:>, <:overwatch:>, and Disable from an allied mech. You may take an Action with that mech.
+    Draw a card. Remove all <:vulnerable:>, <:overheat:>, <:suppressed:>, and Disable from an allied mech. You may take an Action with that mech.
 
 Ramming Speed:
   text: |

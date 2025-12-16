@@ -150,13 +150,13 @@ def equipment_stats():
         "<:shield:>": 0,
         "<:vulnerable:>": 0,
         "<:overheat:>": 0,
-        "<:overwatch:>": 0,
+        "<:suppressed:>": 0,
     }
     icon_keyword_map = {
         "<:shield:>": "Shield",
         "<:vulnerable:>": "Vulnerable",
         "<:overheat:>": "Overheat",
-        "<:overwatch:>": "Overwatch",
+        "<:suppressed:>": "Suppressed",
     }
     tag_counts = {}
     ratings = {}

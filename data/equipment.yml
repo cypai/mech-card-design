@@ -71,7 +71,7 @@ TRAK-R Smart Gun:
   rating: Ace
   actions:
     - |
-      Inflict <:overwatch:>(1 <:damage:>).
+      Inflict <:suppressed:>(1 <:damage:>).
   triggers:
     - |
       When resolving other non<:target:>Z Equipment on any allied mech as an Action:
@@ -103,7 +103,7 @@ Assault Carbine:
   rating: Veteran
   actions:
     - |
-      Deal 2 <:damage:>. Inflict <:overwatch:>(1 <:damage:>).
+      Deal 2 <:damage:>. Inflict <:suppressed:>(1 <:damage:>).
 
 Sniper Rifle:
   size: Medium
@@ -143,7 +143,7 @@ Assault Cannon:
     - |
       Deal 2 <:damage:>. Choose:
       > Shred.
-      > Inflict <:overwatch:>(2 <:damage:>).
+      > Inflict <:suppressed:>(2 <:damage:>).
 
 Gatling Cannon:
   size: Medium
@@ -183,7 +183,7 @@ Machine Gun:
   rating: Veteran
   actions:
     - |
-      Deal 1 <:damage:> and inflict <:overwatch:>(1 <:damage:>) to each <:target:>.
+      Deal 1 <:damage:> and inflict <:suppressed:>(1 <:damage:>) to each <:target:>.
   tags:
     - AOE
     - Multihit
@@ -198,7 +198,7 @@ Panoptic Autocannon:
   rating: Veteran
   actions:
     - |
-      Deal 2 AP <:damage:> and inflict <:overwatch:>(2 AP <:damage:>) to each <:target:>.
+      Deal 2 AP <:damage:> and inflict <:suppressed:>(2 AP <:damage:>) to each <:target:>.
   tags:
     - AOE
     - Multihit
@@ -229,7 +229,7 @@ Devastator:
       Charge. Choose:
       > Inflict [Charge+1] <:vulnerable:>.
       > Deal [Charge+1] AP <:damage:>.
-      Inflict <:overwatch:>([Charge] AP <:damage:>).
+      Inflict <:suppressed:>([Charge] AP <:damage:>).
 
 Mass Driver:
   size: Large
@@ -271,7 +271,7 @@ Heavy Assault Cannon:
       Deal [Charge+1] <:damage:>.
       Choose:
       > Shred.
-      > Inflict <:overwatch:>([Charge+1] <:damage:>).
+      > Inflict <:suppressed:>([Charge+1] <:damage:>).
   tags:
     - Strong-Watchlist
 
@@ -395,7 +395,7 @@ Laser Rifle:
   rating: Veteran
   actions:
     - |
-      Deal 3 <:damage:>. Inflict <:overwatch:>(1 <:overheat:>).
+      Deal 3 <:damage:>. Inflict <:suppressed:>(1 <:overheat:>).
 
 Autopulse Rifle:
   size: Medium
@@ -453,7 +453,7 @@ Magnetic Harpoon:
     - |
       Deal 1 <:damage:>.
       If the target is in the back line, move it to the front line.
-      Inflict <:overwatch:>(1 <:damage:>).
+      Inflict <:suppressed:>(1 <:damage:>).
 
 Ion Beam:
   size: Medium
