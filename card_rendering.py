@@ -48,6 +48,7 @@ class Icons:
         target = Image.open("textures/target.png")
         ammo = Image.open("textures/ammo.png")
         maxcharge = Image.open("textures/maxcharge.png")
+        charge = Image.open("textures/charge.png")
         info = Image.open("textures/info.png")
         action = Image.open("textures/action.png")
         trigger = Image.open("textures/trigger.png")
@@ -59,6 +60,7 @@ class Icons:
         self.target = target.resize((ICON_SIZE, ICON_SIZE))
         self.ammo = ammo.resize((ICON_SIZE, ICON_SIZE))
         self.maxcharge = maxcharge.resize((ICON_SIZE, ICON_SIZE))
+        self.charge = charge.resize((ICON_SIZE, ICON_SIZE))
         self.info = info.resize((SECTION_ICON_SIZE, SECTION_ICON_SIZE))
         self.action = action.resize((SECTION_ICON_SIZE, SECTION_ICON_SIZE))
         self.trigger = trigger.resize((SECTION_ICON_SIZE, SECTION_ICON_SIZE))
@@ -196,28 +198,43 @@ class EquipmentCardRenderer(CardRenderer):
     def draw_top_icons(self):
         row = 0
         if self.equipment.heat is not None:
-            self.draw_top_icon(row, self.icons.heat, str(self.equipment.heat))
+            self.draw_top_icon_with_text(row, self.icons.heat, str(self.equipment.heat))
             row += 1
         if self.equipment.range is not None:
             if self.equipment.range == 0:
-                self.draw_top_icon(row, self.icons.melee, "")
+                self.draw_top_icon(row, self.icons.melee)
             else:
-                self.draw_top_icon(row, self.icons.range, str(self.equipment.range))
+                self.draw_top_icon_with_text(
+                    row, self.icons.range, str(self.equipment.range)
+                )
             row += 1
         if self.equipment.target is not None:
-            self.draw_top_icon(row, self.icons.target, str(self.equipment.target))
+            if self.equipment.target == "C":
+                self.draw_top_icon(row, self.icons.target)
+                self.draw_top_icon_with_icon(
+                    row, self.icons.target, self.icons.charge, (-35, 10)
+                )
+            else:
+                self.draw_top_icon_with_text(
+                    row, self.icons.target, str(self.equipment.target)
+                )
             row += 1
         if self.equipment.ammo is not None:
-            self.draw_top_icon(row, self.icons.ammo, str(self.equipment.ammo))
+            self.draw_top_icon_with_text(row, self.icons.ammo, str(self.equipment.ammo))
             row += 1
         if self.equipment.maxcharge is not None:
-            self.draw_top_icon(row, self.icons.maxcharge, str(self.equipment.maxcharge))
+            self.draw_top_icon_with_text(
+                row, self.icons.maxcharge, str(self.equipment.maxcharge)
+            )
             row += 1
 
-    def draw_top_icon(self, row: int, icon: Image.Image, text: str):
+    def draw_top_icon(self, row: int, icon: Image.Image):
         self.image.alpha_composite(
             icon, (EquipmentCardRenderer.ICON_X, int(MARGIN + row * ICON_SIZE * 1.1))
         )
+
+    def draw_top_icon_with_text(self, row: int, icon: Image.Image, text: str):
+        self.draw_top_icon(row, icon)
         self.draw.text(
             (
                 EquipmentCardRenderer.ICON_TEXT_X,
@@ -226,6 +243,22 @@ class EquipmentCardRenderer(CardRenderer):
             text,
             "#000000",
             font=self.icon_font,
+        )
+
+    def draw_top_icon_with_icon(
+        self,
+        row: int,
+        icon: Image.Image,
+        second_icon: Image.Image,
+        offset: tuple[int, int],
+    ):
+        self.draw_top_icon(row, icon)
+        self.image.alpha_composite(
+            second_icon,
+            (
+                EquipmentCardRenderer.ICON_X + ICON_SIZE + offset[0],
+                int(MARGIN + row * ICON_SIZE * 1.1) + offset[1],
+            ),
         )
 
     def draw_card_type(self):

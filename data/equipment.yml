@@ -37,8 +37,8 @@ Flechettes:
       Deal 1 <:damage:> to each <:target:>. Discharge.
   triggers:
     - |
-      When this mechs resolves an Action other than this Equipment:
-      Charge.
+      When this mech resolves an Action other than this Equipment:
+      Gain 1 <:charge:>.
   tags:
     - AOE
     - Multihit
@@ -74,7 +74,7 @@ TRAK-R Smart Gun:
       Inflict <:suppressed:>(1 <:damage:>).
   triggers:
     - |
-      When resolving other non<:target:>Z Equipment on any allied mech as an Action:
+      When resolving other non<:target:>P Equipment on any allied mech as an Action:
       Activate this Weapon on all of that Equipment's <:target:>.
   tags:
     - AOE
@@ -123,7 +123,7 @@ Automatic Shotgun:
   form: Weapon
   heat: 3
   range: 1
-  target: Z
+  target: P
   rating: Cadet
   actions:
     - |
@@ -156,7 +156,7 @@ Gatling Cannon:
   maxcharge: 4
   actions:
     - |
-      Charge. Deal [Charge] <:damage:>.
+      Gain 1 <:charge:>. Deal [<:charge:>]<:damage:>.
 
 Assault Rifle:
   size: Medium
@@ -226,10 +226,10 @@ Devastator:
   rating: Veteran
   actions:
     - |
-      Charge. Choose:
-      > Inflict [Charge+1] <:vulnerable:>.
-      > Deal [Charge+1] AP <:damage:>.
-      Inflict <:suppressed:>([Charge] AP <:damage:>).
+      Gain 1 <:charge:>. Choose:
+      > Inflict [<:charge:>+1] <:vulnerable:>.
+      > Deal [<:charge:>+1] AP <:damage:>.
+      Inflict <:suppressed:>([<:charge:>] AP <:damage:>).
 
 Mass Driver:
   size: Large
@@ -267,11 +267,11 @@ Heavy Assault Cannon:
   rating: Veteran
   actions:
     - |
-      Charge.
-      Deal [Charge+1] <:damage:>.
+      Gain 1 <:charge:>.
+      Deal [<:charge:>+1] <:damage:>.
       Choose:
       > Shred.
-      > Inflict <:suppressed:>([Charge+1] <:damage:>).
+      > Inflict <:suppressed:>([<:charge:>+1] <:damage:>).
   tags:
     - Strong-Watchlist
 
@@ -337,7 +337,7 @@ Pulse Pistol:
   rating: Veteran
   actions:
     - |
-      Charge 2.
+      Gain 2 <:charge:>.
     - |
       Deal 1 <:damage:> to each <:target:>. Discharge.
   tags:
@@ -377,7 +377,7 @@ Flamethrower:
   form: Weapon
   heat: 3
   range: 1
-  target: Z
+  target: P
   rating: Cadet
   actions:
     - |
@@ -408,9 +408,9 @@ Autopulse Rifle:
   rating: Veteran
   actions:
     - |
-      Charge. Deal 3 <:damage:> to each <:target:>. Discharge.
+      Gain 1 <:charge:>. Deal 3 <:damage:> to each <:target:>. Discharge.
     - |
-      While in the back line: Charge.
+      Back line activation: Gain 1 <:charge:>.
   tags:
     - AOE
     - Multihit
@@ -478,9 +478,9 @@ Ion Pulser:
   rating: Veteran
   actions:
     - |
-      Charge.
+      Gain 1 <:charge:>.
     - |
-      While in the back line: Charge 2.
+      Back line activation: Gain 2 <:charge:>.
     - |
       Disable 1 Equipment on each <:target:>. Discharge.
   tags:
@@ -498,10 +498,10 @@ Pulsar Beam Cannon:
   rating: Cadet
   actions:
     - |
-      Deal 2 <:damage:>. Charge.
+      Deal 2 <:damage:>. Gain 1 <:charge:>.
     - |
-      If [Charge]>2:
-      Disable 1 Equipment on the <:target:> if it has no <:shield:>. Deal 4 <:damage:>. Discharge.
+      If [<:charge:>]>2:
+      Disable 1 Equipment on the <:target:> if it has no <:shield:>. Deal 4 <:damage:>. Set <:charge:> to 0.
 
 Slagmaker:
   size: Large
@@ -521,7 +521,7 @@ Thermobaric Flame Cannon:
   form: Weapon
   heat: 6
   range: 2
-  target: Z
+  target: P
   rating: Cadet
   actions:
     - |
@@ -542,9 +542,9 @@ Turbolaser Array:
   rating: Cadet
   actions:
     - |
-      Charge. Deal [Charge+1] <:damage:>.
+      Gain 1 <:charge:>. Deal [<:charge:>+1] <:damage:>.
       Choose:
-      > Charge.
+      > Gain 1 <:charge:>.
       > Inflict 1 <:overheat:>.
 
 Plasma Incinerator:
@@ -600,12 +600,12 @@ Gigapulse Laser:
   rating: Veteran
   actions:
     - |
-      Charge. Choose:
-      > Charge.
+      Gain 1 <:charge:>. Choose:
+      > Gain 1 <:charge:>.
       > Deal 3 <:damage:> to each <:target:>.
         Discharge.
     - |
-      While in the back line: Charge 2.
+      Back line activation: Gain 2 <:charge:>.
   tags:
     - AOE
     - Multihit
@@ -757,8 +757,8 @@ Heavy Combat Drill:
     Melee <:card-rotation:>.
   actions:
     - |
-      Charge. Deal 2 AP <:damage:>. Shred.
-      Prepare: Deal [Charge+2] AP <:damage:>. Shred.
+      Gain 1 <:charge:>. Deal 2 AP <:damage:>. Shred.
+      Prepare: Deal [<:charge:>+2] AP <:damage:>. Shred.
 
 Ripjaw Chainaxe:
   size: Large
@@ -773,8 +773,8 @@ Ripjaw Chainaxe:
     Melee <:card-rotation:>.
   actions:
     - |
-      Charge. Deal [Charge+4] <:damage:>.
-      If [Charge]>1, Shred.
+      Gain 1 <:charge:>. Deal [<:charge:>+4] <:damage:>.
+      If [<:charge:>]>1, Shred.
 
 Gungnir Shock Lance:
   size: Large
@@ -797,7 +797,7 @@ Combat Drone Launcher:
   form: System
   heat: 5
   range: 1
-  target: Z
+  target: P
   ammo: 3
   rating: Veteran
   actions:
@@ -835,7 +835,7 @@ Jammer Drone Launcher:
   form: System
   heat: 4
   range: 1
-  target: Z
+  target: P
   ammo: 2
   rating: Veteran
   actions:
@@ -974,7 +974,7 @@ Ballistic Missile:
   form: Weapon
   heat: 0
   range: 3
-  target: Z
+  target: P
   ammo: 1
   rating: Veteran
   actions:
@@ -990,7 +990,7 @@ Fragmentation Missile:
   form: Weapon
   heat: 0
   range: 2
-  target: Z
+  target: P
   ammo: 2
   rating: Cadet
   actions:
@@ -1005,7 +1005,7 @@ Razortooth Missile:
   form: Weapon
   heat: 0
   range: 1
-  target: Z
+  target: P
   ammo: 1
   rating: Cadet
   actions:
@@ -1021,7 +1021,7 @@ Ion Torpedo:
   form: Weapon
   heat: 0
   range: 1
-  target: Z
+  target: P
   ammo: 1
   rating: Cadet
   actions:
@@ -1072,7 +1072,7 @@ Thanatos Missile:
   rating: Veteran
   actions:
     - |
-      Charge.
+      Gain 1 <:charge:>.
       Inflict 1 <:vulnerable:> on each <:target:>.
   tags:
     - AOE
@@ -1104,7 +1104,7 @@ Thanatos Missile:
   actions:
     - |
       Other allied mechs may Advance or Fall Back for 0 <:heat:> Cost.
-      During the opponent's next turn, when designating a non-<:target:>Z <:target:>, the opponent can only <:target:> this mech.
+      During the opponent's next turn, when designating a non-<:target:>P <:target:>, the opponent can only <:target:> this mech.
   alias:
     - MIRAGE
 
@@ -1132,7 +1132,7 @@ Thanatos Missile:
   rating: Cadet
   actions:
     - |
-      Inflict 2 <:overheat:>. Charge 1 Equipment on an allied mech.
+      Inflict 2 <:overheat:>. Gain 1 <:charge:> on 1 Equipment on an allied mech.
   alias:
     - PROMETHEUS
 
@@ -1289,8 +1289,8 @@ Charge Spool:
     Inert.
   triggers:
     - |
-      1/battle, on Charge:
-      Charge the same equipment.
+      1/battle, when an Equipment on an allied mech gains <:charge:>:
+      Gain 1 <:charge:> the same Equipment.
 
 Chameleon Paint:
   size: Small
