@@ -979,7 +979,7 @@ Ballistic Missile:
   rating: Veteran
   actions:
     - |
-      <:target:> a Zone.
+      <:target:> a position.
       Prepare: Deal 3 AP <:damage:> to mechs at the <:target:>.
   tags:
     - AOE
