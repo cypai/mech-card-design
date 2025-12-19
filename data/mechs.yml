@@ -50,10 +50,9 @@ Anansi:
     - Medium
     - Small
     - Small
-  triggers:
+  actions:
     - |
-      When this mech resolves an Equipment with <:target:> 1 as an Action:
-      To the same <:target:>, inflict 1 <:overheat:>.
+      Activate a <:target:> 1 Equipment on this mech, then inflict 1 <:overheat:> to the same <:target:>.
 
 Tzitzimitl:
   faction: Feds

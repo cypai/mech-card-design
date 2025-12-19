@@ -71,11 +71,11 @@ TRAK-R Smart Gun:
   rating: Ace
   actions:
     - |
-      Inflict <:suppressed:>(1 <:damage:>).
+      Inflict 1 <:suppressed:>.
   triggers:
     - |
-      When resolving other non<:target:>P Equipment on any allied mech as an Action:
-      Activate this Weapon on all of that Equipment's <:target:>.
+      When resolving other Equipment on any allied mech as an Action:
+      Inflict 1 <:suppressed:> on all mechs affected by that Equipment.
   tags:
     - AOE
   alias:
@@ -103,7 +103,7 @@ Assault Carbine:
   rating: Veteran
   actions:
     - |
-      Deal 2 <:damage:>. Inflict <:suppressed:>(1 <:damage:>).
+      Deal 2 <:damage:>. Inflict 1 <:suppressed:>.
 
 Sniper Rifle:
   size: Medium
@@ -143,7 +143,7 @@ Assault Cannon:
     - |
       Deal 2 <:damage:>. Choose:
       > Shred.
-      > Inflict <:suppressed:>(2 <:damage:>).
+      > Inflict 2 <:suppressed:>.
 
 Gatling Cannon:
   size: Medium
@@ -183,7 +183,7 @@ Machine Gun:
   rating: Ace
   actions:
     - |
-      Deal 1 <:damage:> and inflict <:suppressed:>(1 <:damage:>) to each <:target:>.
+      Deal 1 <:damage:> and inflict 1 <:suppressed:> to each <:target:>.
   tags:
     - AOE
     - Multihit
@@ -192,13 +192,13 @@ Panoptic Autocannon:
   size: Large
   type: Ballistic
   form: Weapon
-  heat: 6
+  heat: 5
   range: 1
   target: 2
   rating: Ace
   actions:
     - |
-      Deal 2 AP <:damage:> and inflict <:suppressed:>(2 AP <:damage:>) to each <:target:>.
+      Deal 2 AP <:damage:> and inflict 2 <:suppressed:> to each <:target:>.
   tags:
     - AOE
     - Multihit
@@ -226,10 +226,10 @@ Devastator:
   rating: Veteran
   actions:
     - |
-      Gain 1 <:charge:>. Choose:
+      Gain 1 <:charge:>. Inflict [<:charge:>] <:suppressed:>.
+      Choose:
       > Inflict [<:charge:>+1] <:vulnerable:>.
       > Deal [<:charge:>+1] AP <:damage:>.
-      Inflict <:suppressed:>([<:charge:>] AP <:damage:>).
 
 Mass Driver:
   size: Large
@@ -271,7 +271,7 @@ Heavy Assault Cannon:
       Deal [<:charge:>+1] <:damage:>.
       Choose:
       > Shred.
-      > Inflict <:suppressed:>([<:charge:>+1] <:damage:>).
+      > Inflict [<:charge:>+1] <:suppressed:>.
   tags:
     - Strong-Watchlist
 
@@ -395,7 +395,7 @@ Laser Rifle:
   rating: Veteran
   actions:
     - |
-      Deal 3 <:damage:>. Inflict <:suppressed:>(1 <:overheat:>).
+      Deal 3 <:damage:>.
 
 Autopulse Rifle:
   size: Medium
@@ -453,7 +453,7 @@ Magnetic Harpoon:
     - |
       Deal 1 <:damage:>.
       If the target is in the back line, move it to the front line.
-      Inflict <:suppressed:>(1 <:damage:>).
+      Inflict 1 <:suppressed:>.
 
 Ion Beam:
   size: Medium
