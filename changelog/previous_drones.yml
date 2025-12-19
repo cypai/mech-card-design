@@ -1,15 +1,22 @@
 Combat Drone:
-  ability: |
-    Passive: At the end of the round, deal 2 damage to the enemy vanguard, then destroy this drone.
+  passives:
+    - |
+      When the Round ends:
+      Deal 2 <:damage:> to the enemy front line, then destroy this drone.
 
 Shield Drone:
-  ability: |
-    Trigger: When targeted by a Weapon, grant 2 Shield to an allied mech, then destroy this drone.
+  triggers:
+    - |
+      When an enemy mech activates a Weapon:
+      Gain 2 <:shield:> on an allied mech, then destroy this drone.
 
 Scout Drone:
-  ability: |
-    Action: An allied mech may reposition without Heat Cost, then activate a Weapon, then destroy this drone.
+  actions:
+    - |
+      An allied mech may reposition without <:heat:> Cost. That mech may then activate a Weapon. Then destroy this drone.
 
 Jammer Drone:
-  ability: |
-    Passive: At the start of the round, inflict 1 Overheat on the enemy vanguard, then destroy this drone.
+  passives:
+    - |
+      When the Round starts:
+      Inflict 1 <:overheat:> to the enemy front line, then destroy this drone.

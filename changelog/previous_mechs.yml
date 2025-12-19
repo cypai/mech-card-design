@@ -1,292 +1,337 @@
 Lancelot:
-  faction: Midline
-  hp: 12
+  faction: Feds
+  hp: 10
   armor: 0
   hc: 7
   hardpoints:
-  - Large
-  - Medium
-  - Small
-  ability: |
-    Trigger: 1/battle, Heat Cost = 0 (ignoring Overheat) for this mech.
+    - Large
+    - Medium
+    - Small
+  actions:
+    - |
+      1/battle, activate an Equipment on this mech for 0 <:heat:> Cost (<:overheat:> still applies).
 
 Guanyin:
-  faction: Midline
+  faction: Feds
   hp: 10
   armor: 1
   hc: 7
   hardpoints:
-  - Medium
-  - Medium
-  - Small
-  - Small
-  ability: |
-    Trigger: 1/round, redirect the target of any enemy equipment to this mech if valid, reducing damage taken by 2.
+    - Medium
+    - Medium
+    - Small
+    - Small
+  triggers:
+    - |
+      1/round, when an opponent declares a <:target:> on an allied mech for a Weapon:
+      Gain 2 <:shield:>, then redirect the <:target:> to this mech.
 
 Osiris:
-  faction: Midline
-  hp: 8
-  armor: 1
+  faction: Feds
+  hp: 10
+  armor: 0
   hc: 8
   hardpoints:
-  - Large
-  - Medium
-  - Small
-  ability: |
-    Trigger: 1/round, when this mech activates a System as an Action: it may then activate a Weapon.
+    - Large
+    - Medium
+    - Small
+  triggers:
+    - |
+      1/round, when this mech activates a System as an Action:
+      Activate a Weapon on this mech.
 
 Anansi:
-  faction: Midline
+  faction: Feds
   hp: 9
   armor: 0
   hc: 7
   hardpoints:
-  - Medium
-  - Medium
-  - Small
-  - Small
-  ability: |
-    Passive: The first time each turn this mech inflicts damage, additionally inflict 1 Overheat.
+    - Medium
+    - Medium
+    - Small
+    - Small
+  actions:
+    - |
+      Activate a <:target:> 1 Equipment on this mech, then inflict 1 <:overheat:> to the same <:target:>.
 
 Tzitzimitl:
-  faction: Midline
-  hp: 10
-  armor: 0
-  hc: 7
-  hardpoints:
-  - Medium
-  - Medium
-  - Medium
-  ability: |
-    Passive: Reduce damage taken by 1. At the start of the round, all allied mechs in the same position gain 1 Shield.
-
-Amaterasu:
-  faction: Midline
-  hp: 10
-  armor: 1
-  hc: 7
-  hardpoints:
-  - Large
-  - Medium
-  - Small
-  ability: |
-    Trigger: 1/round, when you Charge, Charge+1 instead.
-
-Ballistarius:
-  faction: Low Tech
-  hp: 6
-  armor: 2
-  hc: 6
-  hardpoints:
-  - Large
-  - Large
-  ability: |
-    Passive: While in the back line, this mech's Medium or Large non-Missile weapons deal +1 damage.
-
-Gladius:
-  faction: Low Tech
+  faction: Feds
   hp: 9
   armor: 2
   hc: 7
   hardpoints:
-  - Large
-  - Medium
-  - Small
-  ability: |
-    Passive: Melee Weapons +1 damage.
+    - Medium
+    - Medium
+    - Medium
+  passives:
+    - |
+      When the Round starts:
+      All allied mechs at this mech's position gain 1 <:shield:>.
 
-Legionary:
-  faction: Low Tech
+Amaterasu:
+  faction: Feds
   hp: 10
   armor: 1
   hc: 7
   hardpoints:
-  - Large
-  - Medium
-  - Small
-  ability: |
-    Passive: After dealing damage with Weapons on this mech, if the target does not have Vulnerable, inflict 1 Vulnerable.
+    - Large
+    - Medium
+    - Small
+  triggers:
+    - |
+      1/round, when Equipment on this mech gains Charge:
+      Charge that Equipment.
 
-Rubicon:
-  faction: Low Tech
-  hp: 11
+Ballistarius:
+  faction: Ares
+  hp: 7
+  armor: 2
+  hc: 7
+  hardpoints:
+    - Large
+    - Large
+  passives:
+    - |
+      While this mech is in the back line, this mech's <:range:> 1 Medium or Large Weapons have <:range:> 2.
+
+Gladius:
+  faction: Ares
+  hp: 9
+  armor: 2
+  hc: 7
+  hardpoints:
+    - Large
+    - Small
+    - Small
+  passives:
+    - |
+      Melee Weapons on this mech +1 <:damage:>.
+
+Legionary:
+  faction: Ares
+  hp: 10
   armor: 1
   hc: 7
   hardpoints:
-  - Large
-  - Large
-  - Small
-  ability: |
-    Passive: Whenever this mech deals at least 3 damage, additionally inflict 1 Vulnerable.
+    - Large
+    - Medium
+    - Small
+  actions:
+    - |
+      Activate a Small or Medium Weapon. After resolving it, all enemy mechs affected by that Weapon gain 1 <:vulnerable:>.
+
+Rubicon:
+  faction: Ares
+  hp: 10
+  armor: 2
+  hc: 7
+  hardpoints:
+    - Large
+    - Large
+    - Large
+  actions:
+    - |
+      1/round, choose a Weapon on this mech.
+      Prepare: Activate it at half <:heat:> Cost (rounded up).
 
 Centurion:
-  faction: Low Tech
+  faction: Ares
   hp: 8
   armor: 3
   hc: 7
   hardpoints:
-  - Large
-  - Medium
-  - Small
-  ability: |
-    Trigger: 1/battle, this mech's Melee Weapons deal additional damage equal to its Armor.
+    - Large
+    - Medium
+    - Small
+  triggers:
+    - |
+      1/battle, when activating a Melee Weapon on this mech:
+      This turn, it deals additional <:damage:> equal to this mech's Armor.
 
 Praetor:
-  faction: Low Tech
-  hp: 10
-  armor: 1
+  faction: Ares
+  hp: 7
+  armor: 3
   hc: 7
   hardpoints:
-  - Large
-  - Medium
-  - Small
-  ability: |
-    Passive: When another allied mech at this mech's position activates a Large Weapon targeting a single enemy mech, if it did not apply Overwatch, it gains: Overwatch: Deal 2 damage.
+    - Large
+    - Medium
+    - Small
+  actions:
+    - |
+      <:card-rotation:> this mech.
+  triggers:
+    - |
+      1/round, when an opponent declares a <:target:> on an allied mech, and this mech is <:card-rotation:>:
+      Redirect the <:target:> to this mech.
+  passives:
+    - |
+      While this mech is <:card-rotation:>, this mech's <:range:> 1 Weapons have <:range:> 2.
 
 Aquarius:
-  faction: High Tech
+  faction: Jovians
   hp: 10
   armor: 0
   hc: 7
   hardpoints:
-  - Medium
-  - Medium
-  - Small
-  - Small
-  ability: |
-    Passive: While shielded, Heat Cost -1 (min 1 Heat Cost).
+    - Medium
+    - Medium
+    - Small
+    - Small
+  passives:
+    - |
+      While this mech has <:shield:>, Equipment on this mech <:heat:> Cost -1 (min 1 <:heat:> Cost).
 
 Pegasus:
-  faction: High Tech
+  faction: Jovians
   hp: 10
   armor: 0
   hc: 8
   hardpoints:
-  - Medium
-  - Medium
-  - Small
-  - Small
-  ability: |
-    Trigger: This mech may Advance or Fall Back after acting.
+    - Medium
+    - Medium
+    - Small
+    - Small
+  triggers:
+    - |
+      When this mech resolves an Action:
+      Advance or Fall Back this mech.
 
 Cygnus:
-  faction: High Tech
+  faction: Jovians
   hp: 10
   armor: 0
   hc: 8
   hardpoints:
-  - Large
-  - Medium
-  - Small
-  ability: |
-    Action: 1/round, Advance for 0 Heat Cost, then grant allied vanguard mechs 1 Shield.
-    Trigger: At the start of the round, you may Fall Back.
+    - Large
+    - Medium
+    - Small
+  actions:
+    - |
+      1/round, Advance this mech for 0 <:heat:> Cost, then allied mechs in the front line gain 1 <:shield:>.
+  triggers:
+    - |
+      When the Round starts:
+      Fall Back.
 
 Libra:
-  faction: High Tech
+  faction: Jovians
   hp: 7
   armor: 0
   hc: 8
   hardpoints:
-  - Large
-  - Small
-  ability: |
-    Trigger: 1/round, upon taking damage, turn it into Heat instead.
-    You cannot trigger this if you do not have enough Heat Capacity.
+    - Large
+    - Small
+  triggers:
+    - |
+      1/round, when this mech takes <:damage:> and has enough <:heat:> Capacity:
+      Gain <:heat:> on this mech equal to <:damage:> taken instead.
 
 Gemini:
-  faction: High Tech
+  faction: Jovians
   hp: 8
   armor: 0
   hc: 8
   hardpoints:
-  - Medium
-  - Medium
-  - Medium
-  ability: |
-    Action: 1/round, if this mech has Shield, deploy 1 drone of your choice.
+    - Medium
+    - Medium
+    - Medium
+  actions:
+    - |
+      1/round, if this mech has <:shield:>, deploy 1 drone of your choice.
 
-Taurus:
-  faction: High Tech
+Capricornus:
+  faction: Jovians
   hp: 10
   armor: 0
   hc: 8
   hardpoints:
-  - Large
-  - Medium
-  - Small
-  ability: |
-    Action: 1/round, Advance for 0 Heat Cost, then you may activate a Melee Weapon immediately, which deals +1 damage until resolved.
-    Trigger: At the start of the round, you may Fall Back.
+    - Large
+    - Small
+    - Small
+    - Small
+  triggers:
+    - |
+      When this mech changes position:
+      Activate a Small Equipment on this mech.
 
 Cockroach:
-  faction: Pirate
+  faction: Pirates
   hp: 8
   armor: 0
   hc: 6
   hardpoints:
-  - Large
-  - Small
-  ability: |
-    Trigger: 1/round, if this mech's HP would be reduced to 0, set HP to 1 instead, then set Heat to 0.
+    - Large
+    - Small
+  triggers:
+    - |
+      1/round, when this mech's HP would be reduced to 0:
+      Set this mech's HP to 1 instead, then set this mech's <:heat:> to 0.
 
 Monte Carlo:
-  faction: Pirate
-  hp: 10
-  armor: 0
+  faction: Pirates
+  hp: 9
+  armor: 1
   hc: 7
   hardpoints:
-  - Large
-  - Medium
-  - Medium
-  ability: |
-    Action: 1/round, reveal cards from the deck until you reveal an Equipment. Immediately mount it on this mech, replacing previous equipment if necessary, then you may activate it.
+    - Large
+    - Large
+    - Small
+  actions:
+    - |
+      1/round, reveal cards from the deck until you reveal an Equipment. You must immediately mount it on this mech, replacing previous Equipment if necessary, then you may activate it.
 
 Jolly Roger:
-  faction: Pirate
-  hp: 10
-  armor: 1
-  hc: 7
+  faction: Pirates
+  hp: 9
+  armor: 2
+  hc: 6
   hardpoints:
-  - Medium
-  - Medium
-  - Small
-  - Small
-  ability: |
-    Passive: Whenever a mech has its HP reduced to 0, all allied mechs lose 1 Heat.
+    - Large
+    - Medium
+    - Small
+  triggers:
+    - |
+      1/round, when a mech is destroyed:
+      Mount 1 Equipment from that mech onto this mech, replacing Equipment if necessary. It has 0 <:ammo:> and 0 Charge if applicable. You may activate it immediately.
 
 Blackjack:
-  faction: Pirate
+  faction: Pirates
   hp: 10
   armor: 1
   hc: 7
   hardpoints:
-  - Large
-  - Medium
-  - Small
-  ability: |
-    Action: 1/round, discard a card. Reveal cards from the top of the deck until you reveal a Maneuver, then use it immediately.
+    - Large
+    - Medium
+    - Small
+  actions:
+    - |
+      1/round, discard a card. Reveal cards from the top of the deck until you reveal a Maneuver, then use it immediately.
 
 Powder Keg:
-  faction: Pirate
+  faction: Pirates
   hp: 10
   armor: 0
   hc: 7
   hardpoints:
-  - Large
-  - Medium
-  - Small
-  ability: |
-    Action: Prepare: Self-destruct.
-    Passive: If this mech is destroyed while in the vanguard, immediately deal 3 AP damage to the enemy vanguard. This ability cannot win the game.
+    - Large
+    - Medium
+    - Small
+  actions:
+    - |
+      Prepare: Self-destruct.
+  passives:
+    - |
+      If this mech is destroyed while in the front line, immediately deal 3 AP <:damage:> to the enemy front line. This cannot win the game.
 
 Rapscallion:
-  faction: Pirate
-  hp: 9
+  faction: Pirates
+  hp: 8
   armor: 0
   hc: 6
   hardpoints:
-  - Medium
-  - Medium
-  ability: |
-    Passive: While this mech has 0 Heat and there is another allied mech in your front line, this mech cannot be targeted.
+    - Medium
+    - Medium
+  passives:
+    - |
+      While this mech has 0 <:heat:> and there is another allied mech in your front line, the opponent cannot <:target:> this mech.

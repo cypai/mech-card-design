@@ -1,3 +1,9 @@
+full ui overhaul
+----------------
+
+All cards were updated with the new UI.
+
+
 11/29 mid-playtest
 ------------------
 
