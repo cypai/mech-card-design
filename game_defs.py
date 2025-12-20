@@ -348,19 +348,48 @@ class Drone:
 class Maneuver:
     name: str
     text: str
+    info: Optional[str]
+    actions: list[str]
+    triggers: list[str]
     copies: int
+    legacy_text: bool
+    rating: Optional[str]
 
     def __init__(self, **kwargs):
         self.name = str(kwargs.get("name"))
-        self.text = str(kwargs.get("text"))
+        self.info = kwargs.get("info", None)
+        self.actions = kwargs.get("actions", [])
+        self.triggers = kwargs.get("triggers", [])
         self.copies = kwargs.get("copies", 2)
+        self.rating = kwargs.get("rating", None)
 
         self.normalized_name = re.sub(r"\W", "", self.name)
         self.normalized_name = self.normalized_name.lower()
         self.filename = f"outputs/maneuvers/{self.normalized_name}.png"
+        self.legacy_text = (
+            self.info is None and len(self.actions) == 0 and len(self.triggers) == 0
+        )
+        if self.legacy_text:
+            self.text = kwargs.get("text", "")
+        else:
+            self.text = self.pretty_text()
 
     def __str__(self):
-        text = self.name + "\n" + self.text
+        text = f"{self.name}\n"
+        if self.rating is not None:
+            text += f"Rating: {self.rating}\n"
+        text += self.text
+        return text
+
+    def pretty_text(self):
+        if self.info is None:
+            text = ""
+        else:
+            text = f"Info: {self.info}"
+        for action in self.actions:
+            text += f"Action: {action}"
+        for trigger in self.triggers:
+            text += f"Trigger: {trigger}"
         return text
 
     def is_similar(self, other: Self) -> bool:

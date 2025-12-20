@@ -1,43 +1,67 @@
 Coordinated Maneuvers:
-  text: |
-    Draw a card. Reposition all allied mechs for 0 <:heat:>, then you may activate any Equipment.
+  rating: Cadet
+  actions:
+    - |
+      Draw a card. Advance or Fall Back any number of allied mechs, then you may activate any Equipment.
 
 Airstrike:
-  text: |
-    Draw a card. Deal 1 <:damage:>.
+  rating: Cadet
+  actions:
+    - |
+      Draw a card. Deal 1 <:damage:>.
 
 Fog of War:
-  text: |
-    Draw a card. All allied mechs gain 1 <:shield:>.
+  rating: Cadet
+  actions:
+    - |
+      Draw a card. All allied mechs gain 1 <:shield:>.
 
 Lock and Load:
-  text: |
-    Draw a card. Restore all Ammo for 1 Equipment, then you may immediately activate it, dealing +1 <:damage:> with it this turn.
+  rating: Cadet
+  actions:
+    - |
+      Draw a card. Restore all Ammo for 1 Equipment, then you may immediately activate it, dealing +1 <:damage:> with it this turn.
 
 EMP Airburst:
-  text: |
-    Draw a card. Disable 1 Equipment on an enemy mech with no <:shield:>. Disable 1 Equipment on your mech.
+  rating: Cadet
+  actions:
+    - |
+      Draw a card. Disable 1 Equipment on an enemy mech with no <:shield:>. Disable 1 Equipment on your mech.
 
 System Reboot:
-  text: |
-    Draw a card. Remove all <:vulnerable:>, <:overheat:>, <:suppressed:>, and Disable from an allied mech. You may take an Action with that mech.
+  rating: Cadet
+  actions:
+    - |
+      Draw a card. Remove all <:overheat:> and Disable from an allied mech.
 
 Ramming Speed:
-  text: |
-    Draw a card. Move an allied mech into the front line if not already there, then activate a Melee Weapon on that mech. This turn, that Melee weapon does +1 <:damage:>.
+  rating: Cadet
+  actions:
+    - |
+      Draw a card. Choose an allied mech. You may Advance it, then you may activate a Melee Weapon on it. This turn, that Weapon deals +2 <:damage:> if you chose to Advance, +1 <:damage:> otherwise.
 
-High Ground:
-  text: |
-    Draw a card. Activate a non-Melee Equipment. It has <:range:> 3 until resolved.
+Take Cover:
+  rating: Veteran
+  triggers:
+    - |
+      When an allied mech becomes a <:target:> or gains <:suppression:>:
+      Draw a card. Remove all <:vulnerable:> and <:suppression:> from it.
 
-Shock and Awe:
-  text: |
-    Draw a card. Inflict 1 <:vulnerable:> and 1 <:overheat:> to the enemy front line.
+Latent Trojan:
+  rating: Veteran
+  triggers:
+    - |
+      When an enemy mech activates a System:
+      Inflict 1 <:overheat:> to that mech.
 
 Outflank:
-  text: |
-    Draw a card. Reposition any number of enemy mechs. At least 1 mech must be in the front line.
+  rating: Cadet
+  actions:
+    - |
+      Draw a card. Reposition any number of enemy mechs. At least 1 mech must be in the front line.
 
 Combat Engineering:
-  text: |
-    Draw a card. Look at an additional 5 cards in the deck. You may replace 1 Equipment on any of your mechs with one of those cards or cards in your hand.
+  rating: Veteran
+  actions:
+    - |
+      Draw a card. Look at an additional 5 cards in the deck. You may replace 1 Equipment on any of your mechs with one of those cards or cards in your hand.

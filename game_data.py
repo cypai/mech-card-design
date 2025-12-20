@@ -94,7 +94,11 @@ def parse_maneuvers(maneuvers) -> Maneuver:
     return Maneuver(
         name=name,
         text=data.get("text"),
+        info=data.get("info", None),
+        actions=data.get("actions", []),
+        triggers=data.get("triggers", []),
         copies=data.get("copies", 2),
+        rating=data.get("rating", None),
     )
 
 
@@ -141,22 +145,22 @@ def equipment_stats():
             full_types[(size, t)] = 0
     ammo_weapons = 0
     keywords = {
-        "Shred": 0,
-        "AP": 0,
         "Charge": 0,
         "Disable": 0,
+        "AP": 0,
+        "Shred": 0,
     }
     icon_keywords = {
-        "<:shield:>": 0,
         "<:vulnerable:>": 0,
         "<:overheat:>": 0,
-        "<:suppressed:>": 0,
+        "<:shield:>": 0,
+        "<:suppression:>": 0,
     }
     icon_keyword_map = {
-        "<:shield:>": "Shield",
         "<:vulnerable:>": "Vulnerable",
         "<:overheat:>": "Overheat",
-        "<:suppressed:>": "Suppressed",
+        "<:shield:>": "Shield",
+        "<:suppression:>": "Suppression",
     }
     tag_counts = {}
     ratings = {}
@@ -242,6 +246,10 @@ def get_filtered_equipment(filters: list[str]) -> list[Equipment]:
         for f in parsed_filters:
             if f == "true":
                 ok += 1
+            elif f == "ap":
+                if f in tokenized_text:
+                    ok += 1
+                continue
             elif (
                 f != "move"
                 and f in tokenized_text
