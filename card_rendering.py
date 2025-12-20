@@ -537,16 +537,55 @@ class ManeuverCardRenderer(CardRenderer):
         self.draw_card_text()
 
     def draw_card_text(self):
-        text = self.maneuver.text
-        self.image.alpha_composite(
-            self.icons.action, (MARGIN, ManeuverCardRenderer.TEXT_Y)
+        if self.maneuver.legacy_text:
+            self.draw_card_text_legacy()
+        else:
+            section = 0
+            if self.maneuver.info is not None:
+                num_lines = self.draw_card_text_section(
+                    ManeuverCardRenderer.TEXT_Y,
+                    self.icons.info,
+                    self.maneuver.info,
+                )
+                section += num_lines + 0.5
+            for action in self.maneuver.actions:
+                num_lines = self.draw_card_text_section(
+                    ManeuverCardRenderer.TEXT_Y + int(section * (SMALL_FONT_SIZE + 10)),
+                    self.icons.action,
+                    action,
+                )
+                section += num_lines + 0.5
+            for trigger in self.maneuver.triggers:
+                num_lines = self.draw_card_text_section(
+                    ManeuverCardRenderer.TEXT_Y + int(section * (SMALL_FONT_SIZE + 10)),
+                    self.icons.trigger,
+                    trigger,
+                )
+                section += num_lines + 0.5
+
+    def draw_card_text_section(self, y: int, icon: Image.Image, text: str) -> int:
+        self.image.alpha_composite(icon, (MARGIN, y - 1))
+        width_in_characters = (
+            int((CARD_WIDTH - 2.2 * MARGIN) / (SMALL_FONT_SIZE * 0.6)) - 4
         )
+        wrapped_text = wrap_text_tagged(text, width_in_characters)
+        self.pilmoji.text(
+            (int(MARGIN + SMALL_FONT_SIZE * 1.5), y),
+            wrapped_text,
+            "#000000",
+            font=self.small_font,
+            spacing=SPACING,
+        )
+        return len(wrapped_text.splitlines())
+
+    def draw_card_text_legacy(self):
+        text = self.maneuver.text
         width_in_characters = (
             int((CARD_WIDTH - 2.2 * MARGIN) / (SMALL_FONT_SIZE * 0.6)) - 2
         )
         wrapped_text = wrap_text_tagged(text, width_in_characters)
         self.pilmoji.text(
-            (int(MARGIN + SMALL_FONT_SIZE * 1.5), ManeuverCardRenderer.TEXT_Y),
+            (MARGIN, CardRenderer.CARD_TEXT_Y),
             wrapped_text,
             "#000000",
             font=self.small_font,
