@@ -385,6 +385,21 @@ Flamethrower:
   tags:
     - AOE
 
+Galvanic Shotgun:
+  size: Medium
+  type: Energy
+  form: Weapon
+  heat: 3
+  range: 1
+  target: P
+  maxcharge: 3
+  rating: Veteran
+  actions:
+    - |
+      1 Equipment on an allied mech gains 1 <:charge:>. Deal [<:charge:>] <:damage:>.
+  tags:
+    - AOE
+
 Laser Rifle:
   size: Medium
   type: Energy
@@ -466,26 +481,6 @@ Ion Beam:
   actions:
     - |
       Disable 1 Equipment on the <:target:>.
-
-Ion Pulser:
-  size: Medium
-  type: Energy
-  form: Weapon
-  heat: 3
-  range: 1
-  target: C
-  maxcharge: 3
-  rating: Veteran
-  actions:
-    - |
-      Gain 1 <:charge:>.
-    - |
-      Back line activation: Gain 2 <:charge:>.
-    - |
-      Disable 1 Equipment on each <:target:>. Discharge.
-  tags:
-    - AOE
-    - Sus
 
 Pulsar Beam Cannon:
   size: Large
@@ -875,8 +870,8 @@ Hunter-Killer Nanites:
       If the <:target:> has Vulnerable, deal 1 <:damage:>, otherwise inflict 1 <:vulnerable:>.
   triggers:
     - |
-      When an enemy mech changes position:
-      Activate this Weapon and <:target:> that mech.
+      When the turn ends:
+      Activate this Weapon and <:target:> a mech that repositioned this turn.
 
 Proximity-Swarm Nanites:
   size: Small
@@ -898,6 +893,21 @@ Proximity-Swarm Nanites:
       Activate this Weapon, setting that mech as the <:target:> if applicable.
   tags:
     - Strong-Watchlist
+
+Thermo-Reactive Nanites:
+  size: Small
+  type: Nanite
+  form: Weapon
+  heat: 4
+  range: 2
+  target: 1
+  ammo: 3
+  rating: Veteran
+  actions:
+    - |
+      Inflict 3 <:overheat:>.
+    - |
+      Inflict 3 <:vulnerable:>.
 
 Javelin Missile:
   size: Medium
@@ -923,11 +933,13 @@ Anchor Harpoon:
   rating: Cadet
   actions:
     - |
-      Move any mech to any other valid position.
+      Reposition an allied mech.
+    - |
+      Reposition the <:target:>.
   triggers:
     - |
-      When any mech is forced to reposition:
-      Prevent the reposition.
+      When an Equipment is activated:
+      The <:target:> cannot be repositioned this turn.
 
 Dragonfire Missile:
   size: Small
@@ -1093,6 +1105,22 @@ Thanatos Missile:
   alias:
     - SHORTCIRCUIT
 
+"Cyberwarfare: CLOCKOUT":
+  size: Small
+  type: Electronics
+  form: System
+  heat: 2
+  range: 2
+  target: 1
+  rating: Cadet
+  actions:
+    - |
+      Gain 1 <:charge:>.
+    - |
+      If [<:charge:>]>1: Disable 1 Equipment, then lose all <:charge:>.
+  alias:
+    - CLOCKOUT
+
 "Cyberwarfare: MIRAGE":
   size: Small
   type: Electronics
@@ -1121,20 +1149,6 @@ Thanatos Missile:
       Reposition both the <:target:> and this mech.
   alias:
     - TANGO
-
-"Cyberwarfare: PROMETHEUS":
-  size: Medium
-  type: Electronics
-  form: System
-  heat: 4
-  range: 3
-  target: 1
-  rating: Cadet
-  actions:
-    - |
-      Inflict 2 <:overheat:>. Gain 1 <:charge:> on 1 Equipment on an allied mech.
-  alias:
-    - PROMETHEUS
 
 "Cyberwarfare: JOKER":
   size: Medium
@@ -1266,19 +1280,6 @@ Absolute Terminus Field:
       Gain 1 <:shield:>.
   alias:
     - AT Field
-
-Accuracy Overclocker:
-  size: Medium
-  type: Electronics
-  form: System
-  heat: 1
-  rating: Cadet
-  triggers:
-    - |
-      When activating a Weapon on this mech:
-      Discard a card. That Weapon cannot be Evaded this turn.
-  tags:
-    - Strong-Watchlist
 
 Charge Spool:
   size: Small

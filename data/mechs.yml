@@ -52,7 +52,7 @@ Anansi:
     - Small
   actions:
     - |
-      Activate a <:target:> 1 Equipment on this mech, then inflict 1 <:overheat:> to the same <:target:>.
+      Activate a <:target:> 1 Equipment on this mech, then inflict 1 <:overheat:> to the same <:target:> when it resolves.
 
 Tzitzimitl:
   faction: Feds
@@ -79,8 +79,8 @@ Amaterasu:
     - Small
   triggers:
     - |
-      1/round, when Equipment on this mech gains Charge:
-      Charge that Equipment.
+      1/round, when you activate an Equipment on this mech that can gain <:charge:>:
+      It gains 1 <:charge:>.
 
 Ballistarius:
   faction: Ares
@@ -252,7 +252,7 @@ Capricornus:
     - Small
   triggers:
     - |
-      When this mech changes position:
+      When the turn ends, and this mech changed position this turn:
       Activate a Small Equipment on this mech.
 
 Cockroach:
@@ -265,7 +265,7 @@ Cockroach:
     - Small
   triggers:
     - |
-      1/round, when this mech's HP would be reduced to 0:
+      1/round, when this mech would be destroyed:
       Set this mech's HP to 1 instead, then set this mech's <:heat:> to 0.
 
 Monte Carlo:
@@ -293,7 +293,7 @@ Jolly Roger:
   triggers:
     - |
       1/round, when a mech is destroyed:
-      Mount 1 Equipment from that mech onto this mech, replacing Equipment if necessary. It has 0 <:ammo:> and 0 Charge if applicable. You may activate it immediately.
+      Mount 1 Equipment from that mech onto this mech, replacing Equipment if necessary. If applicable, it has 0 <:charge:>, but <:ammo:> is retained. You may activate it immediately.
 
 Blackjack:
   faction: Pirates
@@ -319,10 +319,11 @@ Powder Keg:
     - Small
   actions:
     - |
-      Prepare: Self-destruct.
+      Prepare: Destroy this mech.
   passives:
     - |
-      If this mech is destroyed while in the front line, immediately deal 3 AP <:damage:> to the enemy front line. This cannot win the game.
+      When this mech would be destroyed while you have another allied mech:
+      Deal 3 AP <:damage:> to the enemy front line.
 
 Rapscallion:
   faction: Pirates
