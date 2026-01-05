@@ -19,4 +19,4 @@ Jammer Drone:
   passives:
     - |
       When the Round starts:
-      Inflict 1 <:overheat:> to the enemy front line, then destroy this drone.
+      Inflict 1 <:overheat:> to an enemy mech in the front line.

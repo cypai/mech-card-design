@@ -1,3 +1,275 @@
+1/3 printout
+------------
+
+Anansi
+Action: Activate a <:target:> 1 Equipment on this mech, then inflict 1 <:overheat:> to the same <:target:>.
+|->
+Action: Activate a <:target:> 1 Equipment on this mech, then inflict 1 <:overheat:> to the same <:target:> when it resolves.
+
+Amaterasu
+Trigger: 1/round, when Equipment on this mech gains Charge:
+Charge that Equipment.
+|->
+Trigger: 1/round, when you activate an Equipment on this mech that can gain <:charge:>:
+It gains 1 <:charge:>.
+
+Capricornus
+Trigger: When this mech changes position:
+Activate a Small Equipment on this mech.
+|->
+Trigger: When the turn ends, and this mech changed position this turn:
+Activate a Small Equipment on this mech.
+
+Cockroach
+Trigger: 1/round, when this mech's HP would be reduced to 0:
+Set this mech's HP to 1 instead, then set this mech's <:heat:> to 0.
+|->
+Trigger: 1/round, when this mech would be destroyed:
+Set this mech's HP to 1 instead, then set this mech's <:heat:> to 0.
+
+Jolly Roger
+Trigger: 1/round, when a mech is destroyed:
+Mount 1 Equipment from that mech onto this mech, replacing Equipment if necessary. It has 0 <:ammo:> and 0 Charge if applicable. You may activate it immediately.
+|->
+Trigger: 1/round, when a mech is destroyed:
+Mount 1 Equipment from that mech onto this mech, replacing Equipment if necessary. If applicable, it has 0 <:charge:>, but <:ammo:> is retained. You may activate it immediately.
+
+Powder Keg
+Action: Prepare: Self-destruct.
+Passive: If this mech is destroyed while in the front line, immediately deal 3 AP <:damage:> to the enemy front line. This cannot win the game.
+|->
+Action: Prepare: Destroy this mech.
+Passive: When this mech would be destroyed while you have another allied mech:
+Deal 3 AP <:damage:> to the enemy front line.
+
+TRAK-R Smart Gun
+Action: Inflict 1 <:suppressed:>.
+Trigger: When resolving other Equipment on any allied mech as an Action:
+Inflict 1 <:suppressed:> on all mechs affected by that Equipment.
+|->
+Action: Inflict 1 <:suppression:>.
+Trigger: When resolving other Equipment on any allied mech as an Action:
+Inflict 1 <:suppression:> on all mechs affected by that Equipment.
+
+Gauss Rifle
+Action: Deal 3 AP <:damage:>.
+|->
+Action: Deal 2 AP <:damage:>. Inflict 1 <:vulnerable:>.
+
+Assault Carbine
+Action: Deal 2 <:damage:>. Inflict 1 <:suppressed:>.
+|->
+Action: Deal 2 <:damage:>. Inflict 1 <:suppression:>.
+
+Assault Cannon
+Action: Deal 2 <:damage:>. Choose:
+> Shred.
+> Inflict 2 <:suppressed:>.
+|->
+Action: Deal 2 <:damage:>. Choose:
+> Shred.
+> Inflict 2 <:suppression:>.
+
+Machine Gun
+Action: Deal 1 <:damage:> and inflict 1 <:suppressed:> to each <:target:>.
+|->
+Action: Deal 1 <:damage:> and inflict 1 <:suppression:> to each <:target:>.
+
+Panoptic Autocannon
+Heat: 5 -> 6
+Action: Deal 2 AP <:damage:> and inflict 2 <:suppressed:> to each <:target:>.
+|->
+Action: Deal 2 AP <:damage:> and inflict 2 <:suppression:> to each <:target:>.
+
+Devastator
+Action: Gain 1 <:charge:>. Inflict [<:charge:>] <:suppressed:>.
+Choose:
+> Inflict [<:charge:>+1] <:vulnerable:>.
+> Deal [<:charge:>+1] AP <:damage:>.
+|->
+Action: Gain 1 <:charge:>. Inflict [<:charge:>] <:suppression:>.
+Choose:
+> Inflict [<:charge:>+1] <:vulnerable:>.
+> Deal [<:charge:>+1] AP <:damage:>.
+
+Heavy Assault Cannon
+Action: Gain 1 <:charge:>.
+Deal [<:charge:>+1] <:damage:>.
+Choose:
+> Shred.
+> Inflict [<:charge:>+1] <:suppressed:>.
+|->
+Action: Gain 1 <:charge:>.
+Deal [<:charge:>+1] <:damage:>.
+Choose:
+> Shred.
+> Inflict [<:charge:>+1] <:suppression:>.
+
+Magnetic Harpoon
+Action: Deal 1 <:damage:>.
+If the target is in the back line, move it to the front line.
+Inflict 1 <:suppressed:>.
+|->
+Action: Deal 1 <:damage:>.
+If the target is in the back line, move it to the front line.
+Inflict 1 <:suppression:>.
+
+Hunter-Killer Nanites
+Action: If the <:target:> has Vulnerable, deal 1 <:damage:>, otherwise inflict 1 <:vulnerable:>.
+Trigger: When an enemy mech changes position:
+Activate this Weapon and <:target:> that mech.
+|->
+Action: If the <:target:> has Vulnerable, deal 1 <:damage:>, otherwise inflict 1 <:vulnerable:>.
+Trigger: When the turn ends:
+Activate this Weapon and <:target:> a mech that repositioned this turn.
+
+Anchor Harpoon
+Action: Move any mech to any other valid position.
+Trigger: When any mech is forced to reposition:
+Prevent the reposition.
+|->
+Action: Reposition an allied mech.
+Action: Reposition the <:target:>.
+Trigger: When an Equipment is activated:
+The <:target:> cannot be repositioned this turn.
+
+Galvanic Shotgun was added.
+Galvanic Shotgun
+Medium Energy Weapon
+Heat: 3
+Range: 1
+Target: P
+Max Charge: 3
+Tags: ['AOE']
+Rating: Veteran
+Action: 1 Equipment on an allied mech gains 1 <:charge:>. Deal [<:charge:>] <:damage:>.
+
+Thermo-Reactive Nanites was added.
+Thermo-Reactive Nanites
+Small Nanite Weapon
+Heat: 4
+Range: 2
+Target: 1
+Ammo: 3
+Rating: Veteran
+Action: Inflict 3 <:overheat:>.
+Action: Inflict 3 <:vulnerable:>.
+
+Cyberwarfare: CLOCKOUT was added.
+Cyberwarfare: CLOCKOUT
+Small Electronics System
+Heat: 2
+Range: 2
+Target: 1
+Rating: Cadet
+Action: Gain 1 <:charge:>.
+Action: If [<:charge:>]>1: Disable 1 Equipment, then lose all <:charge:>.
+
+Ion Pulser was deleted.
+Ion Pulser
+Medium Energy Weapon
+Heat: 3
+Range: 1
+Target: C
+Max Charge: 3
+Tags: ['AOE', 'Sus']
+Rating: Veteran
+Action: Gain 1 <:charge:>.
+Action: Back line activation: Gain 2 <:charge:>.
+Action: Disable 1 Equipment on each <:target:>. Discharge.
+
+Cyberwarfare: PROMETHEUS was deleted.
+Cyberwarfare: PROMETHEUS
+Medium Electronics System
+Heat: 4
+Range: 3
+Target: 1
+Rating: Cadet
+Action: Inflict 2 <:overheat:>. Gain 1 <:charge:> on 1 Equipment on an allied mech.
+
+Accuracy Overclocker was deleted.
+Accuracy Overclocker
+Medium Electronics System
+Heat: 1
+Tags: ['Strong-Watchlist']
+Rating: Cadet
+Trigger: When activating a Weapon on this mech:
+Discard a card. That Weapon cannot be Evaded this turn.
+
+Jammer Drone
+Passive: When the Round starts:
+Inflict 1 <:overheat:> to the enemy front line, then destroy this drone.
+|->
+Passive: When the Round starts:
+Inflict 1 <:overheat:> to an enemy mech in the front line.
+
+Coordinated Maneuvers
+Draw a card. Reposition all allied mechs for 0 <:heat:>, then you may activate any Equipment.
+|->
+Action: Draw a card. Advance or Fall Back any number of allied mechs, then you may activate any Equipment.
+
+Airstrike
+Draw a card. Deal 1 <:damage:>.
+|->
+Action: Draw a card. Deal 1 <:damage:>.
+
+Fog of War
+Draw a card. All allied mechs gain 1 <:shield:>.
+|->
+Action: Draw a card. All allied mechs gain 1 <:shield:>.
+
+Lock and Load
+Draw a card. Restore all Ammo for 1 Equipment, then you may immediately activate it, dealing +1 <:damage:> with it this turn.
+|->
+Action: Draw a card. Restore all Ammo for 1 Equipment, then you may immediately activate it, dealing +1 <:damage:> with it this turn.
+
+EMP Airburst
+Draw a card. Disable 1 Equipment on an enemy mech with no <:shield:>. Disable 1 Equipment on your mech.
+|->
+Action: Draw a card. Disable 1 Equipment on an enemy mech with no <:shield:>. Disable 1 Equipment on your mech.
+
+System Reboot
+Draw a card. Remove all <:vulnerable:>, <:overheat:>, <:suppressed:>, and Disable from an allied mech. You may take an Action with that mech.
+|->
+Action: Draw a card. Remove all <:overheat:> and Disable from an allied mech.
+
+Ramming Speed
+Draw a card. Move an allied mech into the front line if not already there, then activate a Melee Weapon on that mech. This turn, that Melee weapon does +1 <:damage:>.
+|->
+Action: Draw a card. Choose an allied mech. You may Advance it, then you may activate a Melee Weapon on it. This turn, that Weapon deals +2 <:damage:> if you chose to Advance, +1 <:damage:> otherwise.
+
+Outflank
+Draw a card. Reposition any number of enemy mechs. At least 1 mech must be in the front line.
+|->
+Action: Draw a card. Reposition any number of enemy mechs. At least 1 mech must be in the front line.
+
+Combat Engineering
+Draw a card. Look at an additional 5 cards in the deck. You may replace 1 Equipment on any of your mechs with one of those cards or cards in your hand.
+|->
+Action: Draw a card. Look at an additional 5 cards in the deck. You may replace 1 Equipment on any of your mechs with one of those cards or cards in your hand.
+
+Take Cover was added.
+Take Cover
+Rating: Veteran
+Trigger: When an allied mech becomes a <:target:> or gains <:suppression:>:
+Draw a card. Remove all <:vulnerable:> and <:suppression:> from it.
+
+Latent Trojan was added.
+Latent Trojan
+Rating: Veteran
+Trigger: When an enemy mech activates a System:
+Inflict 2 <:overheat:> to that mech.
+
+High Ground was deleted.
+High Ground
+Draw a card. Activate a non-Melee Equipment. It has <:range:> 3 until resolved.
+
+Shock and Awe was deleted.
+Shock and Awe
+Draw a card. Inflict 1 <:vulnerable:> and 1 <:overheat:> to the enemy front line.
+
+
+
 full ui overhaul
 ----------------
 
