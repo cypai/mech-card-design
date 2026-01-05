@@ -226,10 +226,11 @@ Devastator:
   rating: Veteran
   actions:
     - |
-      Gain 1 <:charge:>. Inflict [<:charge:>] <:suppression:>.
+      Gain 1 <:charge:>.
       Choose:
       > Inflict [<:charge:>] <:vulnerable:>.
       > Deal [<:charge:>] AP <:damage:>.
+      Then, inflict [<:charge:>] <:suppression:>.
 
 Mass Driver:
   size: Large
