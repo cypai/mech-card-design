@@ -34,7 +34,7 @@ Flechettes:
   rating: Veteran
   actions:
     - |
-      Deal 1 <:damage:> to each <:target:>. Discharge.
+      Deal 1 <:damage:> to each <:target:>. Lose all <:charge:>.
   triggers:
     - |
       When this mech resolves an Action other than this Equipment:
@@ -228,8 +228,8 @@ Devastator:
     - |
       Gain 1 <:charge:>. Inflict [<:charge:>] <:suppression:>.
       Choose:
-      > Inflict [<:charge:>+1] <:vulnerable:>.
-      > Deal [<:charge:>+1] AP <:damage:>.
+      > Inflict [<:charge:>] <:vulnerable:>.
+      > Deal [<:charge:>] AP <:damage:>.
 
 Mass Driver:
   size: Large
@@ -268,10 +268,10 @@ Heavy Assault Cannon:
   actions:
     - |
       Gain 1 <:charge:>.
-      Deal [<:charge:>+1] <:damage:>.
+      Deal [<:charge:>] <:damage:>.
       Choose:
       > Shred.
-      > Inflict [<:charge:>+1] <:suppression:>.
+      > Inflict [<:charge:>] <:suppression:>.
   tags:
     - Strong-Watchlist
 
@@ -339,7 +339,7 @@ Pulse Pistol:
     - |
       Gain 2 <:charge:>.
     - |
-      Deal 1 <:damage:> to each <:target:>. Discharge.
+      Deal 1 <:damage:> to each <:target:>. Lose all <:charge:>.
   tags:
     - AOE
 
@@ -423,7 +423,7 @@ Autopulse Rifle:
   rating: Veteran
   actions:
     - |
-      Gain 1 <:charge:>. Deal 3 <:damage:> to each <:target:>. Discharge.
+      Gain 1 <:charge:> before designating <:target:>. Deal 3 <:damage:> to each <:target:>. Lose all <:charge:>.
     - |
       Back line activation: Gain 1 <:charge:>.
   tags:
@@ -558,7 +558,7 @@ Portal Inducer:
   size: Large
   type: Energy
   form: Weapon
-  heat: 5
+  heat: 6
   range: 3
   target: 2
   rating: Cadet
@@ -595,10 +595,11 @@ Gigapulse Laser:
   rating: Veteran
   actions:
     - |
-      Gain 1 <:charge:>. Choose:
+      Gain 1 <:charge:> before designating <:target:>.
+      Choose:
       > Gain 1 <:charge:>.
       > Deal 3 <:damage:> to each <:target:>.
-        Discharge.
+        Lose all <:charge:>.
     - |
       Back line activation: Gain 2 <:charge:>.
   tags:
@@ -807,11 +808,11 @@ Shield Drone Launcher:
   type: Drone
   form: System
   heat: 3
-  ammo: 3
+  ammo: 2
   rating: Ace
   actions:
     - |
-      Grant 2 <:shield:> to an allied mech, then summon 1 Shield Drone.
+      Grant 2 <:shield:> to an allied mech. Summon 1 Shield Drone.
 
 Scout Drone Launcher:
   size: Small
@@ -822,7 +823,7 @@ Scout Drone Launcher:
   rating: Veteran
   actions:
     - |
-      Reposition an allied mech without <:heat:> Cost, then summon 1 Scout Drone.
+      You may reposition an allied mech. Summon 1 Scout Drone.
 
 Jammer Drone Launcher:
   size: Medium
@@ -1084,7 +1085,7 @@ Thanatos Missile:
   rating: Veteran
   actions:
     - |
-      Gain 1 <:charge:>.
+      Gain 1 <:charge:> before designating <:target:>.
       Inflict 1 <:vulnerable:> on each <:target:>.
   tags:
     - AOE
@@ -1104,22 +1105,6 @@ Thanatos Missile:
       If the <:target:> is not at 0 <:heat:>, Disable 1 Equipment on the <:target:>.
   alias:
     - SHORTCIRCUIT
-
-"Cyberwarfare: CLOCKOUT":
-  size: Small
-  type: Electronics
-  form: System
-  heat: 2
-  range: 2
-  target: 1
-  rating: Cadet
-  actions:
-    - |
-      Gain 1 <:charge:>.
-    - |
-      If [<:charge:>]>1: Disable 1 Equipment, then lose all <:charge:>.
-  alias:
-    - CLOCKOUT
 
 "Cyberwarfare: MIRAGE":
   size: Small
@@ -1191,6 +1176,21 @@ Thanatos Missile:
   alias:
     - HIJACK
 
+EMP Burst Projector:
+  size: Small
+  type: Electronics
+  form: System
+  heat: 2
+  range: 2
+  target: 1
+  maxcharge: 3
+  rating: Cadet
+  actions:
+    - |
+      Gain 1 <:charge:>.
+    - |
+      If [<:charge:>]>0: Disable 1 Equipment on a <:target:> with no <:shield:>, then lose 1 <:charge:>.
+
 CAS Uplink:
   size: Small
   type: Electronics
@@ -1198,7 +1198,8 @@ CAS Uplink:
   rating: Veteran
   passives:
     - |
-      When the battle starts, put an Airstrike in your hand.
+      1/battle, when resolving an Action from this mech:
+      Put an Airstrike in your hand.
     - |
       Your Airstrikes deal +1 <:damage:>.
   tags:
@@ -1215,15 +1216,16 @@ Slipstream Optimizer:
       When resolving an Action from this mech:
       Reposition another allied mech for 0 <:heat:> Cost.
 
-Fire Support Protocol:
+Safety Overrides:
   size: Small
   type: Electronics
   form: System
-  rating: Veteran
+  heat: 0
+  rating: Cadet
   triggers:
     - |
-      When resolving a Weapon as an Action from another allied mech:
-      Activate a Small Weapon on this mech on the same <:target:>.
+      When resolving a Weapon on this mech as an Action:
+      Gain 1 <:overheat:>, then you may activate that Weapon again.
 
 Targeting Computer:
   size: Small
@@ -1407,7 +1409,7 @@ Reinforced Frame:
       Discard this Equipment.
 
 Adaptive Heat Sink:
-  size: Large
+  size: Medium
   type: Auxiliary
   form: Attachment
   rating: Veteran

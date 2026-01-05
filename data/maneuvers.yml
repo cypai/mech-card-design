@@ -20,7 +20,7 @@ Lock and Load:
   rating: Cadet
   actions:
     - |
-      Draw a card. Restore all Ammo for 1 Equipment, then you may immediately activate it, dealing +1 <:damage:> with it this turn.
+      Draw a card. Restore all <:ammo:> for 1 Equipment, then you may immediately activate it, dealing +1 <:damage:> with it this turn.
 
 EMP Airburst:
   rating: Cadet

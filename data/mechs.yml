@@ -170,7 +170,7 @@ Praetor:
 
 Aquarius:
   faction: Jovians
-  hp: 10
+  hp: 9
   armor: 0
   hc: 7
   hardpoints:
@@ -257,7 +257,7 @@ Capricornus:
 
 Cockroach:
   faction: Pirates
-  hp: 8
+  hp: 7
   armor: 0
   hc: 6
   hardpoints:
@@ -292,7 +292,7 @@ Jolly Roger:
     - Small
   triggers:
     - |
-      1/round, when a mech is destroyed:
+      When a mech is destroyed:
       Mount 1 Equipment from that mech onto this mech, replacing Equipment if necessary. If applicable, it has 0 <:charge:>, but <:ammo:> is retained. You may activate it immediately.
 
 Blackjack:
