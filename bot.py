@@ -8,7 +8,7 @@ import re
 import io
 import sqlite3
 import discord
-from discord import app_commands
+from discord import ForumChannel, ForumTag, Thread, app_commands
 from discord.ext import commands
 
 from game_defs import *
@@ -32,6 +32,8 @@ intents = discord.Intents.default()
 intents.message_content = True
 
 bot = commands.Bot(command_prefix="$", intents=intents)
+
+
 db = GameDatabase()
 
 QUERY_REGEX = re.compile(r"\[\[([\w\- :]+)\]\]")
@@ -456,6 +458,54 @@ async def db_migrate_usage(ctx: commands.Context, previous: str, current: str):
         cursor = conn.cursor()
         cursor.execute("update usage set name = ? where name = ?", (current, previous))
     await reply(ctx, f"Updated usage from {previous} to {current}.")
+
+
+def get_todo_forum(bot: commands.Bot) -> ForumChannel:
+    TODO_FORUM_ID = 1457611085728190688
+    todo_forum = bot.get_channel(TODO_FORUM_ID)
+    if not isinstance(todo_forum, ForumChannel):
+        raise RuntimeError("todo-list forum channel not found.")
+    return todo_forum
+
+
+def get_resolved_tag(bot: commands.Bot) -> ForumTag:
+    RESOLVED_TAG_ID = 1457611312594026566
+    resolved_tag = get_todo_forum(bot).get_tag(RESOLVED_TAG_ID)
+    if not isinstance(resolved_tag, ForumTag):
+        raise RuntimeError("resolved forum tag not found.")
+    return resolved_tag
+
+
+def get_unresolved_tag(bot: commands.Bot) -> ForumTag:
+    UNRESOLVED_TAG_ID = 1457612610051641470
+    unresolved_tag = get_todo_forum(bot).get_tag(UNRESOLVED_TAG_ID)
+    if not isinstance(unresolved_tag, ForumTag):
+        raise RuntimeError("unresolved forum tag not found.")
+    return unresolved_tag
+
+
+@bot.event
+async def on_thread_create(thread: Thread):
+    resolved_tag = get_resolved_tag(bot)
+    unresolved_tag = get_unresolved_tag(bot)
+    if thread.parent == get_todo_forum(bot):
+        if (
+            resolved_tag not in thread.applied_tags
+            and unresolved_tag not in thread.applied_tags
+        ):
+            await thread.add_tags(unresolved_tag)
+
+
+@bot.command()
+async def resolve(ctx: commands.Context):
+    resolved_tag = get_resolved_tag(bot)
+    unresolved_tag = get_unresolved_tag(bot)
+    channel = ctx.channel
+    if isinstance(channel, Thread) and channel.parent == get_todo_forum(bot):
+        if unresolved_tag in channel.applied_tags:
+            await channel.remove_tags(unresolved_tag)
+        if resolved_tag not in channel.applied_tags:
+            await channel.add_tags(resolved_tag)
 
 
 if args.sync:
