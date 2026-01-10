@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import argparse
+from enum import Enum
 from abc import ABC, abstractmethod
 from io import BytesIO
 from textwrap import fill
@@ -78,7 +79,14 @@ class Icons:
         self.trigger.close()
 
 
+class NameRenderMode(Enum):
+    LEFT_JUSTIFY = 1
+    CENTER = 2
+
+
 class CardRenderer(ABC):
+    ICON_X = int(MARGIN * 0.5)
+    ICON_TEXT_X = ICON_X + ICON_SIZE
     CARD_TEXT_Y = int(CARD_HEIGHT * 0.52)
 
     def __init__(self, icons: Icons, filename: str):
@@ -127,29 +135,74 @@ class CardRenderer(ABC):
             width=2,
         )
 
-    def draw_name(self, name: str, color: str):
-        width_in_characters = int(CARD_WIDTH / (LARGE_FONT_SIZE * 0.6)) - 2
+    def draw_name(self, name: str, color: str, mode: NameRenderMode):
+        mode_width_offset = 2 if mode == NameRenderMode.CENTER else 5
+        width_in_characters = (
+            int(CARD_WIDTH / (LARGE_FONT_SIZE * 0.6)) - mode_width_offset
+        )
         wrapped_text = wrap_text_tagged(name, width_in_characters)
         text = ImageText.Text(wrapped_text, self.large_font)
         text.embed_color()
         text.stroke(2, "#000000")
         text.spacing = 10
+        if mode == NameRenderMode.CENTER:
+            self.draw.text(
+                (
+                    int(CARD_WIDTH * 0.5),
+                    int(TRACKER_SIZE * 0.5),
+                ),
+                text,
+                color,
+                align="center",
+                anchor="ma",
+            )
+        else:
+            self.draw.text(
+                (
+                    int(ICON_SIZE * 2.2),
+                    int(MARGIN * 1.1),
+                ),
+                text,
+                color,
+                align="left",
+            )
+
+    def draw_top_icon(self, row: int, icon: Image.Image):
+        self.image.alpha_composite(
+            icon, (CardRenderer.ICON_X, int(MARGIN + row * ICON_SIZE * 1.1))
+        )
+
+    def draw_top_icon_with_text(self, row: int, icon: Image.Image, text: str):
+        self.draw_top_icon(row, icon)
         self.draw.text(
             (
-                int(CARD_WIDTH * 0.5),
-                int(TRACKER_SIZE * 0.5),
+                CardRenderer.ICON_TEXT_X,
+                int(MARGIN * 1.1 + row * ICON_SIZE * 1.1),
             ),
             text,
-            color,
-            align="center",
-            anchor="ma",
+            "#000000",
+            font=self.icon_font,
+        )
+
+    def draw_top_icon_with_icon(
+        self,
+        row: int,
+        icon: Image.Image,
+        second_icon: Image.Image,
+        offset: tuple[int, int],
+    ):
+        self.draw_top_icon(row, icon)
+        self.image.alpha_composite(
+            second_icon,
+            (
+                CardRenderer.ICON_X + ICON_SIZE + offset[0],
+                int(MARGIN + row * ICON_SIZE * 1.1) + offset[1],
+            ),
         )
 
 
 class EquipmentCardRenderer(CardRenderer):
     NAME_X = int(ICON_SIZE * 2.2)
-    ICON_X = int(MARGIN * 0.5)
-    ICON_TEXT_X = ICON_X + ICON_SIZE
     CARD_TYPE_TEXT_Y = int(CARD_HEIGHT * 0.45)
 
     def __init__(self, equipment: Equipment, icons: Icons):
@@ -158,7 +211,9 @@ class EquipmentCardRenderer(CardRenderer):
 
     def render(self):
         self.draw_border()
-        self.draw_equipment_name()
+        self.draw_name(
+            self.equipment.name, self.get_name_color(), NameRenderMode.LEFT_JUSTIFY
+        )
         self.draw_top_icons()
         self.draw_card_type()
         self.draw_card_text()
@@ -177,23 +232,6 @@ class EquipmentCardRenderer(CardRenderer):
         elif self.equipment.type == "Auxiliary":
             return "#000000"
         return "#000000"
-
-    def draw_equipment_name(self):
-        width_in_characters = int(CARD_WIDTH / (LARGE_FONT_SIZE * 0.6)) - 5
-        wrapped_text = wrap_text_tagged(self.equipment.name, width_in_characters)
-        text = ImageText.Text(wrapped_text, self.large_font)
-        text.embed_color()
-        text.stroke(2, "#000000")
-        text.spacing = 10
-        self.draw.text(
-            (
-                int(ICON_SIZE * 2.2),
-                int(MARGIN * 1.1),
-            ),
-            text,
-            self.get_name_color(),
-            align="left",
-        )
 
     def draw_top_icons(self):
         row = 0
@@ -227,39 +265,6 @@ class EquipmentCardRenderer(CardRenderer):
                 row, self.icons.maxcharge, str(self.equipment.maxcharge)
             )
             row += 1
-
-    def draw_top_icon(self, row: int, icon: Image.Image):
-        self.image.alpha_composite(
-            icon, (EquipmentCardRenderer.ICON_X, int(MARGIN + row * ICON_SIZE * 1.1))
-        )
-
-    def draw_top_icon_with_text(self, row: int, icon: Image.Image, text: str):
-        self.draw_top_icon(row, icon)
-        self.draw.text(
-            (
-                EquipmentCardRenderer.ICON_TEXT_X,
-                int(MARGIN * 1.1 + row * ICON_SIZE * 1.1),
-            ),
-            text,
-            "#000000",
-            font=self.icon_font,
-        )
-
-    def draw_top_icon_with_icon(
-        self,
-        row: int,
-        icon: Image.Image,
-        second_icon: Image.Image,
-        offset: tuple[int, int],
-    ):
-        self.draw_top_icon(row, icon)
-        self.image.alpha_composite(
-            second_icon,
-            (
-                EquipmentCardRenderer.ICON_X + ICON_SIZE + offset[0],
-                int(MARGIN + row * ICON_SIZE * 1.1) + offset[1],
-            ),
-        )
 
     def draw_card_type(self):
         self.draw.text(
@@ -341,7 +346,7 @@ class MechCardRenderer(CardRenderer):
 
     def render(self):
         self.draw_border()
-        self.draw_name(self.mech.name, self.get_name_color())
+        self.draw_name(self.mech.name, self.get_name_color(), NameRenderMode.CENTER)
         self.draw_stats()
         self.draw_hp()
         self.draw_heat()
@@ -533,7 +538,11 @@ class ManeuverCardRenderer(CardRenderer):
 
     def render(self):
         self.draw_border()
-        self.draw_name(self.maneuver.name, "#00ff00")
+        self.draw_name(self.maneuver.name, "#00ff00", NameRenderMode.LEFT_JUSTIFY)
+        if self.maneuver.target is not None:
+            self.draw_top_icon_with_text(
+                0, self.icons.target, str(self.maneuver.target)
+            )
         self.draw_card_text()
 
     def draw_card_text(self):
@@ -602,7 +611,14 @@ class DroneCardRenderer(CardRenderer):
 
     def render(self):
         self.draw_border()
-        self.draw_name(self.drone.name, "#000000")
+        self.draw_name(self.drone.name, "#000000", NameRenderMode.LEFT_JUSTIFY)
+        row = 0
+        if self.drone.range is not None:
+            self.draw_top_icon_with_text(row, self.icons.range, str(self.drone.range))
+            row += 1
+        if self.drone.target is not None:
+            self.draw_top_icon_with_text(row, self.icons.target, str(self.drone.target))
+            row += 1
         self.draw_card_text()
 
     def draw_card_text(self):

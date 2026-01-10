@@ -5,6 +5,7 @@ Coordinated Maneuvers:
       Draw a card. Advance or Fall Back any number of allied mechs, then you may activate any Equipment.
 
 Airstrike:
+  target: 1
   rating: Cadet
   actions:
     - |
@@ -20,13 +21,15 @@ Lock and Load:
   rating: Cadet
   actions:
     - |
-      Draw a card. Restore all <:ammo:> for 1 Equipment, then you may immediately activate it, dealing +1 <:damage:> with it this turn.
+      Draw a card. If an allied mech has an Equipment with <:ammo:>:
+      Restore all <:ammo:> on that Equipment, then you may activate it, dealing +1 <:damage:> with it this turn.
 
 EMP Airburst:
+  target: 1
   rating: Cadet
   actions:
     - |
-      Draw a card. Disable 1 Equipment on an enemy mech with no <:shield:>. Disable 1 Equipment on your mech.
+      Draw a card. If the <:target:> has no <:shield:>, Disable 1 Equipment on it. Disable 1 Equipment on an allied mech.
 
 System Reboot:
   rating: Cadet
@@ -48,11 +51,12 @@ Take Cover:
       Draw a card. Remove all <:vulnerable:> and <:suppression:> from it.
 
 Latent Trojan:
+  target: 1
   rating: Veteran
   triggers:
     - |
       When an enemy mech activates a System:
-      Inflict 2 <:overheat:> to that mech.
+      Inflict 2 <:overheat:> to that mech as the <:target:>.
 
 Outflank:
   rating: Cadet

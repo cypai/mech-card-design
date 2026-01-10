@@ -71,6 +71,8 @@ def parse_drones(drones) -> Drone:
     name, data = drones
     return Drone(
         name=name,
+        range=data.get("range", None),
+        target=data.get("target", None),
         ability=data.get("ability"),
         info=data.get("info", None),
         actions=data.get("actions", []),
@@ -93,6 +95,7 @@ def parse_maneuvers(maneuvers) -> Maneuver:
     name, data = maneuvers
     return Maneuver(
         name=name,
+        target=data.get("target", None),
         text=data.get("text"),
         info=data.get("info", None),
         actions=data.get("actions", []),

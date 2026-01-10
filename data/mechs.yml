@@ -37,7 +37,7 @@ Osiris:
     - Small
   triggers:
     - |
-      1/round, when this mech activates a System as an Action:
+      1/round, when this mech resolves a System as an Action:
       Activate a Weapon on this mech.
 
 Anansi:
@@ -159,7 +159,7 @@ Praetor:
     - Small
   actions:
     - |
-      <:card-rotation:> this mech.
+      <:card-rotation:> this mech if it is not already <:card-rotation:>.
   triggers:
     - |
       1/round, when an opponent declares a <:target:> on an allied mech, and this mech is <:card-rotation:>:

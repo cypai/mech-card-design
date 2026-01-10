@@ -1,4 +1,6 @@
 Combat Drone:
+  range: 1
+  target: P
   passives:
     - |
       When the Round ends:
@@ -16,6 +18,8 @@ Scout Drone:
       Reposition an allied mech, then that mech may activate a Weapon. Then destroy this drone.
 
 Jammer Drone:
+  range: 1
+  target: 1
   passives:
     - |
       When the Round starts:

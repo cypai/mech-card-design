@@ -1378,7 +1378,7 @@ Afterburners:
   rating: Ace
   triggers:
     - |
-      When this mech Advances or Falls Back:
+      When this mech would Advance or Fall Back:
       -1 <:heat:> Cost.
     - |
       When an opponent declares a <:target:> on an allied mech:
@@ -1407,7 +1407,7 @@ Reinforced Frame:
       While attached, this mech has +1 Armor.
     - |
       When this mech receives Shred:
-      Discard this Equipment.
+      Immediately discard this Equipment.
 
 Adaptive Heat Sink:
   size: Medium

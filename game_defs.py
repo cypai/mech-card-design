@@ -275,6 +275,8 @@ class Mech:
 
 class Drone:
     name: str
+    range: Optional[int]
+    target: Optional[str]
     ability: str
     copies: int
     info: Optional[str]
@@ -285,6 +287,8 @@ class Drone:
 
     def __init__(self, **kwargs):
         self.name = str(kwargs.get("name"))
+        self.range = kwargs.get("range", None)
+        self.target = kwargs.get("target", None)
         self.ability = str(kwargs.get("ability"))
         self.info = kwargs.get("info", None)
         self.actions = kwargs.get("actions", [])
@@ -311,6 +315,10 @@ class Drone:
         text = ""
         if self.info is not None:
             text += f"Info: {self.info}"
+        if self.range is not None:
+            text += f"Range: {self.range}\n"
+        if self.target is not None:
+            text += f"Target: {self.target}\n"
         for action in self.actions:
             text += f"Action: {action}"
         for trigger in self.triggers:
@@ -347,6 +355,7 @@ class Drone:
 
 class Maneuver:
     name: str
+    target: Optional[str]
     text: str
     info: Optional[str]
     actions: list[str]
@@ -357,6 +366,7 @@ class Maneuver:
 
     def __init__(self, **kwargs):
         self.name = str(kwargs.get("name"))
+        self.target = kwargs.get("target", None)
         self.info = kwargs.get("info", None)
         self.actions = kwargs.get("actions", [])
         self.triggers = kwargs.get("triggers", [])
@@ -378,6 +388,8 @@ class Maneuver:
         text = f"{self.name}\n"
         if self.rating is not None:
             text += f"Rating: {self.rating}\n"
+        if self.target is not None:
+            text += f"Target: {self.target}\n"
         text += self.text
         return text
 
