@@ -1107,21 +1107,6 @@ Thanatos Missile:
   alias:
     - SHORTCIRCUIT
 
-"Cyberwarfare: MIRAGE":
-  size: Small
-  type: Electronics
-  form: System
-  heat: 2
-  rating: Ace
-  info: |
-    Only activatable in the front line.
-  actions:
-    - |
-      Other allied mechs may Advance or Fall Back for 0 <:heat:> Cost.
-      During the opponent's next turn, when designating a non-<:target:>P <:target:>, the opponent can only <:target:> this mech.
-  alias:
-    - MIRAGE
-
 "Cyberwarfare: TANGO":
   size: Small
   type: Electronics
@@ -1205,6 +1190,19 @@ CAS Uplink:
       Your Airstrikes deal +1 <:damage:>.
   tags:
     - Weak-Watchlist
+
+Artillery Uplink:
+  size: Small
+  type: Electronics
+  form: System
+  rating: Veteran
+  heat: 0
+  range: 3
+  target: 1
+  triggers:
+    - |
+      When the Round starts:
+      Inflict 3 <:suppression:>.
 
 Slipstream Optimizer:
   size: Small
