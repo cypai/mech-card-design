@@ -193,18 +193,16 @@ Panoptic Autocannon:
   size: Large
   type: Ballistic
   form: Weapon
-  heat: 6
+  heat: 2
   range: 1
-  target: 2
+  target: C
+  maxcharge: 5
   rating: Ace
   actions:
     - |
-      Deal 2 AP <:damage:> and inflict 2 <:suppression:> to each <:target:>.
+      Gain 1 <:charge:> before designating <:target:>. Inflict 1 <:suppression:> to each <:target:>.
   tags:
     - AOE
-    - Multihit
-    - Strong-Watchlist
-    - Sus
 
 Railgun:
   size: Large
@@ -1327,11 +1325,10 @@ Iron Sights:
   rating: Veteran
   info: |
     Inert.
-  passives:
+  triggers:
     - |
-      If this mech did not activate anything or change position since the start of your last turn this Round, its <:range:> 1 Weapons have <:range:> 2.
-  tags:
-    - Sus
+      When another allied mech resolves an Equipment as an Action:
+      Choose a <:range:> 1 Weapon on this mech. Prepare: Activate that Weapon, treating it as <:range:> 2.
 
 Heartpiercer Rounds:
   size: Small

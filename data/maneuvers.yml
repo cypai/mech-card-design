@@ -16,7 +16,7 @@ Fog of War:
   triggers:
     - |
       When your opponent's turn starts:
-      Draw a card. This turn, your opponent's non-Melee Weapons become <:range:> 1, and their <:range:> cannot be otherwise modififed.
+      Draw a card. This turn, your opponent's non-Melee Equipment become <:range:> 1, and their <:range:> cannot be otherwise modififed.
 
 Lock and Load:
   rating: Cadet
