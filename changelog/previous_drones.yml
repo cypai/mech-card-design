@@ -1,4 +1,6 @@
 Combat Drone:
+  range: 1
+  target: P
   passives:
     - |
       When the Round ends:
@@ -13,10 +15,12 @@ Shield Drone:
 Scout Drone:
   actions:
     - |
-      An allied mech may reposition without <:heat:> Cost. That mech may then activate a Weapon. Then destroy this drone.
+      Reposition an allied mech, then that mech may activate a Weapon. Then destroy this drone.
 
 Jammer Drone:
+  range: 1
+  target: 1
   passives:
     - |
       When the Round starts:
-      Inflict 1 <:overheat:> to an enemy mech in the front line.
+      Inflict 1 <:overheat:> to an enemy mech in the front line. Then destroy this drone.

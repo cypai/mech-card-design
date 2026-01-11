@@ -37,7 +37,7 @@ Osiris:
     - Small
   triggers:
     - |
-      1/round, when this mech activates a System as an Action:
+      1/round, when this mech resolves a System as an Action:
       Activate a Weapon on this mech.
 
 Anansi:
@@ -159,7 +159,7 @@ Praetor:
     - Small
   actions:
     - |
-      <:card-rotation:> this mech.
+      <:card-rotation:> this mech if it is not already <:card-rotation:>.
   triggers:
     - |
       1/round, when an opponent declares a <:target:> on an allied mech, and this mech is <:card-rotation:>:
@@ -170,7 +170,7 @@ Praetor:
 
 Aquarius:
   faction: Jovians
-  hp: 10
+  hp: 9
   armor: 0
   hc: 7
   hardpoints:
@@ -257,7 +257,7 @@ Capricornus:
 
 Cockroach:
   faction: Pirates
-  hp: 8
+  hp: 7
   armor: 0
   hc: 6
   hardpoints:
@@ -292,7 +292,7 @@ Jolly Roger:
     - Small
   triggers:
     - |
-      1/round, when a mech is destroyed:
+      When a mech is destroyed:
       Mount 1 Equipment from that mech onto this mech, replacing Equipment if necessary. If applicable, it has 0 <:charge:>, but <:ammo:> is retained. You may activate it immediately.
 
 Blackjack:

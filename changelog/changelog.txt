@@ -1,3 +1,238 @@
+1/10 playtest print
+-------------------
+
+Osiris
+Trigger: 1/round, when this mech activates a System as an Action:
+Activate a Weapon on this mech.
+|->
+Trigger: 1/round, when this mech resolves a System as an Action:
+Activate a Weapon on this mech.
+
+Praetor
+Action: <:card-rotation:> this mech.
+Trigger: 1/round, when an opponent declares a <:target:> on an allied mech, and this mech is <:card-rotation:>:
+Redirect the <:target:> to this mech.
+Passive: While this mech is <:card-rotation:>, this mech's <:range:> 1 Weapons have <:range:> 2.
+|->
+Action: <:card-rotation:> this mech if it is not already <:card-rotation:>.
+Trigger: 1/round, when an opponent declares a <:target:> on an allied mech, and this mech is <:card-rotation:>:
+Redirect the <:target:> to this mech.
+Passive: While this mech is <:card-rotation:>, this mech's <:range:> 1 Weapons have <:range:> 2.
+
+Aquarius
+HP: 10 -> 9
+
+Cockroach
+HP: 8 -> 7
+
+Jolly Roger
+Trigger: 1/round, when a mech is destroyed:
+Mount 1 Equipment from that mech onto this mech, replacing Equipment if necessary. If applicable, it has 0 <:charge:>, but <:ammo:> is retained. You may activate it immediately.
+|->
+Trigger: When a mech is destroyed:
+Mount 1 Equipment from that mech onto this mech, replacing Equipment if necessary. If applicable, it has 0 <:charge:>, but <:ammo:> is retained. You may activate it immediately.
+
+Flechettes
+Action: Deal 1 <:damage:> to each <:target:>. Discharge.
+Trigger: When this mech resolves an Action other than this Equipment:
+Gain 1 <:charge:>.
+|->
+Action: Deal 1 <:damage:> to each <:target:>. Lose all <:charge:>.
+Trigger: When this mech resolves an Action other than this Equipment:
+Gain 1 <:charge:>.
+
+Devastator
+Action: Gain 1 <:charge:>. Inflict [<:charge:>] <:suppression:>.
+Choose:
+> Inflict [<:charge:>+1] <:vulnerable:>.
+> Deal [<:charge:>+1] AP <:damage:>.
+|->
+Action: Gain 1 <:charge:>.
+Choose:
+> Inflict [<:charge:>] <:vulnerable:>.
+> Deal [<:charge:>] AP <:damage:>.
+Then, inflict [<:charge:>] <:suppression:>.
+
+Heavy Assault Cannon
+Action: Gain 1 <:charge:>.
+Deal [<:charge:>+1] <:damage:>.
+Choose:
+> Shred.
+> Inflict [<:charge:>+1] <:suppression:>.
+|->
+Action: Gain 1 <:charge:>.
+Deal [<:charge:>] <:damage:>.
+Choose:
+> Shred.
+> Inflict [<:charge:>] <:suppression:>.
+
+Pulse Pistol
+Action: Gain 2 <:charge:>.
+Action: Deal 1 <:damage:> to each <:target:>. Discharge.
+|->
+Action: Gain 2 <:charge:>.
+Action: Deal 1 <:damage:> to each <:target:>. Lose all <:charge:>.
+
+Autopulse Rifle
+Action: Gain 1 <:charge:>. Deal 3 <:damage:> to each <:target:>. Discharge.
+Action: Back line activation: Gain 1 <:charge:>.
+|->
+Action: Gain 1 <:charge:> before designating <:target:>. Deal 3 <:damage:> to each <:target:>. Lose all <:charge:>.
+Action: Back line activation: Gain 1 <:charge:>.
+
+Portal Inducer
+Heat: 5 -> 6
+
+Gigapulse Laser
+Action: Gain 1 <:charge:>. Choose:
+> Gain 1 <:charge:>.
+> Deal 3 <:damage:> to each <:target:>.
+  Discharge.
+Action: Back line activation: Gain 2 <:charge:>.
+|->
+Action: Gain 1 <:charge:> before designating <:target:>.
+Choose:
+> Gain 1 <:charge:>.
+> Deal 3 <:damage:> to each <:target:>.
+  Lose all <:charge:>.
+Action: Back line activation: Gain 2 <:charge:>.
+
+Shield Drone Launcher
+Ammo: 3 -> 2
+Action: Grant 2 <:shield:> to an allied mech, then summon 1 Shield Drone.
+|->
+Action: Grant 2 <:shield:> to an allied mech. Summon 1 Shield Drone.
+
+Scout Drone Launcher
+Action: Reposition an allied mech without <:heat:> Cost, then summon 1 Scout Drone.
+|->
+Action: You may reposition an allied mech. Summon 1 Scout Drone.
+
+Cyberwarfare: EPIDEMIC
+Action: Gain 1 <:charge:>.
+Inflict 1 <:vulnerable:> on each <:target:>.
+|->
+Action: Gain 1 <:charge:> before designating <:target:>.
+Inflict 1 <:vulnerable:> on each <:target:>.
+
+CAS Uplink
+Passive: When the battle starts, put an Airstrike in your hand.
+Passive: Your Airstrikes deal +1 <:damage:>.
+|->
+Passive: 1/battle, when resolving an Action from this mech:
+Put an Airstrike in your hand.
+Passive: Your Airstrikes deal +1 <:damage:>.
+
+Afterburners
+Trigger: When this mech Advances or Falls Back:
+-1 <:heat:> Cost.
+Trigger: When an opponent declares a <:target:> on an allied mech:
+Advance this mech and redirect the <:target:> to this mech.
+|->
+Trigger: When this mech would Advance or Fall Back:
+-1 <:heat:> Cost.
+Trigger: When an opponent declares a <:target:> on an allied mech:
+Advance this mech and redirect the <:target:> to this mech.
+
+Reinforced Frame
+Info: Inert.
+Passive: While attached, this mech has +1 Armor.
+Passive: When this mech receives Shred:
+Discard this Equipment.
+|->
+Info: Inert.
+Passive: While attached, this mech has +1 Armor.
+Passive: When this mech receives Shred:
+Immediately discard this Equipment.
+
+Adaptive Heat Sink
+Size: Large -> Medium
+
+Cyberwarfare: CLOCKOUT -> EMP Burst Projector
+Max Charge: None -> 3
+Action: Gain 1 <:charge:>.
+Action: If [<:charge:>]>1: Disable 1 Equipment, then lose all <:charge:>.
+|->
+Action: Gain 1 <:charge:>.
+Action: If [<:charge:>]>0: Disable 1 Equipment on a <:target:> with no <:shield:>, then lose 1 <:charge:>.
+
+Artillery Uplink was added.
+Artillery Uplink
+Small Electronics System
+Heat: 0
+Range: 3
+Target: 1
+Rating: Veteran
+Trigger: When the Round starts:
+Inflict 3 <:suppression:>.
+
+Safety Overrides was added.
+Safety Overrides
+Small Electronics System
+Heat: 0
+Rating: Cadet
+Trigger: When resolving a Weapon on this mech as an Action:
+Gain 1 <:overheat:>, then you may activate that Weapon again.
+
+Cyberwarfare: MIRAGE was deleted.
+Cyberwarfare: MIRAGE
+Small Electronics System
+Heat: 2
+Rating: Ace
+Info: Only activatable in the front line.
+Action: Other allied mechs may Advance or Fall Back for 0 <:heat:> Cost.
+During the opponent's next turn, when designating a non-<:target:>P <:target:>, the opponent can only <:target:> this mech.
+
+Fire Support Protocol was deleted.
+Fire Support Protocol
+Small Electronics System
+Rating: Veteran
+Trigger: When resolving a Weapon as an Action from another allied mech:
+Activate a Small Weapon on this mech on the same <:target:>.
+
+Combat Drone
+Passive: When the Round ends:
+Deal 2 <:damage:> to the enemy front line, then destroy this drone.
+|->
+Range: 1
+Target: P
+Passive: When the Round ends:
+Deal 2 <:damage:> to the enemy front line, then destroy this drone.
+
+Scout Drone
+Action: An allied mech may reposition without <:heat:> Cost. That mech may then activate a Weapon. Then destroy this drone.
+|->
+Action: Reposition an allied mech, then that mech may activate a Weapon. Then destroy this drone.
+
+Jammer Drone
+Passive: When the Round starts:
+Inflict 1 <:overheat:> to an enemy mech in the front line.
+|->
+Range: 1
+Target: 1
+Passive: When the Round starts:
+Inflict 1 <:overheat:> to an enemy mech in the front line. Then destroy this drone.
+
+Lock and Load
+Action: Draw a card. Restore all Ammo for 1 Equipment, then you may immediately activate it, dealing +1 <:damage:> with it this turn.
+|->
+Action: Draw a card. If an allied mech has an Equipment with <:ammo:>:
+Restore all <:ammo:> on that Equipment, then you may activate it, dealing +1 <:damage:> with it this turn.
+
+EMP Airburst
+Action: Draw a card. Disable 1 Equipment on an enemy mech with no <:shield:>. Disable 1 Equipment on your mech.
+|->
+Action: Draw a card. If the <:target:> has no <:shield:>, Disable 1 Equipment on it. Disable 1 Equipment on an allied mech.
+
+Latent Trojan
+Trigger: When an enemy mech activates a System:
+Inflict 2 <:overheat:> to that mech.
+|->
+Trigger: When an enemy mech activates a System:
+Inflict 2 <:overheat:> to that mech as the <:target:>.
+
+
+
 1/3 printout
 ------------
 
