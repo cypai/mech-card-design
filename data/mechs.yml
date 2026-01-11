@@ -128,7 +128,6 @@ Rubicon:
   hardpoints:
     - Large
     - Large
-    - Large
   actions:
     - |
       1/round, choose a Weapon on this mech.
@@ -327,7 +326,7 @@ Powder Keg:
 
 Rapscallion:
   faction: Pirates
-  hp: 8
+  hp: 7
   armor: 0
   hc: 6
   hardpoints:

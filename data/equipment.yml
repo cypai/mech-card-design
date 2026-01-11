@@ -130,6 +130,7 @@ Automatic Shotgun:
       Deal 2 <:damage:> to the enemy front line.
   tags:
     - AOE
+    - Strong-Watchlist
 
 Assault Cannon:
   size: Medium
@@ -203,6 +204,7 @@ Panoptic Autocannon:
     - AOE
     - Multihit
     - Strong-Watchlist
+    - Sus
 
 Railgun:
   size: Large
@@ -232,6 +234,8 @@ Devastator:
       > Inflict [<:charge:>] <:vulnerable:>.
       > Deal [<:charge:>] AP <:damage:>.
       Then, inflict [<:charge:>] <:suppression:>.
+  tags:
+    - Strong-Watchlist
 
 Mass Driver:
   size: Large
@@ -274,6 +278,8 @@ Heavy Assault Cannon:
       Choose:
       > Shred.
       > Inflict [<:charge:>] <:suppression:>.
+  tags:
+    - Strong-Watchlist
 
 Mjolnir Cannon:
   size: Large
@@ -524,6 +530,7 @@ Thermobaric Flame Cannon:
       Deal 2 <:damage:> to mechs at <:target:>.
   tags:
     - AOE
+    - Strong-Watchlist
 
 Turbolaser Array:
   size: Large
@@ -706,6 +713,8 @@ Magnetic Grappler:
       Deal 2 <:damage:>. Choose:
       > <:card-rotation:> the <:target:>.
       > Move the <:target:> to the back line.
+  tags:
+    - Weak-Watchlist
 
 Rocket Fists:
   size: Medium
@@ -838,6 +847,7 @@ Jammer Drone Launcher:
       Inflict 1 <:overheat:> on the enemy front line, then summon 1 Jammer Drone.
   tags:
     - AOE
+    - Strong-Watchlist
 
 Drone Command Nexus:
   size: Medium
@@ -855,6 +865,7 @@ Drone Command Nexus:
       <:target:> 1 <:range:> 3: Deal 1 <:damage:>.
   tags:
     - AOE
+    - Sus
 
 Hunter-Killer Nanites:
   size: Small
@@ -977,6 +988,8 @@ Parasite Launcher:
   actions:
     - |
       Deal 1 <:damage:>. During the opponent's next turn, if the <:target:> does not change position, it takes 2 <:damage:> at the end of the turn.
+  tags:
+    - Sus
 
 Ballistic Missile:
   size: Large
@@ -1053,6 +1066,8 @@ Thanatos Missile:
   actions:
     - |
       Discard a card. Deal 4 <:damage:>.
+  tags:
+    - Strong-Watchlist
 
 "Cyberwarfare: MELTDOWN":
   size: Small
@@ -1072,10 +1087,10 @@ Thanatos Missile:
   size: Small
   type: Electronics
   form: System
-  heat: 2
+  heat: 3
   range: 3
   target: C
-  maxcharge: 3
+  maxcharge: 4
   rating: Veteran
   actions:
     - |
@@ -1106,11 +1121,13 @@ Thanatos Missile:
   form: System
   heat: 2
   range: 3
-  target: 1
+  target: 2
   rating: Cadet
+  info: |
+    This Weapon may <:target:> allied mechs. <:target:> must be distinct mechs.
   actions:
     - |
-      Reposition both the <:target:> and this mech.
+      Reposition the <:target:>.
   alias:
     - TANGO
 
@@ -1126,6 +1143,8 @@ Thanatos Missile:
       Choose a player. Move any number of <:shield:>, <:overheat:>, and <:vulnerable:> from mechs that player controls to other mechs that player controls.
   alias:
     - JOKER
+  tags:
+    - Weak-Watchlist
 
 "Cyberwarfare: MEDUSA":
   size: Medium
@@ -1140,6 +1159,8 @@ Thanatos Missile:
       Discard a card. Disable 1 Equipment on each <:target:>.
   alias:
     - MEDUSA
+  tags:
+    - Weak-Watchlist
 
 "Cyberwarfare: HIJACK":
   size: Medium
@@ -1154,6 +1175,8 @@ Thanatos Missile:
       Choose a Weapon on an enemy mech with a legal <:target:>. Your opponent activates it.
   alias:
     - HIJACK
+  tags:
+    - Weak-Watchlist
 
 EMP Burst Projector:
   size: Small
@@ -1294,8 +1317,8 @@ Chameleon Paint:
     Inert.
   triggers:
     - |
-      1/round, on this mech changing position:
-      Gain 1 <:shield:>.
+      When your turn ends, if this mech changed position this turn:
+      Gain 1 <:shield:> if it has no <:shield:>.
 
 Iron Sights:
   size: Small
@@ -1307,6 +1330,8 @@ Iron Sights:
   passives:
     - |
       If this mech did not activate anything or change position since the start of your last turn this Round, its <:range:> 1 Weapons have <:range:> 2.
+  tags:
+    - Sus
 
 Heartpiercer Rounds:
   size: Small
@@ -1333,6 +1358,8 @@ Earthshaker Rounds:
     - |
       1/round, when this mech activates a Ballistic Weapon:
       After resolving that Weapon, reposition all mechs damaged by it.
+  tags:
+    - Strong-Watchlist
 
 Focusing Lens:
   size: Small
@@ -1358,6 +1385,8 @@ Emergency Vents:
   actions:
     - |
       1/round. Gain 1 <:vulnerable:> and lose all <:overheat:>.
+  tags:
+    - Sus
 
 Afterburners:
   size: Small
