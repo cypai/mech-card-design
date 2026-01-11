@@ -57,7 +57,7 @@ Latent Trojan:
   triggers:
     - |
       When an enemy mech activates a System:
-      Inflict 2 <:overheat:> to that mech as the <:target:>.
+      Draw a card. Inflict 2 <:overheat:> to that mech as the <:target:>.
 
 Outflank:
   rating: Cadet
