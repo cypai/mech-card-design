@@ -273,8 +273,6 @@ Heavy Assault Cannon:
       Choose:
       > Shred.
       > Inflict [<:charge:>] <:suppression:>.
-  tags:
-    - Strong-Watchlist
 
 Mjolnir Cannon:
   size: Large
@@ -525,7 +523,6 @@ Thermobaric Flame Cannon:
       Deal 2 <:damage:> to mechs at <:target:>.
   tags:
     - AOE
-    - Strong-Watchlist
 
 Turbolaser Array:
   size: Large
@@ -893,8 +890,6 @@ Proximity-Swarm Nanites:
     - |
       When resolving an enemy mech's Weapon that had this mech as its <:target:>:
       Activate this Weapon, setting that mech as the <:target:> if applicable.
-  tags:
-    - Strong-Watchlist
 
 Thermo-Reactive Nanites:
   size: Small
@@ -1027,7 +1022,6 @@ Razortooth Missile:
       Shred all enemy mechs with no <:shield:> at the <:target:>.
   tags:
     - AOE
-    - Strong-Watchlist
 
 Ion Torpedo:
   size: Small
@@ -1070,8 +1064,6 @@ Thanatos Missile:
   actions:
     - |
       Inflict 1 <:overheat:>.
-  tags:
-    - Strong-Watchlist
   alias:
     - MELTDOWN
 
@@ -1188,8 +1180,6 @@ CAS Uplink:
       Put an Airstrike in your hand.
     - |
       Your Airstrikes deal +1 <:damage:>.
-  tags:
-    - Weak-Watchlist
 
 Artillery Uplink:
   size: Small
