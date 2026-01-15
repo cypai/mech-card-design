@@ -611,11 +611,9 @@ Combat Knife:
   range: 0
   target: 1
   rating: Cadet
-  info: |
-    Melee <:card-rotation:>.
   actions:
     - |
-      Deal 1 <:damage:>. Inflict 1 <:vulnerable:>.
+      Melee <:card-rotation:>. Deal 1 <:damage:>. Inflict 1 <:vulnerable:>.
 
 Power Buckler:
   size: Small
@@ -625,11 +623,9 @@ Power Buckler:
   range: 0
   target: 1
   rating: Cadet
-  info: |
-    Melee <:card-rotation:>.
   actions:
     - |
-      Deal 1 <:damage:>. Gain 1 <:shield:>.
+      Melee <:card-rotation:>. Deal 1 <:damage:>. Gain 1 <:shield:>.
 
 Power Fist:
   size: Medium
@@ -639,11 +635,9 @@ Power Fist:
   range: 0
   target: 1
   rating: Cadet
-  info: |
-    Melee <:card-rotation:>.
   actions:
     - |
-      Deal 3 <:damage:>. Move the <:target:> to the back line.
+      Melee <:card-rotation:>. Deal 3 <:damage:>. Move the <:target:> to the back line.
 
 Iaijutsu Blade:
   size: Medium
@@ -653,10 +647,9 @@ Iaijutsu Blade:
   range: 0
   target: 1
   rating: Cadet
-  info: |
-    Melee <:card-rotation:>.
   actions:
     - |
+      Melee <:card-rotation:>.
       Choose:
       > Deal 3 <:damage:>. Shred.
       > Discard a card. Destroy the <:target:> if it has 5 HP or less.
@@ -669,11 +662,9 @@ Ion Knuckle:
   range: 0
   target: 1
   rating: Cadet
-  info: |
-    Melee <:card-rotation:>.
   actions:
     - |
-      Deal 2 <:damage:>. Disable 1 Equipment on the <:target:>.
+      Melee <:card-rotation:>. Deal 2 <:damage:>. Disable 1 Equipment on the <:target:>.
 
 Phase Lance:
   size: Medium
@@ -683,11 +674,9 @@ Phase Lance:
   range: 0
   target: 1
   rating: Cadet
-  info: |
-    Melee <:card-rotation:>.
   actions:
     - |
-      Remove all <:shield:> from the <:target:>. Deal 3 AP <:damage:>.
+      Melee <:card-rotation:>. Remove all <:shield:> from the <:target:>. Deal 3 AP <:damage:>.
 
 Magnetic Grappler:
   size: Medium
@@ -697,11 +686,9 @@ Magnetic Grappler:
   range: 0
   target: 1
   rating: Veteran
-  info: |
-    Melee <:card-rotation:>.
   actions:
     - |
-      Deal 2 <:damage:>. Choose:
+      Melee <:card-rotation:>. Deal 2 <:damage:>. Choose:
       > <:card-rotation:> the <:target:>.
       > Move the <:target:> to the back line.
   tags:
@@ -716,11 +703,9 @@ Rocket Fists:
   target: 1
   ammo: 2
   rating: Veteran
-  info: |
-    Melee <:card-rotation:>.
   actions:
     - |
-      Deal 4 <:damage:>.
+      Melee <:card-rotation:>. Deal 4 <:damage:>.
       Requires <:ammo:>, but does not consume <:ammo:>.
     - |
       Deal 2 <:damage:> with <:range:> 2. Move the <:target:> to the back line.
@@ -733,11 +718,9 @@ Arondight Starsword:
   range: 0
   target: 1
   rating: Cadet
-  info: |
-    Melee <:card-rotation:>.
   actions:
     - |
-      Deal 6 <:damage:>.
+      Melee <:card-rotation:>. Deal 6 <:damage:>.
 
 Heavy Combat Drill:
   size: Large
@@ -748,11 +731,9 @@ Heavy Combat Drill:
   target: 1
   maxcharge: 4
   rating: Ace
-  info: |
-    Melee <:card-rotation:>.
   actions:
     - |
-      Gain 1 <:charge:>. Deal 2 AP <:damage:>. Shred.
+      Melee <:card-rotation:>. Gain 1 <:charge:>. Deal 2 AP <:damage:>. Shred.
       Prepare: Deal [<:charge:>+2] AP <:damage:>. Shred.
 
 Ripjaw Chainaxe:
@@ -764,11 +745,9 @@ Ripjaw Chainaxe:
   target: 1
   maxcharge: 4
   rating: Cadet
-  info: |
-    Melee <:card-rotation:>.
   actions:
     - |
-      Gain 1 <:charge:>. Deal [<:charge:>+4] <:damage:>.
+      Melee <:card-rotation:>. Gain 1 <:charge:>. Deal [<:charge:>+4] <:damage:>.
       If [<:charge:>]>1, Shred.
 
 Gungnir Shock Lance:
@@ -779,12 +758,11 @@ Gungnir Shock Lance:
   range: 0
   target: 1
   rating: Ace
-  info: |
-    Melee <:card-rotation:>.
   actions:
     - |
-      Deal 4 AP <:damage:>. <:card-rotation:> the <:target:>.
-      You may activate this with <:range:> 2. If so, discard this Weapon.
+      Melee <:card-rotation:>. Deal 4 AP <:damage:>. <:card-rotation:> the <:target:>.
+    - |
+      Deal 4 AP <:damage:> with <:range:> 2. <:card-rotation:> the <:target:>. Discard this Weapon.
 
 Combat Drone Launcher:
   size: Medium
@@ -1469,10 +1447,10 @@ Reserved Power Blade:
   target: 1
   rating: Cadet
   info: |
-    Reserved. Melee <:card-rotation:>.
+    Reserved.
   actions:
     - |
-      Deal 3 <:damage:>.
+      Melee <:card-rotation:>. Deal 3 <:damage:>.
   tags:
     - Spare
 
