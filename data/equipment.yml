@@ -216,24 +216,17 @@ Railgun:
     - |
       Deal 5 AP <:damage:>.
 
-Devastator:
+Hullcrusher Rifle:
   size: Large
   type: Ballistic
   form: Weapon
-  heat: 3
+  heat: 4
   range: 1
   target: 1
-  maxcharge: 4
   rating: Veteran
   actions:
     - |
-      Gain 1 <:charge:>.
-      Choose:
-      > Inflict [<:charge:>] <:vulnerable:>.
-      > Deal [<:charge:>] AP <:damage:>.
-      Then, inflict [<:charge:>] <:suppression:>.
-  tags:
-    - Strong-Watchlist
+      Deal 1 <:damage:>. Deals +4 <:damage:> if the <:target:> has 0 Armor and 0 <:shield:>.
 
 Mass Driver:
   size: Large
@@ -530,21 +523,21 @@ Thermobaric Flame Cannon:
     - AOE
     - Strong-Watchlist
 
-Turbolaser Array:
+Damocles Megalaser:
   size: Large
   type: Energy
   form: Weapon
   heat: 5
   range: 2
   target: 1
-  maxcharge: 4
+  maxcharge: 6
   rating: Cadet
   actions:
     - |
       Gain 1 <:charge:>. Deal [<:charge:>+1] <:damage:>.
       Choose:
       > Gain 1 <:charge:>.
-      > Inflict 1 <:overheat:>.
+      > Inflict 2 <:overheat:>.
 
 Plasma Incinerator:
   size: Large
@@ -860,7 +853,7 @@ Drone Command Nexus:
   passives:
     - |
       When an allied drone is destroyed:
-      <:target:> 1 <:range:> 3: Deal 1 <:damage:>.
+      You may discard a card to add an Airstrike into your hand.
   tags:
     - AOE
     - Sus
@@ -1133,7 +1126,7 @@ Thanatos Missile:
   size: Medium
   type: Electronics
   form: System
-  heat: 3
+  heat: 2
   range: 3
   rating: Ace
   actions:
@@ -1144,27 +1137,11 @@ Thanatos Missile:
   tags:
     - Weak-Watchlist
 
-"Cyberwarfare: MEDUSA":
-  size: Medium
-  type: Electronics
-  form: System
-  heat: 2
-  range: 3
-  target: 2
-  rating: Veteran
-  actions:
-    - |
-      Discard a card. Disable 1 Equipment on each <:target:>.
-  alias:
-    - MEDUSA
-  tags:
-    - Weak-Watchlist
-
 "Cyberwarfare: HIJACK":
   size: Medium
   type: Electronics
   form: System
-  heat: 3
+  heat: 1
   range: 3
   target: 1
   rating: Ace
@@ -1294,6 +1271,31 @@ Absolute Terminus Field:
   alias:
     - AT Field
 
+Rotating Shield Matrix:
+  size: Small
+  type: Electronics
+  form: System
+  heat: 2
+  maxcharge: 3
+  rating: Cadet
+  triggers:
+    - |
+      When resolving an enemy Equipment had this mech as a <:target:>:
+      Gain 1 <:charge:>. Gain [<:charge:>] <:shield:>. If [<:charge:>]=3, lose all <:charge:>.
+
+Suppressive Fire Protocol:
+  size: Medium
+  type: Electronics
+  form: System
+  heat: 2
+  range: 3
+  target: 1
+  rating: Veteran
+  triggers:
+    - |
+      When the opponent's turn ends:
+      Cause all <:suppression:> on the <:target:> to trigger.
+
 Charge Spool:
   size: Small
   type: Auxiliary
@@ -1313,7 +1315,7 @@ Chameleon Paint:
   rating: Cadet
   info: |
     Inert.
-  triggers:
+  passives:
     - |
       When your turn ends, if this mech changed position this turn:
       Gain 1 <:shield:> if it has no <:shield:>.
@@ -1371,20 +1373,6 @@ Focusing Lens:
       1/round, on this mech activating an Energy Weapon:
       This turn, it inflicts 1 <:overheat:> after dealing <:damage:>.
 
-Emergency Vents:
-  size: Small
-  type: Auxiliary
-  form: Attachment
-  heat: 0
-  rating: Cadet
-  info: |
-    Inert.
-  actions:
-    - |
-      1/round. Gain 1 <:vulnerable:> and lose all <:overheat:>.
-  tags:
-    - Sus
-
 Afterburners:
   size: Small
   type: Auxiliary
@@ -1410,20 +1398,6 @@ Spiked Pauldrons:
     - |
       Melee Weapons on this mech deal +1 <:damage:>.
 
-Reinforced Frame:
-  size: Large
-  type: Auxiliary
-  form: Attachment
-  rating: Veteran
-  info: |
-    Inert.
-  passives:
-    - |
-      While attached, this mech has +1 Armor.
-    - |
-      When this mech receives Shred:
-      Immediately discard this Equipment.
-
 Adaptive Heat Sink:
   size: Medium
   type: Auxiliary
@@ -1437,6 +1411,20 @@ Adaptive Heat Sink:
     - |
       When this mech receives Shred:
       Discard this Equipment.
+
+Reinforced Frame:
+  size: Large
+  type: Auxiliary
+  form: Attachment
+  rating: Veteran
+  info: |
+    Inert.
+  passives:
+    - |
+      While attached, this mech has +1 Armor.
+    - |
+      When this mech receives Shred:
+      Immediately discard this Equipment.
 
 Reserved Rifle:
   size: Medium
