@@ -1101,7 +1101,7 @@ Thanatos Missile:
     - TANGO
 
 "Cyberwarfare: JOKER":
-  size: Medium
+  size: Small
   type: Electronics
   form: System
   heat: 2
@@ -1116,7 +1116,7 @@ Thanatos Missile:
     - Weak-Watchlist
 
 "Cyberwarfare: HIJACK":
-  size: Medium
+  size: Small
   type: Electronics
   form: System
   heat: 1
