@@ -1105,7 +1105,6 @@ Thanatos Missile:
   type: Electronics
   form: System
   heat: 2
-  range: 3
   rating: Ace
   actions:
     - |
@@ -1125,7 +1124,7 @@ Thanatos Missile:
   rating: Ace
   actions:
     - |
-      Choose a Weapon on an enemy mech with a legal <:target:>. Your opponent activates it.
+      Choose a Weapon with a legal <:target:> on the <:target:>. Your opponent activates it.
   alias:
     - HIJACK
   tags:
@@ -1180,7 +1179,7 @@ Slipstream Optimizer:
   triggers:
     - |
       When resolving an Action from this mech:
-      Reposition another allied mech for 0 <:heat:> Cost.
+      Advance or Fall Back another allied mech for 0 <:heat:> Cost.
 
 Safety Overrides:
   size: Small
@@ -1388,7 +1387,7 @@ Adaptive Heat Sink:
       This mech cannot gain <:overheat:>.
     - |
       When this mech receives Shred:
-      Discard this Equipment.
+      Immediately discard this Equipment.
 
 Reinforced Frame:
   size: Large
