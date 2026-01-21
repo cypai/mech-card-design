@@ -13,9 +13,10 @@ Airstrike:
 
 Fog of War:
   rating: Cadet
-  actions:
+  triggers:
     - |
-      Draw a card. All allied mechs gain 1 <:shield:>.
+      When your opponent's turn starts:
+      Draw a card. This turn, your opponent's non-Melee Equipment become <:range:> 1, and their <:range:> cannot be otherwise modififed.
 
 Lock and Load:
   rating: Cadet
@@ -48,7 +49,7 @@ Take Cover:
   triggers:
     - |
       When an allied mech becomes a <:target:> or gains <:suppression:>:
-      Draw a card. Remove all <:vulnerable:> and <:suppression:> from it.
+      Draw a card. Gain 1 <:shield:>, and remove all <:vulnerable:> and <:suppression:> from it.
 
 Latent Trojan:
   target: 1
@@ -56,7 +57,7 @@ Latent Trojan:
   triggers:
     - |
       When an enemy mech activates a System:
-      Inflict 2 <:overheat:> to that mech as the <:target:>.
+      Draw a card. Inflict 2 <:overheat:> to that mech as the <:target:>.
 
 Outflank:
   rating: Cadet

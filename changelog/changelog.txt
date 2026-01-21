@@ -1,3 +1,285 @@
+1/19 changes
+------------
+
+Ballistarius
+Heat Capacity: 7 -> 6
+
+Rubicon
+Heat Capacity: 7 -> 6
+Hardpoints: L L L -> L L
+
+Centurion
+HP: 8 -> 7
+
+Rapscallion
+HP: 8 -> 7
+
+Panoptic Autocannon
+Heat: 6 -> 2
+Target: 2 -> C
+Max Charge: None -> 5
+Action: Deal 2 AP <:damage:> and inflict 2 <:suppression:> to each <:target:>.
+|->
+Action: Gain 1 <:charge:> before designating <:target:>. Inflict 1 <:suppression:> to each <:target:>.
+
+Combat Knife
+Info: Melee <:card-rotation:>.
+Action: Deal 1 <:damage:>. Inflict 1 <:vulnerable:>.
+|->
+Action: Melee <:card-rotation:>. Deal 1 <:damage:>. Inflict 1 <:vulnerable:>.
+
+Power Buckler
+Info: Melee <:card-rotation:>.
+Action: Deal 1 <:damage:>. Gain 1 <:shield:>.
+|->
+Action: Melee <:card-rotation:>. Deal 1 <:damage:>. Gain 1 <:shield:>.
+
+Power Fist
+Info: Melee <:card-rotation:>.
+Action: Deal 3 <:damage:>. Move the <:target:> to the back line.
+|->
+Action: Melee <:card-rotation:>. Deal 3 <:damage:>. Move the <:target:> to the back line.
+
+Iaijutsu Blade
+Info: Melee <:card-rotation:>.
+Action: Choose:
+> Deal 3 <:damage:>. Shred.
+> Discard a card. Destroy the <:target:> if it has 5 HP or less.
+|->
+Action: Melee <:card-rotation:>.
+Choose:
+> Deal 3 <:damage:>. Shred.
+> Discard a card. Destroy the <:target:> if it has 5 HP or less.
+
+Ion Knuckle
+Info: Melee <:card-rotation:>.
+Action: Deal 2 <:damage:>. Disable 1 Equipment on the <:target:>.
+|->
+Action: Melee <:card-rotation:>. Deal 2 <:damage:>. Disable 1 Equipment on the <:target:>.
+
+Phase Lance
+Info: Melee <:card-rotation:>.
+Action: Remove all <:shield:> from the <:target:>. Deal 3 AP <:damage:>.
+|->
+Action: Melee <:card-rotation:>. Remove all <:shield:> from the <:target:>. Deal 3 AP <:damage:>.
+
+Magnetic Grappler
+Info: Melee <:card-rotation:>.
+Action: Deal 2 <:damage:>. Choose:
+> <:card-rotation:> the <:target:>.
+> Move the <:target:> to the back line.
+|->
+Action: Melee <:card-rotation:>. Deal 2 <:damage:>. Choose:
+> <:card-rotation:> the <:target:>.
+> Move the <:target:> to the back line.
+
+Rocket Fists
+Info: Melee <:card-rotation:>.
+Action: Deal 4 <:damage:>.
+Requires <:ammo:>, but does not consume <:ammo:>.
+Action: Deal 2 <:damage:> with <:range:> 2. Move the <:target:> to the back line.
+|->
+Action: Melee <:card-rotation:>. Deal 4 <:damage:>.
+Requires <:ammo:>, but does not consume <:ammo:>.
+Action: Deal 2 <:damage:> with <:range:> 2. Move the <:target:> to the back line.
+
+Arondight Starsword
+Info: Melee <:card-rotation:>.
+Action: Deal 6 <:damage:>.
+|->
+Action: Melee <:card-rotation:>. Deal 6 <:damage:>.
+
+Heavy Combat Drill
+Info: Melee <:card-rotation:>.
+Action: Gain 1 <:charge:>. Deal 2 AP <:damage:>. Shred.
+Prepare: Deal [<:charge:>+2] AP <:damage:>. Shred.
+|->
+Action: Melee <:card-rotation:>. Gain 1 <:charge:>. Deal 2 AP <:damage:>. Shred.
+Prepare: Deal [<:charge:>+2] AP <:damage:>. Shred.
+
+Ripjaw Chainaxe
+Info: Melee <:card-rotation:>.
+Action: Gain 1 <:charge:>. Deal [<:charge:>+4] <:damage:>.
+If [<:charge:>]>1, Shred.
+|->
+Action: Melee <:card-rotation:>. Gain 1 <:charge:>. Deal [<:charge:>+4] <:damage:>.
+If [<:charge:>]>1, Shred.
+
+Gungnir Shock Lance
+Info: Melee <:card-rotation:>.
+Action: Deal 4 AP <:damage:>. <:card-rotation:> the <:target:>.
+You may activate this with <:range:> 2. If so, discard this Weapon.
+|->
+Action: Melee <:card-rotation:>. Deal 4 AP <:damage:>. <:card-rotation:> the <:target:>.
+Action: Deal 4 AP <:damage:> with <:range:> 2. <:card-rotation:> the <:target:>. Discard this Weapon.
+
+Drone Command Nexus
+Action: Choose any drone that you do not currently have deployed, and deploy it.
+Passive: When an allied drone is destroyed:
+<:target:> 1 <:range:> 3: Deal 1 <:damage:>.
+|->
+Action: Choose any drone that you do not currently have deployed, and deploy it.
+Passive: When an allied drone is destroyed:
+You may discard a card to add an Airstrike into your hand.
+
+Cyberwarfare: EPIDEMIC
+Heat: 2 -> 3
+Max Charge: 3 -> 4
+
+Cyberwarfare: TANGO
+Target: 1 -> 2
+Action: Reposition both the <:target:> and this mech.
+|->
+Info: This Weapon may <:target:> allied mechs. <:target:> must be distinct mechs.
+Action: Reposition the <:target:>.
+
+Cyberwarfare: JOKER
+Size: Medium -> Small
+Heat: 3 -> 2
+Range: 3 -> None
+
+Cyberwarfare: HIJACK
+Size: Medium -> Small
+Heat: 3 -> 1
+Action: Choose a Weapon on an enemy mech with a legal <:target:>. Your opponent activates it.
+|->
+Action: Choose a Weapon with a legal <:target:> on the <:target:>. Your opponent activates it.
+
+Slipstream Optimizer
+Trigger: When resolving an Action from this mech:
+Reposition another allied mech for 0 <:heat:> Cost.
+|->
+Trigger: When resolving an Action from this mech:
+Advance or Fall Back another allied mech for 0 <:heat:> Cost.
+
+Chameleon Paint
+Info: Inert.
+Trigger: 1/round, on this mech changing position:
+Gain 1 <:shield:>.
+|->
+Info: Inert.
+Passive: When your turn ends, if this mech changed position this turn:
+Gain 1 <:shield:> if it has no <:shield:>.
+
+Iron Sights
+Info: Inert.
+Passive: If this mech did not activate anything or change position since the start of your last turn this Round, its <:range:> 1 Weapons have <:range:> 2.
+|->
+Info: Inert.
+Trigger: When another allied mech resolves an Equipment as an Action:
+Choose a <:range:> 1 Weapon on this mech. Prepare: Activate that Weapon, treating it as <:range:> 2.
+
+Adaptive Heat Sink
+Info: Inert.
+Passive: This mech cannot gain <:overheat:>.
+Passive: When this mech receives Shred:
+Discard this Equipment.
+|->
+Info: Inert.
+Passive: This mech cannot gain <:overheat:>.
+Passive: When this mech receives Shred:
+Immediately discard this Equipment.
+
+Reserved Power Blade
+Info: Reserved. Melee <:card-rotation:>.
+Action: Deal 3 <:damage:>.
+|->
+Info: Reserved.
+Action: Melee <:card-rotation:>. Deal 3 <:damage:>.
+
+Hullcrusher Rifle was added.
+Hullcrusher Rifle
+Large Ballistic Weapon
+Heat: 4
+Range: 1
+Target: 1
+Rating: Veteran
+Action: Deal 1 <:damage:>. Deals +4 <:damage:> if the <:target:> has 0 Armor and 0 <:shield:>.
+
+Turbolaser Array -> Damocles Megalaser
+Max Charge: 4 -> 6
+Action: Gain 1 <:charge:>. Deal [<:charge:>+1] <:damage:>.
+Choose:
+> Gain 1 <:charge:>.
+> Inflict 1 <:overheat:>.
+|->
+Action: Gain 1 <:charge:>. Deal [<:charge:>+1] <:damage:>.
+Choose:
+> Gain 1 <:charge:>.
+> Inflict 2 <:overheat:>.
+
+Rotating Shield Matrix was added.
+Rotating Shield Matrix
+Small Electronics System
+Heat: 2
+Max Charge: 3
+Rating: Cadet
+Trigger: When resolving an enemy Equipment had this mech as a <:target:>:
+Gain 1 <:charge:>. Gain [<:charge:>] <:shield:>. If [<:charge:>]=3, lose all <:charge:>.
+
+Suppressive Fire Protocol was added.
+Suppressive Fire Protocol
+Medium Electronics System
+Heat: 2
+Range: 3
+Target: 1
+Rating: Veteran
+Trigger: When the opponent's turn ends:
+Cause all <:suppression:> on the <:target:> to trigger.
+
+Devastator was deleted.
+Devastator
+Large Ballistic Weapon
+Heat: 3
+Range: 1
+Target: 1
+Max Charge: 4
+Rating: Veteran
+Action: Gain 1 <:charge:>.
+Choose:
+> Inflict [<:charge:>] <:vulnerable:>.
+> Deal [<:charge:>] AP <:damage:>.
+Then, inflict [<:charge:>] <:suppression:>.
+
+Cyberwarfare: MEDUSA was deleted.
+Cyberwarfare: MEDUSA
+Medium Electronics System
+Heat: 2
+Range: 3
+Target: 2
+Rating: Veteran
+Action: Discard a card. Disable 1 Equipment on each <:target:>.
+
+Emergency Vents was deleted.
+Emergency Vents
+Small Auxiliary Attachment
+Heat: 0
+Rating: Cadet
+Info: Inert.
+Action: 1/round. Gain 1 <:vulnerable:> and lose all <:overheat:>.
+
+Fog of War
+Action: Draw a card. All allied mechs gain 1 <:shield:>.
+|->
+Trigger: When your opponent's turn starts:
+Draw a card. This turn, your opponent's non-Melee Equipment become <:range:> 1, and their <:range:> cannot be otherwise modififed.
+
+Take Cover
+Trigger: When an allied mech becomes a <:target:> or gains <:suppression:>:
+Draw a card. Remove all <:vulnerable:> and <:suppression:> from it.
+|->
+Trigger: When an allied mech becomes a <:target:> or gains <:suppression:>:
+Draw a card. Gain 1 <:shield:>, and remove all <:vulnerable:> and <:suppression:> from it.
+
+Latent Trojan
+Trigger: When an enemy mech activates a System:
+Inflict 2 <:overheat:> to that mech as the <:target:>.
+|->
+Trigger: When an enemy mech activates a System:
+Draw a card. Inflict 2 <:overheat:> to that mech as the <:target:>.
+
+
+
 1/10 playtest print
 -------------------
 

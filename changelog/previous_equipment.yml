@@ -130,6 +130,7 @@ Automatic Shotgun:
       Deal 2 <:damage:> to the enemy front line.
   tags:
     - AOE
+    - Strong-Watchlist
 
 Assault Cannon:
   size: Medium
@@ -192,16 +193,16 @@ Panoptic Autocannon:
   size: Large
   type: Ballistic
   form: Weapon
-  heat: 6
+  heat: 2
   range: 1
-  target: 2
+  target: C
+  maxcharge: 5
   rating: Ace
   actions:
     - |
-      Deal 2 AP <:damage:> and inflict 2 <:suppression:> to each <:target:>.
+      Gain 1 <:charge:> before designating <:target:>. Inflict 1 <:suppression:> to each <:target:>.
   tags:
     - AOE
-    - Multihit
 
 Railgun:
   size: Large
@@ -215,22 +216,17 @@ Railgun:
     - |
       Deal 5 AP <:damage:>.
 
-Devastator:
+Hullcrusher Rifle:
   size: Large
   type: Ballistic
   form: Weapon
-  heat: 3
+  heat: 4
   range: 1
   target: 1
-  maxcharge: 4
   rating: Veteran
   actions:
     - |
-      Gain 1 <:charge:>.
-      Choose:
-      > Inflict [<:charge:>] <:vulnerable:>.
-      > Deal [<:charge:>] AP <:damage:>.
-      Then, inflict [<:charge:>] <:suppression:>.
+      Deal 1 <:damage:>. Deals +4 <:damage:> if the <:target:> has 0 Armor and 0 <:shield:>.
 
 Mass Driver:
   size: Large
@@ -527,21 +523,21 @@ Thermobaric Flame Cannon:
     - AOE
     - Strong-Watchlist
 
-Turbolaser Array:
+Damocles Megalaser:
   size: Large
   type: Energy
   form: Weapon
   heat: 5
   range: 2
   target: 1
-  maxcharge: 4
+  maxcharge: 6
   rating: Cadet
   actions:
     - |
       Gain 1 <:charge:>. Deal [<:charge:>+1] <:damage:>.
       Choose:
       > Gain 1 <:charge:>.
-      > Inflict 1 <:overheat:>.
+      > Inflict 2 <:overheat:>.
 
 Plasma Incinerator:
   size: Large
@@ -615,11 +611,9 @@ Combat Knife:
   range: 0
   target: 1
   rating: Cadet
-  info: |
-    Melee <:card-rotation:>.
   actions:
     - |
-      Deal 1 <:damage:>. Inflict 1 <:vulnerable:>.
+      Melee <:card-rotation:>. Deal 1 <:damage:>. Inflict 1 <:vulnerable:>.
 
 Power Buckler:
   size: Small
@@ -629,11 +623,9 @@ Power Buckler:
   range: 0
   target: 1
   rating: Cadet
-  info: |
-    Melee <:card-rotation:>.
   actions:
     - |
-      Deal 1 <:damage:>. Gain 1 <:shield:>.
+      Melee <:card-rotation:>. Deal 1 <:damage:>. Gain 1 <:shield:>.
 
 Power Fist:
   size: Medium
@@ -643,11 +635,9 @@ Power Fist:
   range: 0
   target: 1
   rating: Cadet
-  info: |
-    Melee <:card-rotation:>.
   actions:
     - |
-      Deal 3 <:damage:>. Move the <:target:> to the back line.
+      Melee <:card-rotation:>. Deal 3 <:damage:>. Move the <:target:> to the back line.
 
 Iaijutsu Blade:
   size: Medium
@@ -657,10 +647,9 @@ Iaijutsu Blade:
   range: 0
   target: 1
   rating: Cadet
-  info: |
-    Melee <:card-rotation:>.
   actions:
     - |
+      Melee <:card-rotation:>.
       Choose:
       > Deal 3 <:damage:>. Shred.
       > Discard a card. Destroy the <:target:> if it has 5 HP or less.
@@ -673,11 +662,9 @@ Ion Knuckle:
   range: 0
   target: 1
   rating: Cadet
-  info: |
-    Melee <:card-rotation:>.
   actions:
     - |
-      Deal 2 <:damage:>. Disable 1 Equipment on the <:target:>.
+      Melee <:card-rotation:>. Deal 2 <:damage:>. Disable 1 Equipment on the <:target:>.
 
 Phase Lance:
   size: Medium
@@ -687,11 +674,9 @@ Phase Lance:
   range: 0
   target: 1
   rating: Cadet
-  info: |
-    Melee <:card-rotation:>.
   actions:
     - |
-      Remove all <:shield:> from the <:target:>. Deal 3 AP <:damage:>.
+      Melee <:card-rotation:>. Remove all <:shield:> from the <:target:>. Deal 3 AP <:damage:>.
 
 Magnetic Grappler:
   size: Medium
@@ -701,13 +686,13 @@ Magnetic Grappler:
   range: 0
   target: 1
   rating: Veteran
-  info: |
-    Melee <:card-rotation:>.
   actions:
     - |
-      Deal 2 <:damage:>. Choose:
+      Melee <:card-rotation:>. Deal 2 <:damage:>. Choose:
       > <:card-rotation:> the <:target:>.
       > Move the <:target:> to the back line.
+  tags:
+    - Weak-Watchlist
 
 Rocket Fists:
   size: Medium
@@ -718,11 +703,9 @@ Rocket Fists:
   target: 1
   ammo: 2
   rating: Veteran
-  info: |
-    Melee <:card-rotation:>.
   actions:
     - |
-      Deal 4 <:damage:>.
+      Melee <:card-rotation:>. Deal 4 <:damage:>.
       Requires <:ammo:>, but does not consume <:ammo:>.
     - |
       Deal 2 <:damage:> with <:range:> 2. Move the <:target:> to the back line.
@@ -735,11 +718,9 @@ Arondight Starsword:
   range: 0
   target: 1
   rating: Cadet
-  info: |
-    Melee <:card-rotation:>.
   actions:
     - |
-      Deal 6 <:damage:>.
+      Melee <:card-rotation:>. Deal 6 <:damage:>.
 
 Heavy Combat Drill:
   size: Large
@@ -750,11 +731,9 @@ Heavy Combat Drill:
   target: 1
   maxcharge: 4
   rating: Ace
-  info: |
-    Melee <:card-rotation:>.
   actions:
     - |
-      Gain 1 <:charge:>. Deal 2 AP <:damage:>. Shred.
+      Melee <:card-rotation:>. Gain 1 <:charge:>. Deal 2 AP <:damage:>. Shred.
       Prepare: Deal [<:charge:>+2] AP <:damage:>. Shred.
 
 Ripjaw Chainaxe:
@@ -766,11 +745,9 @@ Ripjaw Chainaxe:
   target: 1
   maxcharge: 4
   rating: Cadet
-  info: |
-    Melee <:card-rotation:>.
   actions:
     - |
-      Gain 1 <:charge:>. Deal [<:charge:>+4] <:damage:>.
+      Melee <:card-rotation:>. Gain 1 <:charge:>. Deal [<:charge:>+4] <:damage:>.
       If [<:charge:>]>1, Shred.
 
 Gungnir Shock Lance:
@@ -781,12 +758,11 @@ Gungnir Shock Lance:
   range: 0
   target: 1
   rating: Ace
-  info: |
-    Melee <:card-rotation:>.
   actions:
     - |
-      Deal 4 AP <:damage:>. <:card-rotation:> the <:target:>.
-      You may activate this with <:range:> 2. If so, discard this Weapon.
+      Melee <:card-rotation:>. Deal 4 AP <:damage:>. <:card-rotation:> the <:target:>.
+    - |
+      Deal 4 AP <:damage:> with <:range:> 2. <:card-rotation:> the <:target:>. Discard this Weapon.
 
 Combat Drone Launcher:
   size: Medium
@@ -840,6 +816,7 @@ Jammer Drone Launcher:
       Inflict 1 <:overheat:> on the enemy front line, then summon 1 Jammer Drone.
   tags:
     - AOE
+    - Strong-Watchlist
 
 Drone Command Nexus:
   size: Medium
@@ -854,9 +831,10 @@ Drone Command Nexus:
   passives:
     - |
       When an allied drone is destroyed:
-      <:target:> 1 <:range:> 3: Deal 1 <:damage:>.
+      You may discard a card to add an Airstrike into your hand.
   tags:
     - AOE
+    - Sus
 
 Hunter-Killer Nanites:
   size: Small
@@ -893,8 +871,6 @@ Proximity-Swarm Nanites:
     - |
       When resolving an enemy mech's Weapon that had this mech as its <:target:>:
       Activate this Weapon, setting that mech as the <:target:> if applicable.
-  tags:
-    - Strong-Watchlist
 
 Thermo-Reactive Nanites:
   size: Small
@@ -981,6 +957,8 @@ Parasite Launcher:
   actions:
     - |
       Deal 1 <:damage:>. During the opponent's next turn, if the <:target:> does not change position, it takes 2 <:damage:> at the end of the turn.
+  tags:
+    - Sus
 
 Ballistic Missile:
   size: Large
@@ -1027,7 +1005,6 @@ Razortooth Missile:
       Shred all enemy mechs with no <:shield:> at the <:target:>.
   tags:
     - AOE
-    - Strong-Watchlist
 
 Ion Torpedo:
   size: Small
@@ -1058,6 +1035,8 @@ Thanatos Missile:
   actions:
     - |
       Discard a card. Deal 4 <:damage:>.
+  tags:
+    - Strong-Watchlist
 
 "Cyberwarfare: MELTDOWN":
   size: Small
@@ -1070,8 +1049,6 @@ Thanatos Missile:
   actions:
     - |
       Inflict 1 <:overheat:>.
-  tags:
-    - Strong-Watchlist
   alias:
     - MELTDOWN
 
@@ -1079,10 +1056,10 @@ Thanatos Missile:
   size: Small
   type: Electronics
   form: System
-  heat: 2
+  heat: 3
   range: 3
   target: C
-  maxcharge: 3
+  maxcharge: 4
   rating: Veteran
   actions:
     - |
@@ -1113,54 +1090,45 @@ Thanatos Missile:
   form: System
   heat: 2
   range: 3
-  target: 1
+  target: 2
   rating: Cadet
+  info: |
+    This Weapon may <:target:> allied mechs. <:target:> must be distinct mechs.
   actions:
     - |
-      Reposition both the <:target:> and this mech.
+      Reposition the <:target:>.
   alias:
     - TANGO
 
 "Cyberwarfare: JOKER":
-  size: Medium
+  size: Small
   type: Electronics
   form: System
-  heat: 3
-  range: 3
+  heat: 2
   rating: Ace
   actions:
     - |
       Choose a player. Move any number of <:shield:>, <:overheat:>, and <:vulnerable:> from mechs that player controls to other mechs that player controls.
   alias:
     - JOKER
-
-"Cyberwarfare: MEDUSA":
-  size: Medium
-  type: Electronics
-  form: System
-  heat: 2
-  range: 3
-  target: 2
-  rating: Veteran
-  actions:
-    - |
-      Discard a card. Disable 1 Equipment on each <:target:>.
-  alias:
-    - MEDUSA
+  tags:
+    - Weak-Watchlist
 
 "Cyberwarfare: HIJACK":
-  size: Medium
+  size: Small
   type: Electronics
   form: System
-  heat: 3
+  heat: 1
   range: 3
   target: 1
   rating: Ace
   actions:
     - |
-      Choose a Weapon on an enemy mech with a legal <:target:>. Your opponent activates it.
+      Choose a Weapon with a legal <:target:> on the <:target:>. Your opponent activates it.
   alias:
     - HIJACK
+  tags:
+    - Weak-Watchlist
 
 EMP Burst Projector:
   size: Small
@@ -1188,8 +1156,6 @@ CAS Uplink:
       Put an Airstrike in your hand.
     - |
       Your Airstrikes deal +1 <:damage:>.
-  tags:
-    - Weak-Watchlist
 
 Artillery Uplink:
   size: Small
@@ -1213,7 +1179,7 @@ Slipstream Optimizer:
   triggers:
     - |
       When resolving an Action from this mech:
-      Reposition another allied mech for 0 <:heat:> Cost.
+      Advance or Fall Back another allied mech for 0 <:heat:> Cost.
 
 Safety Overrides:
   size: Small
@@ -1282,6 +1248,31 @@ Absolute Terminus Field:
   alias:
     - AT Field
 
+Rotating Shield Matrix:
+  size: Small
+  type: Electronics
+  form: System
+  heat: 2
+  maxcharge: 3
+  rating: Cadet
+  triggers:
+    - |
+      When resolving an enemy Equipment had this mech as a <:target:>:
+      Gain 1 <:charge:>. Gain [<:charge:>] <:shield:>. If [<:charge:>]=3, lose all <:charge:>.
+
+Suppressive Fire Protocol:
+  size: Medium
+  type: Electronics
+  form: System
+  heat: 2
+  range: 3
+  target: 1
+  rating: Veteran
+  triggers:
+    - |
+      When the opponent's turn ends:
+      Cause all <:suppression:> on the <:target:> to trigger.
+
 Charge Spool:
   size: Small
   type: Auxiliary
@@ -1301,10 +1292,10 @@ Chameleon Paint:
   rating: Cadet
   info: |
     Inert.
-  triggers:
+  passives:
     - |
-      1/round, on this mech changing position:
-      Gain 1 <:shield:>.
+      When your turn ends, if this mech changed position this turn:
+      Gain 1 <:shield:> if it has no <:shield:>.
 
 Iron Sights:
   size: Small
@@ -1313,9 +1304,10 @@ Iron Sights:
   rating: Veteran
   info: |
     Inert.
-  passives:
+  triggers:
     - |
-      If this mech did not activate anything or change position since the start of your last turn this Round, its <:range:> 1 Weapons have <:range:> 2.
+      When another allied mech resolves an Equipment as an Action:
+      Choose a <:range:> 1 Weapon on this mech. Prepare: Activate that Weapon, treating it as <:range:> 2.
 
 Heartpiercer Rounds:
   size: Small
@@ -1342,6 +1334,8 @@ Earthshaker Rounds:
     - |
       1/round, when this mech activates a Ballistic Weapon:
       After resolving that Weapon, reposition all mechs damaged by it.
+  tags:
+    - Strong-Watchlist
 
 Focusing Lens:
   size: Small
@@ -1355,18 +1349,6 @@ Focusing Lens:
     - |
       1/round, on this mech activating an Energy Weapon:
       This turn, it inflicts 1 <:overheat:> after dealing <:damage:>.
-
-Emergency Vents:
-  size: Small
-  type: Auxiliary
-  form: Attachment
-  heat: 0
-  rating: Cadet
-  info: |
-    Inert.
-  actions:
-    - |
-      1/round. Gain 1 <:vulnerable:> and lose all <:overheat:>.
 
 Afterburners:
   size: Small
@@ -1393,6 +1375,20 @@ Spiked Pauldrons:
     - |
       Melee Weapons on this mech deal +1 <:damage:>.
 
+Adaptive Heat Sink:
+  size: Medium
+  type: Auxiliary
+  form: Attachment
+  rating: Veteran
+  info: |
+    Inert.
+  passives:
+    - |
+      This mech cannot gain <:overheat:>.
+    - |
+      When this mech receives Shred:
+      Immediately discard this Equipment.
+
 Reinforced Frame:
   size: Large
   type: Auxiliary
@@ -1406,20 +1402,6 @@ Reinforced Frame:
     - |
       When this mech receives Shred:
       Immediately discard this Equipment.
-
-Adaptive Heat Sink:
-  size: Medium
-  type: Auxiliary
-  form: Attachment
-  rating: Veteran
-  info: |
-    Inert.
-  passives:
-    - |
-      This mech cannot gain <:overheat:>.
-    - |
-      When this mech receives Shred:
-      Discard this Equipment.
 
 Reserved Rifle:
   size: Medium
@@ -1464,10 +1446,10 @@ Reserved Power Blade:
   target: 1
   rating: Cadet
   info: |
-    Reserved. Melee <:card-rotation:>.
+    Reserved.
   actions:
     - |
-      Deal 3 <:damage:>.
+      Melee <:card-rotation:>. Deal 3 <:damage:>.
   tags:
     - Spare
 

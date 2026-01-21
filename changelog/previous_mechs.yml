@@ -86,7 +86,7 @@ Ballistarius:
   faction: Ares
   hp: 7
   armor: 2
-  hc: 7
+  hc: 6
   hardpoints:
     - Large
     - Large
@@ -124,9 +124,8 @@ Rubicon:
   faction: Ares
   hp: 10
   armor: 2
-  hc: 7
+  hc: 6
   hardpoints:
-    - Large
     - Large
     - Large
   actions:
@@ -136,7 +135,7 @@ Rubicon:
 
 Centurion:
   faction: Ares
-  hp: 8
+  hp: 7
   armor: 3
   hc: 7
   hardpoints:
@@ -327,7 +326,7 @@ Powder Keg:
 
 Rapscallion:
   faction: Pirates
-  hp: 8
+  hp: 7
   armor: 0
   hc: 6
   hardpoints:
