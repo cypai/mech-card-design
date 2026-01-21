@@ -130,7 +130,6 @@ Automatic Shotgun:
       Deal 2 <:damage:> to the enemy front line.
   tags:
     - AOE
-    - Strong-Watchlist
 
 Assault Cannon:
   size: Medium
@@ -194,7 +193,7 @@ Panoptic Autocannon:
   type: Ballistic
   form: Weapon
   heat: 2
-  range: 1
+  range: 2
   target: C
   maxcharge: 5
   rating: Ace
@@ -396,6 +395,7 @@ Galvanic Shotgun:
       1 Equipment on an allied mech gains 1 <:charge:>. Deal [<:charge:>] <:damage:>.
   tags:
     - AOE
+    - Strong-Watchlist
 
 Laser Rifle:
   size: Medium
@@ -688,7 +688,8 @@ Magnetic Grappler:
   rating: Veteran
   actions:
     - |
-      Melee <:card-rotation:>. Deal 2 <:damage:>. Choose:
+      Melee <:card-rotation:>. Deal 2 <:damage:>. Deals +1 <:damage:> if the <:target:> is <:card-rotation:>.
+      Choose:
       > <:card-rotation:> the <:target:>.
       > Move the <:target:> to the back line.
   tags:
@@ -729,7 +730,7 @@ Heavy Combat Drill:
   heat: 5
   range: 0
   target: 1
-  maxcharge: 4
+  maxcharge: 6
   rating: Ace
   actions:
     - |
@@ -796,7 +797,7 @@ Scout Drone Launcher:
   type: Drone
   form: System
   heat: 2
-  ammo: 2
+  ammo: 3
   rating: Veteran
   actions:
     - |
@@ -823,7 +824,7 @@ Drone Command Nexus:
   type: Drone
   form: System
   heat: 3
-  ammo: 3
+  ammo: 2
   rating: Ace
   actions:
     - |
@@ -834,7 +835,7 @@ Drone Command Nexus:
       You may discard a card to add an Airstrike into your hand.
   tags:
     - AOE
-    - Sus
+    - Strong-Watchlist
 
 Hunter-Killer Nanites:
   size: Small
@@ -957,8 +958,6 @@ Parasite Launcher:
   actions:
     - |
       Deal 1 <:damage:>. During the opponent's next turn, if the <:target:> does not change position, it takes 2 <:damage:> at the end of the turn.
-  tags:
-    - Sus
 
 Ballistic Missile:
   size: Large
@@ -1127,8 +1126,6 @@ Thanatos Missile:
       Choose a Weapon with a legal <:target:> on the <:target:>. Your opponent activates it.
   alias:
     - HIJACK
-  tags:
-    - Weak-Watchlist
 
 EMP Burst Projector:
   size: Small
@@ -1418,7 +1415,6 @@ Reserved Rifle:
       Deal 3 <:damage:>.
   tags:
     - Spare
-    - Sus
 
 Reserved Mortar:
   size: Medium

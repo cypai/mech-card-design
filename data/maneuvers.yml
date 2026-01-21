@@ -13,10 +13,9 @@ Airstrike:
 
 Fog of War:
   rating: Cadet
-  triggers:
+  actions:
     - |
-      When your opponent's turn starts:
-      Draw a card. This turn, your opponent's non-Melee Equipment become <:range:> 1, and their <:range:> cannot be otherwise modififed.
+      Draw a card. Gain 1 <:shield:> on all allied mechs.
 
 Lock and Load:
   rating: Cadet
@@ -49,7 +48,7 @@ Take Cover:
   triggers:
     - |
       When an allied mech becomes a <:target:> or gains <:suppression:>:
-      Draw a card. Gain 1 <:shield:>, and remove all <:vulnerable:> and <:suppression:> from it.
+      Draw a card. Remove all <:vulnerable:> and <:suppression:> from it. Ignore all Shred applied to it this turn.
 
 Latent Trojan:
   target: 1

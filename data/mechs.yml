@@ -92,7 +92,7 @@ Ballistarius:
     - Large
   passives:
     - |
-      While this mech is in the back line, this mech's <:range:> 1 Medium or Large Weapons have <:range:> 2.
+      While this mech is in the back line, this mech's <:range:> 1 Weapons with a base <:heat:> Cost >3 have <:range:> 2.
 
 Gladius:
   faction: Ares
@@ -118,7 +118,7 @@ Legionary:
     - Small
   actions:
     - |
-      Activate a Small or Medium Weapon. After resolving it, all enemy mechs affected by that Weapon gain 1 <:vulnerable:>.
+      Activate a Small or Medium Weapon. After resolving it, all enemy mechs affected by it that did not have <:vulnerable:> when it was activated gain 1 <:vulnerable:>.
 
 Rubicon:
   faction: Ares
@@ -131,7 +131,7 @@ Rubicon:
   actions:
     - |
       1/round, choose a Weapon on this mech.
-      Prepare: Activate it at half <:heat:> Cost (rounded up).
+      Prepare: Activate it at half <:heat:> Cost (rounded up, after applying <:overheat:>).
 
 Centurion:
   faction: Ares
@@ -292,7 +292,7 @@ Jolly Roger:
   triggers:
     - |
       When a mech is destroyed:
-      Mount 1 Equipment from that mech onto this mech, replacing Equipment if necessary. If applicable, it has 0 <:charge:>, but <:ammo:> is retained. You may activate it immediately.
+      Mount 1 Equipment from that mech onto this mech, replacing Equipment if necessary. <:charge:> and <:ammo:> are retained. You may activate it immediately.
 
 Blackjack:
   faction: Pirates
@@ -305,7 +305,7 @@ Blackjack:
     - Small
   actions:
     - |
-      1/round, discard a card. Reveal cards from the top of the deck until you reveal a Maneuver, then use it immediately.
+      1/round, discard a card. Reveal cards from the top of the deck until you reveal a Maneuver. If it has a <:trigger:> effect, add it to your hand. Otherwise use it immediately.
 
 Powder Keg:
   faction: Pirates
