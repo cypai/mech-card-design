@@ -82,44 +82,6 @@ Amaterasu:
       1/round, when you activate an Equipment on this mech that can gain <:charge:>:
       It gains 1 <:charge:>.
 
-Ballistarius:
-  faction: Ares
-  hp: 7
-  armor: 2
-  hc: 6
-  hardpoints:
-    - Large
-    - Large
-  passives:
-    - |
-      While this mech is in the back line, this mech's <:range:> 1 Weapons with a base <:heat:> Cost >3 have <:range:> 2.
-
-Gladius:
-  faction: Ares
-  hp: 9
-  armor: 2
-  hc: 7
-  hardpoints:
-    - Large
-    - Small
-    - Small
-  passives:
-    - |
-      Melee Weapons on this mech +1 <:damage:>.
-
-Legionary:
-  faction: Ares
-  hp: 10
-  armor: 1
-  hc: 7
-  hardpoints:
-    - Large
-    - Medium
-    - Small
-  actions:
-    - |
-      Activate a Small or Medium Weapon. After resolving it, all enemy mechs affected by it that did not have <:vulnerable:> when it was activated gain 1 <:vulnerable:>.
-
 Rubicon:
   faction: Ares
   hp: 10
@@ -131,9 +93,22 @@ Rubicon:
   actions:
     - |
       1/round, choose a Weapon on this mech.
-      Prepare: Activate it at half <:heat:> Cost (rounded up, after applying <:overheat:>).
+      Prepare: Activate it at half <:heat:> Cost (rounded up after applying <:overheat:>).
 
-Centurion:
+Gladius:
+  faction: Ares
+  hp: 8
+  armor: 2
+  hc: 7
+  hardpoints:
+    - Large
+    - Small
+    - Small
+  passives:
+    - |
+      Melee Weapons on this mech +1 <:damage:>.
+
+Cestus:
   faction: Ares
   hp: 7
   armor: 3
@@ -147,7 +122,21 @@ Centurion:
       1/battle, when activating a Melee Weapon on this mech:
       This turn, it deals additional <:damage:> equal to this mech's Armor.
 
-Praetor:
+Proconsul:
+  faction: Ares
+  hp: 8
+  armor: 2
+  hc: 7
+  hardpoints:
+    - Large
+    - Medium
+    - Small
+  triggers:
+    - |
+      1/battle, when you resolve a Maneuver:
+      Discard a card. Put that Maneuever into your hand instead of discarding it.
+
+Praetorian:
   faction: Ares
   hp: 7
   armor: 3
@@ -166,6 +155,22 @@ Praetor:
   passives:
     - |
       While this mech is <:card-rotation:>, this mech's <:range:> 1 Weapons have <:range:> 2.
+
+Hastatus:
+  faction: Ares
+  hp: 6
+  armor: 3
+  hc: 6
+  hardpoints:
+    - Large
+    - Medium
+    - Small
+  actions:
+    - |
+      <:card-rotation:> this mech if it is not already <:card-rotation:>, then activate a Weapon.
+  passives:
+    - |
+      While this mech is <:card-rotation:>, this mech's non-Large, non-Melee Weapons deal +1 <:damage:>.
 
 Aquarius:
   faction: Jovians
