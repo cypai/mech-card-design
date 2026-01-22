@@ -266,7 +266,7 @@ Heavy Assault Cannon:
       Gain 1 <:charge:>.
       Deal [<:charge:>] <:damage:>.
       Choose:
-      > Shred.
+      > Shred. Lose 1 <:charge:>.
       > Inflict [<:charge:>] <:suppression:>.
   tags:
     - Strong-Watchlist
