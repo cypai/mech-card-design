@@ -56,17 +56,18 @@ Anansi:
 
 Tzitzimitl:
   faction: Feds
-  hp: 9
+  hp: 8
   armor: 2
   hc: 7
   hardpoints:
     - Medium
     - Medium
-    - Medium
-  passives:
+    - Small
+    - Small
+  triggers:
     - |
-      When the Round starts:
-      All allied mechs at this mech's position gain 1 <:shield:>.
+      1/round, when activating a non-Drone System on this mech:
+      Reduce the <:heat:> Cost by 2 (min 0).
 
 Amaterasu:
   faction: Feds
@@ -82,44 +83,6 @@ Amaterasu:
       1/round, when you activate an Equipment on this mech that can gain <:charge:>:
       It gains 1 <:charge:>.
 
-Ballistarius:
-  faction: Ares
-  hp: 7
-  armor: 2
-  hc: 6
-  hardpoints:
-    - Large
-    - Large
-  passives:
-    - |
-      While this mech is in the back line, this mech's <:range:> 1 Medium or Large Weapons have <:range:> 2.
-
-Gladius:
-  faction: Ares
-  hp: 9
-  armor: 2
-  hc: 7
-  hardpoints:
-    - Large
-    - Small
-    - Small
-  passives:
-    - |
-      Melee Weapons on this mech +1 <:damage:>.
-
-Legionary:
-  faction: Ares
-  hp: 10
-  armor: 1
-  hc: 7
-  hardpoints:
-    - Large
-    - Medium
-    - Small
-  actions:
-    - |
-      Activate a Small or Medium Weapon. After resolving it, all enemy mechs affected by that Weapon gain 1 <:vulnerable:>.
-
 Rubicon:
   faction: Ares
   hp: 10
@@ -131,9 +94,22 @@ Rubicon:
   actions:
     - |
       1/round, choose a Weapon on this mech.
-      Prepare: Activate it at half <:heat:> Cost (rounded up).
+      Prepare: Activate it at half <:heat:> Cost (rounded up after applying <:overheat:>).
 
-Centurion:
+Gladius:
+  faction: Ares
+  hp: 8
+  armor: 2
+  hc: 7
+  hardpoints:
+    - Large
+    - Small
+    - Small
+  passives:
+    - |
+      Melee Weapons on this mech +1 <:damage:>.
+
+Cestus:
   faction: Ares
   hp: 7
   armor: 3
@@ -147,7 +123,21 @@ Centurion:
       1/battle, when activating a Melee Weapon on this mech:
       This turn, it deals additional <:damage:> equal to this mech's Armor.
 
-Praetor:
+Proconsul:
+  faction: Ares
+  hp: 8
+  armor: 2
+  hc: 7
+  hardpoints:
+    - Large
+    - Medium
+    - Small
+  triggers:
+    - |
+      1/battle, when you resolve a Maneuver:
+      Discard a card. Put that Maneuever into your hand instead of discarding it.
+
+Praetorian:
   faction: Ares
   hp: 7
   armor: 3
@@ -166,6 +156,22 @@ Praetor:
   passives:
     - |
       While this mech is <:card-rotation:>, this mech's <:range:> 1 Weapons have <:range:> 2.
+
+Hastatus:
+  faction: Ares
+  hp: 6
+  armor: 3
+  hc: 6
+  hardpoints:
+    - Large
+    - Medium
+    - Small
+  actions:
+    - |
+      <:card-rotation:> this mech if it is not already <:card-rotation:>, then activate a Weapon.
+  passives:
+    - |
+      While this mech is <:card-rotation:>, this mech's non-Large, non-Melee Weapons deal +1 <:damage:>.
 
 Aquarius:
   faction: Jovians
@@ -292,7 +298,7 @@ Jolly Roger:
   triggers:
     - |
       When a mech is destroyed:
-      Mount 1 Equipment from that mech onto this mech, replacing Equipment if necessary. If applicable, it has 0 <:charge:>, but <:ammo:> is retained. You may activate it immediately.
+      Mount 1 Equipment from that mech onto this mech, replacing Equipment if necessary. <:charge:> and <:ammo:> are retained. You may activate it immediately.
 
 Blackjack:
   faction: Pirates
@@ -305,7 +311,7 @@ Blackjack:
     - Small
   actions:
     - |
-      1/round, discard a card. Reveal cards from the top of the deck until you reveal a Maneuver, then use it immediately.
+      1/round, discard a card. Reveal cards from the top of the deck until you reveal a Maneuver. If it has a <:trigger:> effect, add it to your hand. Otherwise use it immediately.
 
 Powder Keg:
   faction: Pirates

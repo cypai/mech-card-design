@@ -1,3 +1,152 @@
+2/12 playtest
+-------------
+
+Tzitzimitl
+HP: 9 -> 8
+Hardpoints: M M M -> M M S S
+Passive: When the Round starts:
+All allied mechs at this mech's position gain 1 <:shield:>.
+|->
+Trigger: 1/round, when activating a non-Drone System on this mech:
+Reduce the <:heat:> Cost by 2 (min 0).
+
+Rubicon
+Action: 1/round, choose a Weapon on this mech.
+Prepare: Activate it at half <:heat:> Cost (rounded up).
+|->
+Action: 1/round, choose a Weapon on this mech.
+Prepare: Activate it at half <:heat:> Cost (rounded up after applying <:overheat:>).
+
+Gladius
+HP: 9 -> 8
+
+Jolly Roger
+Trigger: When a mech is destroyed:
+Mount 1 Equipment from that mech onto this mech, replacing Equipment if necessary. If applicable, it has 0 <:charge:>, but <:ammo:> is retained. You may activate it immediately.
+|->
+Trigger: When a mech is destroyed:
+Mount 1 Equipment from that mech onto this mech, replacing Equipment if necessary. <:charge:> and <:ammo:> are retained. You may activate it immediately.
+
+Blackjack
+Action: 1/round, discard a card. Reveal cards from the top of the deck until you reveal a Maneuver, then use it immediately.
+|->
+Action: 1/round, discard a card. Reveal cards from the top of the deck until you reveal a Maneuver. If it has a <:trigger:> effect, add it to your hand. Otherwise use it immediately.
+
+Centurion -> Cestus
+
+Proconsul was added.
+Proconsul
+HP: 8
+Armor: 2
+Heat: 7
+Hardpoints: L M S
+Ability: 
+Trigger: 1/battle, when you resolve a Maneuver:
+Discard a card. Put that Maneuever into your hand instead of discarding it.
+
+Praetor -> Praetorian
+
+Hastatus was added.
+Hastatus
+HP: 6
+Armor: 3
+Heat: 6
+Hardpoints: L M S
+Ability: 
+Action: <:card-rotation:> this mech if it is not already <:card-rotation:>, then activate a Weapon.
+Passive: While this mech is <:card-rotation:>, this mech's non-Large, non-Melee Weapons deal +1 <:damage:>.
+
+Ballistarius was deleted.
+Ballistarius
+HP: 7
+Armor: 2
+Heat: 6
+Hardpoints: L L
+Ability: 
+Passive: While this mech is in the back line, this mech's <:range:> 1 Medium or Large Weapons have <:range:> 2.
+
+Legionary was deleted.
+Legionary
+HP: 10
+Armor: 1
+Heat: 7
+Hardpoints: L M S
+Ability: 
+Action: Activate a Small or Medium Weapon. After resolving it, all enemy mechs affected by that Weapon gain 1 <:vulnerable:>.
+
+Panoptic Autocannon
+Range: 1 -> 2
+
+Heavy Assault Cannon
+Action: Gain 1 <:charge:>.
+Deal [<:charge:>] <:damage:>.
+Choose:
+> Shred.
+> Inflict [<:charge:>] <:suppression:>.
+|->
+Action: Gain 1 <:charge:>.
+Deal [<:charge:>] <:damage:>.
+Choose:
+> Shred. Lose 1 <:charge:>.
+> Inflict [<:charge:>] <:suppression:>.
+
+Galvanic Shotgun
+Max Charge: 3 -> 1
+Action: 1 Equipment on an allied mech gains 1 <:charge:>. Deal [<:charge:>] <:damage:>.
+|->
+Action: Deal [<:charge:>+1] <:damage:>. 1 Equipment on an allied mech gains 1 <:charge:>.
+
+Magnetic Grappler
+Action: Melee <:card-rotation:>. Deal 2 <:damage:>. Choose:
+> <:card-rotation:> the <:target:>.
+> Move the <:target:> to the back line.
+|->
+Action: Melee <:card-rotation:>. Deal 2 <:damage:>. Deals +1 <:damage:> if the <:target:> is <:card-rotation:>.
+Choose:
+> <:card-rotation:> the <:target:>.
+> Move the <:target:> to the back line.
+
+Heavy Combat Drill
+Max Charge: 4 -> 6
+
+Combat Drone Launcher
+System -> Weapon
+
+Scout Drone Launcher
+Ammo: 2 -> 3
+
+Drone Command Nexus
+Ammo: 3 -> 2
+
+Adaptive Heat Sink
+Size: Medium -> Small
+
+Reinforced Frame
+Info: Inert.
+Passive: While attached, this mech has +1 Armor.
+Passive: When this mech receives Shred:
+Immediately discard this Equipment.
+|->
+Info: Inert.
+Passive: When the battle starts:
+This mech gains 1 Armor (max 3 Armor).
+
+Fog of War
+Trigger: When your opponent's turn starts:
+Draw a card. This turn, your opponent's non-Melee Equipment become <:range:> 1, and their <:range:> cannot be otherwise modififed.
+|->
+Trigger: When the Round starts:
+Draw a card. Gain 1 <:shield:> on all allied mechs.
+
+Take Cover
+Trigger: When an allied mech becomes a <:target:> or gains <:suppression:>:
+Draw a card. Gain 1 <:shield:>, and remove all <:vulnerable:> and <:suppression:> from it.
+|->
+Trigger: When an allied mech becomes a <:target:> or gains <:suppression:>:
+Draw a card. Remove all <:vulnerable:> and <:suppression:> from it. Ignore all Shred applied to it this turn.
+
+
+
 1/19 changes
 ------------
 
