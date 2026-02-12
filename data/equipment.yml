@@ -388,11 +388,11 @@ Galvanic Shotgun:
   heat: 3
   range: 1
   target: P
-  maxcharge: 3
+  maxcharge: 1
   rating: Veteran
   actions:
     - |
-      1 Equipment on an allied mech gains 1 <:charge:>. Deal [<:charge:>] <:damage:>.
+      Deal [<:charge:>+1] <:damage:>. 1 Equipment on an allied mech gains 1 <:charge:>.
   tags:
     - AOE
     - Strong-Watchlist
@@ -768,7 +768,7 @@ Gungnir Shock Lance:
 Combat Drone Launcher:
   size: Medium
   type: Drone
-  form: System
+  form: Weapon
   heat: 5
   range: 1
   target: P
@@ -1373,7 +1373,7 @@ Spiked Pauldrons:
       Melee Weapons on this mech deal +1 <:damage:>.
 
 Adaptive Heat Sink:
-  size: Medium
+  size: Small
   type: Auxiliary
   form: Attachment
   rating: Veteran
@@ -1395,10 +1395,8 @@ Reinforced Frame:
     Inert.
   passives:
     - |
-      While attached, this mech has +1 Armor.
-    - |
-      When this mech receives Shred:
-      Immediately discard this Equipment.
+      When the battle starts:
+      This mech gains 1 Armor (max 3 Armor).
 
 Reserved Rifle:
   size: Medium

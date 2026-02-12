@@ -56,17 +56,18 @@ Anansi:
 
 Tzitzimitl:
   faction: Feds
-  hp: 9
+  hp: 8
   armor: 2
   hc: 7
   hardpoints:
     - Medium
     - Medium
-    - Medium
-  passives:
+    - Small
+    - Small
+  triggers:
     - |
-      When the Round starts:
-      All allied mechs at this mech's position gain 1 <:shield:>.
+      1/round, when activating a non-Drone System on this mech:
+      Reduce the <:heat:> Cost by 2 (min 0).
 
 Amaterasu:
   faction: Feds
