@@ -109,25 +109,11 @@ Gladius:
     - |
       Melee Weapons on this mech +1 <:damage:>.
 
-Cestus:
-  faction: Ares
-  hp: 7
-  armor: 3
-  hc: 7
-  hardpoints:
-    - Large
-    - Medium
-    - Small
-  triggers:
-    - |
-      1/battle, when activating a Melee Weapon on this mech:
-      This turn, it deals additional <:damage:> equal to this mech's Armor.
-
 Proconsul:
   faction: Ares
   hp: 8
   armor: 2
-  hc: 7
+  hc: 6
   hardpoints:
     - Large
     - Medium
@@ -136,6 +122,23 @@ Proconsul:
     - |
       1/battle, when you resolve a Maneuver:
       Discard a card. Put that Maneuever into your hand instead of discarding it.
+
+Frumentarius:
+  faction: Ares
+  hp: 7
+  armor: 3
+  hc: 6
+  hardpoints:
+    - Large
+    - Medium
+    - Small
+  actions:
+    - |
+      <:card-rotation:> this mech if it is not already <:card-rotation:>.
+  triggers:
+    - |
+      While this mech is <:card-rotation:> and an allied mech activates a Weapon:
+      After that Weapon resolves, inflict 1 <:suppression:> to all enemy mechs affected by it.
 
 Praetorian:
   faction: Ares
@@ -257,8 +260,8 @@ Capricornus:
     - Small
   triggers:
     - |
-      When the turn ends, and this mech changed position this turn:
-      Activate a Small Equipment on this mech.
+      When any player's turn ends, and this mech changed position this turn:
+      Activate any number of distinct Small Equipment on this mech.
 
 Cockroach:
   faction: Pirates

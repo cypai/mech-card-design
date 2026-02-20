@@ -1,3 +1,91 @@
+2/19 playtest sync
+------------------
+
+Proconsul
+Heat Capacity: 7 -> 6
+
+Capricornus
+Trigger: When the turn ends, and this mech changed position this turn:
+Activate a Small Equipment on this mech.
+|->
+Trigger: When any player's turn ends, and this mech changed position this turn:
+Activate any number of distinct Small Equipment on this mech.
+
+Frumentarius was added.
+Frumentarius
+HP: 7
+Armor: 3
+Heat: 6
+Hardpoints: L M S
+Ability: 
+Action: <:card-rotation:> this mech if it is not already <:card-rotation:>.
+Trigger: While this mech is <:card-rotation:> and an allied mech activates a Weapon:
+After that Weapon resolves, inflict 1 <:suppression:> to all enemy mechs affected by it.
+
+Cestus was deleted.
+Cestus
+HP: 7
+Armor: 3
+Heat: 7
+Hardpoints: L M S
+Ability: 
+Trigger: 1/battle, when activating a Melee Weapon on this mech:
+This turn, it deals additional <:damage:> equal to this mech's Armor.
+
+Flechettes
+Action: Deal 1 <:damage:> to each <:target:>. Lose all <:charge:>.
+Trigger: When this mech resolves an Action other than this Equipment:
+Gain 1 <:charge:>.
+|->
+Action: Deal 1 <:damage:> to each <:target:>. Lose all <:charge:>.
+Trigger: When this mech resolves a mech ability or a different Equipment's <:action:> ability:
+Gain 1 <:charge:>.
+
+Fragmentation Missile
+Range: 2 -> 1
+
+EMP Burst Projector
+Action: Gain 1 <:charge:>.
+Action: If [<:charge:>]>0: Disable 1 Equipment on a <:target:> with no <:shield:>, then lose 1 <:charge:>.
+|->
+Action: Gain 1 <:charge:>.
+Action: If [<:charge:>]>0: Lose 1 <:charge:>. If the <:target:> has no <:shield:>, Disable 1 Equipment on it.
+
+Shield Capacitor
+Max Charge: None -> 3
+Passive: When the Round starts:
+Gain <:shield:> equal to the unused <:heat:> on this mech from the previous Round (max 4).
+|->
+Trigger: When the Round ends:
+Gain X <:charge:>, where X = this mech's remaining <:heat> capacity.
+Trigger: When the Round starts:
+Gain [<:charge:>] <:shield:>. Lose all <:charge:>.
+
+Reserved Rifle
+Heat: 4 -> 3
+Info: Reserved.
+Action: Deal 3 <:damage:>.
+|->
+Info: Reserved.
+Action: Deal 2 AP <:damage:>.
+
+Jump Jets was added.
+Jump Jets
+Medium Auxiliary Attachment
+Ammo: 3
+Rating: Cadet
+Trigger: When your opponent activates an Equipment while you have a different mech in the front line:
+Advance or Fall Back this mech. Your opponent may then re-declare any or all <:target:> for that Equipment.
+
+Absolute Terminus Field was deleted.
+Absolute Terminus Field
+Small Electronics System
+Rating: Cadet
+Passive: When your turn ends, and this mech is the only mech in the front line and has no <:shield:>:
+Gain 1 <:shield:>.
+
+
+
 2/12 playtest
 -------------
 
