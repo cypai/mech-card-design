@@ -85,7 +85,7 @@ Amaterasu:
 
 Rubicon:
   faction: Ares
-  hp: 10
+  hp: 8
   armor: 2
   hc: 6
   hardpoints:
@@ -111,7 +111,7 @@ Gladius:
 
 Proconsul:
   faction: Ares
-  hp: 8
+  hp: 7
   armor: 2
   hc: 6
   hardpoints:
@@ -164,7 +164,7 @@ Hastatus:
   faction: Ares
   hp: 6
   armor: 3
-  hc: 6
+  hc: 5
   hardpoints:
     - Large
     - Medium

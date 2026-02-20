@@ -219,13 +219,13 @@ Hullcrusher Rifle:
   size: Large
   type: Ballistic
   form: Weapon
-  heat: 4
+  heat: 5
   range: 1
   target: 1
   rating: Veteran
   actions:
     - |
-      Deal 1 <:damage:>. Deals +4 <:damage:> if the <:target:> has 0 Armor and 0 <:shield:>.
+      Deal 1 <:damage:>. Deals +5 <:damage:> if the <:target:> has 0 Armor and no <:shield:>.
 
 Mass Driver:
   size: Large
