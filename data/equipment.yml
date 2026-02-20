@@ -37,7 +37,7 @@ Flechettes:
       Deal 1 <:damage:> to each <:target:>. Lose all <:charge:>.
   triggers:
     - |
-      When this mech resolves an Action other than this Equipment:
+      When this mech resolves a mech ability or a different Equipment's <:action:> ability:
       Gain 1 <:charge:>.
   tags:
     - AOE
@@ -980,7 +980,7 @@ Fragmentation Missile:
   type: Missile
   form: Weapon
   heat: 0
-  range: 2
+  range: 1
   target: P
   ammo: 2
   rating: Cadet
@@ -1140,7 +1140,7 @@ EMP Burst Projector:
     - |
       Gain 1 <:charge:>.
     - |
-      If [<:charge:>]>0: Disable 1 Equipment on a <:target:> with no <:shield:>, then lose 1 <:charge:>.
+      If [<:charge:>]>0: Lose 1 <:charge:>. If the <:target:> has no <:shield:>, Disable 1 Equipment on it.
 
 CAS Uplink:
   size: Small
@@ -1217,11 +1217,15 @@ Shield Capacitor:
   size: Small
   type: Electronics
   form: System
+  maxcharge: 3
   rating: Veteran
-  passives:
+  triggers:
+    - |
+      When the Round ends:
+      Gain X <:charge:>, where X = this mech's remaining <:heat> capacity.
     - |
       When the Round starts:
-      Gain <:shield:> equal to the unused <:heat:> on this mech from the previous Round (max 4).
+      Gain [<:charge:>] <:shield:>. Lose all <:charge:>.
 
 Light Screen Projector:
   size: Small
@@ -1232,18 +1236,6 @@ Light Screen Projector:
   actions:
     - |
       All allied mechs gain 1 <:shield:>.
-
-Absolute Terminus Field:
-  size: Small
-  type: Electronics
-  form: System
-  rating: Cadet
-  passives:
-    - |
-      When your turn ends, and this mech is the only mech in the front line and has no <:shield:>:
-      Gain 1 <:shield:>.
-  alias:
-    - AT Field
 
 Rotating Shield Matrix:
   size: Small
@@ -1372,6 +1364,18 @@ Spiked Pauldrons:
     - |
       Melee Weapons on this mech deal +1 <:damage:>.
 
+Jump Jets:
+  size: Medium
+  type: Auxiliary
+  form: Attachment
+  rating: Cadet
+  ammo: 3
+  triggers:
+    - |
+      When your opponent activates an Equipment while you have a different mech in the front line:
+      Advance or Fall Back this mech. Your opponent may then re-declare any or all <:target:> for that Equipment.
+
+
 Adaptive Heat Sink:
   size: Small
   type: Auxiliary
@@ -1402,7 +1406,7 @@ Reserved Rifle:
   size: Medium
   type: Ballistic
   form: Weapon
-  heat: 4
+  heat: 3
   range: 1
   target: 1
   rating: Cadet
@@ -1410,7 +1414,7 @@ Reserved Rifle:
     Reserved.
   actions:
     - |
-      Deal 3 <:damage:>.
+      Deal 2 AP <:damage:>.
   tags:
     - Spare
 
