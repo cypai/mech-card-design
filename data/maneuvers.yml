@@ -48,8 +48,8 @@ Take Cover:
   rating: Veteran
   triggers:
     - |
-      When an allied mech becomes a <:target:> or gains <:suppression:>:
-      Draw a card. Remove all <:vulnerable:> and <:suppression:> from it. Ignore all Shred applied to it this turn.
+      When an allied mech becomes a <:target:> for a Weapon:
+      Draw a card. Treat the <:target:> as having 1 Armor for damage calculation purposes for that Weapon.
 
 Latent Trojan:
   target: 1

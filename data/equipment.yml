@@ -195,7 +195,7 @@ Panoptic Autocannon:
   heat: 2
   range: 2
   target: C
-  maxcharge: 5
+  maxcharge: 4
   rating: Ace
   actions:
     - |
@@ -486,13 +486,13 @@ Pulsar Beam Cannon:
   heat: 3
   range: 2
   target: 1
-  maxcharge: 3
+  maxcharge: 2
   rating: Cadet
   actions:
     - |
       Deal 2 <:damage:>. Gain 1 <:charge:>.
     - |
-      If [<:charge:>]>2:
+      If [<:charge:>]=2:
       Disable 1 Equipment on the <:target:> if it has no <:shield:>. Deal 4 <:damage:>. Set <:charge:> to 0.
 
 Slagmaker:
@@ -678,22 +678,17 @@ Phase Lance:
     - |
       Melee <:card-rotation:>. Remove all <:shield:> from the <:target:>. Deal 3 AP <:damage:>.
 
-Magnetic Grappler:
+Plasma Torch:
   size: Medium
   type: Melee
   form: Weapon
   heat: 3
   range: 0
   target: 1
-  rating: Veteran
+  rating: Cadet
   actions:
     - |
-      Melee <:card-rotation:>. Deal 2 <:damage:>. Deals +1 <:damage:> if the <:target:> is <:card-rotation:>.
-      Choose:
-      > <:card-rotation:> the <:target:>.
-      > Move the <:target:> to the back line.
-  tags:
-    - Weak-Watchlist
+      Melee <:card-rotation:>. If the <:target:> has no <:shield:>, inflict 1 <:overheat:>. Deal 3 AP <:damage:>.
 
 Rocket Fists:
   size: Medium
@@ -710,6 +705,20 @@ Rocket Fists:
       Requires <:ammo:>, but does not consume <:ammo:>.
     - |
       Deal 2 <:damage:> with <:range:> 2. Move the <:target:> to the back line.
+
+Ripjaw Chainaxe:
+  size: Medium
+  type: Melee
+  form: Weapon
+  heat: 4
+  range: 0
+  target: 1
+  maxcharge: 3
+  rating: Cadet
+  actions:
+    - |
+      Melee <:card-rotation:>. Gain 1 <:charge:>. Deal [<:charge:>+3] <:damage:>.
+      If [<:charge:>]>1, Shred.
 
 Arondight Starsword:
   size: Large
@@ -736,20 +745,6 @@ Heavy Combat Drill:
     - |
       Melee <:card-rotation:>. Gain 1 <:charge:>. Deal 2 AP <:damage:>. Shred.
       Prepare: Deal [<:charge:>+2] AP <:damage:>. Shred.
-
-Ripjaw Chainaxe:
-  size: Large
-  type: Melee
-  form: Weapon
-  heat: 5
-  range: 0
-  target: 1
-  maxcharge: 4
-  rating: Cadet
-  actions:
-    - |
-      Melee <:card-rotation:>. Gain 1 <:charge:>. Deal [<:charge:>+4] <:damage:>.
-      If [<:charge:>]>1, Shred.
 
 Gungnir Shock Lance:
   size: Large
@@ -823,7 +818,7 @@ Drone Command Nexus:
   size: Medium
   type: Drone
   form: System
-  heat: 3
+  heat: 4
   ammo: 2
   rating: Ace
   actions:
@@ -1166,6 +1161,10 @@ Artillery Uplink:
     - |
       When the Round starts:
       Inflict 3 <:suppression:>.
+  passives:
+    - |
+      When this mech inflicts <:suppression:> with a different Weapon:
+      Inflict 1 more.
 
 Slipstream Optimizer:
   size: Small
@@ -1464,6 +1463,22 @@ Reserved Megalaser:
   actions:
     - |
       Deal 5 <:damage:>.
+  tags:
+    - Spare
+
+Concussion Missile:
+  size: Small
+  type: Missile
+  form: Weapon
+  heat: 0
+  range: 2
+  target: 1
+  rating: Cadet
+  info: |
+    Reserved.
+  actions:
+    - |
+      Reposition the <:target:>.
   tags:
     - Spare
 
