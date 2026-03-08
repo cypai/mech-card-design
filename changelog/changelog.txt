@@ -1,3 +1,110 @@
+3/7 playtest
+------------
+
+Rubicon
+HP: 10 -> 8
+
+Proconsul
+HP: 8 -> 7
+
+Praetorian
+Heat Capacity: 7 -> 6
+
+Hastatus
+Heat Capacity: 6 -> 5
+
+Draconarius was added.
+Draconarius
+HP: 8
+Armor: 2
+Heat: 7
+Hardpoints: L M S
+Ability: 
+Trigger: When this mech resolves a Weapon:
+Use an Airstrike from your hand.
+Trigger: When the Round ends:
+Discard a card. Add an Airstrike to your hand.
+
+Frumentarius was deleted.
+Frumentarius
+HP: 7
+Armor: 3
+Heat: 6
+Hardpoints: L M S
+Ability: 
+Action: <:card-rotation:> this mech if it is not already <:card-rotation:>.
+Trigger: While this mech is <:card-rotation:> and an allied mech activates a Weapon:
+After that Weapon resolves, inflict 1 <:suppression:> to all enemy mechs affected by it.
+
+Panoptic Autocannon
+Max Charge: 5 -> 4
+
+Hullcrusher Rifle
+Heat: 4 -> 5
+Action: Deal 1 <:damage:>. Deals +4 <:damage:> if the <:target:> has 0 Armor and 0 <:shield:>.
+|->
+Action: Deal 1 <:damage:>. Deals +5 <:damage:> if the <:target:> has 0 Armor and no <:shield:>.
+
+Pulsar Beam Cannon
+Max Charge: 3 -> 2
+Action: Deal 2 <:damage:>. Gain 1 <:charge:>.
+Action: If [<:charge:>]>2:
+Disable 1 Equipment on the <:target:> if it has no <:shield:>. Deal 4 <:damage:>. Set <:charge:> to 0.
+|->
+Action: Deal 2 <:damage:>. Gain 1 <:charge:>.
+Action: If [<:charge:>]=2:
+Disable 1 Equipment on the <:target:> if it has no <:shield:>. Deal 4 <:damage:>. Set <:charge:> to 0.
+
+Ripjaw Chainaxe
+Size: Large -> Medium
+Heat: 5 -> 4
+Max Charge: 4 -> 3
+Action: Melee <:card-rotation:>. Gain 1 <:charge:>. Deal [<:charge:>+4] <:damage:>.
+If [<:charge:>]>1, Shred.
+|->
+Action: Melee <:card-rotation:>. Gain 1 <:charge:>. Deal [<:charge:>+3] <:damage:>.
+If [<:charge:>]>1, Shred.
+
+Drone Command Nexus
+Heat: 3 -> 4
+
+Artillery Uplink
+Trigger: When the Round starts:
+Inflict 3 <:suppression:>.
+|->
+Trigger: When the Round starts:
+Inflict 3 <:suppression:>.
+Passive: When this mech inflicts <:suppression:> with a different Weapon:
+Inflict 1 more.
+
+Magnetic Grappler -> Plasma Torch
+Action: Melee <:card-rotation:>. Deal 2 <:damage:>. Deals +1 <:damage:> if the <:target:> is <:card-rotation:>.
+Choose:
+> <:card-rotation:> the <:target:>.
+> Move the <:target:> to the back line.
+|->
+Action: Melee <:card-rotation:>. If the <:target:> has no <:shield:>, inflict 1 <:overheat:>. Deal 3 AP <:damage:>.
+
+Concussion Missile was added.
+Concussion Missile
+Small Missile Weapon
+Heat: 0
+Range: 2
+Target: 1
+Tags: ['Spare']
+Rating: Cadet
+Info: Reserved.
+Action: Reposition the <:target:>.
+
+Take Cover
+Trigger: When an allied mech becomes a <:target:> or gains <:suppression:>:
+Draw a card. Remove all <:vulnerable:> and <:suppression:> from it. Ignore all Shred applied to it this turn.
+|->
+Trigger: When an allied mech becomes a <:target:> for a Weapon:
+Draw a card. Treat the <:target:> as having 1 Armor for damage calculation purposes for that Weapon.
+
+
+
 2/19 playtest sync
 ------------------
 
