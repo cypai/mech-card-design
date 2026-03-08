@@ -132,12 +132,9 @@ Draconarius:
     - Large
     - Medium
     - Small
-  actions:
-    - |
-      <:card-rotation:> this mech if it is not already <:card-rotation:>, then activate a Weapon.
   triggers:
     - |
-      While this mech is <:card-rotation:> and resolves a Weapon:
+      When this mech resolves a Weapon:
       Use an Airstrike from your hand.
     - |
       When the Round ends:
