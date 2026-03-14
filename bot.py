@@ -6,6 +6,7 @@ import textwrap
 import logging
 import re
 import io
+import csv
 import sqlite3
 import discord
 from discord import ForumChannel, ForumTag, Thread, app_commands
@@ -712,10 +713,68 @@ async def db_stats(ctx: commands.Context):
         rows = cursor.fetchall()
         for row in rows:
             player, winrate = row
-            message += f"\nPlayer {player} win rate: {winrate}"
+            message += f"\nPlayer {player} win rate: {winrate}%"
         cursor.execute("select count(*) from battles")
         message += f"\nTotal battles: {cursor.fetchone()[0]}"
     await reply(ctx, message)
+
+
+@bot.command()
+async def equipment_csv(ctx: commands.Context):
+    output = io.StringIO()
+    fieldnames = [
+        "name",
+        "class",
+        "heat",
+        "range",
+        "target",
+        "ammo",
+        "maxcharge",
+        "text",
+    ]
+    writer = csv.DictWriter(output, fieldnames=fieldnames)
+    writer.writeheader()
+    for equipment in db.equipment:
+        writer.writerow(
+            {
+                "name": equipment.name,
+                "class": f"{equipment.size} {equipment.type} {equipment.form}",
+                "heat": equipment.heat,
+                "range": equipment.range,
+                "target": equipment.target,
+                "ammo": equipment.ammo,
+                "maxcharge": equipment.maxcharge,
+                "text": equipment.text,
+            }
+        )
+    await reply(ctx, output.getvalue(), "equipment.csv")
+
+
+@bot.command()
+async def mech_csv(ctx: commands.Context):
+    output = io.StringIO()
+    fieldnames = [
+        "name",
+        "hp",
+        "heat",
+        "armor",
+        "hardpoints",
+        "ability",
+    ]
+    writer = csv.DictWriter(output, fieldnames=fieldnames)
+    writer.writeheader()
+    for mech in db.mechs:
+        writer.writerow(
+            {
+                "name": mech.name,
+                "hp": mech.hp,
+                "heat": mech.hc,
+                "armor": mech.armor,
+                "hardpoints": mech.hardpoints_str,
+                "ability": mech.ability,
+            }
+        )
+    await reply(ctx, output.getvalue(), "mechs.csv")
 
 
 def get_todo_forum(bot: commands.Bot) -> ForumChannel:
