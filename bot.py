@@ -38,6 +38,7 @@ db = GameDatabase()
 
 QUERY_REGEX = re.compile(r"\[\[([\w\- :]+)\]\]")
 RENDER_REGEX = re.compile(r"\{\{([\w\- :]+)\}\}")
+MANEUVER_STRING_REGEX = re.compile(r"\s*([^,]+?)\s*(?:,|$)")
 
 
 @bot.event
@@ -337,102 +338,254 @@ async def tutorial(ctx: commands.Context):
 @bot.command()
 async def db_init(ctx: commands.Context):
     with sqlite3.connect("data.db") as conn:
+        conn.execute("PRAGMA foreign_keys = 1")
         cursor = conn.cursor()
-        cursor.execute("create table usage(name, timestamp)")
+        cursor.execute("""
+        create table if not exists battles(
+            id integer primary key,
+            winner integer not null,
+            player1 text not null,
+            player2 text not null,
+            timestamp datetime default current_timestamp
+        );
+        """)
+        cursor.execute("""
+        create table if not exists mech_drafts(
+            id integer primary key,
+            battle_id integer not null,
+            player integer not null,
+            name text not null,
+            foreign key(battle_id) references battles(id) on delete cascade
+        );
+        """)
+        cursor.execute("""
+        create table if not exists equipment_drafts(
+            id integer primary key,
+            mech_draft_id integer not null,
+            name text not null,
+            foreign key(mech_draft_id) references mech_drafts(id) on delete cascade
+        );
+        """)
+        cursor.execute("""
+        create table if not exists maneuver_drafts(
+            id integer primary key,
+            battle_id integer not null,
+            player integer not null,
+            name text not null,
+            foreign key(battle_id) references battles(id) on delete cascade
+        );
+        """)
         await reply(ctx, "DB Initialized.")
 
 
 @bot.command()
-async def db_add_usage(ctx: commands.Context, *, arg: str):
-    names = arg.split(",")
-    names = [name.strip() for name in names]
-    actual_names = []
-    bad_matches: list[
-        tuple[str, list[tuple[Union[Equipment, Mech, Drone, Maneuver], int]]]
-    ] = []
-    for name in names:
-        matches = db.fuzzy_query_name(name, 50)
-        if len(matches) == 0 or matches[0][1] < 90:
-            bad_matches.append((name, matches))
-        else:
-            actual_names.append(matches[0][0].name)
-    if len(bad_matches) == 0:
-        with sqlite3.connect("data.db") as conn:
-            cursor = conn.cursor()
-            cursor.executemany(
-                "insert into usage values(?, date())", [(x,) for x in actual_names]
+async def db_add_battle(
+    ctx: commands.Context,
+    player1: str,
+    player2: str,
+    winner: int,
+    timestamp: str | None = None,
+):
+    with sqlite3.connect("data.db") as conn:
+        cursor = conn.cursor()
+        if timestamp is None:
+            cursor.execute(
+                "insert into battles(winner, player1, player2) values (?, ?, ?)",
+                (winner, player1, player2),
             )
-        message = "Added usage for the following cards:\n"
-        for name in actual_names:
-            message += f"{name}\n"
-        await reply(ctx, message)
+        else:
+            cursor.execute(
+                "insert into battles(winner, player1, player2, timestamp) values (?, ?, ?, ?)",
+                (winner, player1, player2, timestamp),
+            )
+        rowid = cursor.lastrowid
+    await reply(ctx, f"Created new battle with id {rowid}.")
+
+
+@db_add_battle.error
+async def db_add_battle_error(ctx: commands.Context, error):
+    if isinstance(error, commands.MissingRequiredArgument):
+        await reply(ctx, "winner (1 or 2) is a required argument.")
     else:
-        message = "Not all cards were found. Bad inputs:\n"
-        for match in bad_matches:
-            options = [option[0].name for option in match[1][:3]]
-            options_str = " or ".join(options)
-            message += f"{match[0]} not found. Did you mean: {options_str}"
-        await reply(ctx, message)
+        logger.error(error)
+        await reply(ctx, str(error))
 
 
 @bot.command()
-async def db_usage(ctx: commands.Context, *, name: str):
-    results = db.fuzzy_query_name(name, 50)
-    if len(results) == 0 or results[0][1] < 90:
-        options = [x[0].name for x in results]
-        options_str = " or ".join(options)
-        message = f"{name} not found. Did you mean: {options_str}"
+async def db_add_draft(ctx: commands.Context, battle_id: int, player: int, *args):
+    """
+    $db_add_draft 12 2 "Jolly Roger@Reserved Rifle,Drone Command Nexus" "Cockroach@Heavy Assault Cannon" "Airstrike"
+    """
+    if player not in [1, 2]:
+        message = f"Player {player} should be 1 or 2"
         await reply(ctx, message)
-    else:
-        result = results[0][0]
-        with sqlite3.connect("data.db") as conn:
-            cursor = conn.cursor()
-            cursor.execute("select count(*) from usage where name = ?", (result.name,))
-            count = cursor.fetchall()[0][0]
-            message = f"{result.name} usage: {count}\nUsage times:\n"
-            cursor.execute("select timestamp from usage where name = ?", (result.name,))
-            rows = cursor.fetchall()
-            for row in rows:
-                message += f"{row[0]}\n"
+        return
+
+    with sqlite3.connect("data.db") as conn:
+        conn.execute("PRAGMA foreign_keys = 1")
+        cursor = conn.cursor()
+
+        cursor.execute("select * from battles where id = ?", (battle_id,))
+        if len(cursor.fetchall()) == 0:
+            message = f"Battle {battle_id} not found."
+            await reply(ctx, message)
+            return
+
+        mech_rows: list[tuple[str, list[str]]] = []
+        maneuver_rows: list[str] = []
+        bad_matches: list[
+            tuple[str, list[tuple[Union[Equipment, Mech, Drone, Maneuver], int]]]
+        ] = []
+
+        def handle_match(name: str):
+            matches = db.fuzzy_query_name(name, 50)
+            if len(matches) == 0 or matches[0][1] < 90:
+                bad_matches.append((name, matches))
+                return None
+            else:
+                return matches[0][0]
+
+        for draft_string in args:
+            if "@" in draft_string:
+                splitted = draft_string.split("@")
+                mech_name = splitted[0].strip()
+                equipment_str = splitted[1].split(",")
+                equipment_names = [
+                    x.strip() for x in equipment_str if len(x.strip()) > 0
+                ]
+                mech = handle_match(mech_name)
+                if (
+                    isinstance(mech, Maneuver)
+                    or isinstance(mech, Equipment)
+                    or isinstance(mech, Drone)
+                ):
+                    message = f"Found non-mech specified as mech: {mech.name}"
+                    await reply(ctx, message)
+                    return
+
+                equipments = [handle_match(x) for x in equipment_names]
+                actual_equipments = [
+                    x.name for x in equipments if isinstance(x, Equipment)
+                ]
+                non_equipments = [
+                    x.name
+                    for x in equipments
+                    if isinstance(x, Mech)
+                    or isinstance(x, Maneuver)
+                    or isinstance(x, Drone)
+                ]
+                if len(non_equipments) > 0:
+                    message = (
+                        f"Found non-equipment attached to a mech: {non_equipments}"
+                    )
+                    await reply(ctx, message)
+                    return
+                if isinstance(mech, Mech) and all(
+                    isinstance(equipment, Equipment) for equipment in equipments
+                ):
+                    mech_rows.append((mech.name, actual_equipments))
+            else:
+                maneuver_groups = re.findall(MANEUVER_STRING_REGEX, draft_string)
+                maneuver_names = [
+                    x.strip() for x in maneuver_groups if len(x.strip()) > 0
+                ]
+                for name in maneuver_names:
+                    maneuver = handle_match(name)
+                    if isinstance(maneuver, Maneuver):
+                        maneuver_rows.append(maneuver.name)
+                    elif (
+                        isinstance(maneuver, Mech)
+                        or isinstance(maneuver, Equipment)
+                        or isinstance(maneuver, Drone)
+                    ):
+                        message = (
+                            f"Found non-maneuver specified as maneuver: {maneuver.name}"
+                        )
+                        await reply(ctx, message)
+                        return
+
+        if len(bad_matches) == 0:
+            cursor.execute(
+                "delete from mech_drafts where battle_id = ? and player = ?",
+                (battle_id, player),
+            )
+            cursor.execute(
+                "delete from maneuver_drafts where battle_id = ? and player = ?",
+                (battle_id, player),
+            )
+            message = "Added usage for the following:"
+            for m in mech_rows:
+                cursor.execute(
+                    "insert into mech_drafts(battle_id, player, name) values (?, ?, ?)",
+                    (battle_id, player, m[0]),
+                )
+                mech_rowid = cursor.lastrowid
+                message += f"\n{m[0]}"
+                for eq in m[1]:
+                    cursor.execute(
+                        "insert into equipment_drafts(mech_draft_id, name) values (?, ?)",
+                        (mech_rowid, eq),
+                    )
+                    message += f"\n- {eq}"
+
+            cursor.executemany(
+                "insert into maneuver_drafts(battle_id, player, name) values(?, ?, ?)",
+                [(battle_id, player, x) for x in maneuver_rows],
+            )
+            for m in maneuver_rows:
+                message += f"\n{m}"
+            await reply(ctx, message)
+        else:
+            message = "Not all cards were found. Bad inputs:"
+            for match in bad_matches:
+                options = [option[0].name for option in match[1][:3]]
+                options_str = " or ".join(options)
+                message += f"\n{match[0]} not found. Did you mean: {options_str}"
             await reply(ctx, message)
 
 
 @bot.command()
-async def db_clear_usage(ctx: commands.Context, *, name: str):
-    results = db.fuzzy_query_name(name, 50)
-    if len(results) == 0 or results[0][1] < 90:
-        options = [x[0].name for x in results]
-        options_str = " or ".join(options)
-        message = f"{name} not found. Did you mean: {options_str}"
-        await reply(ctx, message)
-    else:
-        result = results[0][0]
-        with sqlite3.connect("data.db") as conn:
-            cursor = conn.cursor()
-            cursor.execute("delete from usage where name = ?", (result.name,))
-            await reply(ctx, f"Usage for {result.name} cleared.")
-
-
-@bot.command()
-async def db_usage_distribution(ctx: commands.Context):
+async def db_battle(ctx: commands.Context, battle_id: int):
     with sqlite3.connect("data.db") as conn:
         cursor = conn.cursor()
         cursor.execute(
-            "select name, count(*) from usage group by name order by count(*) desc"
+            "select winner, player1, player2, timestamp from battles where id = ?",
+            (battle_id,),
         )
-        results = cursor.fetchall()
-        equipment_message = ""
-        mechs_message = ""
-        maneuvers_message = ""
-        for row in results:
-            name, count = row
-            if db.get_equipment(name) is not None:
-                equipment_message += f"{name}: {count}\n"
-            elif db.get_mech(name) is not None:
-                mechs_message += f"{name}: {count}\n"
-            elif db.get_maneuver(name) is not None:
-                maneuvers_message += f"{name}: {count}\n"
-        message = f"Equipment:\n{equipment_message}\nMechs:\n{mechs_message}\nManeuvers:\n{maneuvers_message}"
+        row = cursor.fetchone()
+        winner, player1, player2, timestamp = row
+        message = f"Battle {battle_id} on {timestamp}:\n{player1} vs {player2}\nWinner was Player {winner} ({player1 if winner == 1 else player2})"
+        cursor.execute(
+            "select m.name, m.player from maneuver_drafts m where battle_id = ? order by m.player asc",
+            (battle_id,),
+        )
+        maneuver_rows = cursor.fetchall()
+        cursor.execute(
+            """
+            select m.player, m.name, e.name
+            from mech_drafts m
+            join equipment_drafts e
+            on e.mech_draft_id = m.id
+            where m.battle_id = ?
+            order by m.player asc, m.name asc, e.name asc""",
+            (battle_id,),
+        )
+        mech_draft_rows = cursor.fetchall()
+        prev_player, prev_mech = (None, None)
+        for row in mech_draft_rows:
+            curr_player, curr_mech, equipment = row
+            if curr_player != prev_player:
+                if curr_player == 2:
+                    for maneuver in [m for m in maneuver_rows if m[1] == 1]:
+                        message += f"\n{maneuver[0]}"
+                message += f"\n\nPlayer {curr_player}"
+                prev_player = curr_player
+            if curr_mech != prev_mech:
+                message += f"\n{curr_mech}"
+                prev_mech = curr_mech
+            message += f"\n- {equipment}"
+        for maneuver in [m for m in maneuver_rows if m[1] == 2]:
+            message += f"\n{maneuver[0]}"
         await reply(ctx, message)
 
 
@@ -440,8 +593,12 @@ async def db_usage_distribution(ctx: commands.Context):
 async def db_zero_usage(ctx: commands.Context):
     with sqlite3.connect("data.db") as conn:
         cursor = conn.cursor()
-        cursor.execute("select name, count(*) from usage group by name")
+        cursor.execute("select name, count(*) from mech_drafts group by name")
         results = cursor.fetchall()
+        cursor.execute("select name, count(*) from equipment_drafts group by name")
+        results += cursor.fetchall()
+        cursor.execute("select name, count(*) from maneuver_drafts group by name")
+        results += cursor.fetchall()
     usage = [row[0] for row in results]
     zero_usage = [
         e for e in db.equipment + db.mechs + db.maneuvers if e.name not in usage
@@ -453,11 +610,112 @@ async def db_zero_usage(ctx: commands.Context):
 
 
 @bot.command()
-async def db_migrate_usage(ctx: commands.Context, previous: str, current: str):
+async def db_query(ctx: commands.Context, *, query: str):
+    matches = db.fuzzy_query_name(query, 50)
+    if len(matches) == 0 or matches[0][1] < 90:
+        options = [option[0].name for option in matches]
+        options_str = " or ".join(options)
+        message = f"{query} not found. Did you mean: {options_str}"
+        await reply(ctx, message)
+        return
+    actual = matches[0][0]
     with sqlite3.connect("data.db") as conn:
         cursor = conn.cursor()
-        cursor.execute("update usage set name = ? where name = ?", (current, previous))
-    await reply(ctx, f"Updated usage from {previous} to {current}.")
+        message = f"Stats for {actual.name}:"
+        if isinstance(actual, Mech):
+            cursor.execute(
+                """
+                select m.battle_id, m.player, b.winner, b.timestamp
+                from mech_drafts m
+                join battles b
+                on m.battle_id = b.id
+                where m.name = ?
+                order by b.timestamp desc
+            """,
+                (actual.name,),
+            )
+        elif isinstance(actual, Equipment):
+            cursor.execute(
+                """
+                select m.battle_id, m.player, b.winner, b.timestamp
+                from equipment_drafts e
+                join mech_drafts m
+                on e.mech_draft_id = m.id
+                join battles b
+                on m.battle_id = b.id
+                where e.name = ?
+                order by b.timestamp desc
+            """,
+                (actual.name,),
+            )
+        elif isinstance(actual, Maneuver):
+            cursor.execute(
+                """
+                select m.battle_id, m.player, b.winner, b.timestamp
+                from maneuver_drafts m
+                join battles b
+                on m.battle_id = b.id
+                where m.name = ?
+                order by b.timestamp desc
+            """,
+                (actual.name,),
+            )
+        battle_messages = ""
+        wins = 0
+        wins_going_first = 0
+        wins_going_second = 0
+        going_first = 0
+        going_second = 0
+        rows = cursor.fetchall()
+        total = len(rows)
+        for row in rows:
+            battle_id, player, winner, timestamp = row
+            won = "won" if player == winner else "lost"
+            if player == winner:
+                wins += 1
+                if player == 1:
+                    wins_going_first += 1
+                else:
+                    wins_going_second += 1
+            if player == 1:
+                going_first += 1
+            else:
+                going_second += 1
+            battle_messages += f"\nBattle {battle_id} {won} on {timestamp}"
+        if total > 0:
+            message += f"\nOverall win rate: {int(wins/total*100)}%"
+            if going_first > 0:
+                message += f"\nOverall win rate going first: {int(wins_going_first/going_first*100)}%"
+            else:
+                message += f"\nNever went first yet."
+            if going_second > 0:
+                message += f"\nOverall win rate going second: {int(wins_going_second/going_second*100)}%"
+            else:
+                message += f"\nNever went second yet."
+            message += f"\n{battle_messages}"
+        else:
+            message += "\nNo data found."
+    await reply(ctx, message)
+
+
+@bot.command()
+async def db_stats(ctx: commands.Context):
+    message = "Overall stats"
+    with sqlite3.connect("data.db") as conn:
+        cursor = conn.cursor()
+        cursor.execute("""
+        select winner, count(*) * 100 / sum(count(*)) over()
+        from battles
+        group by winner
+        order by winner asc
+        """)
+        rows = cursor.fetchall()
+        for row in rows:
+            player, winrate = row
+            message += f"\nPlayer {player} win rate: {winrate}"
+        cursor.execute("select count(*) from battles")
+        message += f"\nTotal battles: {cursor.fetchone()[0]}"
+    await reply(ctx, message)
 
 
 def get_todo_forum(bot: commands.Bot) -> ForumChannel:
