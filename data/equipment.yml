@@ -1144,7 +1144,7 @@ CAS Uplink:
   rating: Veteran
   passives:
     - |
-      1/battle, when resolving an Action from this mech:
+      When the battle starts:
       Put an Airstrike in your hand.
     - |
       Your Airstrikes deal +1 <:damage:>.
@@ -1282,6 +1282,9 @@ Chameleon Paint:
     Inert.
   passives:
     - |
+      When the battle starts:
+      Gain 1 <:shield:>.
+    - |
       When your turn ends, if this mech changed position this turn:
       Gain 1 <:shield:> if it has no <:shield:>.
 
@@ -1366,7 +1369,7 @@ Spiked Pauldrons:
 Jump Jets:
   size: Medium
   type: Auxiliary
-  form: Attachment
+  form: System
   rating: Cadet
   ammo: 3
   triggers:
