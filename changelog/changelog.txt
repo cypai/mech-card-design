@@ -1,3 +1,141 @@
+3/14 playtest sync
+------------------
+
+Hastatus
+Heat Capacity: 5 -> 6
+
+Cockroach
+HP: 7 -> 6
+
+Panoptic Autocannon
+Target: C -> 1
+Max Charge: 4 -> None
+Action: Gain 1 <:charge:> before designating <:target:>. Inflict 1 <:suppression:> to each <:target:>.
+|->
+Action: Deal 1 <:damage:>. Inflict 2 <:suppression:> to other mechs at that position.
+
+Pulsar Beam Cannon
+Range: 2 -> 1
+Action: Deal 2 <:damage:>. Gain 1 <:charge:>.
+Action: If [<:charge:>]=2:
+Disable 1 Equipment on the <:target:> if it has no <:shield:>. Deal 4 <:damage:>. Set <:charge:> to 0.
+|->
+Action: Deal 2 <:damage:>. Gain 1 <:charge:>.
+Action: If [<:charge:>]=2:
+Remove all <:shield:> on all enemy mechs. Disable 1 Equipment on the <:target:>. Deal 5 <:damage:>. Set <:charge:> to 0.
+
+Proximity-Swarm Nanites
+Action: Choose:
+> Inflict 1 <:vulnerable:>.
+> Gain 1 <:shield:> on this mech.
+Trigger: When resolving an enemy mech's Weapon that had this mech as its <:target:>:
+Activate this Weapon, setting that mech as the <:target:> if applicable.
+|->
+Action: Choose:
+> Inflict 1 <:vulnerable:>.
+> Gain 1 <:shield:> on this mech.
+Trigger: When an enemy declares this mech as a <:target:>:
+Activate this Weapon, setting that mech as the <:target:> if applicable.
+
+Razortooth Missile
+Action: Shred all enemy mechs with no <:shield:> at the <:target:>.
+|->
+Action: Shred all enemy mechs at the <:target:>.
+
+CAS Uplink
+Passive: 1/battle, when resolving an Action from this mech:
+Put an Airstrike in your hand.
+Passive: Your Airstrikes deal +1 <:damage:>.
+|->
+Passive: When the battle starts:
+Put an Airstrike in your hand.
+Passive: Your Airstrikes deal +1 <:damage:>.
+
+Artillery Uplink
+Trigger: When the Round starts:
+Inflict 3 <:suppression:>.
+Passive: When this mech inflicts <:suppression:> with a different Weapon:
+Inflict 1 more.
+|->
+Trigger: When the Round starts:
+Inflict 3 <:suppression:>.
+Passive: When an allied mech inflicts <:suppression:> with a different Weapon:
+Inflict 1 more.
+
+Rotating Shield Matrix
+Max Charge: 3 -> 2
+Trigger: When resolving an enemy Equipment had this mech as a <:target:>:
+Gain 1 <:charge:>. Gain [<:charge:>] <:shield:>. If [<:charge:>]=3, lose all <:charge:>.
+|->
+Trigger: When an enemy declares this mech as a <:target:>:
+Gain 1 <:charge:>. Gain [<:charge:>] <:shield:>. If [<:charge:>]=2, lose all <:charge:>.
+
+Chameleon Paint
+Info: Inert.
+Passive: When your turn ends, if this mech changed position this turn:
+Gain 1 <:shield:> if it has no <:shield:>.
+|->
+Info: Inert.
+Passive: When the battle starts:
+Gain 1 <:shield:>.
+Passive: When your turn ends, if this mech changed position this turn:
+Gain 1 <:shield:> if it has no <:shield:>.
+
+Jump Jets
+Attachment -> System
+
+Concussion Missile
+Ammo: None -> 2
+
+Camouflage
+Info: Reserved. Inert.
+Passive: When the battle starts:
+Gain 2 <:shield:>.
+|->
+Info: Reserved. Inert.
+Passive: When the battle starts:
+Gain 3 <:shield:>.
+
+Supply Drop Uplink was added.
+Supply Drop Uplink
+Small Electronics System
+Rating: Veteran
+Trigger: When the turn ends:
+Discard this Equipment. Mount 1 Reserved Equipment on this mech.
+
+Weakness Hunter Protocol was added.
+Weakness Hunter Protocol
+Small Electronics System
+Rating: Veteran
+Passive: This mech deals +1 <:damage:> to mechs with 2 or more total of <:suppression:>, <:overheat:>, and <:vulnerable:>.
+
+Reserved Rifle -> Combat Rifle
+
+Reserved Mortar -> Mortar
+
+Reserved Power Blade -> Power Blade
+
+Reserved Megalaser -> Megalaser
+
+Safety Overrides was deleted.
+Safety Overrides
+Small Electronics System
+Heat: 0
+Rating: Cadet
+Trigger: When resolving a Weapon on this mech as an Action:
+Gain 1 <:overheat:>, then you may activate that Weapon again.
+
+Adaptive Heat Sink was deleted.
+Adaptive Heat Sink
+Small Auxiliary Attachment
+Rating: Veteran
+Info: Inert.
+Passive: This mech cannot gain <:overheat:>.
+Passive: When this mech receives Shred:
+Immediately discard this Equipment.
+
+
+
 3/7 playtest
 ------------
 

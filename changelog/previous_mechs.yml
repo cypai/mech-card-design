@@ -164,7 +164,7 @@ Hastatus:
   faction: Ares
   hp: 6
   armor: 3
-  hc: 5
+  hc: 6
   hardpoints:
     - Large
     - Medium
@@ -265,7 +265,7 @@ Capricornus:
 
 Cockroach:
   faction: Pirates
-  hp: 7
+  hp: 6
   armor: 0
   hc: 6
   hardpoints:
