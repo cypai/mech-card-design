@@ -724,7 +724,9 @@ async def equipment_csv(ctx: commands.Context):
     output = io.StringIO()
     fieldnames = [
         "name",
-        "class",
+        "size",
+        "type",
+        "form",
         "heat",
         "range",
         "target",
@@ -738,7 +740,9 @@ async def equipment_csv(ctx: commands.Context):
         writer.writerow(
             {
                 "name": equipment.name,
-                "class": f"{equipment.size} {equipment.type} {equipment.form}",
+                "size": equipment.size,
+                "type": equipment.type,
+                "form": equipment.form,
                 "heat": equipment.heat,
                 "range": equipment.range,
                 "target": equipment.target,
