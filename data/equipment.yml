@@ -194,12 +194,11 @@ Panoptic Autocannon:
   form: Weapon
   heat: 2
   range: 2
-  target: C
-  maxcharge: 4
+  target: 1
   rating: Ace
   actions:
     - |
-      Gain 1 <:charge:> before designating <:target:>. Inflict 1 <:suppression:> to each <:target:>.
+      Deal 1 <:damage:>. Inflict 2 <:suppression:> to other mechs at that position.
   tags:
     - AOE
 
@@ -484,7 +483,7 @@ Pulsar Beam Cannon:
   type: Energy
   form: Weapon
   heat: 3
-  range: 2
+  range: 1
   target: 1
   maxcharge: 2
   rating: Cadet
@@ -493,7 +492,7 @@ Pulsar Beam Cannon:
       Deal 2 <:damage:>. Gain 1 <:charge:>.
     - |
       If [<:charge:>]=2:
-      Disable 1 Equipment on the <:target:> if it has no <:shield:>. Deal 4 <:damage:>. Set <:charge:> to 0.
+      Remove all <:shield:> on all enemy mechs. Disable 1 Equipment on the <:target:>. Deal 5 <:damage:>. Set <:charge:> to 0.
 
 Slagmaker:
   size: Large
@@ -865,7 +864,7 @@ Proximity-Swarm Nanites:
       > Gain 1 <:shield:> on this mech.
   triggers:
     - |
-      When resolving an enemy mech's Weapon that had this mech as its <:target:>:
+      When an enemy declares this mech as a <:target:>:
       Activate this Weapon, setting that mech as the <:target:> if applicable.
 
 Thermo-Reactive Nanites:
@@ -996,7 +995,7 @@ Razortooth Missile:
   rating: Cadet
   actions:
     - |
-      Shred all enemy mechs with no <:shield:> at the <:target:>.
+      Shred all enemy mechs at the <:target:>.
   tags:
     - AOE
 
@@ -1163,7 +1162,7 @@ Artillery Uplink:
       Inflict 3 <:suppression:>.
   passives:
     - |
-      When this mech inflicts <:suppression:> with a different Weapon:
+      When an allied mech inflicts <:suppression:> with a different Weapon:
       Inflict 1 more.
 
 Slipstream Optimizer:
@@ -1177,16 +1176,24 @@ Slipstream Optimizer:
       When resolving an Action from this mech:
       Advance or Fall Back another allied mech for 0 <:heat:> Cost.
 
-Safety Overrides:
+Supply Drop Uplink:
   size: Small
   type: Electronics
   form: System
-  heat: 0
-  rating: Cadet
+  rating: Veteran
   triggers:
     - |
-      When resolving a Weapon on this mech as an Action:
-      Gain 1 <:overheat:>, then you may activate that Weapon again.
+      When the turn ends:
+      Discard this Equipment. Mount 1 Reserved Equipment on this mech.
+
+Weakness Hunter Protocol:
+  size: Small
+  type: Electronics
+  form: System
+  rating: Veteran
+  passives:
+    - |
+      This mech deals +1 <:damage:> to mechs with 2 or more total of <:suppression:>, <:overheat:>, and <:vulnerable:>.
 
 Targeting Computer:
   size: Small
@@ -1241,12 +1248,12 @@ Rotating Shield Matrix:
   type: Electronics
   form: System
   heat: 2
-  maxcharge: 3
+  maxcharge: 2
   rating: Cadet
   triggers:
     - |
-      When resolving an enemy Equipment had this mech as a <:target:>:
-      Gain 1 <:charge:>. Gain [<:charge:>] <:shield:>. If [<:charge:>]=3, lose all <:charge:>.
+      When an enemy declares this mech as a <:target:>:
+      Gain 1 <:charge:>. Gain [<:charge:>] <:shield:>. If [<:charge:>]=2, lose all <:charge:>.
 
 Suppressive Fire Protocol:
   size: Medium
@@ -1377,21 +1384,6 @@ Jump Jets:
       When your opponent activates an Equipment while you have a different mech in the front line:
       Advance or Fall Back this mech. Your opponent may then re-declare any or all <:target:> for that Equipment.
 
-
-Adaptive Heat Sink:
-  size: Small
-  type: Auxiliary
-  form: Attachment
-  rating: Veteran
-  info: |
-    Inert.
-  passives:
-    - |
-      This mech cannot gain <:overheat:>.
-    - |
-      When this mech receives Shred:
-      Immediately discard this Equipment.
-
 Reinforced Frame:
   size: Large
   type: Auxiliary
@@ -1404,7 +1396,7 @@ Reinforced Frame:
       When the battle starts:
       This mech gains 1 Armor (max 3 Armor).
 
-Reserved Rifle:
+Combat Rifle:
   size: Medium
   type: Ballistic
   form: Weapon
@@ -1420,7 +1412,7 @@ Reserved Rifle:
   tags:
     - Spare
 
-Reserved Mortar:
+Mortar:
   size: Medium
   type: Ballistic
   form: Weapon
@@ -1437,7 +1429,7 @@ Reserved Mortar:
   tags:
     - Spare
 
-Reserved Power Blade:
+Power Blade:
   size: Medium
   type: Melee
   form: Weapon
@@ -1453,7 +1445,7 @@ Reserved Power Blade:
   tags:
     - Spare
 
-Reserved Megalaser:
+Megalaser:
   size: Large
   type: Energy
   form: Weapon
@@ -1496,7 +1488,7 @@ Camouflage:
   passives:
     - |
       When the battle starts:
-      Gain 2 <:shield:>.
+      Gain 3 <:shield:>.
   tags:
     - Spare
 
