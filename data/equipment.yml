@@ -462,7 +462,7 @@ Magnetic Harpoon:
   rating: Veteran
   actions:
     - |
-      Deal 1 <:damage:>.
+      Deal 2 <:damage:>.
       If the target is in the back line, move it to the front line.
       Inflict 1 <:suppression:>.
 
