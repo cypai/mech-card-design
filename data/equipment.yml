@@ -1466,7 +1466,7 @@ Concussion Missile:
   type: Missile
   form: Weapon
   heat: 0
-  range: 2
+  range: 1
   target: 1
   ammo: 2
   rating: Cadet
