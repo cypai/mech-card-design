@@ -711,17 +711,17 @@ Rocket Fists:
       Deal 2 <:damage:> with <:range:> 2. Move the <:target:> to the back line.
 
 Ripjaw Chainaxe:
-  size: Medium
+  size: Large
   type: Melee
   form: Weapon
-  heat: 4
+  heat: 5
   range: 0
   target: 1
-  maxcharge: 3
+  maxcharge: 4
   rating: Cadet
   actions:
     - |
-      Melee <:card-rotation:>. Gain 1 <:charge:>. Deal [<:charge:>+3] <:damage:>.
+      Melee <:card-rotation:>. Gain 1 <:charge:>. Deal [<:charge:>+4] <:damage:>.
       If [<:charge:>]>1, Shred.
 
 Arondight Starsword:
