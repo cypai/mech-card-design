@@ -684,6 +684,7 @@ async def db_query(ctx: commands.Context, *, query: str):
                 going_second += 1
             battle_messages += f"\nBattle {battle_id} {won} on {timestamp}"
         if total > 0:
+            message += f"\nTotal usage: {total}%"
             message += f"\nOverall win rate: {int(wins/total*100)}%"
             if going_first > 0:
                 message += f"\nOverall win rate going first: {int(wins_going_first/going_first*100)}%"
@@ -717,6 +718,37 @@ async def db_stats(ctx: commands.Context):
         cursor.execute("select count(*) from battles")
         message += f"\nTotal battles: {cursor.fetchone()[0]}"
     await reply(ctx, message)
+
+
+@bot.command()
+async def db_rename(ctx: commands.Context, original: str, new_name: str):
+    with sqlite3.connect("data.db") as conn:
+        cursor = conn.cursor()
+        cursor.execute(
+            """
+        update mech_drafts
+        set name = ?
+        where name = ?
+        """,
+            (new_name, original),
+        )
+        cursor.execute(
+            """
+        update equipment_drafts
+        set name = ?
+        where name = ?
+        """,
+            (new_name, original),
+        )
+        cursor.execute(
+            """
+        update maneuver_drafts
+        set name = ?
+        where name = ?
+        """,
+            (new_name, original),
+        )
+    await reply(ctx, f"{original} was renamed to {new_name}.")
 
 
 @bot.command()
