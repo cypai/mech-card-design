@@ -306,7 +306,7 @@ def get_filtered_equipment(filters: list[str]) -> list[Equipment]:
                     ok += 1
             elif f.startswith("target"):
                 op = f[6]
-                the_target = str(f[7]).upper()
+                the_target = int(f[7])
                 if op == "=" and equipment.target == the_target:
                     ok += 1
             elif f.startswith("rating"):
