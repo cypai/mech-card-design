@@ -684,14 +684,14 @@ async def db_query(ctx: commands.Context, *, query: str):
                 going_second += 1
             battle_messages += f"\nBattle {battle_id} {won} on {timestamp}"
         if total > 0:
-            message += f"\nTotal usage: {total}%"
-            message += f"\nOverall win rate: {int(wins/total*100)}%"
+            message += f"\nTotal usage: {total}"
+            message += f"\nOverall win rate: {wins}/{total}: {int(wins/total*100)}%"
             if going_first > 0:
-                message += f"\nOverall win rate going first: {int(wins_going_first/going_first*100)}%"
+                message += f"\nOverall win rate going first: {wins_going_first}/{going_first}: {int(wins_going_first/going_first*100)}%"
             else:
                 message += f"\nNever went first yet."
             if going_second > 0:
-                message += f"\nOverall win rate going second: {int(wins_going_second/going_second*100)}%"
+                message += f"\nOverall win rate going second: {wins_going_second}/{going_second}: {int(wins_going_second/going_second*100)}%"
             else:
                 message += f"\nNever went second yet."
             message += f"\n{battle_messages}"
