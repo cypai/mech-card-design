@@ -74,8 +74,11 @@ TRAK-R Smart Gun:
       Inflict 1 <:suppression:>.
   triggers:
     - |
-      When resolving other Equipment on any allied mech as an Action:
+      When resolving other Equipment on any allied mech:
       Inflict 1 <:suppression:> on all mechs affected by that Equipment.
+    - |
+      When the opponent's turn ends:
+      Trigger all <:suppression:> on the <:target:>.
   tags:
     - AOE
     - Weak-Watchlist
@@ -263,11 +266,10 @@ Heavy Assault Cannon:
   rating: Veteran
   actions:
     - |
-      Gain 1 <:charge:>.
-      Deal [<:charge:>] <:damage:>.
+      Deal [<:charge:>+2] <:damage:>.
       Choose:
-      > Shred. Lose 1 <:charge:>.
-      > Inflict [<:charge:>] <:suppression:>.
+      > Shred.
+      > Inflict [<:charge:>+1] <:suppression:>. Gain 1 <:charge:>.
   tags:
     - Strong-Watchlist
 
@@ -365,7 +367,7 @@ Tesla Coil:
   rating: Cadet
   actions:
     - |
-      Deal X+1 <:damage:>, where X is the total amount of <:overheat:> and <:shield:> on the <:target:>.
+      Deal [X+1] <:damage:>, where X is the total amount of <:overheat:> and <:shield:> on the <:target:>.
 
 Flamethrower:
   size: Medium
@@ -779,6 +781,8 @@ Combat Drone Launcher:
     - |
       Deal 2 <:damage:> to the enemy front line.
       Summon 1 Combat Drone.
+    - |
+      Back line activation: -3 <:heat:> Cost. Summon 1 Combat Drone.
   tags:
     - AOE
     - Weak-Watchlist
@@ -804,6 +808,9 @@ Scout Drone Launcher:
   actions:
     - |
       You may reposition an allied mech. Summon 1 Scout Drone.
+  passives:
+    - |
+      If you have at least 1 deployed Scout Drone, Advance or Fall Back on any allied mech ignores <:overheat:> and <:suppression:>.
 
 Jammer Drone Launcher:
   size: Medium
@@ -838,6 +845,23 @@ Drone Command Nexus:
   tags:
     - AOE
     - Strong-Watchlist
+
+Skyhammer Drone Nexus:
+  size: Medium
+  type: Drone
+  form: System
+  heat: 3
+  range: 2
+  target: 1
+  ammo: 3
+  rating: Veteran
+  actions:
+    - |
+      Summon 1 Combat Drone. Inflict [X] <:suppression:>, where X is the total amount of your deployed Drones.
+  passives:
+    - |
+      When any allied mech resolves a <:target:> 1 Equipment, and there is at least 1 allied Combat Drone:
+      If that Equipment's <:target:> has <:suppression:>, <:card-rotation:> the <:target:>.
 
 Hunter-Killer Nanites:
   size: Small
@@ -921,7 +945,7 @@ Anchor Harpoon:
       Reposition the <:target:>.
   triggers:
     - |
-      When an Equipment is activated:
+      When a player declares a <:target:>:
       The <:target:> cannot be repositioned this turn.
 
 Dragonfire Missile:
@@ -1014,7 +1038,7 @@ Ion Torpedo:
   type: Missile
   form: Weapon
   heat: 0
-  range: 1
+  range: 2
   target: P
   ammo: 1
   rating: Cadet
@@ -1108,7 +1132,7 @@ Thanatos Missile:
   size: Small
   type: Electronics
   form: System
-  heat: 2
+  heat: 1
   rating: Ace
   actions:
     - |
@@ -1118,21 +1142,18 @@ Thanatos Missile:
   tags:
     - Weak-Watchlist
 
-"Cyberwarfare: HIJACK":
+Overkill Protocol:
   size: Small
   type: Electronics
   form: System
-  heat: 1
-  range: 3
+  heat: 2
+  range: 2
   target: 1
-  rating: Ace
-  actions:
+  rating: Cadet
+  triggers:
     - |
-      Choose a Weapon with a legal <:target:> on the <:target:>. Your opponent activates it.
-  alias:
-    - HIJACK
-  tags:
-    - Weak-Watchlist
+      1/round, when you resolve a <:target:> 1 Equipment that inflicted <:suppression:>, <:overheat:>, or <:vulnerable:>:
+      Double all <:suppression:>, <:overheat:>, and <:vulnerable:> on the same <:target:>.
 
 EMP Projector:
   size: Small
@@ -1141,7 +1162,7 @@ EMP Projector:
   heat: 2
   range: 2
   target: 1
-  maxcharge: 3
+  maxcharge: 1
   rating: Cadet
   actions:
     - |
@@ -1243,7 +1264,7 @@ Shield Capacitor:
   triggers:
     - |
       When the Round ends:
-      Gain X <:charge:>, where X = this mech's remaining <:heat> capacity.
+      Gain [X] <:charge:>, where X = this mech's remaining <:heat> capacity.
     - |
       When the Round starts:
       Gain [<:charge:>] <:shield:>. Lose all <:charge:>.
@@ -1274,21 +1295,6 @@ Rotating Shield Matrix:
       When an enemy declares this mech as a <:target:>:
       Gain 1 <:charge:>. Gain [<:charge:>] <:shield:>. If [<:charge:>]=2, lose all <:charge:>.
 
-Suppressive Fire Protocol:
-  size: Medium
-  type: Electronics
-  form: System
-  heat: 2
-  range: 3
-  target: 1
-  rating: Veteran
-  triggers:
-    - |
-      When the opponent's turn ends:
-      Cause all <:suppression:> on the <:target:> to trigger.
-  tags:
-    - Weak-Watchlist
-
 Charge Spool:
   size: Small
   type: Auxiliary
@@ -1313,7 +1319,7 @@ Chameleon Paint:
       When the battle starts:
       Gain 1 <:shield:>.
     - |
-      When your turn ends, if this mech changed position this turn:
+      When any player's turn ends, if this mech changed position this turn:
       Gain 1 <:shield:> if it has no <:shield:>.
   tags:
     - Weak-Watchlist
@@ -1375,7 +1381,7 @@ Afterburners:
   size: Small
   type: Auxiliary
   form: System
-  ammo: 2
+  ammo: 3
   rating: Ace
   triggers:
     - |
