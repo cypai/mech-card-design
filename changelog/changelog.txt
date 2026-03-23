@@ -1,3 +1,197 @@
+pre 3/22 playtest sync
+----------------------
+
+TRAK-R Smart Gun
+Action: Inflict 1 <:suppression:>.
+Trigger: When resolving other Equipment on any allied mech as an Action:
+Inflict 1 <:suppression:> on all mechs affected by that Equipment.
+|->
+Action: Inflict 1 <:suppression:>.
+Trigger: When resolving other Equipment on any allied mech:
+Inflict 1 <:suppression:> on all mechs affected by that Equipment.
+Trigger: When the opponent's turn ends:
+Trigger all <:suppression:> on the <:target:>.
+
+Heavy Assault Cannon
+Action: Gain 1 <:charge:>.
+Deal [<:charge:>] <:damage:>.
+Choose:
+> Shred. Lose 1 <:charge:>.
+> Inflict [<:charge:>] <:suppression:>.
+|->
+Action: Deal [<:charge:>+2] <:damage:>.
+Choose:
+> Shred.
+> Inflict [<:charge:>+1] <:suppression:>. Gain 1 <:charge:>.
+
+Tesla Coil
+Action: Deal X+1 <:damage:>, where X is the total amount of <:overheat:> and <:shield:> on the <:target:>.
+|->
+Action: Deal [X+1] <:damage:>, where X is the total amount of <:overheat:> and <:shield:> on the <:target:>.
+
+Magnetic Harpoon
+Action: Deal 1 <:damage:>.
+If the target is in the back line, move it to the front line.
+Inflict 1 <:suppression:>.
+|->
+Action: Deal 2 <:damage:>.
+If the target is in the back line, move it to the front line.
+Inflict 1 <:suppression:>.
+
+Ripjaw Chainaxe
+Size: Medium -> Large
+Heat: 4 -> 5
+Max Charge: 3 -> 4
+Action: Melee <:card-rotation:>. Gain 1 <:charge:>. Deal [<:charge:>+3] <:damage:>.
+If [<:charge:>]>1, Shred.
+|->
+Action: Melee <:card-rotation:>. Gain 1 <:charge:>. Deal [<:charge:>+4] <:damage:>.
+If [<:charge:>]>1, Shred.
+
+Combat Drone Launcher
+Action: Deal 2 <:damage:> to the enemy front line.
+Summon 1 Combat Drone.
+|->
+Action: Deal 2 <:damage:> to the enemy front line.
+Summon 1 Combat Drone.
+Action: Back line activation: -3 <:heat:> Cost. Summon 1 Combat Drone.
+
+Scout Drone Launcher
+Action: You may reposition an allied mech. Summon 1 Scout Drone.
+|->
+Action: You may reposition an allied mech. Summon 1 Scout Drone.
+Passive: If you have at least 1 deployed Scout Drone, Advance or Fall Back on any allied mech ignores <:overheat:> and <:suppression:>.
+
+Anchor Harpoon
+Action: Reposition an allied mech.
+Action: Reposition the <:target:>.
+Trigger: When an Equipment is activated:
+The <:target:> cannot be repositioned this turn.
+|->
+Action: Reposition an allied mech.
+Action: Reposition the <:target:>.
+Trigger: When a player declares a <:target:>:
+The <:target:> cannot be repositioned this turn.
+
+Ion Torpedo
+Range: 1 -> 2
+
+Cyberwarfare: JOKER
+Heat: 2 -> 1
+
+Shield Capacitor
+Trigger: When the Round ends:
+Gain X <:charge:>, where X = this mech's remaining <:heat> capacity.
+Trigger: When the Round starts:
+Gain [<:charge:>] <:shield:>. Lose all <:charge:>.
+|->
+Trigger: When the Round ends:
+Gain [X] <:charge:>, where X = this mech's remaining <:heat> capacity.
+Trigger: When the Round starts:
+Gain [<:charge:>] <:shield:>. Lose all <:charge:>.
+
+Chameleon Paint
+Info: Inert.
+Passive: When the battle starts:
+Gain 1 <:shield:>.
+Passive: When your turn ends, if this mech changed position this turn:
+Gain 1 <:shield:> if it has no <:shield:>.
+|->
+Info: Inert.
+Passive: When the battle starts:
+Gain 1 <:shield:>.
+Passive: When any player's turn ends, if this mech changed position this turn:
+Gain 1 <:shield:> if it has no <:shield:>.
+
+Afterburners
+Ammo: 2 -> 3
+
+Concussion Missile
+Range: 2 -> 1
+
+Gungnir Shock Lance -> Thermopylae Plasma Lance
+Action: Melee <:card-rotation:>. Deal 4 AP <:damage:>. <:card-rotation:> the <:target:>.
+Action: Deal 4 AP <:damage:> with <:range:> 2. <:card-rotation:> the <:target:>. Discard this Weapon.
+|->
+Action: Melee <:card-rotation:>. Deal 4 AP <:damage:>. Inflict 2 <:overheat:>.
+Trigger: When an enemy mech repositions into the front line:
+Activate this Weapon on that mech.
+
+Skyhammer Drone Nexus was added.
+Skyhammer Drone Nexus
+Medium Drone System
+Heat: 3
+Range: 2
+Target: 1
+Ammo: 3
+Rating: Veteran
+Action: Summon 1 Combat Drone. Inflict [X] <:suppression:>, where X is the total amount of your deployed Drones.
+Passive: When any allied mech resolves a <:target:> 1 Equipment, and there is at least 1 allied Combat Drone:
+If that Equipment's <:target:> has <:suppression:>, <:card-rotation:> the <:target:>.
+
+Pathfinder Drone Nexus was added.
+Pathfinder Drone Nexus
+Medium Drone System
+Heat: 3
+Max Charge: 1
+Rating: Veteran
+Action: Summon 1 Scout Drone. Gain 1 <:charge:>.
+Passive: When you Advance or Fall Back an allied mech, and this Equipment has 1 <:charge:>:
+Reposition an enemy mech.
+Passive: When the Round ends:
+Lose 1 <:charge:>.
+
+Overkill Protocol was added.
+Overkill Protocol
+Small Electronics System
+Heat: 2
+Range: 2
+Target: 1
+Rating: Cadet
+Trigger: 1/round, when you resolve a <:target:> 1 Equipment that inflicted <:suppression:>, <:overheat:>, or <:vulnerable:>:
+Double all <:suppression:>, <:overheat:>, and <:vulnerable:> on the same <:target:>.
+
+EMP Burst Projector -> EMP Projector
+Max Charge: 3 -> 1
+
+Parasite Launcher was deleted.
+Parasite Launcher
+Small Missile Weapon
+Heat: 0
+Range: 2
+Target: 1
+Ammo: 2
+Rating: Veteran
+Action: Deal 1 <:damage:>. During the opponent's next turn, if the <:target:> does not change position, it takes 2 <:damage:> at the end of the turn.
+
+Cyberwarfare: HIJACK was deleted.
+Cyberwarfare: HIJACK
+Small Electronics System
+Heat: 1
+Range: 3
+Target: 1
+Rating: Ace
+Action: Choose a Weapon with a legal <:target:> on the <:target:>. Your opponent activates it.
+
+Suppressive Fire Protocol was deleted.
+Suppressive Fire Protocol
+Medium Electronics System
+Heat: 2
+Range: 3
+Target: 1
+Rating: Veteran
+Trigger: When the opponent's turn ends:
+Cause all <:suppression:> on the <:target:> to trigger.
+
+Shield Drone
+Trigger: When an enemy mech activates a Weapon:
+Gain 2 <:shield:> on an allied mech, then destroy this drone.
+|->
+Trigger: When an opponent declares a <:target:> on an allied mech:
+Gain 2 <:shield:> on an allied mech, then destroy this drone.
+
+
+
 3/14 playtest sync
 ------------------
 

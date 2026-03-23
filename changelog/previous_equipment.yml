@@ -74,10 +74,14 @@ TRAK-R Smart Gun:
       Inflict 1 <:suppression:>.
   triggers:
     - |
-      When resolving other Equipment on any allied mech as an Action:
+      When resolving other Equipment on any allied mech:
       Inflict 1 <:suppression:> on all mechs affected by that Equipment.
+    - |
+      When the opponent's turn ends:
+      Trigger all <:suppression:> on the <:target:>.
   tags:
     - AOE
+    - Weak-Watchlist
   alias:
     - TRAK-R
 
@@ -262,11 +266,10 @@ Heavy Assault Cannon:
   rating: Veteran
   actions:
     - |
-      Gain 1 <:charge:>.
-      Deal [<:charge:>] <:damage:>.
+      Deal [<:charge:>+2] <:damage:>.
       Choose:
-      > Shred. Lose 1 <:charge:>.
-      > Inflict [<:charge:>] <:suppression:>.
+      > Shred.
+      > Inflict [<:charge:>+1] <:suppression:>. Gain 1 <:charge:>.
   tags:
     - Strong-Watchlist
 
@@ -364,7 +367,7 @@ Tesla Coil:
   rating: Cadet
   actions:
     - |
-      Deal X+1 <:damage:>, where X is the total amount of <:overheat:> and <:shield:> on the <:target:>.
+      Deal [X+1] <:damage:>, where X is the total amount of <:overheat:> and <:shield:> on the <:target:>.
 
 Flamethrower:
   size: Medium
@@ -451,6 +454,8 @@ Repulsor Array:
       Deal 2 <:damage:>.
       You may move the <:target:> to the back line.
       You may move this mech to the back line.
+  tags:
+    - Weak-Watchlist
 
 Magnetic Harpoon:
   size: Medium
@@ -462,9 +467,11 @@ Magnetic Harpoon:
   rating: Veteran
   actions:
     - |
-      Deal 1 <:damage:>.
+      Deal 2 <:damage:>.
       If the target is in the back line, move it to the front line.
       Inflict 1 <:suppression:>.
+  tags:
+    - Weak-Watchlist
 
 Ion Beam:
   size: Medium
@@ -706,17 +713,17 @@ Rocket Fists:
       Deal 2 <:damage:> with <:range:> 2. Move the <:target:> to the back line.
 
 Ripjaw Chainaxe:
-  size: Medium
+  size: Large
   type: Melee
   form: Weapon
-  heat: 4
+  heat: 5
   range: 0
   target: 1
-  maxcharge: 3
+  maxcharge: 4
   rating: Cadet
   actions:
     - |
-      Melee <:card-rotation:>. Gain 1 <:charge:>. Deal [<:charge:>+3] <:damage:>.
+      Melee <:card-rotation:>. Gain 1 <:charge:>. Deal [<:charge:>+4] <:damage:>.
       If [<:charge:>]>1, Shred.
 
 Arondight Starsword:
@@ -745,7 +752,7 @@ Heavy Combat Drill:
       Melee <:card-rotation:>. Gain 1 <:charge:>. Deal 2 AP <:damage:>. Shred.
       Prepare: Deal [<:charge:>+2] AP <:damage:>. Shred.
 
-Gungnir Shock Lance:
+Thermopylae Plasma Lance:
   size: Large
   type: Melee
   form: Weapon
@@ -755,9 +762,11 @@ Gungnir Shock Lance:
   rating: Ace
   actions:
     - |
-      Melee <:card-rotation:>. Deal 4 AP <:damage:>. <:card-rotation:> the <:target:>.
+      Melee <:card-rotation:>. Deal 4 AP <:damage:>. Inflict 2 <:overheat:>.
+  triggers:
     - |
-      Deal 4 AP <:damage:> with <:range:> 2. <:card-rotation:> the <:target:>. Discard this Weapon.
+      When an enemy mech repositions into the front line:
+      Activate this Weapon on that mech.
 
 Combat Drone Launcher:
   size: Medium
@@ -772,8 +781,11 @@ Combat Drone Launcher:
     - |
       Deal 2 <:damage:> to the enemy front line.
       Summon 1 Combat Drone.
+    - |
+      Back line activation: -3 <:heat:> Cost. Summon 1 Combat Drone.
   tags:
     - AOE
+    - Weak-Watchlist
 
 Shield Drone Launcher:
   size: Medium
@@ -796,6 +808,9 @@ Scout Drone Launcher:
   actions:
     - |
       You may reposition an allied mech. Summon 1 Scout Drone.
+  passives:
+    - |
+      If you have at least 1 deployed Scout Drone, Advance or Fall Back on any allied mech ignores <:overheat:> and <:suppression:>.
 
 Jammer Drone Launcher:
   size: Medium
@@ -831,6 +846,41 @@ Drone Command Nexus:
     - AOE
     - Strong-Watchlist
 
+Skyhammer Drone Nexus:
+  size: Medium
+  type: Drone
+  form: System
+  heat: 3
+  range: 2
+  target: 1
+  ammo: 3
+  rating: Veteran
+  actions:
+    - |
+      Summon 1 Combat Drone. Inflict [X] <:suppression:>, where X is the total amount of your deployed Drones.
+  passives:
+    - |
+      When any allied mech resolves a <:target:> 1 Equipment, and there is at least 1 allied Combat Drone:
+      If that Equipment's <:target:> has <:suppression:>, <:card-rotation:> the <:target:>.
+
+Pathfinder Drone Nexus:
+  size: Medium
+  type: Drone
+  form: System
+  heat: 3
+  maxcharge: 1
+  rating: Veteran
+  actions:
+    - |
+      Summon 1 Scout Drone. Gain 1 <:charge:>.
+  passives:
+    - |
+      When you Advance or Fall Back an allied mech, and this Equipment has 1 <:charge:>:
+      Reposition an enemy mech.
+    - |
+      When the Round ends:
+      Lose 1 <:charge:>.
+
 Hunter-Killer Nanites:
   size: Small
   type: Nanite
@@ -847,6 +897,8 @@ Hunter-Killer Nanites:
     - |
       When the turn ends:
       Activate this Weapon and <:target:> a mech that repositioned this turn.
+  tags:
+    - Weak-Watchlist
 
 Proximity-Swarm Nanites:
   size: Small
@@ -911,7 +963,7 @@ Anchor Harpoon:
       Reposition the <:target:>.
   triggers:
     - |
-      When an Equipment is activated:
+      When a player declares a <:target:>:
       The <:target:> cannot be repositioned this turn.
 
 Dragonfire Missile:
@@ -939,19 +991,6 @@ Breach Missile:
   actions:
     - |
       Deal 1 <:damage:>. Shred.
-
-Parasite Launcher:
-  size: Small
-  type: Missile
-  form: Weapon
-  heat: 0
-  range: 2
-  target: 1
-  ammo: 2
-  rating: Veteran
-  actions:
-    - |
-      Deal 1 <:damage:>. During the opponent's next turn, if the <:target:> does not change position, it takes 2 <:damage:> at the end of the turn.
 
 Ballistic Missile:
   size: Large
@@ -1004,7 +1043,7 @@ Ion Torpedo:
   type: Missile
   form: Weapon
   heat: 0
-  range: 1
+  range: 2
   target: P
   ammo: 1
   rating: Cadet
@@ -1013,6 +1052,7 @@ Ion Torpedo:
       Disable 1 Equipment on each mech with no <:shield:> at the <:target:>.
   tags:
     - AOE
+    - Weak-Watchlist
 
 Thanatos Missile:
   size: Medium
@@ -1097,7 +1137,7 @@ Thanatos Missile:
   size: Small
   type: Electronics
   form: System
-  heat: 2
+  heat: 1
   rating: Ace
   actions:
     - |
@@ -1107,34 +1147,35 @@ Thanatos Missile:
   tags:
     - Weak-Watchlist
 
-"Cyberwarfare: HIJACK":
-  size: Small
-  type: Electronics
-  form: System
-  heat: 1
-  range: 3
-  target: 1
-  rating: Ace
-  actions:
-    - |
-      Choose a Weapon with a legal <:target:> on the <:target:>. Your opponent activates it.
-  alias:
-    - HIJACK
-
-EMP Burst Projector:
+Overkill Protocol:
   size: Small
   type: Electronics
   form: System
   heat: 2
   range: 2
   target: 1
-  maxcharge: 3
+  rating: Cadet
+  triggers:
+    - |
+      1/round, when you resolve a <:target:> 1 Equipment that inflicted <:suppression:>, <:overheat:>, or <:vulnerable:>:
+      Double all <:suppression:>, <:overheat:>, and <:vulnerable:> on the same <:target:>.
+
+EMP Projector:
+  size: Small
+  type: Electronics
+  form: System
+  heat: 2
+  range: 2
+  target: 1
+  maxcharge: 1
   rating: Cadet
   actions:
     - |
       Gain 1 <:charge:>.
     - |
       If [<:charge:>]>0: Lose 1 <:charge:>. If the <:target:> has no <:shield:>, Disable 1 Equipment on it.
+  tags:
+    - Strong-Watchlist
 
 CAS Uplink:
   size: Small
@@ -1228,10 +1269,12 @@ Shield Capacitor:
   triggers:
     - |
       When the Round ends:
-      Gain X <:charge:>, where X = this mech's remaining <:heat> capacity.
+      Gain [X] <:charge:>, where X = this mech's remaining <:heat> capacity.
     - |
       When the Round starts:
       Gain [<:charge:>] <:shield:>. Lose all <:charge:>.
+  tags:
+    - Strong-Watchlist
 
 Light Screen Projector:
   size: Small
@@ -1242,6 +1285,8 @@ Light Screen Projector:
   actions:
     - |
       All allied mechs gain 1 <:shield:>.
+  tags:
+    - Weak-Watchlist
 
 Rotating Shield Matrix:
   size: Small
@@ -1254,19 +1299,6 @@ Rotating Shield Matrix:
     - |
       When an enemy declares this mech as a <:target:>:
       Gain 1 <:charge:>. Gain [<:charge:>] <:shield:>. If [<:charge:>]=2, lose all <:charge:>.
-
-Suppressive Fire Protocol:
-  size: Medium
-  type: Electronics
-  form: System
-  heat: 2
-  range: 3
-  target: 1
-  rating: Veteran
-  triggers:
-    - |
-      When the opponent's turn ends:
-      Cause all <:suppression:> on the <:target:> to trigger.
 
 Charge Spool:
   size: Small
@@ -1292,8 +1324,10 @@ Chameleon Paint:
       When the battle starts:
       Gain 1 <:shield:>.
     - |
-      When your turn ends, if this mech changed position this turn:
+      When any player's turn ends, if this mech changed position this turn:
       Gain 1 <:shield:> if it has no <:shield:>.
+  tags:
+    - Weak-Watchlist
 
 Iron Sights:
   size: Small
@@ -1352,7 +1386,7 @@ Afterburners:
   size: Small
   type: Auxiliary
   form: System
-  ammo: 2
+  ammo: 3
   rating: Ace
   triggers:
     - |
@@ -1361,6 +1395,8 @@ Afterburners:
     - |
       When an opponent declares a <:target:> on an allied mech:
       Advance this mech and redirect the <:target:> to this mech.
+  tags:
+    - Weak-Watchlist
 
 Spiked Pauldrons:
   size: Medium
@@ -1395,6 +1431,8 @@ Reinforced Frame:
     - |
       When the battle starts:
       This mech gains 1 Armor (max 3 Armor).
+  tags:
+    - Weak-Watchlist
 
 Combat Rifle:
   size: Medium
@@ -1466,7 +1504,7 @@ Concussion Missile:
   type: Missile
   form: Weapon
   heat: 0
-  range: 2
+  range: 1
   target: 1
   ammo: 2
   rating: Cadet
