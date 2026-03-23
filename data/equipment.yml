@@ -65,17 +65,14 @@ TRAK-R Smart Gun:
   size: Small
   type: Ballistic
   form: Weapon
-  heat: 1
+  heat: 2
   range: 2
   target: 1
   rating: Ace
   actions:
     - |
-      Inflict 1 <:suppression:>.
+      Inflict 2 <:suppression:>.
   triggers:
-    - |
-      When resolving other Equipment on any allied mech:
-      Inflict 1 <:suppression:> on all mechs affected by that Equipment.
     - |
       When the opponent's turn ends:
       Trigger all <:suppression:> on the <:target:>.
@@ -84,6 +81,21 @@ TRAK-R Smart Gun:
     - Weak-Watchlist
   alias:
     - TRAK-R
+
+Minigun:
+  size: Small
+  type: Ballistic
+  form: Weapon
+  heat: 2
+  range: 1
+  target: 1
+  maxcharge: 6
+  rating: Veteran
+  actions:
+    - |
+      Gain 2 <:charge:>
+    - |
+      Deal 1 <:damage:> [<:charge:>-1] times. Inflict [<:charge:>] <:suppression:>. Lose all <:charge:>.
 
 Gauss Rifle:
   size: Medium
@@ -157,7 +169,7 @@ Gatling Cannon:
   range: 1
   target: 1
   rating: Cadet
-  maxcharge: 4
+  maxcharge: 3
   actions:
     - |
       Gain 1 <:charge:>. Deal [<:charge:>]<:damage:>.
@@ -196,7 +208,7 @@ Panoptic Autocannon:
   size: Large
   type: Ballistic
   form: Weapon
-  heat: 2
+  heat: 3
   range: 2
   target: 1
   rating: Ace
@@ -262,7 +274,7 @@ Heavy Assault Cannon:
   heat: 3
   range: 1
   target: 1
-  maxcharge: 4
+  maxcharge: 3
   rating: Veteran
   actions:
     - |
@@ -368,6 +380,19 @@ Tesla Coil:
   actions:
     - |
       Deal [X+1] <:damage:>, where X is the total amount of <:overheat:> and <:shield:> on the <:target:>.
+
+Antimatter Blaster:
+  size: Small
+  type: Energy
+  form: Weapon
+  heat: 6
+  range: 1
+  target: 1
+  ammo: 1
+  rating: Veteran
+  actions:
+    - |
+      Deal 4 AP <:damage:>. Inflict 3 <:overheat:>.
 
 Flamethrower:
   size: Medium
@@ -850,7 +875,7 @@ Skyhammer Drone Nexus:
   size: Medium
   type: Drone
   form: System
-  heat: 3
+  heat: 4
   range: 2
   target: 1
   ammo: 3
@@ -867,16 +892,17 @@ Pathfinder Drone Nexus:
   size: Medium
   type: Drone
   form: System
-  heat: 3
+  heat: 2
   maxcharge: 1
   rating: Veteran
   actions:
     - |
       Summon 1 Scout Drone. Gain 1 <:charge:>.
-  passives:
+  triggers:
     - |
       When you Advance or Fall Back an allied mech, and this Equipment has 1 <:charge:>:
       Reposition an enemy mech.
+  passives:
     - |
       When the Round ends:
       Lose 1 <:charge:>.
@@ -1217,16 +1243,6 @@ Slipstream Optimizer:
       When resolving an Action from this mech:
       Advance or Fall Back another allied mech for 0 <:heat:> Cost.
 
-Supply Drop Uplink:
-  size: Small
-  type: Electronics
-  form: System
-  rating: Veteran
-  triggers:
-    - |
-      When the turn ends:
-      Discard this Equipment. Mount 1 Reserved Equipment on this mech.
-
 Weakness Hunter Protocol:
   size: Small
   type: Electronics
@@ -1234,7 +1250,7 @@ Weakness Hunter Protocol:
   rating: Veteran
   passives:
     - |
-      This mech deals +1 <:damage:> to mechs with 2 or more total of <:suppression:>, <:overheat:>, and <:vulnerable:>.
+      This mech deals +1 <:damage:> to mechs with 2 or more total of <:overheat:>, and <:vulnerable:>.
 
 Targeting Computer:
   size: Small
@@ -1311,23 +1327,6 @@ Charge Spool:
     - |
       1/battle, when an Equipment on an allied mech gains <:charge:>:
       Gain 1 <:charge:> the same Equipment.
-
-Chameleon Paint:
-  size: Small
-  type: Auxiliary
-  form: Attachment
-  rating: Cadet
-  info: |
-    Inert.
-  passives:
-    - |
-      When the battle starts:
-      Gain 1 <:shield:>.
-    - |
-      When any player's turn ends, if this mech changed position this turn:
-      Gain 1 <:shield:> if it has no <:shield:>.
-  tags:
-    - Weak-Watchlist
 
 Iron Sights:
   size: Small
@@ -1526,7 +1525,7 @@ Camouflage:
   passives:
     - |
       When the battle starts:
-      Gain 3 <:shield:>.
+      Gain 2 <:shield:>.
   tags:
     - Spare
 
