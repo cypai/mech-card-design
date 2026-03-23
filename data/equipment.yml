@@ -752,7 +752,7 @@ Heavy Combat Drill:
       Melee <:card-rotation:>. Gain 1 <:charge:>. Deal 2 AP <:damage:>. Shred.
       Prepare: Deal [<:charge:>+2] AP <:damage:>. Shred.
 
-Gungnir Shock Lance:
+Thermopylae Plasma Lance:
   size: Large
   type: Melee
   form: Weapon
@@ -762,11 +762,11 @@ Gungnir Shock Lance:
   rating: Ace
   actions:
     - |
-      Melee <:card-rotation:>. Deal 4 AP <:damage:>. <:card-rotation:> the <:target:>.
+      Melee <:card-rotation:>. Deal 4 AP <:damage:>. Inflict 2 <:overheat:>.
+  triggers:
     - |
-      Deal 4 AP <:damage:> with <:range:> 2. <:card-rotation:> the <:target:>. Discard this Weapon.
-  tags:
-    - Weak-Watchlist
+      When an enemy mech repositions into the front line:
+      Activate this Weapon on that mech.
 
 Combat Drone Launcher:
   size: Medium
@@ -862,6 +862,24 @@ Skyhammer Drone Nexus:
     - |
       When any allied mech resolves a <:target:> 1 Equipment, and there is at least 1 allied Combat Drone:
       If that Equipment's <:target:> has <:suppression:>, <:card-rotation:> the <:target:>.
+
+Pathfinder Drone Nexus:
+  size: Medium
+  type: Drone
+  form: System
+  heat: 3
+  maxcharge: 1
+  rating: Veteran
+  actions:
+    - |
+      Summon 1 Scout Drone. Gain 1 <:charge:>.
+  passives:
+    - |
+      When you Advance or Fall Back an allied mech, and this Equipment has 1 <:charge:>:
+      Reposition an enemy mech.
+    - |
+      When the Round ends:
+      Lose 1 <:charge:>.
 
 Hunter-Killer Nanites:
   size: Small
@@ -973,19 +991,6 @@ Breach Missile:
   actions:
     - |
       Deal 1 <:damage:>. Shred.
-
-Parasite Launcher:
-  size: Small
-  type: Missile
-  form: Weapon
-  heat: 0
-  range: 2
-  target: 1
-  ammo: 2
-  rating: Veteran
-  actions:
-    - |
-      Deal 1 <:damage:>. During the opponent's next turn, if the <:target:> does not change position, it takes 2 <:damage:> at the end of the turn.
 
 Ballistic Missile:
   size: Large
