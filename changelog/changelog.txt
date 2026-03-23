@@ -1,3 +1,21 @@
+added strategic bombardment
+---------------------------
+
+Strategic Bombardment was added.
+Strategic Bombardment
+Rating: Veteran
+Target: 1
+Trigger: When your turn ends:
+Draw a card. Inflict 3 <:suppression:>.
+
+Take Cover was deleted.
+Take Cover
+Rating: Veteran
+Trigger: When an allied mech becomes a <:target:> for a Weapon:
+Draw a card. Treat the <:target:> as having 1 Armor for damage calculation purposes for that Weapon.
+
+
+
 pre 3/22 playtest sync
 ----------------------
 

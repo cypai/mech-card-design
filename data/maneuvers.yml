@@ -44,12 +44,13 @@ Ramming Speed:
     - |
       Draw a card. Choose an allied mech. You may Advance it, then you may activate a Melee Weapon on it. This turn, that Weapon deals +2 <:damage:> if you chose to Advance, +1 <:damage:> otherwise.
 
-Take Cover:
+Strategic Bombardment:
+  target: 1
   rating: Veteran
   triggers:
     - |
-      When an allied mech becomes a <:target:> for a Weapon:
-      Draw a card. Treat the <:target:> as having 1 Armor for damage calculation purposes for that Weapon.
+      When your turn ends:
+      Draw a card. Inflict 3 <:suppression:>.
 
 Latent Trojan:
   target: 1
