@@ -93,7 +93,7 @@ Minigun:
   rating: Veteran
   actions:
     - |
-      Gain 2 <:charge:>
+      Gain 2 <:charge:>.
     - |
       Deal 1 <:damage:> [<:charge:>-1] times. Inflict [<:charge:>] <:suppression:>. Lose all <:charge:>.
 
@@ -217,6 +217,8 @@ Panoptic Autocannon:
       Deal 1 <:damage:>. Inflict 2 <:suppression:> to other mechs at that position.
   tags:
     - AOE
+  alias:
+    - Panoptic
 
 Railgun:
   size: Large
@@ -241,6 +243,8 @@ Hullcrusher Rifle:
   actions:
     - |
       Deal 1 <:damage:>. Deals +5 <:damage:> if the <:target:> has 0 Armor and no <:shield:>.
+  alias:
+    - Hullcrusher
 
 Mass Driver:
   size: Large
@@ -266,6 +270,8 @@ Annihilator Siege Cannon:
   actions:
     - |
       Prepare: Deal 8 AP <:damage:>.
+  alias:
+    - Annihilator
 
 Heavy Assault Cannon:
   size: Large
@@ -284,6 +290,8 @@ Heavy Assault Cannon:
       > Inflict [<:charge:>+1] <:suppression:>. Gain 1 <:charge:>.
   tags:
     - Strong-Watchlist
+  alias:
+    - HAC
 
 Mjolnir Cannon:
   size: Large
@@ -296,6 +304,8 @@ Mjolnir Cannon:
   actions:
     - |
       If the <:target:> has no <:shield:>, Disable 1 Equipment on the <:target:>. Deal 3 <:damage:>.
+  alias:
+    - Mjolnir
 
 Hellbore AMR:
   size: Large
@@ -311,6 +321,8 @@ Hellbore AMR:
       If you <:target:> a mech in the front line, you may additionally <:target:> a mech in the back line, dealing 1 <:damage:>.
   tags:
     - AOE
+  alias:
+    - Hellbore
 
 Targeting Laser:
   size: Small
@@ -525,6 +537,8 @@ Pulsar Beam Cannon:
     - |
       If [<:charge:>]=2:
       Remove all <:shield:> on all enemy mechs. Disable 1 Equipment on the <:target:>. Deal 5 <:damage:>. Set <:charge:> to 0.
+  alias:
+    - Pulsar
 
 Slagmaker:
   size: Large
@@ -553,6 +567,8 @@ Thermobaric Flame Cannon:
   tags:
     - AOE
     - Strong-Watchlist
+  alias:
+    - Thermobaric
 
 Damocles Megalaser:
   size: Large
@@ -569,6 +585,8 @@ Damocles Megalaser:
       Choose:
       > Gain 1 <:charge:>.
       > Inflict 2 <:overheat:>.
+  alias:
+    - Damocles
 
 Plasma Incinerator:
   size: Large
@@ -633,6 +651,8 @@ Gigapulse Laser:
   tags:
     - AOE
     - Multihit
+  alias:
+    - Gigapulse
 
 Combat Knife:
   size: Small
@@ -684,6 +704,8 @@ Iaijutsu Blade:
       Choose:
       > Deal 3 <:damage:>. Shred.
       > Discard a card. Destroy the <:target:> if it has 5 HP or less.
+  alias:
+    - Iaijutsu
 
 Ion Knuckle:
   size: Medium
@@ -750,6 +772,8 @@ Ripjaw Chainaxe:
     - |
       Melee <:card-rotation:>. Gain 1 <:charge:>. Deal [<:charge:>+4] <:damage:>.
       If [<:charge:>]>1, Shred.
+  alias:
+    - Ripjaw
 
 Arondight Starsword:
   size: Large
@@ -762,6 +786,8 @@ Arondight Starsword:
   actions:
     - |
       Melee <:card-rotation:>. Deal 6 <:damage:>.
+  alias:
+    - Arondight
 
 Heavy Combat Drill:
   size: Large
@@ -792,6 +818,8 @@ Thermopylae Plasma Lance:
     - |
       When an enemy mech repositions into the front line:
       Activate this Weapon on that mech.
+  alias:
+    - Thermopylae
 
 Combat Drone Launcher:
   size: Medium
@@ -887,6 +915,8 @@ Skyhammer Drone Nexus:
     - |
       When any allied mech resolves a <:target:> 1 Equipment, and there is at least 1 allied Combat Drone:
       If that Equipment's <:target:> has <:suppression:>, <:card-rotation:> the <:target:>.
+  alias:
+    - Skyhammer
 
 Pathfinder Drone Nexus:
   size: Medium
@@ -906,6 +936,8 @@ Pathfinder Drone Nexus:
     - |
       When the Round ends:
       Lose 1 <:charge:>.
+  alias:
+    - Pathfinder
 
 Hunter-Killer Nanites:
   size: Small
@@ -925,6 +957,9 @@ Hunter-Killer Nanites:
       Activate this Weapon and <:target:> a mech that repositioned this turn.
   tags:
     - Weak-Watchlist
+  alias:
+    - Hunter-Killer
+    - Hunter Killer
 
 Proximity-Swarm Nanites:
   size: Small
@@ -944,6 +979,9 @@ Proximity-Swarm Nanites:
     - |
       When an enemy declares this mech as a <:target:>:
       Activate this Weapon, setting that mech as the <:target:> if applicable.
+  alias:
+    - Proximity-Swarm
+    - Proximity Swarm
 
 Thermo-Reactive Nanites:
   size: Small
@@ -959,6 +997,9 @@ Thermo-Reactive Nanites:
       Inflict 3 <:overheat:>.
     - |
       Inflict 3 <:vulnerable:>.
+  alias:
+    - Thermo-Reactive
+    - Thermo Reactive
 
 Javelin Missile:
   size: Medium
@@ -972,6 +1013,8 @@ Javelin Missile:
   actions:
     - |
       Deal 3 <:damage:>.
+  alias:
+    - Javelin
 
 Anchor Harpoon:
   size: Small
@@ -1004,6 +1047,8 @@ Dragonfire Missile:
   actions:
     - |
       Deal 1 <:damage:>. Inflict 1 <:overheat:>.
+  alias:
+    - Dragonfire
 
 Breach Missile:
   size: Small
@@ -1063,6 +1108,8 @@ Razortooth Missile:
       Shred all enemy mechs at the <:target:>.
   tags:
     - AOE
+  alias:
+    - Razortooth
 
 Ion Torpedo:
   size: Small
@@ -1096,6 +1143,8 @@ Thanatos Missile:
       Discard a card. Deal 4 <:damage:>.
   tags:
     - Strong-Watchlist
+  alias:
+    - Thanatos
 
 "Cyberwarfare: MELTDOWN":
   size: Small
@@ -1185,6 +1234,8 @@ Overkill Protocol:
     - |
       1/round, when you resolve a <:target:> 1 Equipment that inflicted <:suppression:>, <:overheat:>, or <:vulnerable:>:
       Double all <:suppression:>, <:overheat:>, and <:vulnerable:> on the same <:target:>.
+  alias:
+    - Overkill
 
 EMP Projector:
   size: Small
@@ -1214,6 +1265,8 @@ CAS Uplink:
       Put an Airstrike in your hand.
     - |
       Your Airstrikes deal +1 <:damage:>.
+  alias:
+    - CAS
 
 Artillery Uplink:
   size: Small
@@ -1242,6 +1295,8 @@ Slipstream Optimizer:
     - |
       When resolving an Action from this mech:
       Advance or Fall Back another allied mech for 0 <:heat:> Cost.
+  alias:
+    - Slipstream
 
 Weakness Hunter Protocol:
   size: Small
@@ -1250,7 +1305,9 @@ Weakness Hunter Protocol:
   rating: Veteran
   passives:
     - |
-      This mech deals +1 <:damage:> to mechs with 2 or more total of <:overheat:>, and <:vulnerable:>.
+      This mech deals +1 <:damage:> to mechs with 2 or more total of <:overheat:> and <:vulnerable:>.
+  alias:
+    - Weakness Hunter
 
 Targeting Computer:
   size: Small
@@ -1352,6 +1409,8 @@ Heartpiercer Rounds:
     - |
       When this mech activates a Ballistic Weapon:
       That Weapon's damage is AP this turn.
+  alias:
+    - Heartpiercer
 
 Earthshaker Rounds:
   size: Small
@@ -1367,6 +1426,8 @@ Earthshaker Rounds:
       After resolving that Weapon, reposition all mechs damaged by it.
   tags:
     - Strong-Watchlist
+  alias:
+    - Earthshaker
 
 Focusing Lens:
   size: Small
