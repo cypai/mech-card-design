@@ -4,7 +4,7 @@ import argparse
 from enum import Enum
 from abc import ABC, abstractmethod
 from io import BytesIO
-from textwrap import fill
+from textwrap import dedent
 
 from pilmoji import Pilmoji
 from pilmoji.source import Twemoji
@@ -684,6 +684,51 @@ class DroneCardRenderer(CardRenderer):
         )
 
 
+class KeywordReferenceCardRenderer(CardRenderer):
+    def __init__(self, icons: Icons):
+        super().__init__(icons, "keywords.png")
+
+    def render(self):
+        self.draw_border()
+        self.draw_name("Keywords", "#000000", NameRenderMode.CENTER)
+        self.draw_card_text()
+
+    def draw_card_text(self):
+        text = """
+        <:heat:>Heat.        <:range:>Range.
+        <:target:>Target.      <:maxcharge:>Max Charge.
+        <:ammo:>Ammo.        <:charge:>Charge.
+        <:damage:>Damage.
+        <:shield:>Shield: This Round, <:damage:> reduces this before HP.
+        <:vulnerable:>Vulnerable: This Round, <:damage:> taken +1, then removed.
+        <:overheat:>Overheat: <:heat:> Cost +1.
+        <:suppression:>Suppression: This turn, take 1 <:damage:> if the mech does anything.
+        Armor: HP damage taken -1.
+        AP: <:damage:> ignores Armor.
+        Shred: Permanent Armor -1.
+        Disable: This Round, Equipment cannot be used.
+        Inert: Cannot be Disabled.
+        Prepare: Next turn, you must perform the listed Action.
+        """
+        text = dedent(text)
+        lines = text.split("\n")
+        width_in_characters = int(CARD_WIDTH / (SMALL_FONT_SIZE * 0.6)) - 4
+        y = CARD_HEIGHT / 12
+        for line in lines:
+            wrapped_text = wrap_text_tagged(line, width_in_characters)
+            newlines = len(wrapped_text.split("\n"))
+            self.pilmoji.text(
+                (CARD_WIDTH / 20, y),
+                wrapped_text,
+                "#000000",
+                font=self.small_font,
+                spacing=SPACING,
+            )
+            y += (
+                (SMALL_FONT_SIZE + SPACING) * newlines - SPACING + SMALL_FONT_SIZE * 0.3
+            )
+
+
 game_db = GameDatabase()
 
 
@@ -727,6 +772,10 @@ def main():
             for drone in game_db.drones:
                 with DroneCardRenderer(drone, icons) as card:
                     card.render()
+        if args.action == "references":
+            print("Rendering references...")
+            with KeywordReferenceCardRenderer(icons) as card:
+                card.render()
 
 
 main()
