@@ -95,7 +95,7 @@ Minigun:
     - |
       Gain 2 <:charge:>.
     - |
-      Deal 1 <:damage:> [<:charge:>-1] times. Inflict [<:charge:>] <:suppression:>. Lose all <:charge:>.
+      Deal 1 <:damage:> and inflict 1 <:suppression:> [<:charge:>-1] times. Lose all <:charge:>.
 
 Gauss Rifle:
   size: Medium
