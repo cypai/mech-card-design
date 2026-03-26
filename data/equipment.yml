@@ -927,6 +927,8 @@ Pathfinder Drone Nexus:
   type: Drone
   form: System
   heat: 2
+  range: 3
+  target: 1
   maxcharge: 1
   rating: Veteran
   actions:
@@ -935,7 +937,7 @@ Pathfinder Drone Nexus:
   triggers:
     - |
       When you Advance or Fall Back an allied mech, and this Equipment has 1 <:charge:>:
-      Reposition an enemy mech.
+      Reposition the <:target:>.
   passives:
     - |
       When the Round ends:
