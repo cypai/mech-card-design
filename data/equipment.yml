@@ -43,7 +43,7 @@ Flechettes:
     - AOE
     - Multihit
 
-LINK-R Dumbfire Gun:
+LINK-R Targeting Gun:
   size: Small
   type: Ballistic
   form: Weapon
@@ -616,7 +616,7 @@ Portal Inducer:
       > Reposition the <:target:>.
       > Deal 2 AP <:damage:>.
 
-Causality Inverter:
+Gungnir Seeker Cannon:
   size: Large
   type: Energy
   form: Weapon
@@ -629,6 +629,8 @@ Causality Inverter:
   actions:
     - |
       Prepare: Deal 6 <:damage:>.
+  alias:
+    - Gungnir
 
 Gigapulse Laser:
   size: Large
@@ -881,7 +883,7 @@ Jammer Drone Launcher:
     - AOE
     - Strong-Watchlist
 
-Drone Command Nexus:
+Hailstorm Drone Nexus:
   size: Medium
   type: Drone
   form: System
@@ -898,6 +900,8 @@ Drone Command Nexus:
   tags:
     - AOE
     - Strong-Watchlist
+  alias:
+    - Hailstorm
 
 Skyhammer Drone Nexus:
   size: Medium
@@ -1001,7 +1005,7 @@ Thermo-Reactive Nanites:
     - Thermo-Reactive
     - Thermo Reactive
 
-Javelin Missile:
+Skirmisher Missile:
   size: Medium
   type: Missile
   form: Weapon
@@ -1014,7 +1018,7 @@ Javelin Missile:
     - |
       Deal 3 <:damage:>.
   alias:
-    - Javelin
+    - Skirmisher
 
 Anchor Harpoon:
   size: Small
