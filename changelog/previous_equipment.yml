@@ -43,7 +43,7 @@ Flechettes:
     - AOE
     - Multihit
 
-LINK-R Dumbfire Gun:
+LINK-R Targeting Gun:
   size: Small
   type: Ballistic
   form: Weapon
@@ -65,17 +65,14 @@ TRAK-R Smart Gun:
   size: Small
   type: Ballistic
   form: Weapon
-  heat: 1
+  heat: 2
   range: 2
   target: 1
   rating: Ace
   actions:
     - |
-      Inflict 1 <:suppression:>.
+      Inflict 2 <:suppression:>.
   triggers:
-    - |
-      When resolving other Equipment on any allied mech:
-      Inflict 1 <:suppression:> on all mechs affected by that Equipment.
     - |
       When the opponent's turn ends:
       Trigger all <:suppression:> on the <:target:>.
@@ -84,6 +81,21 @@ TRAK-R Smart Gun:
     - Weak-Watchlist
   alias:
     - TRAK-R
+
+Minigun:
+  size: Small
+  type: Ballistic
+  form: Weapon
+  heat: 2
+  range: 1
+  target: 1
+  maxcharge: 6
+  rating: Veteran
+  actions:
+    - |
+      Gain 2 <:charge:>.
+    - |
+      Deal 1 <:damage:> and inflict 1 <:suppression:> [<:charge:>-1] times. Lose all <:charge:>.
 
 Gauss Rifle:
   size: Medium
@@ -157,7 +169,7 @@ Gatling Cannon:
   range: 1
   target: 1
   rating: Cadet
-  maxcharge: 4
+  maxcharge: 3
   actions:
     - |
       Gain 1 <:charge:>. Deal [<:charge:>]<:damage:>.
@@ -196,7 +208,7 @@ Panoptic Autocannon:
   size: Large
   type: Ballistic
   form: Weapon
-  heat: 2
+  heat: 3
   range: 2
   target: 1
   rating: Ace
@@ -205,6 +217,8 @@ Panoptic Autocannon:
       Deal 1 <:damage:>. Inflict 2 <:suppression:> to other mechs at that position.
   tags:
     - AOE
+  alias:
+    - Panoptic
 
 Railgun:
   size: Large
@@ -229,6 +243,8 @@ Hullcrusher Rifle:
   actions:
     - |
       Deal 1 <:damage:>. Deals +5 <:damage:> if the <:target:> has 0 Armor and no <:shield:>.
+  alias:
+    - Hullcrusher
 
 Mass Driver:
   size: Large
@@ -254,6 +270,8 @@ Annihilator Siege Cannon:
   actions:
     - |
       Prepare: Deal 8 AP <:damage:>.
+  alias:
+    - Annihilator
 
 Heavy Assault Cannon:
   size: Large
@@ -262,7 +280,7 @@ Heavy Assault Cannon:
   heat: 3
   range: 1
   target: 1
-  maxcharge: 4
+  maxcharge: 3
   rating: Veteran
   actions:
     - |
@@ -272,6 +290,8 @@ Heavy Assault Cannon:
       > Inflict [<:charge:>+1] <:suppression:>. Gain 1 <:charge:>.
   tags:
     - Strong-Watchlist
+  alias:
+    - HAC
 
 Mjolnir Cannon:
   size: Large
@@ -284,6 +304,8 @@ Mjolnir Cannon:
   actions:
     - |
       If the <:target:> has no <:shield:>, Disable 1 Equipment on the <:target:>. Deal 3 <:damage:>.
+  alias:
+    - Mjolnir
 
 Hellbore AMR:
   size: Large
@@ -299,6 +321,8 @@ Hellbore AMR:
       If you <:target:> a mech in the front line, you may additionally <:target:> a mech in the back line, dealing 1 <:damage:>.
   tags:
     - AOE
+  alias:
+    - Hellbore
 
 Targeting Laser:
   size: Small
@@ -368,6 +392,19 @@ Tesla Coil:
   actions:
     - |
       Deal [X+1] <:damage:>, where X is the total amount of <:overheat:> and <:shield:> on the <:target:>.
+
+Antimatter Blaster:
+  size: Small
+  type: Energy
+  form: Weapon
+  heat: 6
+  range: 1
+  target: 1
+  ammo: 1
+  rating: Veteran
+  actions:
+    - |
+      Deal 4 AP <:damage:>. Inflict 3 <:overheat:>.
 
 Flamethrower:
   size: Medium
@@ -500,6 +537,8 @@ Pulsar Beam Cannon:
     - |
       If [<:charge:>]=2:
       Remove all <:shield:> on all enemy mechs. Disable 1 Equipment on the <:target:>. Deal 5 <:damage:>. Set <:charge:> to 0.
+  alias:
+    - Pulsar
 
 Slagmaker:
   size: Large
@@ -528,6 +567,8 @@ Thermobaric Flame Cannon:
   tags:
     - AOE
     - Strong-Watchlist
+  alias:
+    - Thermobaric
 
 Damocles Megalaser:
   size: Large
@@ -544,6 +585,8 @@ Damocles Megalaser:
       Choose:
       > Gain 1 <:charge:>.
       > Inflict 2 <:overheat:>.
+  alias:
+    - Damocles
 
 Plasma Incinerator:
   size: Large
@@ -573,7 +616,7 @@ Portal Inducer:
       > Reposition the <:target:>.
       > Deal 2 AP <:damage:>.
 
-Causality Inverter:
+Gungnir Seeker Cannon:
   size: Large
   type: Energy
   form: Weapon
@@ -586,6 +629,8 @@ Causality Inverter:
   actions:
     - |
       Prepare: Deal 6 <:damage:>.
+  alias:
+    - Gungnir
 
 Gigapulse Laser:
   size: Large
@@ -608,6 +653,8 @@ Gigapulse Laser:
   tags:
     - AOE
     - Multihit
+  alias:
+    - Gigapulse
 
 Combat Knife:
   size: Small
@@ -659,6 +706,8 @@ Iaijutsu Blade:
       Choose:
       > Deal 3 <:damage:>. Shred.
       > Discard a card. Destroy the <:target:> if it has 5 HP or less.
+  alias:
+    - Iaijutsu
 
 Ion Knuckle:
   size: Medium
@@ -725,6 +774,8 @@ Ripjaw Chainaxe:
     - |
       Melee <:card-rotation:>. Gain 1 <:charge:>. Deal [<:charge:>+4] <:damage:>.
       If [<:charge:>]>1, Shred.
+  alias:
+    - Ripjaw
 
 Arondight Starsword:
   size: Large
@@ -737,6 +788,8 @@ Arondight Starsword:
   actions:
     - |
       Melee <:card-rotation:>. Deal 6 <:damage:>.
+  alias:
+    - Arondight
 
 Heavy Combat Drill:
   size: Large
@@ -767,6 +820,8 @@ Thermopylae Plasma Lance:
     - |
       When an enemy mech repositions into the front line:
       Activate this Weapon on that mech.
+  alias:
+    - Thermopylae
 
 Combat Drone Launcher:
   size: Medium
@@ -828,7 +883,7 @@ Jammer Drone Launcher:
     - AOE
     - Strong-Watchlist
 
-Drone Command Nexus:
+Hailstorm Drone Nexus:
   size: Medium
   type: Drone
   form: System
@@ -845,12 +900,14 @@ Drone Command Nexus:
   tags:
     - AOE
     - Strong-Watchlist
+  alias:
+    - Hailstorm
 
 Skyhammer Drone Nexus:
   size: Medium
   type: Drone
   form: System
-  heat: 3
+  heat: 4
   range: 2
   target: 1
   ammo: 3
@@ -862,24 +919,31 @@ Skyhammer Drone Nexus:
     - |
       When any allied mech resolves a <:target:> 1 Equipment, and there is at least 1 allied Combat Drone:
       If that Equipment's <:target:> has <:suppression:>, <:card-rotation:> the <:target:>.
+  alias:
+    - Skyhammer
 
 Pathfinder Drone Nexus:
   size: Medium
   type: Drone
   form: System
-  heat: 3
+  heat: 2
+  range: 3
+  target: 1
   maxcharge: 1
   rating: Veteran
   actions:
     - |
       Summon 1 Scout Drone. Gain 1 <:charge:>.
-  passives:
+  triggers:
     - |
       When you Advance or Fall Back an allied mech, and this Equipment has 1 <:charge:>:
-      Reposition an enemy mech.
+      Reposition the <:target:>.
+  passives:
     - |
       When the Round ends:
       Lose 1 <:charge:>.
+  alias:
+    - Pathfinder
 
 Hunter-Killer Nanites:
   size: Small
@@ -899,6 +963,9 @@ Hunter-Killer Nanites:
       Activate this Weapon and <:target:> a mech that repositioned this turn.
   tags:
     - Weak-Watchlist
+  alias:
+    - Hunter-Killer
+    - Hunter Killer
 
 Proximity-Swarm Nanites:
   size: Small
@@ -918,6 +985,9 @@ Proximity-Swarm Nanites:
     - |
       When an enemy declares this mech as a <:target:>:
       Activate this Weapon, setting that mech as the <:target:> if applicable.
+  alias:
+    - Proximity-Swarm
+    - Proximity Swarm
 
 Thermo-Reactive Nanites:
   size: Small
@@ -933,8 +1003,11 @@ Thermo-Reactive Nanites:
       Inflict 3 <:overheat:>.
     - |
       Inflict 3 <:vulnerable:>.
+  alias:
+    - Thermo-Reactive
+    - Thermo Reactive
 
-Javelin Missile:
+Skirmisher Missile:
   size: Medium
   type: Missile
   form: Weapon
@@ -946,6 +1019,8 @@ Javelin Missile:
   actions:
     - |
       Deal 3 <:damage:>.
+  alias:
+    - Skirmisher
 
 Anchor Harpoon:
   size: Small
@@ -978,6 +1053,8 @@ Dragonfire Missile:
   actions:
     - |
       Deal 1 <:damage:>. Inflict 1 <:overheat:>.
+  alias:
+    - Dragonfire
 
 Breach Missile:
   size: Small
@@ -1037,6 +1114,8 @@ Razortooth Missile:
       Shred all enemy mechs at the <:target:>.
   tags:
     - AOE
+  alias:
+    - Razortooth
 
 Ion Torpedo:
   size: Small
@@ -1070,6 +1149,8 @@ Thanatos Missile:
       Discard a card. Deal 4 <:damage:>.
   tags:
     - Strong-Watchlist
+  alias:
+    - Thanatos
 
 "Cyberwarfare: MELTDOWN":
   size: Small
@@ -1159,6 +1240,8 @@ Overkill Protocol:
     - |
       1/round, when you resolve a <:target:> 1 Equipment that inflicted <:suppression:>, <:overheat:>, or <:vulnerable:>:
       Double all <:suppression:>, <:overheat:>, and <:vulnerable:> on the same <:target:>.
+  alias:
+    - Overkill
 
 EMP Projector:
   size: Small
@@ -1188,6 +1271,8 @@ CAS Uplink:
       Put an Airstrike in your hand.
     - |
       Your Airstrikes deal +1 <:damage:>.
+  alias:
+    - CAS
 
 Artillery Uplink:
   size: Small
@@ -1216,16 +1301,8 @@ Slipstream Optimizer:
     - |
       When resolving an Action from this mech:
       Advance or Fall Back another allied mech for 0 <:heat:> Cost.
-
-Supply Drop Uplink:
-  size: Small
-  type: Electronics
-  form: System
-  rating: Veteran
-  triggers:
-    - |
-      When the turn ends:
-      Discard this Equipment. Mount 1 Reserved Equipment on this mech.
+  alias:
+    - Slipstream
 
 Weakness Hunter Protocol:
   size: Small
@@ -1234,7 +1311,9 @@ Weakness Hunter Protocol:
   rating: Veteran
   passives:
     - |
-      This mech deals +1 <:damage:> to mechs with 2 or more total of <:suppression:>, <:overheat:>, and <:vulnerable:>.
+      This mech deals +1 <:damage:> to mechs with 2 or more total of <:overheat:> and <:vulnerable:>.
+  alias:
+    - Weakness Hunter
 
 Targeting Computer:
   size: Small
@@ -1312,23 +1391,6 @@ Charge Spool:
       1/battle, when an Equipment on an allied mech gains <:charge:>:
       Gain 1 <:charge:> the same Equipment.
 
-Chameleon Paint:
-  size: Small
-  type: Auxiliary
-  form: Attachment
-  rating: Cadet
-  info: |
-    Inert.
-  passives:
-    - |
-      When the battle starts:
-      Gain 1 <:shield:>.
-    - |
-      When any player's turn ends, if this mech changed position this turn:
-      Gain 1 <:shield:> if it has no <:shield:>.
-  tags:
-    - Weak-Watchlist
-
 Iron Sights:
   size: Small
   type: Auxiliary
@@ -1353,6 +1415,8 @@ Heartpiercer Rounds:
     - |
       When this mech activates a Ballistic Weapon:
       That Weapon's damage is AP this turn.
+  alias:
+    - Heartpiercer
 
 Earthshaker Rounds:
   size: Small
@@ -1368,6 +1432,8 @@ Earthshaker Rounds:
       After resolving that Weapon, reposition all mechs damaged by it.
   tags:
     - Strong-Watchlist
+  alias:
+    - Earthshaker
 
 Focusing Lens:
   size: Small
@@ -1526,7 +1592,7 @@ Camouflage:
   passives:
     - |
       When the battle starts:
-      Gain 3 <:shield:>.
+      Gain 2 <:shield:>.
   tags:
     - Spare
 

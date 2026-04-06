@@ -1,3 +1,109 @@
+3/26 sync
+---------
+
+TRAK-R Smart Gun
+Heat: 1 -> 2
+Action: Inflict 1 <:suppression:>.
+Trigger: When resolving other Equipment on any allied mech:
+Inflict 1 <:suppression:> on all mechs affected by that Equipment.
+Trigger: When the opponent's turn ends:
+Trigger all <:suppression:> on the <:target:>.
+|->
+Action: Inflict 2 <:suppression:>.
+Trigger: When the opponent's turn ends:
+Trigger all <:suppression:> on the <:target:>.
+
+Gatling Cannon
+Max Charge: 4 -> 3
+
+Panoptic Autocannon
+Heat: 2 -> 3
+
+Heavy Assault Cannon
+Max Charge: 4 -> 3
+
+Skyhammer Drone Nexus
+Heat: 3 -> 4
+
+Pathfinder Drone Nexus
+Heat: 3 -> 2
+Range: None -> 3
+Target: None -> 1
+Action: Summon 1 Scout Drone. Gain 1 <:charge:>.
+Passive: When you Advance or Fall Back an allied mech, and this Equipment has 1 <:charge:>:
+Reposition an enemy mech.
+Passive: When the Round ends:
+Lose 1 <:charge:>.
+|->
+Action: Summon 1 Scout Drone. Gain 1 <:charge:>.
+Trigger: When you Advance or Fall Back an allied mech, and this Equipment has 1 <:charge:>:
+Reposition the <:target:>.
+Passive: When the Round ends:
+Lose 1 <:charge:>.
+
+Weakness Hunter Protocol
+Passive: This mech deals +1 <:damage:> to mechs with 2 or more total of <:suppression:>, <:overheat:>, and <:vulnerable:>.
+|->
+Passive: This mech deals +1 <:damage:> to mechs with 2 or more total of <:overheat:> and <:vulnerable:>.
+
+Camouflage
+Info: Reserved. Inert.
+Passive: When the battle starts:
+Gain 3 <:shield:>.
+|->
+Info: Reserved. Inert.
+Passive: When the battle starts:
+Gain 2 <:shield:>.
+
+LINK-R Dumbfire Gun -> LINK-R Targeting Gun
+
+Minigun was added.
+Minigun
+Small Ballistic Weapon
+Heat: 2
+Range: 1
+Target: 1
+Max Charge: 6
+Rating: Veteran
+Action: Gain 2 <:charge:>.
+Action: Deal 1 <:damage:> and inflict 1 <:suppression:> [<:charge:>-1] times. Lose all <:charge:>.
+
+Antimatter Blaster was added.
+Antimatter Blaster
+Small Energy Weapon
+Heat: 6
+Range: 1
+Target: 1
+Ammo: 1
+Rating: Veteran
+Action: Deal 4 AP <:damage:>. Inflict 3 <:overheat:>.
+
+Causality Inverter -> Gungnir Seeker Cannon
+
+Drone Command Nexus -> Hailstorm Drone Nexus
+
+Javelin Missile -> Skirmisher Missile
+
+Supply Drop Uplink was deleted.
+Supply Drop Uplink
+Small Electronics System
+Rating: Veteran
+Trigger: When the turn ends:
+Discard this Equipment. Mount 1 Reserved Equipment on this mech.
+
+Chameleon Paint was deleted.
+Chameleon Paint
+Small Auxiliary Attachment
+Tags: ['Weak-Watchlist']
+Rating: Cadet
+Info: Inert.
+Passive: When the battle starts:
+Gain 1 <:shield:>.
+Passive: When any player's turn ends, if this mech changed position this turn:
+Gain 1 <:shield:> if it has no <:shield:>.
+
+
+
 added strategic bombardment
 ---------------------------
 
