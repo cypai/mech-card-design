@@ -1081,7 +1081,7 @@ Ballistic Missile:
   actions:
     - |
       <:target:> a position.
-      Prepare: Deal 3 AP <:damage:> to mechs at that <:target:>.
+      Prepare: Deal 3 AP <:damage:> to all mechs at that <:target:>.
   tags:
     - AOE
 
@@ -1096,7 +1096,7 @@ Fragmentation Missile:
   rating: Cadet
   actions:
     - |
-      Deal 1 <:damage:> to enemy mechs at the <:target:>.
+      Deal 1 <:damage:> to all mechs at the <:target:>.
   tags:
     - AOE
 
