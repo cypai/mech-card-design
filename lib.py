@@ -22,7 +22,7 @@ EMOJI_REGEX = re.compile("<:[a-zA-Z0-9_-]{1,32}:>")
 NUMBER_TAG_REGEX = re.compile(r"(\d|AP|\]) <:")
 HEAT_COST_REGEX = re.compile(r"<:heat:> Cost")
 TAG_NUMBER_REGEX = re.compile(r":> (\d)")
-PERIOD_ENDS_REGEX = re.compile(r"!\)?\.$")
+PUNCT_ENDS_REGEX = re.compile(r"!\)?[\.:]$")
 
 
 def wrap_text_tagged(text: str, width: int) -> str:
@@ -45,12 +45,12 @@ def wrap_text_tagged(text: str, width: int) -> str:
     actual_paras = []
     for para in wrapped_paras:
         actual_para = para
-        merge_with_prev_para = PERIOD_ENDS_REGEX.match(actual_para)
+        merge_with_prev_para = PUNCT_ENDS_REGEX.match(actual_para)
         while "!" in actual_para:
             actual_para = actual_para.replace("!", tags.pop(0), 1)
         if merge_with_prev_para is None:
             actual_paras.append(actual_para)
         else:
-            actual_paras[-1] += actual_para
+            actual_paras[-1] += " " + actual_para
 
     return "\n".join(actual_paras)
