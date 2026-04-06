@@ -56,8 +56,8 @@ LINK-R Targeting Gun:
       Deal 1 <:damage:>.
   triggers:
     - |
-      When resolving a Medium or Large Weapon on this mech as an Action:
-      Activate this Weapon with -1 <:heat:> Cost on one of its <:target:>.
+      When this mech resolves a <:target:> 1 Medium or Large Weapon:
+      <:target:> must be the same as that Weapon. -1 <:heat:> cost. Deal 1 <:damage:>.
   alias:
     - LINK-R
 
@@ -82,20 +82,22 @@ TRAK-R Smart Gun:
   alias:
     - TRAK-R
 
-Minigun:
+Seeker Minigun:
   size: Small
   type: Ballistic
   form: Weapon
   heat: 2
   range: 1
   target: 1
-  maxcharge: 6
+  maxcharge: 4
   rating: Veteran
   actions:
     - |
       Gain 2 <:charge:>.
     - |
-      Deal 1 <:damage:> and inflict 1 <:suppression:> [<:charge:>-1] times. Lose all <:charge:>.
+      Deal [<:charge:>] damage. Inflict [<:charge:>-1] <:suppression:>. Lose all <:charge:>. Cannot be Evaded.
+  alias:
+    - Minigun
 
 Gauss Rifle:
   size: Medium
@@ -143,7 +145,7 @@ Automatic Shotgun:
   rating: Cadet
   actions:
     - |
-      Deal 2 <:damage:> to the enemy front line.
+      Deal 2 <:damage:> to all mechs at the <:target:>.
   tags:
     - AOE
 
@@ -256,7 +258,7 @@ Mass Driver:
   rating: Cadet
   actions:
     - |
-      Deal 4 <:damage:>. If the <:target:> is in the front line, move it to the back line.
+      Deal 4 <:damage:>. If the <:target:> is in the front line, Reposition it.
 
 Annihilator Siege Cannon:
   size: Large
@@ -303,7 +305,7 @@ Mjolnir Cannon:
   rating: Cadet
   actions:
     - |
-      If the <:target:> has no <:shield:>, Disable 1 Equipment on the <:target:>. Deal 3 <:damage:>.
+      If the <:target:> has no <:shield:>, Disable 1 Equipment on it. Deal 3 <:damage:>.
   alias:
     - Mjolnir
 
@@ -378,7 +380,7 @@ EM Polarizer:
       Deal 1 <:damage:>.
   triggers:
     - |
-      When activating an Energy Weapon on another allied mech:
+      When activating an Energy Weapon on a different allied mech:
       That Weapon deals +1 <:damage:> this turn.
 
 Tesla Coil:
@@ -416,7 +418,7 @@ Flamethrower:
   rating: Cadet
   actions:
     - |
-      Deal 1 <:damage:> and inflict 1 <:overheat:> to the enemy front line.
+      Deal 1 <:damage:> and inflict 1 <:overheat:> to all mechs at the <:target:>.
   tags:
     - AOE
 
@@ -431,7 +433,7 @@ Galvanic Shotgun:
   rating: Veteran
   actions:
     - |
-      Deal [<:charge:>+1] <:damage:>. 1 Equipment on an allied mech gains 1 <:charge:>.
+      Deal [<:charge:>+1] <:damage:> to all mechs at the <:target:>. 1 Equipment on an allied mech gains 1 <:charge:>.
   tags:
     - AOE
     - Strong-Watchlist
@@ -489,8 +491,8 @@ Repulsor Array:
   actions:
     - |
       Deal 2 <:damage:>.
-      You may move the <:target:> to the back line.
-      You may move this mech to the back line.
+      You may Reposition the <:target:>.
+      You may Reposition this mech.
   tags:
     - Weak-Watchlist
 
@@ -505,7 +507,7 @@ Magnetic Harpoon:
   actions:
     - |
       Deal 2 <:damage:>.
-      If the target is in the back line, move it to the front line.
+      If the target is in the back line, you may Reposition it.
       Inflict 1 <:suppression:>.
   tags:
     - Weak-Watchlist
@@ -550,7 +552,7 @@ Slagmaker:
   rating: Cadet
   actions:
     - |
-      Deal 6 <:damage:>, then Disable all other Equipment on this mech.
+      Deal 6 <:damage:>. Disable all other Equipment on this mech.
 
 Thermobaric Flame Cannon:
   size: Large
@@ -562,8 +564,8 @@ Thermobaric Flame Cannon:
   rating: Cadet
   actions:
     - |
-      Inflict 1 <:overheat:> to mechs with no <:shield:> at <:target:>.
-      Deal 2 <:damage:> to mechs at <:target:>.
+      Inflict 1 <:overheat:> to all mechs with no <:shield:> at <:target:>.
+      Deal 2 <:damage:> to all mechs at the <:target:>.
   tags:
     - AOE
     - Strong-Watchlist
@@ -624,11 +626,9 @@ Gungnir Seeker Cannon:
   range: 1
   target: 1
   rating: Veteran
-  info: |
-    This Weapon cannot be Evaded.
   actions:
     - |
-      Prepare: Deal 6 <:damage:>.
+      Prepare: Deal 6 <:damage:>. Cannot be Evaded.
   alias:
     - Gungnir
 
@@ -663,7 +663,7 @@ Combat Knife:
   heat: 2
   range: 0
   target: 1
-  rating: Cadet
+  rating: Veteran
   actions:
     - |
       Melee <:card-rotation:>. Deal 1 <:damage:>. Inflict 1 <:vulnerable:>.
@@ -675,7 +675,7 @@ Power Buckler:
   heat: 2
   range: 0
   target: 1
-  rating: Cadet
+  rating: Veteran
   actions:
     - |
       Melee <:card-rotation:>. Deal 1 <:damage:>. Gain 1 <:shield:>.
@@ -687,7 +687,7 @@ Power Fist:
   heat: 3
   range: 0
   target: 1
-  rating: Cadet
+  rating: Veteran
   actions:
     - |
       Melee <:card-rotation:>. Deal 3 <:damage:>. Move the <:target:> to the back line.
@@ -699,7 +699,7 @@ Iaijutsu Blade:
   heat: 4
   range: 0
   target: 1
-  rating: Cadet
+  rating: Veteran
   actions:
     - |
       Melee <:card-rotation:>.
@@ -716,7 +716,7 @@ Ion Knuckle:
   heat: 4
   range: 0
   target: 1
-  rating: Cadet
+  rating: Veteran
   actions:
     - |
       Melee <:card-rotation:>. Deal 2 <:damage:>. Disable 1 Equipment on the <:target:>.
@@ -728,7 +728,7 @@ Phase Lance:
   heat: 3
   range: 0
   target: 1
-  rating: Cadet
+  rating: Veteran
   actions:
     - |
       Melee <:card-rotation:>. Remove all <:shield:> from the <:target:>. Deal 3 AP <:damage:>.
@@ -740,7 +740,7 @@ Plasma Torch:
   heat: 3
   range: 0
   target: 1
-  rating: Cadet
+  rating: Veteran
   actions:
     - |
       Melee <:card-rotation:>. If the <:target:> has no <:shield:>, inflict 1 <:overheat:>. Deal 3 AP <:damage:>.
@@ -769,7 +769,7 @@ Ripjaw Chainaxe:
   range: 0
   target: 1
   maxcharge: 4
-  rating: Cadet
+  rating: Veteran
   actions:
     - |
       Melee <:card-rotation:>. Gain 1 <:charge:>. Deal [<:charge:>+4] <:damage:>.
@@ -784,7 +784,7 @@ Arondight Starsword:
   heat: 5
   range: 0
   target: 1
-  rating: Cadet
+  rating: Veteran
   actions:
     - |
       Melee <:card-rotation:>. Deal 6 <:damage:>.
@@ -818,8 +818,8 @@ Thermopylae Plasma Lance:
       Melee <:card-rotation:>. Deal 4 AP <:damage:>. Inflict 2 <:overheat:>.
   triggers:
     - |
-      When an enemy mech repositions into the front line:
-      Activate this Weapon on that mech.
+      When an enemy mech Repositions into the front line:
+      <:target:> that mech and perform this Weapon's <:action:>.
   alias:
     - Thermopylae
 
@@ -835,9 +835,9 @@ Combat Drone Launcher:
   actions:
     - |
       Deal 2 <:damage:> to the enemy front line.
-      Summon 1 Combat Drone.
+      Deploy 1 Combat Drone.
     - |
-      Back line activation: -3 <:heat:> Cost. Summon 1 Combat Drone.
+      Back line activation: -3 <:heat:> Cost. Deploy 1 Combat Drone.
   tags:
     - AOE
     - Weak-Watchlist
@@ -851,7 +851,7 @@ Shield Drone Launcher:
   rating: Ace
   actions:
     - |
-      Grant 2 <:shield:> to an allied mech. Summon 1 Shield Drone.
+      Grant 2 <:shield:> to an allied mech. Deploy 1 Shield Drone.
 
 Scout Drone Launcher:
   size: Small
@@ -862,7 +862,7 @@ Scout Drone Launcher:
   rating: Veteran
   actions:
     - |
-      You may reposition an allied mech. Summon 1 Scout Drone.
+      You may Reposition an allied mech. Deploy 1 Scout Drone.
   passives:
     - |
       If you have at least 1 deployed Scout Drone, Advance or Fall Back on any allied mech ignores <:overheat:> and <:suppression:>.
@@ -878,7 +878,7 @@ Jammer Drone Launcher:
   rating: Veteran
   actions:
     - |
-      Inflict 1 <:overheat:> on the enemy front line, then summon 1 Jammer Drone.
+      Inflict 1 <:overheat:> on the enemy front line. Deploy 1 Jammer Drone.
   tags:
     - AOE
     - Strong-Watchlist
@@ -892,10 +892,10 @@ Hailstorm Drone Nexus:
   rating: Ace
   actions:
     - |
-      Choose any drone that you do not currently have deployed, and deploy it.
+      Choose any Drone that you do not currently have deployed, and Deploy it.
   passives:
     - |
-      When an allied drone is destroyed:
+      When the turn ends, and an allied Drone was recalled this turn:
       You may discard a card to add an Airstrike into your hand.
   tags:
     - AOE
@@ -911,13 +911,13 @@ Skyhammer Drone Nexus:
   range: 2
   target: 1
   ammo: 3
-  rating: Veteran
+  rating: Ace
   actions:
     - |
-      Summon 1 Combat Drone. Inflict [X] <:suppression:>, where X is the total amount of your deployed Drones.
+      Deploy 1 Combat Drone. Inflict [X] <:suppression:>, where X is the total amount of your deployed Drones.
   passives:
     - |
-      When any allied mech resolves a <:target:> 1 Equipment, and there is at least 1 allied Combat Drone:
+      When any allied mech resolves a <:target:> 1 Equipment, and you have at least 1 deployed Combat Drone:
       If that Equipment's <:target:> has <:suppression:>, <:card-rotation:> the <:target:>.
   alias:
     - Skyhammer
@@ -930,10 +930,10 @@ Pathfinder Drone Nexus:
   range: 3
   target: 1
   maxcharge: 1
-  rating: Veteran
+  rating: Ace
   actions:
     - |
-      Summon 1 Scout Drone. Gain 1 <:charge:>.
+      Deploy 1 Scout Drone. Gain 1 <:charge:>.
   triggers:
     - |
       When you Advance or Fall Back an allied mech, and this Equipment has 1 <:charge:>:
@@ -959,8 +959,8 @@ Hunter-Killer Nanites:
       If the <:target:> has Vulnerable, deal 1 <:damage:>, otherwise inflict 1 <:vulnerable:>.
   triggers:
     - |
-      When the turn ends:
-      Activate this Weapon and <:target:> a mech that repositioned this turn.
+      When the turn ends, and an enemy mech Repositioned this turn:
+      Perform this Weapon's <:action:>.
   tags:
     - Weak-Watchlist
   alias:
@@ -978,13 +978,13 @@ Proximity-Swarm Nanites:
   rating: Ace
   actions:
     - |
-      Choose:
-      > Inflict 1 <:vulnerable:>.
-      > Gain 1 <:shield:> on this mech.
+      Gain 1 <:shield:> on this mech.
+    - |
+      Inflict 1 <:vulnerable:>.
   triggers:
     - |
-      When an enemy declares this mech as a <:target:>:
-      Activate this Weapon, setting that mech as the <:target:> if applicable.
+      When this mech becomes a <:target:> of an enemy Equipment:
+      Perform either of this Equipment's <:action:>.
   alias:
     - Proximity-Swarm
     - Proximity Swarm
@@ -1031,15 +1031,15 @@ Anchor Harpoon:
   target: 1
   ammo: 2
   rating: Cadet
+  info: |
+      This Weapon may <:target:> allied mechs.
   actions:
-    - |
-      Reposition an allied mech.
     - |
       Reposition the <:target:>.
   triggers:
     - |
-      When a player declares a <:target:>:
-      The <:target:> cannot be repositioned this turn.
+      When any mech becomes a <:target:>:
+      The <:target:> cannot be Repositioned this turn.
 
 Dragonfire Missile:
   size: Small
@@ -1081,7 +1081,7 @@ Ballistic Missile:
   actions:
     - |
       <:target:> a position.
-      Prepare: Deal 3 AP <:damage:> to mechs at the <:target:>.
+      Prepare: Deal 3 AP <:damage:> to mechs at that <:target:>.
   tags:
     - AOE
 
@@ -1142,11 +1142,9 @@ Thanatos Missile:
   target: 1
   ammo: 1
   rating: Cadet
-  info: |
-    This Weapon cannot be Evaded.
   actions:
     - |
-      Discard a card. Deal 4 <:damage:>.
+      Discard a card. Deal 4 <:damage:>. Cannot be Evaded.
   tags:
     - Strong-Watchlist
   alias:
@@ -1239,7 +1237,7 @@ Overkill Protocol:
   triggers:
     - |
       1/round, when you resolve a <:target:> 1 Equipment that inflicted <:suppression:>, <:overheat:>, or <:vulnerable:>:
-      Double all <:suppression:>, <:overheat:>, and <:vulnerable:> on the same <:target:>.
+      <:target:> must be the same as that Equipment. Double all <:suppression:>, <:overheat:>, and <:vulnerable:> on the <:target:>.
   alias:
     - Overkill
 
@@ -1288,7 +1286,7 @@ Artillery Uplink:
       Inflict 3 <:suppression:>.
   passives:
     - |
-      When an allied mech inflicts <:suppression:> with a different Weapon:
+      When an allied mech inflicts <:suppression:> with a Weapon:
       Inflict 1 more.
 
 Slipstream Optimizer:
@@ -1299,8 +1297,8 @@ Slipstream Optimizer:
   rating: Veteran
   triggers:
     - |
-      When resolving an Action from this mech:
-      Advance or Fall Back another allied mech for 0 <:heat:> Cost.
+      When this mech resolves a different Equipment:
+      Advance or Fall Back a different allied mech for -1 <:heat:> Cost.
   alias:
     - Slipstream
 
@@ -1376,7 +1374,7 @@ Rotating Shield Matrix:
   rating: Cadet
   triggers:
     - |
-      When an enemy declares this mech as a <:target:>:
+      When this mech becomes a <:target:> of an enemy Equipment:
       Gain 1 <:charge:>. Gain [<:charge:>] <:shield:>. If [<:charge:>]=2, lose all <:charge:>.
 
 Charge Spool:
@@ -1388,8 +1386,8 @@ Charge Spool:
     Inert.
   triggers:
     - |
-      1/battle, when an Equipment on an allied mech gains <:charge:>:
-      Gain 1 <:charge:> the same Equipment.
+      When you activate an Equipment on an allied mech that can gain <:charge:>:
+      That Equipment gains 1 <:charge:>. Discard this Equipment.
 
 Iron Sights:
   size: Small
@@ -1400,7 +1398,7 @@ Iron Sights:
     Inert.
   triggers:
     - |
-      When another allied mech resolves an Equipment as an Action:
+      When a different allied mech resolves an Equipment's <:action:>:
       Choose a <:range:> 1 Weapon on this mech. Prepare: Activate that Weapon, treating it as <:range:> 2.
 
 Heartpiercer Rounds:
@@ -1429,7 +1427,7 @@ Earthshaker Rounds:
   triggers:
     - |
       1/round, when this mech activates a Ballistic Weapon:
-      After resolving that Weapon, reposition all mechs damaged by it.
+      After resolving that Weapon, Reposition all mechs damaged by it.
   tags:
     - Strong-Watchlist
   alias:
@@ -1445,7 +1443,7 @@ Focusing Lens:
     Inert.
   triggers:
     - |
-      1/round, on this mech activating an Energy Weapon:
+      When this mech activates an Energy Weapon:
       This turn, it inflicts 1 <:overheat:> after dealing <:damage:>.
 
 Afterburners:
@@ -1459,8 +1457,8 @@ Afterburners:
       When this mech would Advance or Fall Back:
       -1 <:heat:> Cost.
     - |
-      When an opponent declares a <:target:> on an allied mech:
-      Advance this mech and redirect the <:target:> to this mech.
+      When a different allied mech becomes a <:target:> of an enemy Equipment:
+      Advance this mech. Redirect that <:target:> to this mech.
   tags:
     - Weak-Watchlist
 
@@ -1483,7 +1481,7 @@ Jump Jets:
   ammo: 3
   triggers:
     - |
-      When your opponent activates an Equipment while you have a different mech in the front line:
+      When an allied mech becomes a <:target:> while you have a different mech in the front line:
       Advance or Fall Back this mech. Your opponent may then re-declare any or all <:target:> for that Equipment.
 
 Reinforced Frame:
@@ -1493,7 +1491,7 @@ Reinforced Frame:
   rating: Veteran
   info: |
     Inert.
-  passives:
+  triggers:
     - |
       When the battle starts:
       This mech gains 1 Armor (max 3 Armor).
