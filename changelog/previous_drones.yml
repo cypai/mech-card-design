@@ -9,7 +9,7 @@ Combat Drone:
 Shield Drone:
   triggers:
     - |
-      When an opponent declares a <:target:> on an allied mech:
+      When an allied mech becomes a <:target:> of an enemy Equipment:
       Gain 2 <:shield:> on an allied mech, then destroy this drone.
 
 Scout Drone:

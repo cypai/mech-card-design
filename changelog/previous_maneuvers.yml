@@ -13,10 +13,13 @@ Airstrike:
 
 Fog of War:
   rating: Cadet
+  actions:
+    - |
+      Draw a card. Gain 1 <:shield:> on all allied mechs.
   triggers:
     - |
       When the Round starts:
-      Draw a card. Gain 1 <:shield:> on all allied mechs.
+      Perform this Maneuver's <:action:>.
 
 Lock and Load:
   rating: Cadet
