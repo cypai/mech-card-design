@@ -260,8 +260,8 @@ Capricornus:
     - Small
   triggers:
     - |
-      When the turn ends, and this mech changed position this turn:
-      Activate any number of distinct Small Equipment on this mech.
+      When any player's turn ends, and this mech changed position that turn:
+      Activate a Small Equipment on this mech. If this mech is in the back line, treat it as <:range:> 2.
 
 Cockroach:
   faction: Pirates
