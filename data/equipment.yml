@@ -277,6 +277,8 @@ Annihilator Siege Cannon:
   actions:
     - |
       Prepare: Deal 8 AP <:damage:>.
+  flavor_text: |
+    "Your life ends 30 minutes from now."
   alias:
     - Annihilator
 
@@ -1478,7 +1480,7 @@ Spiked Pauldrons:
   size: Medium
   type: Auxiliary
   form: Attachment
-  rating: Cadet
+  rating: Veteran
   info: |
     Inert.
   passives:
@@ -1550,7 +1552,7 @@ Power Blade:
   heat: 3
   range: 0
   target: 1
-  rating: Cadet
+  rating: Veteran
   info: |
     Reserved.
   actions:
@@ -1603,6 +1605,8 @@ Camouflage:
     - |
       When the battle starts:
       Gain 2 <:shield:>.
+  flavor_text: |
+    "Why does paint take up an entire hardpoint? Don't ask questions."
   tags:
     - Spare
 

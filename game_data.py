@@ -23,6 +23,7 @@ def parse_equipment(equipment) -> Equipment:
         actions=data.get("actions", []),
         triggers=data.get("triggers", []),
         passives=data.get("passives", []),
+        flavor_text=data.get("flavor_text", None),
         tags=data.get("tags", []),
         alias=data.get("alias", []),
         copies=data.get("copies", 1),

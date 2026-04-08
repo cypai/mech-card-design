@@ -19,6 +19,7 @@ class Equipment:
     actions: list[str]
     triggers: list[str]
     passives: list[str]
+    flavor_text: Optional[str]
     tags: list[str]
     alias: list[str]
     copies: int
@@ -39,10 +40,18 @@ class Equipment:
         self.actions = kwargs.get("actions", [])
         self.triggers = kwargs.get("triggers", [])
         self.passives = kwargs.get("passives", [])
+        self.flavor_text = kwargs.get("flavor_text", None)
         self.tags = kwargs.get("tags", [])
         self.alias = kwargs.get("alias", [])
         self.copies = kwargs.get("copies", 1)
         self.rating = kwargs.get("rating", None)
+        self.rating_int = 0
+        if self.rating == "Cadet":
+            self.rating_int = 1
+        elif self.rating == "Veteran":
+            self.rating_int = 2
+        elif self.rating == "Ace":
+            self.rating_int = 3
 
         self.normalized_name = re.sub(r"\W", "", self.name)
         self.normalized_name = self.normalized_name.lower()
@@ -69,6 +78,8 @@ class Equipment:
             text += f"Trigger: {trigger}"
         for passive in self.passives:
             text += f"Passive: {passive}"
+        if self.flavor_text is not None:
+            text += f"Flavor Text: {self.flavor_text}"
         return text
 
     def __str__(self):
@@ -89,6 +100,8 @@ class Equipment:
         if self.rating is not None:
             text += f"Rating: {self.rating}\n"
         text += f"{self.text}"
+        if self.flavor_text is not None:
+            text += f"Flavor Text: {self.flavor_text}"
         return text
 
     def is_similar(self, other: Self) -> bool:
@@ -155,6 +168,9 @@ class Equipment:
         if self.text != other.text:
             is_diff = True
             diffs += f"{other.text}|->\n{self.text}"
+        if self.flavor_text != other.flavor_text:
+            is_diff = True
+            diffs += f"{other.flavor_text}|->\n{self.flavor_text}"
         return (is_diff, diffs)
 
 

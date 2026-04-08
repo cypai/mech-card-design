@@ -54,6 +54,7 @@ class Icons:
         action = Image.open("textures/action.png")
         trigger = Image.open("textures/trigger.png")
         passive = Image.open("textures/passive.png")
+        star = Image.open("textures/star.png")
 
         self.heat = heat.resize((ICON_SIZE, ICON_SIZE))
         self.melee = melee.resize((ICON_SIZE, ICON_SIZE))
@@ -66,6 +67,7 @@ class Icons:
         self.action = action.resize((SECTION_ICON_SIZE, SECTION_ICON_SIZE))
         self.trigger = trigger.resize((SECTION_ICON_SIZE, SECTION_ICON_SIZE))
         self.passive = passive.resize((SECTION_ICON_SIZE, SECTION_ICON_SIZE))
+        self.star = star.resize((int(ICON_SIZE / 2), int(ICON_SIZE / 2)))
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
@@ -100,6 +102,9 @@ class CardRenderer(ABC):
         )
         self.icon_font = ImageFont.truetype(
             "./fonts/HackNerdFont-Regular.ttf", int(ICON_SIZE * 0.8)
+        )
+        self.flavor_text_font = ImageFont.truetype(
+            "./fonts/Hack-Italic.ttf", SMALL_FONT_SIZE
         )
 
     def __enter__(self):
@@ -200,6 +205,58 @@ class CardRenderer(ABC):
             ),
         )
 
+    def draw_flavor_text(self, text: Optional[str]):
+        if text is None:
+            return
+        width_in_characters = int(CARD_WIDTH / (SMALL_FONT_SIZE * 0.6)) - 3
+        wrapped_text = wrap_text_tagged(text, width_in_characters)
+        num_lines = wrapped_text.count("\n") + 1
+        self.draw.text(
+            (
+                MARGIN,
+                CARD_HEIGHT - int(TRACKER_SIZE * 0.5) - num_lines * SMALL_FONT_SIZE,
+            ),
+            wrapped_text,
+            "#000000",
+            font=self.flavor_text_font,
+            align="left",
+            anchor="la",
+        )
+
+    def draw_card_rating(
+        self,
+        rating: int,
+        rating_icon: Image.Image,
+    ):
+        star_size = int(ICON_SIZE / 2)
+        if rating == 1:
+            self.image.alpha_composite(
+                rating_icon,
+                (int(CARD_WIDTH / 2 - star_size / 2), CARD_HEIGHT - star_size),
+            )
+        elif rating == 2:
+            self.image.alpha_composite(
+                rating_icon,
+                (int(CARD_WIDTH / 2 - star_size), CARD_HEIGHT - star_size),
+            )
+            self.image.alpha_composite(
+                rating_icon,
+                (int(CARD_WIDTH / 2), CARD_HEIGHT - star_size),
+            )
+        elif rating == 3:
+            self.image.alpha_composite(
+                rating_icon,
+                (int(CARD_WIDTH / 2 - star_size / 2), CARD_HEIGHT - star_size),
+            )
+            self.image.alpha_composite(
+                rating_icon,
+                (int(CARD_WIDTH / 2 - 3 * star_size / 2), CARD_HEIGHT - star_size),
+            )
+            self.image.alpha_composite(
+                rating_icon,
+                (int(CARD_WIDTH / 2 + star_size / 2), CARD_HEIGHT - star_size),
+            )
+
 
 class EquipmentCardRenderer(CardRenderer):
     NAME_X = int(ICON_SIZE * 2.2)
@@ -217,6 +274,8 @@ class EquipmentCardRenderer(CardRenderer):
         self.draw_top_icons()
         self.draw_card_type()
         self.draw_card_text()
+        self.draw_flavor_text(self.equipment.flavor_text)
+        self.draw_card_rating(self.equipment.rating_int, self.icons.star)
 
     def get_name_color(self) -> str:
         if self.equipment.type == "Ballistic":
