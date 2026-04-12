@@ -100,8 +100,6 @@ class Equipment:
         if self.rating is not None:
             text += f"Rating: {self.rating}\n"
         text += f"{self.text}"
-        if self.flavor_text is not None:
-            text += f"Flavor Text: {self.flavor_text}"
         return text
 
     def is_similar(self, other: Self) -> bool:
