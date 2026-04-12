@@ -431,9 +431,26 @@ class GameDatabase:
     def get_maneuver(self, name: str) -> Maneuver | None:
         return next((x for x in self.maneuvers if x.name == name), None)
 
-    def fuzzy_query_name(
-        self, name: str, threshold: int
-    ) -> list[tuple[Union[Equipment, Mech, Drone, Maneuver], int]]:
+    class QueryResults:
+        ok = False
+        options = []
+
+        def __init__(
+            self,
+            data: list[tuple[Union[Equipment, Mech, Drone, Maneuver], int]],
+            threshold: int,
+        ):
+            self.raw_results = data
+            if len(data) > 0:
+                best = data[0]
+                self.ok = best[1] >= threshold
+                if self.ok:
+                    self.actual = best[0]
+                    self.threshold = best[1]
+                else:
+                    self.options = [option[0] for option in data[:3]]
+
+    def fuzzy_query_name(self, name: str, threshold: int) -> QueryResults:
 
         lname = name.lower()
         non_equipment = list(
@@ -446,8 +463,11 @@ class GameDatabase:
         non_equipment_results = [
             (x, fuzz.ratio(lname, x.name.lower())) for x in non_equipment
         ]
-        return sorted(
-            [x for x in equipment_results + non_equipment_results if x[1] > threshold],
-            key=lambda x: x[1],
-            reverse=True,
+        return GameDatabase.QueryResults(
+            sorted(
+                [x for x in equipment_results + non_equipment_results if x[1] > 50],
+                key=lambda x: x[1],
+                reverse=True,
+            ),
+            threshold,
         )

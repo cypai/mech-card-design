@@ -71,17 +71,16 @@ def build_query_response(queries: list[str]) -> str:
     total = 0
     bad_result_message = ""
     for query in queries:
-        results = db.fuzzy_query_name(query, 50)
-        good_results = [x for x in results if x[1] > 90]
-        if len(good_results) > 0:
-            top_result = results[0]
+        results = db.fuzzy_query_name(query, 90)
+        if results.ok:
+            top_result = results.actual
             total += 1
-            if top_result[1] == 100:
-                message += f"{top_result[0]}\n"
+            if results.threshold == 100:
+                message += f"{top_result}\n"
             else:
-                message += f"(Fuzzy match ratio of {top_result[1]} for {query})\n{top_result[0]}\n"
+                message += f"(Fuzzy match ratio of {results.threshold} for {query})\n{top_result}\n"
         else:
-            top_3 = " or ".join(map(lambda x: f"[[{x[0].name}]]", results[:3]))
+            top_3 = " or ".join(map(lambda x: f"[[{x.name}]]", results.options))
             bad_result_message += f"[[{query}]] not found. Did you mean: {top_3}?\n"
 
     message += f"Total matches: {total} of {len(queries)}\n"
@@ -96,13 +95,11 @@ def build_render_response(queries: list[str]) -> tuple[str, list[discord.File]]:
     bad_result_message = ""
     cards: list[tuple[Equipment | Mech | Maneuver | Drone, int]] = []
     for query in queries:
-        results = db.fuzzy_query_name(query, 50)
-        good_results = [x for x in results if x[1] > 90]
-        if len(good_results) > 0:
-            top_result = results[0]
-            cards.append(top_result)
+        results = db.fuzzy_query_name(query, 90)
+        if results.ok:
+            cards.append((results.actual, results.threshold))
         else:
-            top_3 = " or ".join(map(lambda x: f"{{{{{x[0].name}}}}}", results[:3]))
+            top_3 = " or ".join(map(lambda x: f"{{{{{x.name}}}}}", results.options))
             bad_result_message += f"{{{{{query}}}}} not found. Did you mean: {top_3}?\n"
     name_list = [
         card[0].name + ("" if card[1] == 100 else f" (fuzzy {card[1]})")
@@ -303,6 +300,26 @@ async def sus(ctx: commands.Context):
 
 
 @bot.command()
+async def aka(ctx: commands.Context, *, query: str):
+    matches = db.fuzzy_query_name(query, 90)
+    if not matches.ok:
+        options = [opt.name for opt in matches.options]
+        options_str = " or ".join(options)
+        message = f"{query} not found. Did you mean: {options_str}"
+        await reply(ctx, message)
+        return
+    actual = matches.actual
+    if matches.threshold == 100:
+        message = f"Aliases for {actual.name}:\n"
+    else:
+        message = f"Aliases for {actual.name} (fuzzy {matches.threshold}):\n"
+    if isinstance(actual, Equipment):
+        for alias in actual.alias:
+            message += f"{alias}\n"
+    await reply(ctx, message)
+
+
+@bot.command()
 async def tutorial(ctx: commands.Context):
     message = """
     Feds
@@ -439,12 +456,12 @@ async def db_add_draft(ctx: commands.Context, battle_id: int, player: int, *args
         ] = []
 
         def handle_match(name: str):
-            matches = db.fuzzy_query_name(name, 50)
-            if len(matches) == 0 or matches[0][1] < 90:
-                bad_matches.append((name, matches))
-                return None
+            matches = db.fuzzy_query_name(name, 90)
+            if matches.ok:
+                return matches.actual
             else:
-                return matches[0][0]
+                bad_matches.append((name, matches.raw_results))
+                return None
 
         for draft_string in args:
             if "@" in draft_string:
@@ -612,14 +629,14 @@ async def db_zero_usage(ctx: commands.Context):
 
 @bot.command()
 async def db_query(ctx: commands.Context, *, query: str):
-    matches = db.fuzzy_query_name(query, 50)
-    if len(matches) == 0 or matches[0][1] < 90:
-        options = [option[0].name for option in matches]
+    matches = db.fuzzy_query_name(query, 90)
+    if not matches.ok:
+        options = [opt.name for opt in matches.options]
         options_str = " or ".join(options)
         message = f"{query} not found. Did you mean: {options_str}"
         await reply(ctx, message)
         return
-    actual = matches[0][0]
+    actual = matches.actual
     with sqlite3.connect("data.db") as conn:
         cursor = conn.cursor()
         message = f"Stats for {actual.name}:"
