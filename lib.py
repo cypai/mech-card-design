@@ -24,12 +24,14 @@ HEAT_COST_REGEX = re.compile(r"<:heat:> Cost")
 TAG_NUMBER_REGEX = re.compile(r":> (\d)")
 PUNCT_ENDS_REGEX = re.compile(r"!\)?[\.:]$")
 
+TAG_CHAR = "`"
+
 
 def wrap_text_tagged(text: str, width: int) -> str:
     preprocessed_text = re.sub(NUMBER_TAG_REGEX, r"\1<:", text)
     preprocessed_text = re.sub(TAG_NUMBER_REGEX, r":>\1", preprocessed_text)
     preprocessed_text = re.sub(HEAT_COST_REGEX, "<:heat:>Cost", preprocessed_text)
-    untagged_text = re.sub(EMOJI_REGEX, "!", preprocessed_text)
+    untagged_text = re.sub(EMOJI_REGEX, TAG_CHAR, preprocessed_text)
     tags = EMOJI_REGEX.findall(text)
 
     paragraphs = untagged_text.splitlines()
@@ -46,8 +48,8 @@ def wrap_text_tagged(text: str, width: int) -> str:
     for para in wrapped_paras:
         actual_para = para
         merge_with_prev_para = PUNCT_ENDS_REGEX.match(actual_para)
-        while "!" in actual_para:
-            actual_para = actual_para.replace("!", tags.pop(0), 1)
+        while TAG_CHAR in actual_para:
+            actual_para = actual_para.replace(TAG_CHAR, tags.pop(0), 1)
         if merge_with_prev_para is None:
             actual_paras.append(actual_para)
         else:
