@@ -19,8 +19,7 @@ Guanyin:
   hardpoints:
     - Medium
     - Medium
-    - Small
-    - Small
+    - Medium
   triggers:
     - |
       1/round, when a different allied mech becomes a <:target:> for a Weapon:
@@ -49,7 +48,6 @@ Anansi:
     - Medium
     - Medium
     - Small
-    - Small
   actions:
     - |
       Activate a <:target:> 1 Equipment on this mech, then inflict 1 <:overheat:> to the same <:target:> when it resolves.
@@ -62,7 +60,6 @@ Tzitzimitl:
   hardpoints:
     - Medium
     - Medium
-    - Small
     - Small
   triggers:
     - |
@@ -185,7 +182,6 @@ Aquarius:
     - Medium
     - Medium
     - Small
-    - Small
   passives:
     - |
       While this mech has <:shield:>, Equipment on this mech <:heat:> Cost -1 (min 1 <:heat:> Cost).
@@ -198,8 +194,7 @@ Pegasus:
   hardpoints:
     - Medium
     - Medium
-    - Small
-    - Small
+    - Medium
   triggers:
     - |
       When this mech resolves an Equipment:
@@ -255,7 +250,6 @@ Capricornus:
   hc: 8
   hardpoints:
     - Large
-    - Small
     - Small
     - Small
   triggers:
