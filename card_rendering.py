@@ -22,6 +22,7 @@ CARD_HEIGHT = 2100
 LARGE_FONT_SIZE = int(CARD_HEIGHT / 17.5)
 TRACKER_FONT_SIZE = int(CARD_HEIGHT / 20)
 SMALL_FONT_SIZE = int(CARD_HEIGHT / 28)
+FLAVOR_FONT_SIZE = int(CARD_HEIGHT / 32)
 
 ICON_SIZE = int(CARD_WIDTH / 10)
 SECTION_ICON_SIZE = int(SMALL_FONT_SIZE * 1.2)
@@ -104,7 +105,7 @@ class CardRenderer(ABC):
             "./fonts/HackNerdFont-Regular.ttf", int(ICON_SIZE * 0.8)
         )
         self.flavor_text_font = ImageFont.truetype(
-            "./fonts/Hack-Italic.ttf", SMALL_FONT_SIZE
+            "./fonts/Hack-Italic.ttf", FLAVOR_FONT_SIZE
         )
 
     def __enter__(self):
@@ -208,13 +209,13 @@ class CardRenderer(ABC):
     def draw_flavor_text(self, text: Optional[str]):
         if text is None:
             return
-        width_in_characters = int(CARD_WIDTH / (SMALL_FONT_SIZE * 0.6)) - 3
+        width_in_characters = int(CARD_WIDTH / (FLAVOR_FONT_SIZE * 0.6)) - 5
         wrapped_text = wrap_text_tagged(text, width_in_characters)
         num_lines = wrapped_text.count("\n") + 1
         self.draw.text(
             (
                 MARGIN,
-                CARD_HEIGHT - int(TRACKER_SIZE * 0.5) - num_lines * SMALL_FONT_SIZE,
+                CARD_HEIGHT - int(TRACKER_SIZE * 0.5) - num_lines * FLAVOR_FONT_SIZE,
             ),
             wrapped_text,
             "#000000",

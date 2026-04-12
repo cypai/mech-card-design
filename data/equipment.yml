@@ -814,6 +814,9 @@ Heavy Combat Drill:
     - |
       Melee <:card-rotation:>. Gain 1 <:charge:>. Deal 2 AP <:damage:>. Shred.
       Prepare: Deal [<:charge:>+2] AP <:damage:>. Shred.
+  flavor_text: |
+    "Practical? I don't care if it's *practical*! With this drill, I'm going to do the impossible!"
+     - Anonymous Martian insurgent, pilot of the *Red Spiral*
   alias:
     - Arondight
 
