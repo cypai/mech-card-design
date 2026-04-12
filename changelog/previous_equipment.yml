@@ -22,6 +22,9 @@ Gunslinger's Justice:
   actions:
     - |
       Deal 1 <:damage:>. If it is your first turn this Round, deals +2 <:damage:>.
+  alias:
+    - Gunslinger's
+    - Gunslinger
 
 Flechettes:
   size: Small
@@ -175,6 +178,8 @@ Gatling Cannon:
   actions:
     - |
       Gain 1 <:charge:>. Deal [<:charge:>]<:damage:>.
+  alias:
+    - Gatling
 
 Assault Rifle:
   size: Medium
@@ -272,6 +277,8 @@ Annihilator Siege Cannon:
   actions:
     - |
       Prepare: Deal 8 AP <:damage:>.
+  flavor_text: |
+    "Your life ends 30 minutes from now."
   alias:
     - Annihilator
 
@@ -437,6 +444,8 @@ Galvanic Shotgun:
   tags:
     - AOE
     - Strong-Watchlist
+  alias:
+    - Galvanic
 
 Laser Rifle:
   size: Medium
@@ -541,6 +550,7 @@ Pulsar Beam Cannon:
       Remove all <:shield:> on all enemy mechs. Disable 1 Equipment on the <:target:>. Deal 5 <:damage:>. Set <:charge:> to 0.
   alias:
     - Pulsar
+    - Pulsar Beam
 
 Slagmaker:
   size: Large
@@ -804,6 +814,8 @@ Heavy Combat Drill:
     - |
       Melee <:card-rotation:>. Gain 1 <:charge:>. Deal 2 AP <:damage:>. Shred.
       Prepare: Deal [<:charge:>+2] AP <:damage:>. Shred.
+  alias:
+    - Arondight
 
 Thermopylae Plasma Lance:
   size: Large
@@ -895,7 +907,7 @@ Hailstorm Drone Nexus:
       Choose any Drone that you do not currently have deployed, and Deploy it.
   passives:
     - |
-      When the turn ends, and an allied Drone was recalled this turn:
+      When the turn ends, and an allied Drone was destroyed this turn:
       You may discard a card to add an Airstrike into your hand.
   tags:
     - AOE
@@ -1099,6 +1111,8 @@ Fragmentation Missile:
       Deal 1 <:damage:> to all mechs at the <:target:>.
   tags:
     - AOE
+  alias:
+    - Frag Missile
 
 Razortooth Missile:
   size: Small
@@ -1466,7 +1480,7 @@ Spiked Pauldrons:
   size: Medium
   type: Auxiliary
   form: Attachment
-  rating: Cadet
+  rating: Veteran
   info: |
     Inert.
   passives:
@@ -1538,7 +1552,7 @@ Power Blade:
   heat: 3
   range: 0
   target: 1
-  rating: Cadet
+  rating: Veteran
   info: |
     Reserved.
   actions:
@@ -1591,6 +1605,8 @@ Camouflage:
     - |
       When the battle starts:
       Gain 2 <:shield:>.
+  flavor_text: |
+    "Why does paint take up an entire hardpoint? Don't ask questions."
   tags:
     - Spare
 

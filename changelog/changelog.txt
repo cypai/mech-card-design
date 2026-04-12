@@ -1,3 +1,44 @@
+4/7 playtest printout sync
+--------------------------
+
+Capricornus
+Trigger: When the turn ends, and this mech changed position this turn:
+Activate any number of distinct Small Equipment on this mech.
+|->
+Trigger: When any player's turn ends, and this mech changed position that turn:
+Activate a Small Equipment on this mech. If this mech is in the back line, treat it as <:range:> 2.
+
+Annihilator Siege Cannon
+Action: Prepare: Deal 8 AP <:damage:>.
+|->
+Action: Prepare: Deal 8 AP <:damage:>.
+Flavor Text: "Your life ends 30 minutes from now."
+None|->
+"Your life ends 30 minutes from now."
+
+Hailstorm Drone Nexus
+Action: Choose any Drone that you do not currently have deployed, and Deploy it.
+Passive: When the turn ends, and an allied Drone was recalled this turn:
+You may discard a card to add an Airstrike into your hand.
+|->
+Action: Choose any Drone that you do not currently have deployed, and Deploy it.
+Passive: When the turn ends, and an allied Drone was destroyed this turn:
+You may discard a card to add an Airstrike into your hand.
+
+Camouflage
+Info: Reserved. Inert.
+Passive: When the battle starts:
+Gain 2 <:shield:>.
+|->
+Info: Reserved. Inert.
+Passive: When the battle starts:
+Gain 2 <:shield:>.
+Flavor Text: "Why does paint take up an entire hardpoint? Don't ask questions."
+None|->
+"Why does paint take up an entire hardpoint? Don't ask questions."
+
+
+
 4/6 printout
 ------------
 
