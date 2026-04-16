@@ -14,6 +14,7 @@ from discord.ext import commands
 
 from game_defs import *
 from game_data import *
+from card_rendering import EquipmentCardRenderer, Icons
 from run_changelog import generate_changelog_text
 from lib import *
 
@@ -317,6 +318,33 @@ async def aka(ctx: commands.Context, *, query: str):
         for alias in actual.alias:
             message += f"{alias}\n"
     await reply(ctx, message)
+
+
+@bot.command()
+async def render(ctx: commands.Context, query: str, flavor_text: str):
+    matches = db.fuzzy_query_name(query, 90)
+    if not matches.ok:
+        options = [opt.name for opt in matches.options]
+        options_str = " or ".join(options)
+        message = f"{query} not found. Did you mean: {options_str}"
+        await reply(ctx, message)
+        return
+    actual = matches.actual
+    if isinstance(actual, Equipment):
+        if matches.threshold == 100:
+            message = f"Running live render for {actual.name}."
+        else:
+            message = (
+                f"Running live render for {actual.name} (fuzzy {matches.threshold})."
+            )
+        await reply(ctx, message)
+        actual.flavor_text = flavor_text
+        actual.filename = f"outputs/live_render.png"
+        with Icons() as icons, EquipmentCardRenderer(actual, icons) as card:
+            card.render()
+        await ctx.reply(f"Rendered result:", file=discord.File(actual.filename))
+    else:
+        await reply(ctx, f"Live render not yet supported for non-Equipment.")
 
 
 @bot.command()

@@ -838,4 +838,5 @@ def main():
                 card.render()
 
 
-main()
+if __name__ == "__main__":
+    main()
