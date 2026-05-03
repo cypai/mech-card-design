@@ -108,8 +108,8 @@ Gladius:
 
 Proconsul:
   faction: Ares
-  hp: 7
-  armor: 2
+  hp: 9
+  armor: 1
   hc: 6
   hardpoints:
     - Large
@@ -122,8 +122,8 @@ Proconsul:
 
 Draconarius:
   faction: Ares
-  hp: 8
-  armor: 2
+  hp: 10
+  armor: 1
   hc: 7
   hardpoints:
     - Large
@@ -153,9 +153,6 @@ Praetorian:
     - |
       1/round, when a different allied mech becomes a <:target:>, and this mech is <:card-rotation:>:
       Redirect that <:target:> to this mech.
-  passives:
-    - |
-      While this mech is <:card-rotation:>, this mech's <:range:> 1 Weapons have <:range:> 2.
 
 Hastatus:
   faction: Ares

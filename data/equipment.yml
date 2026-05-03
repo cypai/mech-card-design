@@ -144,11 +144,10 @@ Automatic Shotgun:
   form: Weapon
   heat: 3
   range: 1
-  target: P
   rating: Cadet
   actions:
     - |
-      Deal 2 <:damage:> to all mechs at the <:target:>.
+      Choose a position within <:range:>. Deal 2 <:damage:> to all mechs there.
   tags:
     - AOE
 
@@ -421,11 +420,10 @@ Flamethrower:
   form: Weapon
   heat: 3
   range: 1
-  target: P
   rating: Cadet
   actions:
     - |
-      Deal 1 <:damage:> and inflict 1 <:overheat:> to all mechs at the <:target:>.
+      Choose a position within <:range:>. Deal 1 <:damage:> and inflict 1 <:overheat:> to all mechs there.
   tags:
     - AOE
 
@@ -435,12 +433,11 @@ Galvanic Shotgun:
   form: Weapon
   heat: 3
   range: 1
-  target: P
   maxcharge: 1
   rating: Veteran
   actions:
     - |
-      Deal [<:charge:>+1] <:damage:> to all mechs at the <:target:>. 1 Equipment on an allied mech gains 1 <:charge:>.
+      Choose a position within <:range:>. Deal [<:charge:>+1] <:damage:> to all mechs there. 1 Equipment on an allied mech gains 1 <:charge:>.
   tags:
     - AOE
     - Strong-Watchlist
@@ -570,12 +567,10 @@ Thermobaric Flame Cannon:
   form: Weapon
   heat: 6
   range: 2
-  target: P
   rating: Cadet
   actions:
     - |
-      Inflict 1 <:overheat:> to all mechs with no <:shield:> at <:target:>.
-      Deal 2 <:damage:> to all mechs at the <:target:>.
+      Choose a position within <:range:>. Inflict 1 <:overheat:> to all mechs with no <:shield:> there. Deal 2 <:damage:> to all mechs there.
   tags:
     - AOE
     - Strong-Watchlist
@@ -753,7 +748,7 @@ Plasma Torch:
   rating: Veteran
   actions:
     - |
-      Melee <:card-rotation:>. If the <:target:> has no <:shield:>, inflict 1 <:overheat:>. Deal 3 AP <:damage:>.
+      Melee <:card-rotation:>. Inflict [X+1] <:overheat:>, where X = Armor of the <:target:>. Deal 3 <:damage:>.
 
 Rocket Fists:
   size: Medium
@@ -812,8 +807,8 @@ Heavy Combat Drill:
   rating: Ace
   actions:
     - |
-      Melee <:card-rotation:>. Gain 1 <:charge:>. Deal 2 AP <:damage:>. Shred.
-      Prepare: Deal [<:charge:>+2] AP <:damage:>. Shred.
+      Melee <:card-rotation:>. Gain 1 <:charge:>. Deal 1 <:damage:>. Shred.
+      Prepare: Deal [<:charge:>+2] <:damage:>. Shred. Shred.
   flavor_text: |
     "Practical? I don't care if it's *practical*! With this drill, I'm going to do the impossible!"
      - Anonymous Martian insurgent, pilot of the *Red Spiral*
@@ -844,12 +839,11 @@ Combat Drone Launcher:
   form: Weapon
   heat: 5
   range: 1
-  target: P
   ammo: 3
   rating: Veteran
   actions:
     - |
-      Deal 2 <:damage:> to the enemy front line.
+      Deal 2 <:damage:> to all mechs in the front line.
       Deploy 1 Combat Drone.
     - |
       Back line activation: -3 <:heat:> Cost. Deploy 1 Combat Drone.
@@ -888,12 +882,11 @@ Jammer Drone Launcher:
   form: System
   heat: 4
   range: 1
-  target: P
   ammo: 2
   rating: Veteran
   actions:
     - |
-      Inflict 1 <:overheat:> on the enemy front line. Deploy 1 Jammer Drone.
+      Inflict 1 <:overheat:> to all enemy mechs in the front line. Deploy 1 Jammer Drone.
   tags:
     - AOE
     - Strong-Watchlist
@@ -1047,7 +1040,7 @@ Anchor Harpoon:
   ammo: 2
   rating: Cadet
   info: |
-      This Weapon may <:target:> allied mechs.
+    This Weapon may <:target:> allied mechs.
   actions:
     - |
       Reposition the <:target:>.
@@ -1090,13 +1083,12 @@ Ballistic Missile:
   form: Weapon
   heat: 0
   range: 3
-  target: P
   ammo: 1
   rating: Veteran
   actions:
     - |
-      <:target:> a position.
-      Prepare: Deal 3 AP <:damage:> to all mechs at that <:target:>.
+      Choose a position.
+      Prepare: Deal 3 AP <:damage:> to all mechs there.
   tags:
     - AOE
 
@@ -1106,33 +1098,15 @@ Fragmentation Missile:
   form: Weapon
   heat: 0
   range: 1
-  target: P
   ammo: 2
   rating: Cadet
   actions:
     - |
-      Deal 1 <:damage:> to all mechs at the <:target:>.
+      Choose a position within <:range:>. Deal 1 <:damage:> to all mechs there.
   tags:
     - AOE
   alias:
     - Frag Missile
-
-Razortooth Missile:
-  size: Small
-  type: Missile
-  form: Weapon
-  heat: 0
-  range: 1
-  target: P
-  ammo: 1
-  rating: Cadet
-  actions:
-    - |
-      Shred all enemy mechs at the <:target:>.
-  tags:
-    - AOE
-  alias:
-    - Razortooth
 
 Ion Torpedo:
   size: Small
@@ -1140,12 +1114,11 @@ Ion Torpedo:
   form: Weapon
   heat: 0
   range: 2
-  target: P
   ammo: 1
   rating: Cadet
   actions:
     - |
-      Disable 1 Equipment on each mech with no <:shield:> at the <:target:>.
+      Choose a position within <:range:>. Disable 1 Equipment on each mech with no <:shield:> there.
   tags:
     - AOE
     - Weak-Watchlist
@@ -1242,6 +1215,25 @@ Thanatos Missile:
     - JOKER
   tags:
     - Weak-Watchlist
+
+"Cyberwarfare: GATEBREAKER":
+  size: Small
+  type: Electronics
+  form: System
+  heat: 2
+  range: 3
+  target: 1
+  maxcharge: 6
+  rating: Cadet
+  actions:
+    - |
+      Gain 2 <:charge:>.
+    - |
+      If [<:charge:>]>0: Inflict [<:charge:>] <:vulnerable:>. Lose all <:charge:>.
+  alias:
+    - GATEBREAKER
+  tags:
+    - Strong-Watchlist
 
 Overkill Protocol:
   size: Small
