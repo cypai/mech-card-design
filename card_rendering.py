@@ -93,8 +93,8 @@ class Icons:
 class CardTextSectionType(Enum):
     INFO = 1
     ACTION = 2
-    TRIGGER = 2
-    PASSIVE = 3
+    TRIGGER = 3
+    PASSIVE = 4
 
 
 class CardTextSection:
@@ -104,6 +104,9 @@ class CardTextSection:
     def __init__(self, section_type: CardTextSectionType, text: str):
         self.section_type = section_type
         self.text = text
+
+    def __str__(self) -> str:
+        return f"(CardTextSection {self.section_type} {self.text})"
 
 
 def card_text_sections(card: Union[Equipment, Mech, Maneuver, Drone]):

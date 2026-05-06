@@ -1229,7 +1229,7 @@ Thanatos Missile:
     - |
       Gain 2 <:charge:>.
     - |
-      If [<:charge:>]>0: Inflict [<:charge:>] <:vulnerable:>. Lose all <:charge:>.
+      Inflict [<:charge:>] <:vulnerable:>. Lose all <:charge:>.
   alias:
     - GATEBREAKER
   tags:
