@@ -556,7 +556,6 @@ class KeywordReferenceCardRenderer(CardRenderer):
         super().__init__(icons, "keywords.png")
 
     def render(self):
-        self.draw_border()
         self.draw_name("Keywords", "#000000")
         self.draw_text()
 
@@ -565,14 +564,14 @@ class KeywordReferenceCardRenderer(CardRenderer):
         <:heat:>Heat.        <:range:>Range.
         <:target:>Target.      <:maxcharge:>Max Charge.
         <:ammo:>Ammo.        <:charge:>Charge.
-        <:damage:>Damage.
+        <:damage:>Damage.      <:card-rotation:>Cannot Evade.
         <:shield:>Shield: This Round, <:damage:> reduces this before HP.
         <:vulnerable:>Vulnerable: This Round, <:damage:> taken +1, then removed.
         <:overheat:>Overheat: <:heat:> Cost +1.
         <:suppression:>Suppression: This turn, take 1 <:damage:> if the mech does anything.
         Armor: HP damage taken -1.
         AP: <:damage:> ignores Armor.
-        Shred: Permanent Armor -1.
+        Shred: Permanent Armor -1. If no Armor, inflict 1 <:vulnerable:>.
         Disable: This Round, Equipment cannot be used.
         Inert: Cannot be Disabled.
         Prepare: Next turn, you must perform the listed Action.
@@ -580,7 +579,85 @@ class KeywordReferenceCardRenderer(CardRenderer):
         text = dedent(text)
         lines = text.split("\n")
         width_in_characters = int(CARD_WIDTH / (SMALL_FONT_SIZE * 0.6)) - 4
-        y = CARD_HEIGHT / 12
+        y = CARD_HEIGHT / 24
+        for line in lines:
+            wrapped_text = wrap_text_tagged(line, width_in_characters)
+            newlines = len(wrapped_text.split("\n"))
+            self.pilmoji.text(
+                (int(CARD_WIDTH / 20), int(y)),
+                wrapped_text,
+                "#000000",
+                font=self.small_font,
+                spacing=SPACING,
+            )
+            y += (
+                (SMALL_FONT_SIZE + SPACING) * newlines - SPACING + SMALL_FONT_SIZE * 0.3
+            )
+
+
+class RulesReferenceCardRenderer(CardRenderer):
+    def __init__(self, icons: Icons):
+        super().__init__(icons, "rules.png")
+
+    def render(self):
+        self.draw_name("Turn Reference", "#000000")
+        self.draw_text()
+
+    def draw_text(self):
+        text = """
+        Resolution Order:
+        1. Declare your Action or <:trigger:>.
+        2. Resolve <:suppression:> if applicable.
+        3. Declare <:target:> if applicable.
+        4. Opponent chooses to Evade or not if applicable.
+        5. Your Action or <:trigger:> resolves.
+        Each phase, you may activate any number of <:trigger:>, then your opponent.
+
+        Actions (spends your turn):
+        1. Activate any <:action:>.
+        2. Play a Maneuver <:action:>.
+        3. 1 <:heat:>: Advance or Fall Back.
+        4. Declare End of Round for yourself. Next Round, reset <:heat:> and status. Whoever declared first goes first.
+        """
+        text = dedent(text)
+        lines = text.split("\n")
+        width_in_characters = int(CARD_WIDTH / (SMALL_FONT_SIZE * 0.6)) - 4
+        y = CARD_HEIGHT / 24
+        for line in lines:
+            wrapped_text = wrap_text_tagged(line, width_in_characters)
+            newlines = len(wrapped_text.split("\n"))
+            self.pilmoji.text(
+                (int(CARD_WIDTH / 20), int(y)),
+                wrapped_text,
+                "#000000",
+                font=self.small_font,
+                spacing=SPACING,
+            )
+            y += (
+                (SMALL_FONT_SIZE + SPACING) * newlines - SPACING + SMALL_FONT_SIZE * 0.3
+            )
+
+
+class RegroupingReferenceCardRenderer(CardRenderer):
+    def __init__(self, icons: Icons):
+        super().__init__(icons, "regrouping.png")
+
+    def render(self):
+        self.draw_name("Regrouping", "#000000")
+        self.draw_text()
+
+    def draw_text(self):
+        text = """
+        You must always have at least 1 mech in the front line. If at any point, you do not, perform Regrouping immediately, then continue resolution.
+
+        Regrouping:
+        1. Choose at least 1 mech to Advance.
+        2. If you cannot legally Advance any mech, choose 1 mech to Advance anyway. It loses 1 HP for each <:heat:> it could not gain.
+        """
+        text = dedent(text)
+        lines = text.split("\n")
+        width_in_characters = int(CARD_WIDTH / (SMALL_FONT_SIZE * 0.6)) - 4
+        y = CARD_HEIGHT / 24
         for line in lines:
             wrapped_text = wrap_text_tagged(line, width_in_characters)
             newlines = len(wrapped_text.split("\n"))
@@ -757,7 +834,6 @@ def main():
                     card.render()
         if args.action == "mechs" or args.action == "all":
             print("Rendering mechs...")
-            print(MECH_WIDTH, MECH_HEIGHT)
             if args.filter is None:
                 eq_list = game_db.mechs
             else:
@@ -784,6 +860,10 @@ def main():
         if args.action == "references":
             print("Rendering references...")
             with KeywordReferenceCardRenderer(icons) as card:
+                card.render()
+            with RulesReferenceCardRenderer(icons) as card:
+                card.render()
+            with RegroupingReferenceCardRenderer(icons) as card:
                 card.render()
 
 
