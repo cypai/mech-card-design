@@ -8,7 +8,7 @@ for i in "$@"; do
   fi
   if [ "$i" == "mechs" ]; then
     echo "Generating mechs PDF"
-    montage outputs/mechs/*.png -tile 3x3 -geometry 1500x2100 -background white -density 600 outputs/mechs_montages/output.png
+    montage outputs/mechs/*.png -tile 1x2 -geometry 4650x3300 -background white -density 600 outputs/mechs_montages/output.png
     magick outputs/mechs_montages/*.png -gravity Center mechs.pdf
   fi
   if [ "$i" == "drones" ]; then

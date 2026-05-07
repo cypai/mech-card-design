@@ -597,6 +597,9 @@ class KeywordReferenceCardRenderer(CardRenderer):
 
 
 class MechRenderer(Renderer):
+    STATS_X = MECH_PADDING
+    STATS_Y = int(MECH_HEIGHT * 0.12)
+
     def __init__(self, mech: Mech, icons: Icons):
         super().__init__(icons, mech.filename, MECH_WIDTH, MECH_HEIGHT)
         self.mech = mech
@@ -605,6 +608,7 @@ class MechRenderer(Renderer):
         self.draw_border()
         self.draw_name()
         self.draw_hardpoints()
+        self.draw_stats()
         self.draw_card_text(
             card_text_sections(self.mech),
             MECH_WIDTH - CARD_WIDTH - MECH_PADDING,
@@ -667,63 +671,65 @@ class MechRenderer(Renderer):
             font=self.large_font,
         )
 
-    def draw_hp(self):
-        self.draw.line(
-            [
-                (TRACKER_SIZE, 0),
-                (TRACKER_SIZE, CARD_HEIGHT - 1),
-            ],
+    def draw_stats(self):
+        self.draw.text(
+            (MechRenderer.STATS_X, MechRenderer.STATS_Y - SMALL_FONT_SIZE * 1.05),
+            f"Armor: {self.mech.armor}",
+            stroke_width=2,
+            stroke_fill="#000000",
             fill="#000000",
-            width=2,
+            align="center",
+            anchor="la",
+            embedded_color=True,
+            font=self.small_font,
         )
-        for i in range(1, min(self.mech.hp + 1, 11)):
-            self.draw.line(
-                [
-                    (0, TRACKER_SIZE * i),
-                    (TRACKER_SIZE, TRACKER_SIZE * i),
-                ],
-                fill="#000000",
-                width=2,
-            )
-            self.draw.text(
-                (int(TRACKER_SIZE / 2), TRACKER_SIZE * (i - 1) + int(TRACKER_SIZE / 2)),
-                str(i),
-                stroke_width=2,
-                stroke_fill="#000000",
-                fill="#00ff00",
-                align="center",
-                anchor="mm",
-                embedded_color=True,
-                font=self.icon_font,
-            )
+        hp_y = int(MechRenderer.STATS_Y + TRACKER_SIZE * 0.5)
+        self.draw.text(
+            (MechRenderer.STATS_X, hp_y - SMALL_FONT_SIZE * 1.05),
+            "HP",
+            stroke_width=2,
+            stroke_fill="#000000",
+            fill="#009f00",
+            align="center",
+            anchor="la",
+            embedded_color=True,
+            font=self.small_font,
+        )
+        self.draw_tracker(MechRenderer.STATS_X, hp_y, self.mech.hp, "#00ff00", 1)
+        heat_y = int(MechRenderer.STATS_Y + TRACKER_SIZE * 2)
+        self.draw.text(
+            (MechRenderer.STATS_X, heat_y - SMALL_FONT_SIZE * 1.05),
+            "Heat",
+            stroke_width=2,
+            stroke_fill="#000000",
+            fill="#9f0000",
+            align="center",
+            anchor="la",
+            embedded_color=True,
+            font=self.small_font,
+        )
+        self.draw_tracker(MechRenderer.STATS_X, heat_y, self.mech.hc, "#ff0000", 0)
 
-    def draw_heat(self):
-        self.draw.line(
-            [
-                (CARD_WIDTH - TRACKER_SIZE, 0),
-                (CARD_WIDTH - TRACKER_SIZE, CARD_HEIGHT - 1),
-            ],
-            fill="#000000",
-            width=2,
-        )
-        for i in range(0, self.mech.hc + 1):
+    def draw_tracker(self, x: int, y: int, boxes: int, color: str, starting_num: int):
+        self.draw_rectangle(x, y, TRACKER_SIZE * boxes, TRACKER_SIZE)
+        for i in range(0, boxes):
             self.draw.line(
                 [
-                    (CARD_WIDTH - TRACKER_SIZE, TRACKER_SIZE * (i + 1)),
-                    (CARD_WIDTH, TRACKER_SIZE * (i + 1)),
+                    (x + TRACKER_SIZE * i, y),
+                    (x + TRACKER_SIZE * i, y + TRACKER_SIZE),
                 ],
                 fill="#000000",
                 width=2,
             )
             self.draw.text(
                 (
-                    CARD_WIDTH - int(TRACKER_SIZE / 2),
-                    TRACKER_SIZE * i + int(TRACKER_SIZE / 2),
+                    x + int(TRACKER_SIZE / 2) + TRACKER_SIZE * i,
+                    y + int(TRACKER_SIZE / 2),
                 ),
-                str(i),
+                str(i + starting_num),
                 stroke_width=2,
                 stroke_fill="#000000",
-                fill="#ff0000",
+                fill=color,
                 align="center",
                 anchor="mm",
                 embedded_color=True,
@@ -751,6 +757,7 @@ def main():
                     card.render()
         if args.action == "mechs" or args.action == "all":
             print("Rendering mechs...")
+            print(MECH_WIDTH, MECH_HEIGHT)
             if args.filter is None:
                 eq_list = game_db.mechs
             else:
