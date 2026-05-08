@@ -44,7 +44,7 @@ Osiris:
 
 Anansi:
   faction: Feds
-  hp: 9
+  hp: 8
   armor: 0
   hc: 7
   rating: Cadet
@@ -54,7 +54,7 @@ Anansi:
     - Small
   actions:
     - |
-      Activate a <:target:> 1 Equipment on this mech, then inflict 1 <:overheat:> to the same <:target:> when it resolves.
+      Activate a <:target:> 1 non-Missile Equipment on this mech, then inflict 1 <:overheat:> to the same <:target:> when it resolves.
 
 Tzitzimitl:
   faction: Feds

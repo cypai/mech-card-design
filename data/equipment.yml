@@ -544,7 +544,9 @@ Pulsar Beam Cannon:
       Deal 2 <:damage:>. Gain 1 <:charge:>.
     - |
       If [<:charge:>]=2:
-      Remove all <:shield:> on all enemy mechs. Disable 1 Equipment on the <:target:>. Deal 5 <:damage:>. Set <:charge:> to 0.
+      Disable 1 Equipment on the <:target:>. Deal 5 <:damage:>. Set <:charge:> to 0.
+  tags:
+    - Strong-Watchlist
   alias:
     - Pulsar
     - Pulsar Beam
