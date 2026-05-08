@@ -828,8 +828,8 @@ Thermopylae Plasma Lance:
       Melee <:card-rotation:>. Deal 4 AP <:damage:>. Inflict 2 <:overheat:>.
   triggers:
     - |
-      When an enemy mech Repositions into the front line:
-      <:target:> that mech and perform this Weapon's <:action:>.
+      When the turn ends:
+      You may <:target:> an enemy mech that Repositioned this turn and perform this Weapon's <:action:>.
   alias:
     - Thermopylae
 
@@ -967,8 +967,8 @@ Hunter-Killer Nanites:
       If the <:target:> has Vulnerable, deal 1 <:damage:>, otherwise inflict 1 <:vulnerable:>.
   triggers:
     - |
-      When the turn ends, and an enemy mech Repositioned this turn:
-      Perform this Weapon's <:action:>.
+      When the turn ends:
+      You may <:target:> an enemy mech that Repositioned this turn and perform this Weapon's <:action:>.
   tags:
     - Weak-Watchlist
   alias:
