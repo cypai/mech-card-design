@@ -3,6 +3,7 @@ Lancelot:
   hp: 10
   armor: 0
   hc: 7
+  rating: Cadet
   hardpoints:
     - Large
     - Medium
@@ -16,6 +17,7 @@ Guanyin:
   hp: 10
   armor: 1
   hc: 7
+  rating: Veteran
   hardpoints:
     - Medium
     - Medium
@@ -30,6 +32,7 @@ Osiris:
   hp: 10
   armor: 0
   hc: 8
+  rating: Veteran
   hardpoints:
     - Large
     - Medium
@@ -44,6 +47,7 @@ Anansi:
   hp: 9
   armor: 0
   hc: 7
+  rating: Cadet
   hardpoints:
     - Medium
     - Medium
@@ -57,6 +61,7 @@ Tzitzimitl:
   hp: 8
   armor: 2
   hc: 7
+  rating: Veteran
   hardpoints:
     - Medium
     - Medium
@@ -71,6 +76,7 @@ Amaterasu:
   hp: 10
   armor: 1
   hc: 7
+  rating: Cadet
   hardpoints:
     - Large
     - Medium
@@ -85,6 +91,7 @@ Rubicon:
   hp: 8
   armor: 2
   hc: 6
+  rating: Ace
   hardpoints:
     - Large
     - Large
@@ -98,6 +105,7 @@ Gladius:
   hp: 8
   armor: 2
   hc: 7
+  rating: Cadet
   hardpoints:
     - Large
     - Small
@@ -111,6 +119,7 @@ Proconsul:
   hp: 9
   armor: 1
   hc: 6
+  rating: Cadet
   hardpoints:
     - Large
     - Medium
@@ -125,6 +134,7 @@ Draconarius:
   hp: 10
   armor: 1
   hc: 7
+  rating: Veteran
   hardpoints:
     - Large
     - Medium
@@ -142,6 +152,7 @@ Praetorian:
   hp: 7
   armor: 3
   hc: 6
+  rating: Veteran
   hardpoints:
     - Large
     - Medium
@@ -159,6 +170,7 @@ Hastatus:
   hp: 6
   armor: 3
   hc: 6
+  rating: Veteran
   hardpoints:
     - Large
     - Medium
@@ -175,6 +187,7 @@ Aquarius:
   hp: 9
   armor: 0
   hc: 7
+  rating: Cadet
   hardpoints:
     - Medium
     - Medium
@@ -188,6 +201,7 @@ Pegasus:
   hp: 10
   armor: 0
   hc: 8
+  rating: Cadet
   hardpoints:
     - Medium
     - Medium
@@ -202,6 +216,7 @@ Cygnus:
   hp: 10
   armor: 0
   hc: 8
+  rating: Cadet
   hardpoints:
     - Large
     - Medium
@@ -219,6 +234,7 @@ Libra:
   hp: 7
   armor: 0
   hc: 8
+  rating: Ace
   hardpoints:
     - Large
     - Small
@@ -232,6 +248,7 @@ Gemini:
   hp: 8
   armor: 0
   hc: 8
+  rating: Veteran
   hardpoints:
     - Medium
     - Medium
@@ -245,6 +262,7 @@ Capricornus:
   hp: 10
   armor: 0
   hc: 8
+  rating: Veteran
   hardpoints:
     - Large
     - Small
@@ -259,6 +277,7 @@ Cockroach:
   hp: 6
   armor: 0
   hc: 6
+  rating: Veteran
   hardpoints:
     - Large
     - Small
@@ -272,6 +291,7 @@ Monte Carlo:
   hp: 9
   armor: 1
   hc: 7
+  rating: Cadet
   hardpoints:
     - Large
     - Large
@@ -285,6 +305,7 @@ Jolly Roger:
   hp: 9
   armor: 2
   hc: 6
+  rating: Veteran
   hardpoints:
     - Large
     - Medium
@@ -299,6 +320,7 @@ Blackjack:
   hp: 10
   armor: 1
   hc: 7
+  rating: Cadet
   hardpoints:
     - Large
     - Medium
@@ -312,6 +334,7 @@ Powder Keg:
   hp: 10
   armor: 0
   hc: 7
+  rating: Ace
   hardpoints:
     - Large
     - Medium
@@ -329,6 +352,7 @@ Rapscallion:
   hp: 7
   armor: 0
   hc: 6
+  rating: Ace
   hardpoints:
     - Medium
     - Medium

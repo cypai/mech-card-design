@@ -34,7 +34,7 @@ Flechettes:
   range: 1
   target: C
   maxcharge: 3
-  rating: Veteran
+  rating: Ace
   actions:
     - |
       Deal 1 <:damage:> to each <:target:>. Lose all <:charge:>.
@@ -60,7 +60,7 @@ LINK-R Targeting Gun:
   triggers:
     - |
       When this mech resolves a <:target:> 1 Medium or Large Weapon:
-      <:target:> must be the same as that Weapon. -1 <:heat:> cost. Deal 1 <:damage:>.
+      <:target:> must be the same as that Weapon. -1 <:heat:> Cost. Deal 1 <:damage:>.
   alias:
     - LINK-R
 
@@ -93,7 +93,7 @@ Seeker Minigun:
   range: 1
   target: 1
   maxcharge: 4
-  rating: Veteran
+  rating: Ace
   actions:
     - |
       Gain 2 <:charge:>.
@@ -121,7 +121,7 @@ Assault Carbine:
   heat: 2
   range: 1
   target: 1
-  rating: Veteran
+  rating: Ace
   actions:
     - |
       Deal 2 <:damage:>. Inflict 1 <:suppression:>.
@@ -158,7 +158,7 @@ Assault Cannon:
   heat: 3
   range: 1
   target: 1
-  rating: Veteran
+  rating: Ace
   actions:
     - |
       Deal 2 <:damage:>. Choose:
@@ -187,7 +187,7 @@ Assault Rifle:
   heat: 4
   range: 1
   target: 2
-  rating: Cadet
+  rating: Veteran
   actions:
     - |
       Deal 2 <:damage:> to each <:target:>.
@@ -272,7 +272,7 @@ Annihilator Siege Cannon:
   range: 1
   target: 1
   ammo: 2
-  rating: Veteran
+  rating: Ace
   actions:
     - |
       Prepare: Deal 8 AP <:damage:>.
@@ -289,7 +289,7 @@ Heavy Assault Cannon:
   range: 1
   target: 1
   maxcharge: 3
-  rating: Veteran
+  rating: Ace
   actions:
     - |
       Deal [<:charge:>+2] <:damage:>.
@@ -322,7 +322,7 @@ Hellbore AMR:
   heat: 5
   range: 2
   target: 1
-  rating: Cadet
+  rating: Veteran
   actions:
     - |
       Deal 4 AP <:damage:>.
@@ -364,7 +364,7 @@ Pulse Pistol:
   range: 1
   target: C
   maxcharge: 4
-  rating: Veteran
+  rating: Ace
   actions:
     - |
       Gain 2 <:charge:>.
@@ -380,7 +380,7 @@ EM Polarizer:
   heat: 2
   range: 1
   target: 1
-  rating: Cadet
+  rating: Veteran
   actions:
     - |
       Deal 1 <:damage:>.
@@ -409,7 +409,7 @@ Antimatter Blaster:
   range: 1
   target: 1
   ammo: 1
-  rating: Veteran
+  rating: Cadet
   actions:
     - |
       Deal 4 AP <:damage:>. Inflict 3 <:overheat:>.
@@ -434,7 +434,7 @@ Galvanic Shotgun:
   heat: 3
   range: 1
   maxcharge: 1
-  rating: Veteran
+  rating: Cadet
   actions:
     - |
       Choose a position within <:range:>. Deal [<:charge:>+1] <:damage:> to all mechs there. 1 Equipment on an allied mech gains 1 <:charge:>.
@@ -451,7 +451,7 @@ Laser Rifle:
   heat: 3
   range: 1
   target: 1
-  rating: Veteran
+  rating: Cadet
   actions:
     - |
       Deal 3 <:damage:>.
@@ -464,7 +464,7 @@ Autopulse Rifle:
   target: C
   range: 1
   maxcharge: 3
-  rating: Veteran
+  rating: Ace
   actions:
     - |
       Gain 1 <:charge:> before designating <:target:>. Deal 3 <:damage:> to each <:target:>. Lose all <:charge:>.
@@ -509,7 +509,7 @@ Magnetic Harpoon:
   heat: 3
   range: 2
   target: 1
-  rating: Veteran
+  rating: Ace
   actions:
     - |
       Deal 2 <:damage:>.
@@ -538,7 +538,7 @@ Pulsar Beam Cannon:
   range: 1
   target: 1
   maxcharge: 2
-  rating: Cadet
+  rating: Veteran
   actions:
     - |
       Deal 2 <:damage:>. Gain 1 <:charge:>.
@@ -567,7 +567,7 @@ Thermobaric Flame Cannon:
   form: Weapon
   heat: 6
   range: 2
-  rating: Cadet
+  rating: Veteran
   actions:
     - |
       Choose a position within <:range:>. Inflict 1 <:overheat:> to all mechs with no <:shield:> there. Deal 2 <:damage:> to all mechs there.
@@ -614,7 +614,7 @@ Portal Inducer:
   heat: 6
   range: 3
   target: 2
-  rating: Cadet
+  rating: Veteran
   info: |
     This Weapon may <:target:> allied mechs.
   actions:
@@ -630,7 +630,7 @@ Gungnir Seeker Cannon:
   heat: 5
   range: 1
   target: 1
-  rating: Veteran
+  rating: Ace
   actions:
     - |
       Prepare: Deal 6 <:damage:>. Cannot be Evaded.
@@ -645,7 +645,7 @@ Gigapulse Laser:
   range: 1
   target: C
   maxcharge: 3
-  rating: Veteran
+  rating: Ace
   actions:
     - |
       Gain 1 <:charge:> before designating <:target:>.
@@ -668,7 +668,7 @@ Combat Knife:
   heat: 2
   range: 0
   target: 1
-  rating: Veteran
+  rating: Cadet
   actions:
     - |
       Melee <:card-rotation:>. Deal 1 <:damage:>. Inflict 1 <:vulnerable:>.
@@ -680,7 +680,7 @@ Power Buckler:
   heat: 2
   range: 0
   target: 1
-  rating: Veteran
+  rating: Cadet
   actions:
     - |
       Melee <:card-rotation:>. Deal 1 <:damage:>. Gain 1 <:shield:>.
@@ -692,7 +692,7 @@ Power Fist:
   heat: 3
   range: 0
   target: 1
-  rating: Veteran
+  rating: Cadet
   actions:
     - |
       Melee <:card-rotation:>. Deal 3 <:damage:>. Move the <:target:> to the back line.
@@ -721,7 +721,7 @@ Ion Knuckle:
   heat: 4
   range: 0
   target: 1
-  rating: Veteran
+  rating: Cadet
   actions:
     - |
       Melee <:card-rotation:>. Deal 2 <:damage:>. Disable 1 Equipment on the <:target:>.
@@ -733,7 +733,7 @@ Phase Lance:
   heat: 3
   range: 0
   target: 1
-  rating: Veteran
+  rating: Cadet
   actions:
     - |
       Melee <:card-rotation:>. Remove all <:shield:> from the <:target:>. Deal 3 AP <:damage:>.
@@ -789,7 +789,7 @@ Arondight Starsword:
   heat: 5
   range: 0
   target: 1
-  rating: Veteran
+  rating: Cadet
   actions:
     - |
       Melee <:card-rotation:>. Deal 6 <:damage:>.
@@ -857,7 +857,7 @@ Shield Drone Launcher:
   form: System
   heat: 3
   ammo: 2
-  rating: Ace
+  rating: Veteran
   actions:
     - |
       Grant 2 <:shield:> to an allied mech. Deploy 1 Shield Drone.
@@ -868,7 +868,7 @@ Scout Drone Launcher:
   form: System
   heat: 2
   ammo: 3
-  rating: Veteran
+  rating: Ace
   actions:
     - |
       You may Reposition an allied mech. Deploy 1 Scout Drone.
@@ -983,7 +983,7 @@ Proximity-Swarm Nanites:
   range: 1
   target: 1
   ammo: 3
-  rating: Ace
+  rating: Veteran
   actions:
     - |
       Gain 1 <:shield:> on this mech.
@@ -1005,7 +1005,7 @@ Thermo-Reactive Nanites:
   range: 2
   target: 1
   ammo: 3
-  rating: Veteran
+  rating: Cadet
   actions:
     - |
       Inflict 3 <:overheat:>.
@@ -1072,7 +1072,7 @@ Breach Missile:
   range: 1
   target: 1
   ammo: 2
-  rating: Cadet
+  rating: Veteran
   actions:
     - |
       Deal 1 <:damage:>. Shred.
@@ -1084,7 +1084,7 @@ Ballistic Missile:
   heat: 0
   range: 3
   ammo: 1
-  rating: Veteran
+  rating: Ace
   actions:
     - |
       Choose a position.
@@ -1162,7 +1162,7 @@ Thanatos Missile:
   range: 3
   target: C
   maxcharge: 4
-  rating: Veteran
+  rating: Ace
   actions:
     - |
       Gain 1 <:charge:> before designating <:target:>.
@@ -1193,7 +1193,7 @@ Thanatos Missile:
   heat: 2
   range: 3
   target: 2
-  rating: Cadet
+  rating: Veteran
   info: |
     This Weapon may <:target:> allied mechs. <:target:> must be distinct mechs.
   actions:
@@ -1242,7 +1242,7 @@ Overkill Protocol:
   heat: 2
   range: 2
   target: 1
-  rating: Cadet
+  rating: Veteran
   triggers:
     - |
       1/round, when you resolve a <:target:> 1 Equipment that inflicted <:suppression:>, <:overheat:>, or <:vulnerable:>:
@@ -1285,7 +1285,7 @@ Artillery Uplink:
   size: Small
   type: Electronics
   form: System
-  rating: Veteran
+  rating: Ace
   heat: 0
   range: 3
   target: 1
@@ -1315,7 +1315,7 @@ Weakness Hunter Protocol:
   size: Small
   type: Electronics
   form: System
-  rating: Veteran
+  rating: Cadet
   passives:
     - |
       This mech deals +1 <:damage:> to mechs with 2 or more total of <:overheat:> and <:vulnerable:>.
@@ -1355,7 +1355,7 @@ Shield Capacitor:
   triggers:
     - |
       When the Round ends:
-      Gain [X] <:charge:>, where X = this mech's remaining <:heat> capacity.
+      Gain [X] <:charge:>, where X = this mech's remaining <:heat:> capacity.
     - |
       When the Round starts:
       Gain [<:charge:>] <:shield:>. Lose all <:charge:>.
@@ -1380,7 +1380,7 @@ Rotating Shield Matrix:
   form: System
   heat: 2
   maxcharge: 2
-  rating: Cadet
+  rating: Veteran
   triggers:
     - |
       When this mech becomes a <:target:> of an enemy Equipment:
@@ -1402,7 +1402,7 @@ Iron Sights:
   size: Small
   type: Auxiliary
   form: Attachment
-  rating: Veteran
+  rating: Ace
   info: |
     Inert.
   triggers:
@@ -1475,7 +1475,7 @@ Spiked Pauldrons:
   size: Medium
   type: Auxiliary
   form: Attachment
-  rating: Veteran
+  rating: Cadet
   info: |
     Inert.
   passives:
@@ -1486,7 +1486,7 @@ Jump Jets:
   size: Medium
   type: Auxiliary
   form: System
-  rating: Cadet
+  rating: Veteran
   ammo: 3
   triggers:
     - |
@@ -1523,23 +1523,6 @@ Combat Rifle:
   tags:
     - Spare
 
-Mortar:
-  size: Medium
-  type: Ballistic
-  form: Weapon
-  heat: 5
-  range: 3
-  target: 1
-  ammo: 3
-  rating: Cadet
-  info: |
-    Reserved.
-  actions:
-    - |
-      Deal 3 <:damage:>. If activated at <:range:> 1, deal 1 <:damage:> to this mech.
-  tags:
-    - Spare
-
 Power Blade:
   size: Medium
   type: Melee
@@ -1547,7 +1530,7 @@ Power Blade:
   heat: 3
   range: 0
   target: 1
-  rating: Veteran
+  rating: Cadet
   info: |
     Reserved.
   actions:
