@@ -862,7 +862,7 @@ Shield Drone Launcher:
   rating: Veteran
   actions:
     - |
-      Grant 2 <:shield:> to an allied mech. Deploy 1 Shield Drone.
+      Grant 1 <:shield:> to an allied mech. Deploy 1 Shield Drone.
 
 Scout Drone Launcher:
   size: Small
@@ -893,7 +893,7 @@ Jammer Drone Launcher:
     - AOE
     - Strong-Watchlist
 
-Hailstorm Drone Nexus:
+Skyhammer Drone Nexus:
   size: Medium
   type: Drone
   form: System
@@ -911,26 +911,21 @@ Hailstorm Drone Nexus:
     - AOE
     - Strong-Watchlist
   alias:
-    - Hailstorm
+    - Skyhammer
 
-Skyhammer Drone Nexus:
+Hailstorm Drone Nexus:
   size: Medium
   type: Drone
   form: System
   heat: 4
   range: 2
-  target: 1
   ammo: 3
   rating: Ace
   actions:
     - |
-      Deploy 1 Combat Drone. Inflict [X] <:suppression:>, where X is the total amount of your deployed Drones.
-  passives:
-    - |
-      When any allied mech resolves a <:target:> 1 Equipment, and you have at least 1 deployed Combat Drone:
-      If that Equipment's <:target:> has <:suppression:>, <:card-rotation:> the <:target:>.
+      Deploy 1 Combat Drone. Choose a position within <:range:>. Inflict [X] <:suppression:> to all mechs there, where X is the total amount of your deployed Drones.
   alias:
-    - Skyhammer
+    - Hailstorm
 
 Pathfinder Drone Nexus:
   size: Medium
@@ -1410,7 +1405,7 @@ Iron Sights:
   triggers:
     - |
       When a different allied mech resolves an Equipment's <:action:>:
-      Choose a <:range:> 1 Weapon on this mech. Prepare: Activate that Weapon, treating it as <:range:> 2.
+      Choose a <:range:> 1 non-Melee Weapon on this mech. Prepare: Activate that Weapon, treating it as <:range:> 2.
 
 Heartpiercer Rounds:
   size: Small
