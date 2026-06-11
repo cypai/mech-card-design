@@ -349,7 +349,7 @@ def get_filtered_mechs(filters: list[str]):
                 ok += 1
             elif f in ["feds", "terrans"] and mech.faction == "Feds":
                 ok += 1
-            elif f in ["ares"] and mech.faction == "Ares":
+            elif f in ["ares", "martians"] and mech.faction == "Martians":
                 ok += 1
             elif f in ["jovians", "jovian"] and mech.faction == "Jovians":
                 ok += 1

@@ -693,7 +693,7 @@ class MechRenderer(Renderer):
         )
 
     def get_name_color(self) -> str:
-        if self.mech.faction == "Ares":
+        if self.mech.faction == "Martians":
             return "#ff7f00"
         elif self.mech.faction == "Jovians":
             return "#ff40ff"

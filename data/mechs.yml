@@ -94,7 +94,7 @@ Amaterasu:
 
 Rubicon:
   designation_name: SKK-74 Rubicon
-  faction: Ares
+  faction: Martians
   hp: 8
   armor: 2
   hc: 6
@@ -109,7 +109,7 @@ Rubicon:
 
 Gladius:
   designation_name: CM2208 Gladius
-  faction: Ares
+  faction: Martians
   hp: 8
   armor: 2
   hc: 7
@@ -124,7 +124,7 @@ Gladius:
 
 Proconsul:
   designation_name: IF-104 Proconsul
-  faction: Ares
+  faction: Martians
   hp: 9
   armor: 1
   hc: 6
@@ -140,7 +140,7 @@ Proconsul:
 
 Draconarius:
   designation_name: IF-12 Draconarius
-  faction: Ares
+  faction: Martians
   hp: 10
   armor: 1
   hc: 7
@@ -159,7 +159,7 @@ Draconarius:
 
 Praetorian:
   designation_name: CM38D Praetorian
-  faction: Ares
+  faction: Martians
   hp: 7
   armor: 3
   hc: 6
@@ -178,7 +178,7 @@ Praetorian:
 
 Hastatus:
   designation_name: CM7 Hastatus
-  faction: Ares
+  faction: Martians
   hp: 6
   armor: 3
   hc: 6
