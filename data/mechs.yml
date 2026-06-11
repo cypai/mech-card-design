@@ -159,10 +159,10 @@ Praetorian:
     - Small
   actions:
     - |
-      <:card-rotation:> this mech.
+      <:engage:> this mech.
   triggers:
     - |
-      1/round, when a different allied mech becomes a <:target:>, and this mech is <:card-rotation:>:
+      1/round, when a different allied mech becomes a <:target:>, and this mech is <:engage:>:
       Redirect that <:target:> to this mech.
 
 Hastatus:
@@ -177,10 +177,10 @@ Hastatus:
     - Small
   actions:
     - |
-      <:card-rotation:> this mech, then activate a Weapon.
+      <:engage:> this mech, then activate a Weapon.
   passives:
     - |
-      While this mech is <:card-rotation:>, this mech's non-Large, non-Melee Weapons deal +1 <:damage:>.
+      While this mech is <:engage:>, this mech's non-Large, non-Melee Weapons deal +1 <:damage:>.
 
 Aquarius:
   faction: Jovians

@@ -668,48 +668,48 @@ Combat Knife:
   type: Melee
   form: Weapon
   heat: 2
-  range: 0
+  range: 1
   target: 1
   rating: Cadet
   actions:
     - |
-      Melee <:card-rotation:>. Deal 1 <:damage:>. Inflict 1 <:vulnerable:>.
+      <:engage:> this mech. Deal 1 <:damage:>. Inflict 1 <:vulnerable:>.
 
 Power Buckler:
   size: Small
   type: Melee
   form: Weapon
   heat: 2
-  range: 0
+  range: 1
   target: 1
   rating: Cadet
   actions:
     - |
-      Melee <:card-rotation:>. Deal 1 <:damage:>. Gain 1 <:shield:>.
+      <:engage:> this mech. Deal 1 <:damage:>. Gain 1 <:shield:>.
 
 Power Fist:
   size: Medium
   type: Melee
   form: Weapon
   heat: 3
-  range: 0
+  range: 1
   target: 1
   rating: Cadet
   actions:
     - |
-      Melee <:card-rotation:>. Deal 3 <:damage:>. Move the <:target:> to the back line.
+      <:engage:> this mech. Deal 3 <:damage:>. Move the <:target:> to the back line.
 
 Iaijutsu Blade:
   size: Medium
   type: Melee
   form: Weapon
   heat: 4
-  range: 0
+  range: 1
   target: 1
   rating: Veteran
   actions:
     - |
-      Melee <:card-rotation:>.
+      <:engage:> this mech.
       Choose:
       > Deal 3 <:damage:>. Shred.
       > Discard a card. Destroy the <:target:> if it has 5 HP or less.
@@ -721,49 +721,49 @@ Ion Knuckle:
   type: Melee
   form: Weapon
   heat: 4
-  range: 0
+  range: 1
   target: 1
   rating: Cadet
   actions:
     - |
-      Melee <:card-rotation:>. Deal 2 <:damage:>. Disable 1 Equipment on the <:target:>.
+      <:engage:> this mech. Deal 2 <:damage:>. Disable 1 Equipment on the <:target:>.
 
 Phase Lance:
   size: Medium
   type: Melee
   form: Weapon
   heat: 3
-  range: 0
+  range: 1
   target: 1
   rating: Cadet
   actions:
     - |
-      Melee <:card-rotation:>. Remove all <:shield:> from the <:target:>. Deal 3 AP <:damage:>.
+      <:engage:> this mech. Remove all <:shield:> from the <:target:>. Deal 3 AP <:damage:>.
 
 Plasma Torch:
   size: Medium
   type: Melee
   form: Weapon
   heat: 3
-  range: 0
+  range: 1
   target: 1
   rating: Veteran
   actions:
     - |
-      Melee <:card-rotation:>. Inflict [X+1] <:overheat:>, where X = Armor of the <:target:>. Deal 3 <:damage:>.
+      <:engage:> this mech. Inflict [X+1] <:overheat:>, where X = Armor of the <:target:>. Deal 3 <:damage:>.
 
 Rocket Fists:
   size: Medium
   type: Melee
   form: Weapon
   heat: 4
-  range: 0
+  range: 1
   target: 1
   ammo: 2
   rating: Veteran
   actions:
     - |
-      Melee <:card-rotation:>. Deal 4 <:damage:>.
+      <:engage:> this mech. Deal 4 <:damage:>.
       Requires <:ammo:>, but does not consume <:ammo:>.
     - |
       Deal 2 <:damage:> with <:range:> 2. Move the <:target:> to the back line.
@@ -773,13 +773,13 @@ Ripjaw Chainaxe:
   type: Melee
   form: Weapon
   heat: 5
-  range: 0
+  range: 1
   target: 1
   maxcharge: 4
   rating: Veteran
   actions:
     - |
-      Melee <:card-rotation:>. Gain 1 <:charge:>. Deal [<:charge:>+4] <:damage:>.
+      <:engage:> this mech. Gain 1 <:charge:>. Deal [<:charge:>+4] <:damage:>.
       If [<:charge:>]>1, Shred.
   alias:
     - Ripjaw
@@ -789,12 +789,12 @@ Arondight Starsword:
   type: Melee
   form: Weapon
   heat: 5
-  range: 0
+  range: 1
   target: 1
   rating: Cadet
   actions:
     - |
-      Melee <:card-rotation:>. Deal 6 <:damage:>.
+      <:engage:> this mech. Deal 6 <:damage:>.
   alias:
     - Arondight
 
@@ -803,13 +803,13 @@ Heavy Combat Drill:
   type: Melee
   form: Weapon
   heat: 5
-  range: 0
+  range: 1
   target: 1
   maxcharge: 6
   rating: Ace
   actions:
     - |
-      Melee <:card-rotation:>. Gain 1 <:charge:>. Deal 1 <:damage:>. Shred.
+      <:engage:> this mech. Gain 1 <:charge:>. Deal 1 <:damage:>. Shred.
       Prepare: Deal [<:charge:>+2] <:damage:>. Shred. Shred.
   flavor_text: |
     "Practical? I don't care if it's *practical*! With this drill, I'm going to do the impossible!"
@@ -822,12 +822,12 @@ Thermopylae Plasma Lance:
   type: Melee
   form: Weapon
   heat: 5
-  range: 0
+  range: 1
   target: 1
   rating: Ace
   actions:
     - |
-      Melee <:card-rotation:>. Deal 4 AP <:damage:>. Inflict 2 <:overheat:>.
+      <:engage:> this mech. Deal 4 AP <:damage:>. Inflict 2 <:overheat:>.
   triggers:
     - |
       When the turn ends:
@@ -1525,14 +1525,14 @@ Power Blade:
   type: Melee
   form: Weapon
   heat: 3
-  range: 0
+  range: 1
   target: 1
   rating: Cadet
   info: |
     Reserved.
   actions:
     - |
-      Melee <:card-rotation:>. Deal 3 <:damage:>.
+      <:engage:> this mech. Deal 3 <:damage:>.
   tags:
     - Spare
 
