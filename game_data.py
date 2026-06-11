@@ -44,6 +44,7 @@ def parse_mechs(mechs) -> Mech:
     name, data = mechs
     return Mech(
         name=name,
+        designation_name=data.get("designation_name"),
         faction=data.get("faction"),
         hp=data.get("hp"),
         armor=data.get("armor"),

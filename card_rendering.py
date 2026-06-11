@@ -53,7 +53,7 @@ class SteelVanguardSource(Twemoji):
 class Icons:
     def __enter__(self):
         heat = Image.open("textures/heat.png")
-        melee = Image.open("textures/melee.png")
+        engage = Image.open("textures/engage.png")
         rng = Image.open("textures/range.png")
         target = Image.open("textures/target.png")
         ammo = Image.open("textures/ammo.png")
@@ -66,7 +66,7 @@ class Icons:
         star = Image.open("textures/star.png")
 
         self.heat = heat.resize((ICON_SIZE, ICON_SIZE))
-        self.melee = melee.resize((ICON_SIZE, ICON_SIZE))
+        self.engage = engage.resize((ICON_SIZE, ICON_SIZE))
         self.range = rng.resize((ICON_SIZE, ICON_SIZE))
         self.target = target.resize((ICON_SIZE, ICON_SIZE))
         self.ammo = ammo.resize((ICON_SIZE, ICON_SIZE))
@@ -81,7 +81,7 @@ class Icons:
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         self.heat.close()
-        self.melee.close()
+        self.engage.close()
         self.range.close()
         self.ammo.close()
         self.maxcharge.close()
@@ -355,7 +355,7 @@ class CardRenderer(Renderer):
             row += 1
         if rng is not None:
             if rng == 0:
-                self.draw_top_icon(row, self.icons.melee)
+                self.draw_top_icon(row, self.icons.engage)
             else:
                 self.draw_top_icon_with_text(row, self.icons.range, str(rng), (0, 8))
             row += 1

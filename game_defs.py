@@ -174,6 +174,7 @@ class Equipment:
 
 class Mech:
     name: str
+    designation_name: str
     faction: str
     hp: int
     armor: int
@@ -191,6 +192,7 @@ class Mech:
 
     def __init__(self, **kwargs):
         self.name = str(kwargs.get("name"))
+        self.designation_name = str(kwargs.get("designation_name"))
         self.faction = str(kwargs.get("faction"))
         self.hp = kwargs.get("hp", 10)
         self.armor = kwargs.get("armor", 10)

@@ -1,4 +1,5 @@
 Lancelot:
+  designation_name: Type-107 Lancelot
   faction: Feds
   hp: 10
   armor: 0
@@ -13,6 +14,7 @@ Lancelot:
       1/battle, activate an Equipment on this mech for 0 <:heat:> Cost (<:overheat:> still applies).
 
 Guanyin:
+  designation_name: Type-51 Guanyin
   faction: Feds
   hp: 10
   armor: 1
@@ -28,6 +30,7 @@ Guanyin:
       Gain 2 <:shield:>. Redirect that <:target:> to this mech.
 
 Osiris:
+  designation_name: Type-186 Osiris
   faction: Feds
   hp: 10
   armor: 0
@@ -43,6 +46,7 @@ Osiris:
       Activate a Weapon on this mech.
 
 Anansi:
+  designation_name: Type-828 Anansi
   faction: Feds
   hp: 8
   armor: 0
@@ -57,6 +61,7 @@ Anansi:
       Activate a <:target:> 1 non-Missile Equipment on this mech, then inflict 1 <:overheat:> to the same <:target:> when it resolves.
 
 Tzitzimitl:
+  designation_name: Type-444 Tzitzimitl
   faction: Feds
   hp: 8
   armor: 2
@@ -72,6 +77,7 @@ Tzitzimitl:
       Reduce the <:heat:> Cost by 2 (min 0).
 
 Amaterasu:
+  designation_name: Type-900 Amaterasu
   faction: Feds
   hp: 10
   armor: 1
@@ -87,6 +93,7 @@ Amaterasu:
       It gains 1 <:charge:>.
 
 Rubicon:
+  designation_name: SKK-74 Rubicon
   faction: Ares
   hp: 8
   armor: 2
@@ -101,6 +108,7 @@ Rubicon:
       Prepare: Activate it at half <:heat:> Cost (rounded up after applying <:overheat:>).
 
 Gladius:
+  designation_name: CM2208 Gladius
   faction: Ares
   hp: 8
   armor: 2
@@ -115,6 +123,7 @@ Gladius:
       Melee Weapons on this mech +1 <:damage:>.
 
 Proconsul:
+  designation_name: IF-104 Proconsul
   faction: Ares
   hp: 9
   armor: 1
@@ -130,6 +139,7 @@ Proconsul:
       Discard a card. Put that Maneuever into your hand instead of discarding it.
 
 Draconarius:
+  designation_name: IF-12 Draconarius
   faction: Ares
   hp: 10
   armor: 1
@@ -148,6 +158,7 @@ Draconarius:
       Discard a card. Add an Airstrike to your hand.
 
 Praetorian:
+  designation_name: CM38D Praetorian
   faction: Ares
   hp: 7
   armor: 3
@@ -166,6 +177,7 @@ Praetorian:
       Redirect that <:target:> to this mech.
 
 Hastatus:
+  designation_name: CM7 Hastatus
   faction: Ares
   hp: 6
   armor: 3
@@ -183,6 +195,7 @@ Hastatus:
       While this mech is <:engage:>, this mech's non-Large, non-Melee Weapons deal +1 <:damage:>.
 
 Aquarius:
+  designation_name: Model-1 V7 Aquarius
   faction: Jovians
   hp: 9
   armor: 0
@@ -197,6 +210,7 @@ Aquarius:
       While this mech has <:shield:>, Equipment on this mech <:heat:> Cost -1 (min 1 <:heat:> Cost).
 
 Pegasus:
+  designation_name: Model-12 V7 Pegasus
   faction: Jovians
   hp: 10
   armor: 0
@@ -212,6 +226,7 @@ Pegasus:
       Advance or Fall Back this mech.
 
 Cygnus:
+  designation_name: Model-6 V7 Cygnus
   faction: Jovians
   hp: 10
   armor: 0
@@ -230,6 +245,7 @@ Cygnus:
       Fall Back.
 
 Libra:
+  designation_name: Model-9 V7 Libra
   faction: Jovians
   hp: 7
   armor: 0
@@ -244,6 +260,7 @@ Libra:
       The next time it would take <:damage:> this turn and has enough <:heat:> Capacity, gain <:heat:> on this mech equal to that <:damage:> instead.
 
 Gemini:
+  designation_name: Model-5 V7 Gemini
   faction: Jovians
   hp: 8
   armor: 0
@@ -258,6 +275,7 @@ Gemini:
       1/round, if this mech has <:shield:>, deploy 1 Drone of your choice.
 
 Capricornus:
+  designation_name: Model-8 V7 Capricornus
   faction: Jovians
   hp: 10
   armor: 0
@@ -273,6 +291,7 @@ Capricornus:
       Activate a Small Equipment on this mech. If this mech is in the back line, treat it as <:range:> 2.
 
 Cockroach:
+  designation_name: E-5001 Cockroach
   faction: Pirates
   hp: 6
   armor: 0
@@ -287,6 +306,7 @@ Cockroach:
       Set this mech's HP to 1 instead, then set this mech's <:heat:> to 0.
 
 Monte Carlo:
+  designation_name: PSF-3X Monte Carlo
   faction: Pirates
   hp: 9
   armor: 1
@@ -301,6 +321,7 @@ Monte Carlo:
       1/round, reveal cards from the deck until you reveal an Equipment. You must immediately mount it on this mech, replacing previous Equipment if necessary. You may activate it.
 
 Jolly Roger:
+  designation_name: CM90 Jolly Roger
   faction: Pirates
   hp: 9
   armor: 2
@@ -316,6 +337,7 @@ Jolly Roger:
       Mount 1 Equipment from that mech onto this mech, replacing Equipment if necessary. <:charge:> and <:ammo:> are retained. You may activate it.
 
 Blackjack:
+  designation_name: PSF-1D Blackjack
   faction: Pirates
   hp: 10
   armor: 1
@@ -330,6 +352,7 @@ Blackjack:
       1/round, discard a card. Reveal cards from the top of the deck until you reveal a Maneuver. If it has a <:action:> effect, use it immediately, otherwise add it to your hand.
 
 Powder Keg:
+  designation_name: M-1 Powder Keg
   faction: Pirates
   hp: 10
   armor: 0
@@ -348,6 +371,7 @@ Powder Keg:
       Deal 3 AP <:damage:> to the enemy front line.
 
 Rapscallion:
+  designation_name: N-600 Rapscallion
   faction: Pirates
   hp: 6
   armor: 0
