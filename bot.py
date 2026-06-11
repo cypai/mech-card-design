@@ -338,7 +338,8 @@ async def render(ctx: commands.Context, query: str, flavor_text: str):
                 f"Running live render for {actual.name} (fuzzy {matches.threshold})."
             )
         await reply(ctx, message)
-        actual.flavor_text = flavor_text
+        processed_flavor_text = flavor_text.replace("\\n", "\n")
+        actual.flavor_text = processed_flavor_text
         actual.filename = f"outputs/live_render.png"
         with Icons() as icons, EquipmentCardRenderer(actual, icons) as card:
             card.render()
