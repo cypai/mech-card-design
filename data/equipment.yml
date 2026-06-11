@@ -647,7 +647,7 @@ Portal Inducer:
       > Reposition the <:target:>.
       > Deal 2 AP <:damage:>.
   flavor_text: |
-    “This thing is giving physics the middle finger, it still functions, and we have no idea why. If this is really what their 'God-Machine' can do, we should all be terrified.”
+    “This thing is giving physics the middle finger. It functions, and we have no idea why. If this is really what their 'God-Machine' can do, we should be terrified.”
 
 Gungnir Seeker Cannon:
   size: Large

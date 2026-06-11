@@ -418,7 +418,12 @@ class CardRenderer(Renderer):
         self.draw.text(
             (
                 MARGIN,
-                CARD_HEIGHT - int(TRACKER_SIZE * 0.5) - num_lines * FLAVOR_FONT_SIZE,
+                int(
+                    CARD_HEIGHT
+                    - ICON_SIZE / 2
+                    - num_lines * (FLAVOR_FONT_SIZE + SPACING * 0.8)
+                    - SPACING
+                ),
             ),
             wrapped_text,
             "#000000",
@@ -531,8 +536,8 @@ class ManeuverCardRenderer(CardRenderer):
         image_path = f"textures/card-art/{self.maneuver.normalized_name}.png"
         if not os.path.exists(image_path):
             image_path = f"textures/card-art/placeholder.png"
-            with Image.open(image_path) as img:
-                self.draw_card_image(img)
+        with Image.open(image_path) as img:
+            self.draw_card_image(img)
         self.draw_card_type("Maneuver")
         self.draw_card_text(
             card_text_sections(self.maneuver), MARGIN, CardRenderer.CARD_TEXT_Y
@@ -561,8 +566,8 @@ class DroneCardRenderer(CardRenderer):
         image_path = f"textures/card-art/{self.drone.normalized_name}.png"
         if not os.path.exists(image_path):
             image_path = f"textures/card-art/placeholder.png"
-            with Image.open(image_path) as img:
-                self.draw_card_image(img)
+        with Image.open(image_path) as img:
+            self.draw_card_image(img)
         self.draw_card_type("Drone")
         self.draw_card_text(
             card_text_sections(self.drone), MARGIN, CardRenderer.CARD_TEXT_Y
