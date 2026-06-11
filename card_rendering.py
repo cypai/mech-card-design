@@ -675,7 +675,7 @@ class RegroupingReferenceCardRenderer(CardRenderer):
 
 class MechRenderer(Renderer):
     STATS_X = MECH_PADDING
-    STATS_Y = int(MECH_HEIGHT * 0.12)
+    STATS_Y = int(MECH_HEIGHT * 0.62)
 
     def __init__(self, mech: Mech, icons: Icons):
         super().__init__(icons, mech.filename, MECH_WIDTH, MECH_HEIGHT)
@@ -721,7 +721,7 @@ class MechRenderer(Renderer):
     def draw_hardpoints(self):
         x = int(MECH_PADDING / 2)
         for hardpoint in self.mech.hardpoints:
-            self.draw_hardpoint(x, MECH_HEIGHT - MECH_PADDING - CARD_HEIGHT, hardpoint)
+            self.draw_hardpoint(x, MECH_HEIGHT - 2 * MECH_PADDING, hardpoint)
             x += CARD_WIDTH + int(MECH_PADDING / 2)
 
     def draw_hardpoint(self, x: int, y: int, text: str):
@@ -737,7 +737,7 @@ class MechRenderer(Renderer):
             width=2,
         )
         self.draw.text(
-            (x + CARD_WIDTH / 2, y + CARD_HEIGHT / 2),
+            (x + CARD_WIDTH / 2, y - LARGE_FONT_SIZE),
             text,
             stroke_width=2,
             stroke_fill="#000000",
@@ -749,69 +749,55 @@ class MechRenderer(Renderer):
         )
 
     def draw_stats(self):
-        self.draw.text(
-            (MechRenderer.STATS_X, MechRenderer.STATS_Y - SMALL_FONT_SIZE * 1.05),
-            f"Armor: {self.mech.armor}",
-            stroke_width=2,
-            stroke_fill="#000000",
-            fill="#000000",
-            align="center",
-            anchor="la",
-            embedded_color=True,
-            font=self.small_font,
-        )
-        hp_y = int(MechRenderer.STATS_Y + TRACKER_SIZE * 0.5)
-        self.draw.text(
-            (MechRenderer.STATS_X, hp_y - SMALL_FONT_SIZE * 1.05),
-            "HP",
-            stroke_width=2,
-            stroke_fill="#000000",
-            fill="#009f00",
-            align="center",
-            anchor="la",
-            embedded_color=True,
-            font=self.small_font,
-        )
-        self.draw_tracker(MechRenderer.STATS_X, hp_y, self.mech.hp, "#00ff00", 1)
-        heat_y = int(MechRenderer.STATS_Y + TRACKER_SIZE * 2)
-        self.draw.text(
-            (MechRenderer.STATS_X, heat_y - SMALL_FONT_SIZE * 1.05),
-            "Heat",
-            stroke_width=2,
-            stroke_fill="#000000",
-            fill="#9f0000",
-            align="center",
-            anchor="la",
-            embedded_color=True,
-            font=self.small_font,
-        )
-        self.draw_tracker(MechRenderer.STATS_X, heat_y, self.mech.hc, "#ff0000", 0)
-
-    def draw_tracker(self, x: int, y: int, boxes: int, color: str, starting_num: int):
-        self.draw_rectangle(x, y, TRACKER_SIZE * boxes, TRACKER_SIZE)
-        for i in range(0, boxes):
-            self.draw.line(
-                [
-                    (x + TRACKER_SIZE * i, y),
-                    (x + TRACKER_SIZE * i, y + TRACKER_SIZE),
-                ],
-                fill="#000000",
-                width=2,
-            )
+        stats = [
+            (f"Armor: {self.mech.armor}", "#000000", 3, None),
+            (f"HP", "#009f00", self.mech.hp, "#00ff00"),
+            (f"Heat", "#9f0000", self.mech.hc, "#ff0000"),
+        ]
+        y = MechRenderer.STATS_Y
+        for stat in stats:
             self.draw.text(
-                (
-                    x + int(TRACKER_SIZE / 2) + TRACKER_SIZE * i,
-                    y + int(TRACKER_SIZE / 2),
-                ),
-                str(i + starting_num),
+                (MechRenderer.STATS_X, y - SMALL_FONT_SIZE * 1.2),
+                stat[0],
                 stroke_width=2,
                 stroke_fill="#000000",
-                fill=color,
+                fill=stat[1],
                 align="center",
-                anchor="mm",
+                anchor="la",
                 embedded_color=True,
-                font=self.icon_font,
+                font=self.small_font,
             )
+            self.draw_tracker(MechRenderer.STATS_X, y, stat[2], stat[3], 1)
+            y += int(TRACKER_SIZE * 1.5)
+
+    def draw_tracker(
+        self, x: int, y: int, boxes: int, color: Optional[str], starting_num: int
+    ):
+        self.draw_rectangle(x, y, TRACKER_SIZE * boxes, TRACKER_SIZE)
+        if color is not None:
+            for i in range(0, boxes):
+                self.draw.line(
+                    [
+                        (x + TRACKER_SIZE * i, y),
+                        (x + TRACKER_SIZE * i, y + TRACKER_SIZE),
+                    ],
+                    fill="#000000",
+                    width=2,
+                )
+                self.draw.text(
+                    (
+                        x + int(TRACKER_SIZE / 2) + TRACKER_SIZE * i,
+                        y + int(TRACKER_SIZE / 2),
+                    ),
+                    str(i + starting_num),
+                    stroke_width=2,
+                    stroke_fill="#000000",
+                    fill=color,
+                    align="center",
+                    anchor="mm",
+                    embedded_color=True,
+                    font=self.icon_font,
+                )
 
 
 game_db = GameDatabase()
