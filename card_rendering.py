@@ -31,6 +31,8 @@ TRACKER_FONT_SIZE = int(CARD_HEIGHT / 20)
 SMALL_FONT_SIZE = int(CARD_HEIGHT / 28)
 FLAVOR_FONT_SIZE = int(CARD_HEIGHT / 32)
 
+FLAG_HEIGHT = int(HUGE_FONT_SIZE + FLAVOR_FONT_SIZE)
+
 ICON_SIZE = int(CARD_WIDTH / 10)
 SECTION_ICON_SIZE = int(SMALL_FONT_SIZE * 1.2)
 
@@ -201,7 +203,13 @@ class Renderer(ABC):
             self.image.paste(the_image, (x, y))
         self.draw_rectangle(x, y, width, height)
 
-    def draw_card_text(self, card_text_sections: list[CardTextSection], x: int, y: int):
+    def draw_card_text(
+        self,
+        card_text_sections: list[CardTextSection],
+        x: int,
+        y: int,
+        max_chars: Optional[int] = None,
+    ):
         section_num = 0
         sections = sorted(card_text_sections, key=lambda x: x.section_type.value)
         for section in sections:
@@ -218,14 +226,23 @@ class Renderer(ABC):
                 y + int(section_num * (SMALL_FONT_SIZE + 2)),
                 icon,
                 section.text,
+                max_chars,
             )
             section_num += num_lines + 0.5
 
     def draw_card_text_section(
-        self, x: int, y: int, icon: Image.Image, text: str
+        self,
+        x: int,
+        y: int,
+        icon: Image.Image,
+        text: str,
+        max_chars: Optional[int] = None,
     ) -> int:
         self.image.alpha_composite(icon, (x, y - 1))
-        width_in_characters = int(CARD_WIDTH / (SMALL_FONT_SIZE * 0.6)) - 8
+        if max_chars is None:
+            width_in_characters = int(CARD_WIDTH / (SMALL_FONT_SIZE * 0.6)) - 8
+        else:
+            width_in_characters = max_chars
         wrapped_text = wrap_text_tagged(text, width_in_characters)
         self.pilmoji.text(
             (int(x + SMALL_FONT_SIZE * 1.5), y),
@@ -675,7 +692,11 @@ class RegroupingReferenceCardRenderer(CardRenderer):
 
 class MechRenderer(Renderer):
     STATS_X = MECH_PADDING
-    STATS_Y = int(MECH_HEIGHT * 0.62)
+    STATS_Y = int(MECH_HEIGHT * 0.6)
+    ART_X = int(MECH_PADDING * 2 + TRACKER_SIZE * 10)
+    ART_Y = int(MECH_PADDING + HUGE_FONT_SIZE + LARGE_FONT_SIZE)
+    ART_W = int(MECH_WIDTH - ART_X - MECH_PADDING * 0.5)
+    ART_H = int(MECH_HEIGHT - ART_Y - MECH_PADDING * 4.5)
 
     def __init__(self, mech: Mech, icons: Icons):
         super().__init__(icons, mech.filename, MECH_WIDTH, MECH_HEIGHT)
@@ -684,12 +705,35 @@ class MechRenderer(Renderer):
     def render(self):
         self.draw_border()
         self.draw_name()
+        # image_path = f"textures/mech-art/{self.mech.normalized_name}.png"
+        # if not os.path.exists(image_path):
+        #    image_path = f"textures/mech-art/placeholder.png"
+        self.draw_rectangle(
+            MechRenderer.ART_X,
+            MechRenderer.ART_Y,
+            MechRenderer.ART_W,
+            MechRenderer.ART_H,
+        )
+        self.draw_rectangle(
+            int(MECH_PADDING / 2),
+            MechRenderer.ART_Y,
+            MechRenderer.ART_X - int(MECH_PADDING),
+            MechRenderer.ART_H,
+        )
+        self.draw_flag()
         self.draw_hardpoints()
         self.draw_stats()
+        self.draw_engage_circle(
+            int(MechRenderer.ART_X - MECH_PADDING - 3 * TRACKER_SIZE),
+            int(MechRenderer.STATS_Y - 1.5 * TRACKER_SIZE),
+            int(MechRenderer.ART_X - MECH_PADDING),
+            int(MechRenderer.STATS_Y + 1.5 * TRACKER_SIZE),
+        )
         self.draw_card_text(
             card_text_sections(self.mech),
-            MECH_WIDTH - CARD_WIDTH - MECH_PADDING,
-            2 * MECH_PADDING + HUGE_FONT_SIZE,
+            int(MECH_PADDING * 1.5),
+            int(MECH_HEIGHT * 0.14),
+            max_chars=40,
         )
 
     def get_name_color(self) -> str:
@@ -704,7 +748,7 @@ class MechRenderer(Renderer):
         return "#000000"
 
     def draw_name(self):
-        text = ImageText.Text(self.mech.name, self.huge_font)
+        text = ImageText.Text(self.mech.designation_name, self.huge_font)
         text.embed_color()
         text.stroke(2, "#000000")
         text.spacing = 10
@@ -717,6 +761,31 @@ class MechRenderer(Renderer):
             self.get_name_color(),
             align="left",
         )
+
+        faction_text = ImageText.Text(
+            self.mech.faction_full_name, self.flavor_text_font
+        )
+        faction_text.stroke(2, "#000000")
+        faction_text.spacing = 10
+        self.draw.text(
+            (
+                MECH_PADDING,
+                MECH_PADDING + HUGE_FONT_SIZE * 1.2,
+            ),
+            faction_text,
+            "#000000",
+            align="left",
+        )
+
+    def draw_flag(self):
+        image_path = f"textures/flags/{self.mech.faction.lower()}.png"
+        with Image.open(image_path) as img:
+            ratio = FLAG_HEIGHT / img.height
+            width = int(img.width * ratio)
+            resized = img.resize((width, FLAG_HEIGHT))
+            self.image.alpha_composite(
+                resized, (MECH_WIDTH - width - MECH_PADDING, MECH_PADDING)
+            )
 
     def draw_hardpoints(self):
         x = int(MECH_PADDING / 2)
@@ -737,7 +806,7 @@ class MechRenderer(Renderer):
             width=2,
         )
         self.draw.text(
-            (x + CARD_WIDTH / 2, y - LARGE_FONT_SIZE),
+            (x + CARD_WIDTH / 2, int(y - LARGE_FONT_SIZE * 0.8)),
             text,
             stroke_width=2,
             stroke_fill="#000000",
@@ -750,14 +819,14 @@ class MechRenderer(Renderer):
 
     def draw_stats(self):
         stats = [
-            (f"Armor: {self.mech.armor}", "#000000", 3, None),
-            (f"HP", "#009f00", self.mech.hp, "#00ff00"),
-            (f"Heat", "#9f0000", self.mech.hc, "#ff0000"),
+            (f"Armor: {self.mech.armor}", "#888888", 3, None, 0),
+            (f"HP", "#009f00", self.mech.hp, "#00ff00", 1),
+            (f"Heat", "#9f0000", self.mech.hc, "#ff0000", 0),
         ]
         y = MechRenderer.STATS_Y
         for stat in stats:
             self.draw.text(
-                (MechRenderer.STATS_X, y - SMALL_FONT_SIZE * 1.2),
+                (MechRenderer.STATS_X, y - LARGE_FONT_SIZE * 1.2),
                 stat[0],
                 stroke_width=2,
                 stroke_fill="#000000",
@@ -765,10 +834,17 @@ class MechRenderer(Renderer):
                 align="center",
                 anchor="la",
                 embedded_color=True,
-                font=self.small_font,
+                font=self.large_font,
             )
-            self.draw_tracker(MechRenderer.STATS_X, y, stat[2], stat[3], 1)
-            y += int(TRACKER_SIZE * 1.5)
+            self.draw_tracker(MechRenderer.STATS_X, y, stat[2], stat[3], stat[4])
+            y += int(TRACKER_SIZE * 1.75)
+
+    def draw_engage_circle(self, x1: int, y1: int, x2: int, y2: int):
+        self.draw.ellipse((x1, y1, x2, y2), outline="#000000")
+        self.image.alpha_composite(
+            self.icons.engage,
+            (int((x1 + x2 - ICON_SIZE) / 2), int((y1 + y2 - ICON_SIZE) / 2)),
+        )
 
     def draw_tracker(
         self, x: int, y: int, boxes: int, color: Optional[str], starting_num: int

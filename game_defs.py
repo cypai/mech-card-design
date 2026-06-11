@@ -176,6 +176,7 @@ class Mech:
     name: str
     designation_name: str
     faction: str
+    faction_full_name: str
     hp: int
     armor: int
     hc: int
@@ -194,6 +195,16 @@ class Mech:
         self.name = str(kwargs.get("name"))
         self.designation_name = str(kwargs.get("designation_name"))
         self.faction = str(kwargs.get("faction"))
+        if self.faction == "Feds":
+            self.faction_full_name = "Federal Commonwealth of Terra & Luna"
+        elif self.faction == "Martians":
+            self.faction_full_name = "Legio Martius"
+        elif self.faction == "Jovians":
+            self.faction_full_name = "Jovian Technocratic League"
+        elif self.faction == "Pirates":
+            self.faction_full_name = "United Ports of the Belt"
+        else:
+            self.faction_full_name = "Unknown"
         self.hp = kwargs.get("hp", 10)
         self.armor = kwargs.get("armor", 10)
         self.hc = kwargs.get("hc", 10)
