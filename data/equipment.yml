@@ -113,6 +113,8 @@ Gauss Rifle:
   actions:
     - |
       Deal 2 AP <:damage:>. Inflict 1 <:vulnerable:>.
+  flavor_text: |
+    Particularly popular in the Free Havens for their reliability in zero-G, gauss rifles are the choice of many a grizzled veteran across the Sol System.
 
 Assault Carbine:
   size: Medium
@@ -221,6 +223,9 @@ Panoptic Autocannon:
   actions:
     - |
       Deal 1 <:damage:>. Inflict 2 <:suppression:> to other mechs at that position.
+  flavor_text: |
+    “What makes a good pilot? One who understands the superiority of agentic thought, and surrenders himself body and soul to the God-Machine."
+     - Cpt. Leon Viel, Templar of Jupiter
   tags:
     - AOE
   alias:
@@ -237,6 +242,8 @@ Railgun:
   actions:
     - |
       Deal 5 AP <:damage:>.
+  flavor_text: |
+    “There's a certain elegance to the railgun. No self-guidance, no nanites, no tricks. Just you, your firing solution, and annihilation at Mach 14.”
 
 Hullcrusher Rifle:
   size: Large
@@ -263,6 +270,8 @@ Mass Driver:
   actions:
     - |
       Deal 4 <:damage:>. If the <:target:> is in the front line, Reposition it.
+  flavor_text: |
+    “Give ‘em a broadside, lads! Show these invaders a little Belter hospitality!”
 
 Annihilator Siege Cannon:
   size: Large
@@ -424,6 +433,8 @@ Flamethrower:
   actions:
     - |
       Choose a position within <:range:>. Deal 1 <:damage:> and inflict 1 <:overheat:> to all mechs there.
+  flavor_text: |
+    “May the cleansing fire of the God-Machine redeem you, infidel!”
   tags:
     - AOE
 
@@ -455,6 +466,8 @@ Laser Rifle:
   actions:
     - |
       Deal 3 <:damage:>.
+  flavor_text: |
+    Simple, cheap and reliable, the C55 Astrea Laser Rifle has been a ubiquitous mech weapon for more than half a century.
 
 Autopulse Rifle:
   size: Medium
@@ -545,6 +558,9 @@ Pulsar Beam Cannon:
     - |
       If [<:charge:>]=2:
       Disable 1 Equipment on the <:target:>. Deal 5 <:damage:>. Set <:charge:> to 0.
+  flavor_text: |
+    “What makes a good pilot? The courage to give of themselves such that others might not labor in chains."
+     - Cpt. Kim Yaerin, Commonwealth Mechanized Cavalry
   tags:
     - Strong-Watchlist
   alias:
@@ -562,6 +578,9 @@ Slagmaker:
   actions:
     - |
       Deal 6 <:damage:>. Disable all other Equipment on this mech.
+  flavor_text: |
+    “What makes a good pilot? Blowing up all your enemies and getting paid!"
+     - Cpt. Thalia Schwarz, Skull & Crossbones PMC
 
 Thermobaric Flame Cannon:
   size: Large
@@ -573,6 +592,9 @@ Thermobaric Flame Cannon:
   actions:
     - |
       Choose a position within <:range:>. Inflict 1 <:overheat:> to all mechs with no <:shield:> there. Deal 2 <:damage:> to all mechs there.
+  flavor_text: |
+    “ULTIMA RATIO IMPERATOR MARTIUS"
+     - Inscription on a Martian F-451 thermobaric cannon
   tags:
     - AOE
     - Strong-Watchlist
@@ -624,6 +646,8 @@ Portal Inducer:
       Choose for each <:target:>:
       > Reposition the <:target:>.
       > Deal 2 AP <:damage:>.
+  flavor_text: |
+    “This thing is giving physics the middle finger, it still functions, and we have no idea why. If this is really what their 'God-Machine' can do, we should all be terrified.”
 
 Gungnir Seeker Cannon:
   size: Large
@@ -713,6 +737,8 @@ Iaijutsu Blade:
       Choose:
       > Deal 3 <:damage:>. Shred.
       > Discard a card. Destroy the <:target:> if it has 5 HP or less.
+  flavor_text: |
+    “You’re already dead.”
   alias:
     - Iaijutsu
 
@@ -781,6 +807,9 @@ Ripjaw Chainaxe:
     - |
       <:engage:> this mech. Gain 1 <:charge:>. Deal [<:charge:>+4] <:damage:>.
       If [<:charge:>]>1, Shred.
+  flavor_text: |
+    "What makes a good pilot? Simple. The combination of unerring rationality and unfettered hate."
+     - Cpt. Jim Leigh, Legio Martius
   alias:
     - Ripjaw
 
@@ -795,6 +824,8 @@ Arondight Starsword:
   actions:
     - |
       <:engage:> this mech. Deal 6 <:damage:>.
+  flavor_text: |
+    Formally known as the X-CL Monomolecular Blade, this weapon is so iconic to the Lancelot-class that the Commonwealth Armory named it after the knight’s legendary sword.
   alias:
     - Arondight
 
@@ -1008,6 +1039,8 @@ Thermo-Reactive Nanites:
       Inflict 3 <:overheat:>.
     - |
       Inflict 3 <:vulnerable:>.
+  flavor_text: |
+    Nanite swarms are a new, and terrifying, addition to 24th century war. Their programming is strictly regulated by international law to avoid a "grey goo" scenario.
   alias:
     - Thermo-Reactive
     - Thermo Reactive
@@ -1132,6 +1165,8 @@ Thanatos Missile:
   actions:
     - |
       Discard a card. Deal 4 <:damage:>. Cannot be Evaded.
+  flavor_text: |
+    Thanatos Smart Missiles are so expensive that each costs over 45 billion denarii to produce. Why does efficiency-worshipping Mars still use them? Because every single one ever fired, without exception, has hit its target.
   tags:
     - Strong-Watchlist
   alias:
@@ -1180,6 +1215,8 @@ Thanatos Missile:
   actions:
     - |
       If the <:target:> is not at 0 <:heat:>, Disable 1 Equipment on the <:target:>.
+  flavor_text: |
+    “All right, corpo scum, let's see how much good that big laser does you when I turn it into the world’s biggest paperweight!”
   alias:
     - SHORTCIRCUIT
 
@@ -1196,6 +1233,8 @@ Thanatos Missile:
   actions:
     - |
       Reposition the <:target:>.
+  flavor_text: |
+    “O holy God-Machine, invest your spirit in my code, that your children might dance with joy to your divine melody!”
   alias:
     - TANGO
 
@@ -1501,6 +1540,8 @@ Reinforced Frame:
     - |
       When the battle starts:
       This mech gains 1 Armor (max 3 Armor).
+  flavor_text: |
+    TESTUDO-pattern frames are a status symbol among Martian pilots. The heavy armor shows others that the life of the mech’s veteran pilot is worth preserving.
   tags:
     - Weak-Watchlist
 
@@ -1517,6 +1558,8 @@ Combat Rifle:
   actions:
     - |
       Deal 2 AP <:damage:>.
+  flavor_text: |
+    The GP-80 Combat Rifle was once the premier anti-materiel mech weapon. While now decades out of date, they're reliable and dirt cheap, and can still threaten a modern chassis.
   tags:
     - Spare
 
@@ -1596,5 +1639,7 @@ Shield Projector:
   actions:
     - |
       Grant 2 <:shield:> to an allied mech.
+  flavor_text: |
+    24th century shields use a combination of magnetic fields and thick aerosols to help deflect both ballistic and energy weaponry.
   tags:
     - Spare
