@@ -42,7 +42,7 @@ MARGIN = int(CARD_WIDTH * 0.05)
 BORDER_MARGIN = int(MARGIN / 3)
 MECH_MARGIN = int(TRACKER_SIZE * 1.2)
 
-SPACING = 12
+SPACING = 13
 
 
 class SteelVanguardSource(Twemoji):
@@ -425,6 +425,7 @@ class CardRenderer(Renderer):
             font=self.flavor_text_font,
             align="left",
             anchor="la",
+            spacing=SPACING,
         )
 
     def draw_card_rating(
