@@ -3,7 +3,7 @@
 git pull
 source ./venv/bin/activate
 
-read -p "Render cards? (y: all, n: skip, c: custom)" ync
+read -p "Render cards? (y: all, n: skip, c: custom) " ync
 case $ync in
   [yY] )
     ./card_rendering.py all
