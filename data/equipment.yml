@@ -497,7 +497,7 @@ Plasma Blaster:
   rating: Cadet
   actions:
     - |
-      Deal 2 <:damage:>. Inflict 1 <:overheat:>.
+      Deal 1 <:damage:>. Inflict 2 <:overheat:>.
 
 Repulsor Array:
   size: Medium
@@ -629,7 +629,7 @@ Plasma Incinerator:
   rating: Cadet
   actions:
     - |
-      Deal 5 <:damage:>. Inflict 1 <:overheat:> and 1 <:vulnerable:>.
+      Deal 5 <:damage:>. Inflict 2 <:overheat:>.
 
 Portal Inducer:
   size: Large
@@ -1275,8 +1275,8 @@ Overkill Protocol:
   size: Small
   type: Electronics
   form: System
-  heat: 2
-  range: 2
+  heat: 1
+  range: 3
   target: 1
   rating: Veteran
   triggers:
