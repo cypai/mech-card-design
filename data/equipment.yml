@@ -660,6 +660,8 @@ Gungnir Seeker Cannon:
   actions:
     - |
       Prepare: Deal 6 <:damage:>. Cannot be Evaded.
+  flavor_text: |
+    "This time, your life will definitely end 30 minutes from now!"
   alias:
     - Gungnir
 
