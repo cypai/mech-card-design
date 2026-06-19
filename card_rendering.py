@@ -827,7 +827,13 @@ class MechRenderer(Renderer):
         stats = [
             (f"Armor: {self.mech.armor}", "#888888", 3, None, 0),
             (f"HP", "#009f00", self.mech.hp, "#00ff00", 1),
-            (f"Heat", "#9f0000", self.mech.hc, "#ff0000", 0),
+            (
+                f"Heat",
+                "#9f0000",
+                self.mech.hc + 1,  # hc + 1 because it needs to render 0 as well
+                "#ff0000",
+                0,
+            ),
         ]
         y = MechRenderer.STATS_Y
         for stat in stats:
