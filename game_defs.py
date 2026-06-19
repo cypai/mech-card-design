@@ -4,6 +4,16 @@ import re
 from thefuzz import fuzz
 
 
+def parse_rating(rating: Optional[str]) -> int:
+    if rating == "Cadet":
+        return 1
+    elif rating == "Veteran":
+        return 2
+    elif rating == "Ace":
+        return 3
+    return 0
+
+
 class Equipment:
     name: str
     size: str
@@ -45,13 +55,7 @@ class Equipment:
         self.alias = kwargs.get("alias", [])
         self.copies = kwargs.get("copies", 1)
         self.rating = kwargs.get("rating", None)
-        self.rating_int = 0
-        if self.rating == "Cadet":
-            self.rating_int = 1
-        elif self.rating == "Veteran":
-            self.rating_int = 2
-        elif self.rating == "Ace":
-            self.rating_int = 3
+        self.rating_int = parse_rating(self.rating)
 
         self.normalized_name = re.sub(r"\W", "", self.name)
         self.normalized_name = self.normalized_name.lower()
@@ -163,6 +167,9 @@ class Equipment:
         if self.maxcharge != other.maxcharge:
             is_diff = True
             diffs += f"Max Charge: {other.maxcharge} -> {self.maxcharge}\n"
+        if self.rating != other.rating:
+            is_diff = True
+            diffs += f"Rating: {other.rating} -> {self.rating}\n"
         if self.text != other.text:
             is_diff = True
             diffs += f"{other.text}|->\n{self.text}"
@@ -190,6 +197,7 @@ class Mech:
     tags: list[str]
     copies: int
     legacy_text: bool
+    rating: Optional[str]
 
     def __init__(self, **kwargs):
         self.name = str(kwargs.get("name"))
@@ -217,6 +225,9 @@ class Mech:
         self.passives = kwargs.get("passives", [])
         self.tags = kwargs.get("tags", [])
         self.copies = kwargs.get("copies", 1)
+        self.rating = kwargs.get("rating", None)
+        self.rating = kwargs.get("rating", None)
+        self.rating_int = parse_rating(self.rating)
 
         self.normalized_name = re.sub(r"\W", "", self.name)
         self.normalized_name = self.normalized_name.lower()
@@ -243,6 +254,8 @@ class Mech:
 
     def pretty_text(self):
         text = ""
+        if self.rating is not None:
+            text += f"Rating: {self.rating}\n"
         if self.info is not None:
             text += f"Info: {self.info}"
         for action in self.actions:
@@ -294,6 +307,9 @@ class Mech:
         if self.hardpoints_str != other.hardpoints_str:
             is_diff = True
             diffs += f"Hardpoints: {other.hardpoints_str} -> {self.hardpoints_str}\n"
+        if self.rating != other.rating:
+            is_diff = True
+            diffs += f"Rating: {other.rating} -> {self.rating}\n"
         if self.ability != other.ability:
             is_diff = True
             diffs += f"{other.ability}|->\n{self.ability}"
@@ -311,6 +327,7 @@ class Drone:
     triggers: list[str]
     passives: list[str]
     legacy_text: bool
+    rating: Optional[str]
 
     def __init__(self, **kwargs):
         self.name = str(kwargs.get("name"))
@@ -322,6 +339,8 @@ class Drone:
         self.triggers = kwargs.get("triggers", [])
         self.passives = kwargs.get("passives", [])
         self.copies = kwargs.get("copies", 2)
+        self.rating = kwargs.get("rating", None)
+        self.rating_int = parse_rating(self.rating)
 
         self.normalized_name = re.sub(r"\W", "", self.name)
         self.normalized_name = self.normalized_name.lower()
@@ -340,6 +359,8 @@ class Drone:
 
     def pretty_text(self):
         text = ""
+        if self.rating is not None:
+            text += f"Rating: {self.rating}\n"
         if self.info is not None:
             text += f"Info: {self.info}"
         if self.range is not None:
@@ -374,6 +395,9 @@ class Drone:
             diffs = f"{self.name}\n"
         else:
             diffs = f"{other.name} -> {self.name}\n"
+        if self.rating != other.rating:
+            is_diff = True
+            diffs += f"Rating: {other.rating} -> {self.rating}\n"
         if self.ability != other.ability:
             is_diff = True
             diffs += f"{other.ability}|->\n{self.ability}"
@@ -399,6 +423,7 @@ class Maneuver:
         self.triggers = kwargs.get("triggers", [])
         self.copies = kwargs.get("copies", 2)
         self.rating = kwargs.get("rating", None)
+        self.rating_int = parse_rating(self.rating)
 
         self.normalized_name = re.sub(r"\W", "", self.name)
         self.normalized_name = self.normalized_name.lower()
@@ -446,6 +471,9 @@ class Maneuver:
             diffs = f"{self.name}\n"
         else:
             diffs = f"{other.name} -> {self.name}\n"
+        if self.rating != other.rating:
+            is_diff = True
+            diffs += f"Rating: {other.rating} -> {self.rating}\n"
         if self.text != other.text:
             is_diff = True
             diffs += f"{other.text}|->\n{self.text}"

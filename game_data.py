@@ -57,6 +57,7 @@ def parse_mechs(mechs) -> Mech:
         passives=data.get("passives", []),
         tags=data.get("tags", []),
         copies=data.get("copies", 1),
+        rating=data.get("rating", None),
     )
 
 
@@ -81,6 +82,7 @@ def parse_drones(drones) -> Drone:
         triggers=data.get("triggers", []),
         passives=data.get("passives", []),
         copies=data.get("copies", 2),
+        rating=data.get("rating", None),
     )
 
 

@@ -79,6 +79,7 @@ class Icons:
         self.trigger = trigger.resize((SECTION_ICON_SIZE, SECTION_ICON_SIZE))
         self.passive = passive.resize((SECTION_ICON_SIZE, SECTION_ICON_SIZE))
         self.star = star.resize((int(ICON_SIZE / 2), int(ICON_SIZE / 2)))
+        self.star_big = star.resize((int(ICON_SIZE), int(ICON_SIZE)))
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
@@ -252,6 +253,42 @@ class Renderer(ABC):
             spacing=SPACING,
         )
         return len(wrapped_text.splitlines())
+
+    def draw_card_rating(
+        self,
+        x: int,
+        y: int,
+        rating: int,
+        rating_icon: Image.Image,
+    ):
+        star_y = int(y - rating_icon.width * 1.2)
+        if rating == 1:
+            self.image.alpha_composite(
+                rating_icon,
+                (int(x - rating_icon.width / 2), star_y),
+            )
+        elif rating == 2:
+            self.image.alpha_composite(
+                rating_icon,
+                (int(x - rating_icon.width), star_y),
+            )
+            self.image.alpha_composite(
+                rating_icon,
+                (int(x), star_y),
+            )
+        elif rating == 3:
+            self.image.alpha_composite(
+                rating_icon,
+                (int(x - rating_icon.width / 2), star_y),
+            )
+            self.image.alpha_composite(
+                rating_icon,
+                (int(x - 3 * rating_icon.width / 2), star_y),
+            )
+            self.image.alpha_composite(
+                rating_icon,
+                (int(x + rating_icon.width / 2), star_y),
+            )
 
 
 class CardRenderer(Renderer):
@@ -433,41 +470,6 @@ class CardRenderer(Renderer):
             spacing=SPACING,
         )
 
-    def draw_card_rating(
-        self,
-        rating: int,
-        rating_icon: Image.Image,
-    ):
-        star_size = int(ICON_SIZE / 2)
-        star_y = int(CARD_HEIGHT - star_size * 1.2)
-        if rating == 1:
-            self.image.alpha_composite(
-                rating_icon,
-                (int(CARD_WIDTH / 2 - star_size / 2), star_y),
-            )
-        elif rating == 2:
-            self.image.alpha_composite(
-                rating_icon,
-                (int(CARD_WIDTH / 2 - star_size), star_y),
-            )
-            self.image.alpha_composite(
-                rating_icon,
-                (int(CARD_WIDTH / 2), star_y),
-            )
-        elif rating == 3:
-            self.image.alpha_composite(
-                rating_icon,
-                (int(CARD_WIDTH / 2 - star_size / 2), star_y),
-            )
-            self.image.alpha_composite(
-                rating_icon,
-                (int(CARD_WIDTH / 2 - 3 * star_size / 2), star_y),
-            )
-            self.image.alpha_composite(
-                rating_icon,
-                (int(CARD_WIDTH / 2 + star_size / 2), star_y),
-            )
-
 
 class EquipmentCardRenderer(CardRenderer):
     NAME_X = int(ICON_SIZE * 2.2)
@@ -501,7 +503,12 @@ class EquipmentCardRenderer(CardRenderer):
             card_text_sections(self.equipment), MARGIN, CardRenderer.CARD_TEXT_Y
         )
         self.draw_flavor_text(self.equipment.flavor_text)
-        self.draw_card_rating(self.equipment.rating_int, self.icons.star)
+        self.draw_card_rating(
+            int(CARD_WIDTH / 2),
+            int(CARD_HEIGHT),
+            self.equipment.rating_int,
+            self.icons.star,
+        )
 
     def get_name_color(self) -> str:
         if self.equipment.type == "Ballistic":
@@ -727,6 +734,12 @@ class MechRenderer(Renderer):
             MechRenderer.ART_H,
         )
         self.draw_flag()
+        self.draw_card_rating(
+            int(MECH_WIDTH * 0.85),
+            int(MECH_HEIGHT * 0.09),
+            self.mech.rating_int,
+            self.icons.star_big,
+        )
         self.draw_hardpoints()
         self.draw_stats()
         self.draw_engage_circle(
