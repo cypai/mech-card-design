@@ -9,8 +9,16 @@ case $ync in
     ./card_rendering.py all
     ;;
   [cC] )
-    read "What would you like to render? " op
-    ./card_rendering.py $op
+    read -p "What would you like to render? " op
+    read -p "Filters? " filters
+    case $filters in
+      [nN] )
+        ./card_rendering.py $op -f $filters
+        ;;
+      * )
+        ./card_rendering.py $op
+        ;;
+    esac
     ;;
   [nN] ) echo "Skipping render.";;
   * ) echo "Invalid response";;
