@@ -915,6 +915,7 @@ def main():
             if args.filter is None:
                 eq_list = game_db.equipment
             else:
+                print(f"Filter: {args.filter}")
                 eq_list = game_db.get_filtered_equipment(args.filter)
             for equipment in eq_list:
                 with EquipmentCardRenderer(equipment, icons) as card:
@@ -924,6 +925,7 @@ def main():
             if args.filter is None:
                 eq_list = game_db.mechs
             else:
+                print(f"Filter: {args.filter}")
                 eq_list = game_db.get_filtered_mechs(args.filter)
             for mech in eq_list:
                 with MechRenderer(mech, icons) as card:
@@ -935,6 +937,7 @@ def main():
                     with ManeuverCardRenderer(maneuver, icons) as card:
                         card.render()
             else:
+                print(f"Filter: {args.filter}")
                 maneuver = game_db.get_maneuver(args.filter[0])
                 if maneuver is not None:
                     with ManeuverCardRenderer(maneuver, icons) as card:
