@@ -11,6 +11,11 @@ for i in "$@"; do
     montage outputs/mechs/*.png -tile 1x2 -geometry 4650x3300 -background white -density 600 outputs/mechs_montages/output.png
     magick outputs/mechs_montages/*.png -gravity Center mechs.pdf
   fi
+  if [ "$i" == "mech-backs" ]; then
+    echo "Generating mech_backs PDF"
+    montage outputs/mech_backs/*.png -tile 1x2 -geometry 4650x3300 -background white -density 600 outputs/mech_backs_montages/output.png
+    magick outputs/mech_backs_montages/*.png -gravity Center mech_backs.pdf
+  fi
   if [ "$i" == "drones" ]; then
     echo "Generating drones PDF"
     rm -rf /tmp/drones

@@ -98,6 +98,7 @@ class CardTextSectionType(Enum):
     ACTION = 2
     TRIGGER = 3
     PASSIVE = 4
+    LEGACY = 5
 
 
 class CardTextSection:
@@ -142,6 +143,9 @@ class Renderer(ABC):
         self.small_font = ImageFont.truetype(
             "./fonts/HackNerdFont-Regular.ttf", SMALL_FONT_SIZE
         )
+        self.italic_font = ImageFont.truetype(
+            "./fonts/Hack-Italic.ttf", SMALL_FONT_SIZE
+        )
         self.icon_font = ImageFont.truetype(
             "./fonts/HackNerdFont-Regular.ttf", int(ICON_SIZE * 0.8)
         )
@@ -171,7 +175,7 @@ class Renderer(ABC):
     def render(self):
         pass
 
-    def draw_rectangle(self, x: int, y: int, width: int, height: int):
+    def draw_rectangle(self, x: int, y: int, width: int, height: int, stroke: int = 2):
         self.draw.line(
             [
                 (x, y),
@@ -181,11 +185,11 @@ class Renderer(ABC):
                 (x, y),
             ],
             fill="#000000",
-            width=2,
+            width=stroke,
         )
 
-    def draw_border(self):
-        self.draw_rectangle(0, 0, self.width, self.height)
+    def draw_border(self, stroke: int = 2):
+        self.draw_rectangle(0, 0, self.width, self.height, stroke)
 
     def draw_bordered_image(
         self, image: Optional[Image.Image], x: int, y: int, width: int, height: int
@@ -210,6 +214,7 @@ class Renderer(ABC):
         x: int,
         y: int,
         max_chars: Optional[int] = None,
+        font: Optional[ImageFont.FreeTypeFont] = None,
     ):
         section_num = 0
         sections = sorted(card_text_sections, key=lambda x: x.section_type.value)
@@ -220,14 +225,17 @@ class Renderer(ABC):
                 icon = self.icons.action
             elif section.section_type == CardTextSectionType.TRIGGER:
                 icon = self.icons.trigger
-            else:
+            elif section.section_type == CardTextSectionType.PASSIVE:
                 icon = self.icons.passive
+            else:
+                icon = None
             num_lines = self.draw_card_text_section(
                 x,
                 y + int(section_num * (SMALL_FONT_SIZE + 2)),
                 icon,
                 section.text,
                 max_chars,
+                font,
             )
             section_num += num_lines + 0.5
 
@@ -235,21 +243,32 @@ class Renderer(ABC):
         self,
         x: int,
         y: int,
-        icon: Image.Image,
+        icon: Optional[Image.Image],
         text: str,
         max_chars: Optional[int] = None,
+        font: Optional[ImageFont.FreeTypeFont] = None,
     ) -> int:
-        self.image.alpha_composite(icon, (x, y - 1))
         if max_chars is None:
             width_in_characters = int(CARD_WIDTH / (SMALL_FONT_SIZE * 0.6)) - 8
         else:
             width_in_characters = max_chars
         wrapped_text = wrap_text_tagged(text, width_in_characters)
+
+        if icon is None:
+            text_x = x
+        else:
+            self.image.alpha_composite(icon, (x, y - 1))
+            text_x = int(x + SMALL_FONT_SIZE * 1.5)
+
+        if font is None:
+            actual_font = self.small_font
+        else:
+            actual_font = font
         self.pilmoji.text(
-            (int(x + SMALL_FONT_SIZE * 1.5), y),
+            (text_x, y),
             wrapped_text,
             "#000000",
-            font=self.small_font,
+            font=actual_font,
             spacing=SPACING,
         )
         return len(wrapped_text.splitlines())
@@ -306,7 +325,7 @@ class CardRenderer(Renderer):
     def __init__(self, icons: Icons, filename: str):
         super().__init__(icons, filename, CARD_WIDTH, CARD_HEIGHT)
 
-    def draw_border(self):
+    def draw_frame(self):
         super().draw_border()
         self.draw_rectangle(
             self.ICON_X, self.ICON_Y, self.IMAGE_X - self.ICON_X, self.IMAGE_HEIGHT
@@ -479,7 +498,7 @@ class EquipmentCardRenderer(CardRenderer):
         self.equipment = equipment
 
     def render(self):
-        self.draw_border()
+        self.draw_frame()
         self.draw_name(
             self.equipment.name,
             self.get_name_color(),
@@ -534,7 +553,7 @@ class ManeuverCardRenderer(CardRenderer):
         self.maneuver = maneuver
 
     def render(self):
-        self.draw_border()
+        self.draw_frame()
         self.draw_name(self.maneuver.name, "#00ff00")
         if self.maneuver.target is not None:
             self.draw_top_icon_with_text(
@@ -559,7 +578,7 @@ class DroneCardRenderer(CardRenderer):
         self.drone = drone
 
     def render(self):
-        self.draw_border()
+        self.draw_frame()
         self.draw_name(self.drone.name, "#000000")
         row = 0
         if self.drone.range is not None:
@@ -703,57 +722,20 @@ class RegroupingReferenceCardRenderer(CardRenderer):
             )
 
 
-class MechRenderer(Renderer):
-    STATS_X = MECH_PADDING
-    STATS_Y = int(MECH_HEIGHT * 0.6)
+class MechSizedRenderer(Renderer):
+    def __init__(self, icons: Icons, filename: str):
+        super().__init__(icons, filename, MECH_WIDTH, MECH_HEIGHT)
+
+
+class MechRenderer(MechSizedRenderer):
     ART_X = int(MECH_PADDING * 2 + TRACKER_SIZE * 10)
     ART_Y = int(MECH_PADDING + HUGE_FONT_SIZE + LARGE_FONT_SIZE)
     ART_W = int(MECH_WIDTH - ART_X - MECH_PADDING * 0.5)
     ART_H = int(MECH_HEIGHT - ART_Y - MECH_PADDING * 4.5)
 
-    def __init__(self, mech: Mech, icons: Icons):
-        super().__init__(icons, mech.filename, MECH_WIDTH, MECH_HEIGHT)
+    def __init__(self, icons: Icons, mech: Mech, filename: str):
+        super().__init__(icons, filename)
         self.mech = mech
-
-    def render(self):
-        self.draw_border()
-        self.draw_name()
-        # image_path = f"textures/mech-art/{self.mech.normalized_name}.png"
-        # if not os.path.exists(image_path):
-        #    image_path = f"textures/mech-art/placeholder.png"
-        self.draw_rectangle(
-            MechRenderer.ART_X,
-            MechRenderer.ART_Y,
-            MechRenderer.ART_W,
-            MechRenderer.ART_H,
-        )
-        self.draw_rectangle(
-            int(MECH_PADDING / 2),
-            MechRenderer.ART_Y,
-            MechRenderer.ART_X - int(MECH_PADDING),
-            MechRenderer.ART_H,
-        )
-        self.draw_flag()
-        self.draw_card_rating(
-            int(MECH_WIDTH * 0.85),
-            int(MECH_HEIGHT * 0.09),
-            self.mech.rating_int,
-            self.icons.star_big,
-        )
-        self.draw_hardpoints()
-        self.draw_stats()
-        self.draw_engage_circle(
-            int(MechRenderer.ART_X - MECH_PADDING - 3 * TRACKER_SIZE),
-            int(MechRenderer.STATS_Y - 1.5 * TRACKER_SIZE),
-            int(MechRenderer.ART_X - MECH_PADDING),
-            int(MechRenderer.STATS_Y + 1.5 * TRACKER_SIZE),
-        )
-        self.draw_card_text(
-            card_text_sections(self.mech),
-            int(MECH_PADDING * 1.5),
-            int(MECH_HEIGHT * 0.14),
-            max_chars=40,
-        )
 
     def get_name_color(self) -> str:
         if self.mech.faction == "Martians":
@@ -806,6 +788,55 @@ class MechRenderer(Renderer):
                 resized, (MECH_WIDTH - width - MECH_PADDING, MECH_PADDING)
             )
 
+
+class MechFrontRenderer(MechRenderer):
+    STATS_X = MECH_PADDING
+    STATS_Y = int(MECH_HEIGHT * 0.6)
+
+    def __init__(self, mech: Mech, icons: Icons):
+        super().__init__(icons, mech, mech.filename)
+        self.mech = mech
+
+    def render(self):
+        self.draw_border(stroke=4)
+        self.draw_name()
+        # image_path = f"textures/mech-art/{self.mech.normalized_name}.png"
+        # if not os.path.exists(image_path):
+        #    image_path = f"textures/mech-art/placeholder.png"
+        self.draw_rectangle(
+            MechRenderer.ART_X,
+            MechRenderer.ART_Y,
+            MechRenderer.ART_W,
+            MechRenderer.ART_H,
+        )
+        self.draw_rectangle(
+            int(MECH_PADDING / 2),
+            MechRenderer.ART_Y,
+            MechRenderer.ART_X - int(MECH_PADDING),
+            MechRenderer.ART_H,
+        )
+        self.draw_flag()
+        self.draw_card_rating(
+            int(MECH_WIDTH * 0.85),
+            int(MECH_HEIGHT * 0.09),
+            self.mech.rating_int,
+            self.icons.star_big,
+        )
+        self.draw_hardpoints()
+        self.draw_stats()
+        self.draw_engage_circle(
+            int(MechRenderer.ART_X - MECH_PADDING - 3 * TRACKER_SIZE),
+            int(MechFrontRenderer.STATS_Y - 1.5 * TRACKER_SIZE),
+            int(MechRenderer.ART_X - MECH_PADDING),
+            int(MechFrontRenderer.STATS_Y + 1.5 * TRACKER_SIZE),
+        )
+        self.draw_card_text(
+            card_text_sections(self.mech),
+            int(MECH_PADDING * 1.5),
+            int(MECH_HEIGHT * 0.14),
+            max_chars=40,
+        )
+
     def draw_hardpoints(self):
         x = int(MECH_PADDING / 2)
         for hardpoint in self.mech.hardpoints:
@@ -848,10 +879,10 @@ class MechRenderer(Renderer):
                 0,
             ),
         ]
-        y = MechRenderer.STATS_Y
+        y = MechFrontRenderer.STATS_Y
         for stat in stats:
             self.draw.text(
-                (MechRenderer.STATS_X, y - LARGE_FONT_SIZE * 1.2),
+                (MechFrontRenderer.STATS_X, y - LARGE_FONT_SIZE * 1.2),
                 stat[0],
                 stroke_width=2,
                 stroke_fill="#000000",
@@ -861,7 +892,7 @@ class MechRenderer(Renderer):
                 embedded_color=True,
                 font=self.large_font,
             )
-            self.draw_tracker(MechRenderer.STATS_X, y, stat[2], stat[3], stat[4])
+            self.draw_tracker(MechFrontRenderer.STATS_X, y, stat[2], stat[3], stat[4])
             y += int(TRACKER_SIZE * 1.75)
 
     def draw_engage_circle(self, x1: int, y1: int, x2: int, y2: int):
@@ -901,6 +932,49 @@ class MechRenderer(Renderer):
                 )
 
 
+class MechBackRenderer(MechRenderer):
+
+    def __init__(self, mech: Mech, icons: Icons):
+        super().__init__(icons, mech, mech.back_filename)
+        self.mech = mech
+
+    def render(self):
+        self.draw_border(stroke=4)
+        self.draw_name()
+        self.draw_rectangle(
+            MECH_PADDING,
+            MechRenderer.ART_Y,
+            int(MECH_WIDTH / 2 - MECH_PADDING),
+            MECH_HEIGHT - MechRenderer.ART_Y,
+        )
+        self.draw_rectangle(
+            int(MECH_WIDTH / 2 + MECH_PADDING / 2),
+            MechRenderer.ART_Y,
+            int(MECH_WIDTH / 2 - MECH_PADDING),
+            MECH_HEIGHT - MechRenderer.ART_Y,
+        )
+        self.draw_flag()
+        self.draw_card_rating(
+            int(MECH_WIDTH * 0.85),
+            int(MECH_HEIGHT * 0.09),
+            self.mech.rating_int,
+            self.icons.star_big,
+        )
+        self.draw_card_text(
+            [CardTextSection(CardTextSectionType.LEGACY, self.mech.how_to_play)],
+            int(MECH_PADDING * 1.5),
+            int(MechRenderer.ART_Y + MECH_PADDING * 0.5),
+            max_chars=48,
+        )
+        self.draw_card_text(
+            [CardTextSection(CardTextSectionType.LEGACY, self.mech.lore)],
+            int(MECH_WIDTH / 2 + MECH_PADDING),
+            int(MechRenderer.ART_Y + MECH_PADDING * 0.5),
+            max_chars=48,
+            font=self.italic_font,
+        )
+
+
 game_db = GameDatabase()
 
 
@@ -928,7 +1002,17 @@ def main():
                 print(f"Filter: {args.filter}")
                 eq_list = game_db.get_filtered_mechs(args.filter)
             for mech in eq_list:
-                with MechRenderer(mech, icons) as card:
+                with MechFrontRenderer(mech, icons) as card:
+                    card.render()
+        if args.action == "mech-backs" or args.action == "all":
+            print("Rendering mechs backs...")
+            if args.filter is None:
+                eq_list = game_db.mechs
+            else:
+                print(f"Filter: {args.filter}")
+                eq_list = game_db.get_filtered_mechs(args.filter)
+            for mech in eq_list:
+                with MechBackRenderer(mech, icons) as card:
                     card.render()
         if args.action == "maneuvers" or args.action == "all":
             print("Rendering maneuvers...")

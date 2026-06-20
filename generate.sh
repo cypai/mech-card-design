@@ -4,6 +4,8 @@ mkdir -p outputs/equipment
 mkdir -p outputs/equipment_montages
 mkdir -p outputs/mechs
 mkdir -p outputs/mechs_montages
+mkdir -p outputs/mech_backs
+mkdir -p outputs/mech_backs_montages
 mkdir -p outputs/drones
 mkdir -p outputs/drones_montages
 mkdir -p outputs/maneuvers
@@ -22,6 +24,11 @@ for i in "$@"; do
     ./clear_outputs.sh mechs
     ./card_rendering.py mechs
     ./make_pdf.sh mechs
+  fi
+  if [ "$i" == "mech-backs" ]; then
+    ./clear_outputs.sh mech_backs
+    ./card_rendering.py mech_backs
+    ./make_pdf.sh mech_backs
   fi
   if [ "$i" == "equipment" ]; then
     ./clear_outputs.sh equipment
@@ -50,6 +57,10 @@ for i in "$@"; do
   if [ "$i" == "mech-pngs" ]; then
     ./clear_outputs.sh mechs
     ./card_rendering.py mechs
+  fi
+  if [ "$i" == "mech-back-pngs" ]; then
+    ./clear_outputs.sh mech_backs
+    ./card_rendering.py mech_backs
   fi
   if [ "$i" == "equipment-pngs" ]; then
     ./clear_outputs.sh equipment

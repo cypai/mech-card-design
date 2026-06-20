@@ -304,6 +304,14 @@ Cockroach:
     - |
       1/round, when this mech would be destroyed:
       Set this mech's HP to 1 instead, then set this mech's <:heat:> to 0.
+  lore: |
+    Manufacturer: Edison-Li, Inc.
+
+    First Deployed: 2285
+
+    During the Terran Revolution, the Corporate Assembly's assumption of ever greater emergency powers and middling performance against the rebels left many mid-size corpos like Edison-Li considering their options. It seemed that their choices were a rebel victory that would see their assets expropriated, or a corporate victory that would see them absorbed fully into an Assembly-run megaconglomerate. Like many such corporations, they liked neither option, and fled to the Asteroid Belt. The price for asylum was simple: design a new combat mech and surrender all rights to it to the member states of the Free Havens. With little time on their hands, Edison-Li's engineers strapped a giant cannon to a civilian hauling mech to create the E5001. Derisively nicknamed the “Cockroach” by skeptical Belter pilots, the design proved to be surprisingly effective after some after-market modifications were circulated around. Able to retract its profile to take cover while emergency reboot diagnostics and self-repair protocols are initiated, this scrappy mech has proven itself surprisingly hard to put down for good. Corporate battle protocol recommends double tapping any enemy Cockroaches, just to be sure they're truly dead.
+  how_to_play: |
+    The Cockroach's playstyle is fast and aggressive. Notoriously hard to destroy, it works well with high <:heat:> Equipment. Be careful of multi-hitting Weapons and Airstrikes.
 
 Monte Carlo:
   designation_name: PSF-3X Monte Carlo

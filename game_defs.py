@@ -198,6 +198,8 @@ class Mech:
     copies: int
     legacy_text: bool
     rating: Optional[str]
+    lore: str
+    how_to_play: str
 
     def __init__(self, **kwargs):
         self.name = str(kwargs.get("name"))
@@ -226,12 +228,14 @@ class Mech:
         self.tags = kwargs.get("tags", [])
         self.copies = kwargs.get("copies", 1)
         self.rating = kwargs.get("rating", None)
-        self.rating = kwargs.get("rating", None)
         self.rating_int = parse_rating(self.rating)
+        self.lore = kwargs.get("lore", "")
+        self.how_to_play = kwargs.get("how_to_play", "")
 
         self.normalized_name = re.sub(r"\W", "", self.name)
         self.normalized_name = self.normalized_name.lower()
         self.filename = f"outputs/mechs/{self.normalized_name}.png"
+        self.back_filename = f"outputs/mech_backs/{self.normalized_name}.png"
         self.legacy_text = (
             self.info is None
             and len(self.actions) == 0
@@ -249,7 +253,9 @@ class Mech:
         text += f"Armor: {self.armor}\n"
         text += f"Heat: {self.hc}\n"
         text += f"Hardpoints: {self.hardpoints_str}\n"
-        text += f"Ability: \n{self.ability}"
+        text += f"Ability: \n{self.ability}\n"
+        text += f"Lore: \n{self.lore}\n"
+        text += f"How to Play: \n{self.how_to_play}\n"
         return text
 
     def pretty_text(self):
@@ -313,6 +319,12 @@ class Mech:
         if self.ability != other.ability:
             is_diff = True
             diffs += f"{other.ability}|->\n{self.ability}"
+        if self.lore != other.lore:
+            is_diff = True
+            diffs += f"{other.lore}|->\n{self.lore}"
+        if self.how_to_play != other.how_to_play:
+            is_diff = True
+            diffs += f"{other.how_to_play}|->\n{self.how_to_play}"
         return (is_diff, diffs)
 
 
