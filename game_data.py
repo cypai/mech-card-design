@@ -97,6 +97,28 @@ def get_all_drones(filename: str = "data/drones.yml") -> list[Drone]:
     return all_drones
 
 
+def parse_tokens(tokens) -> Token:
+    name, data = tokens
+    return Token(
+        name=name,
+        texture=data.get("texture"),
+        amount=data.get("amount", 1),
+        front_text=data.get("front_text"),
+        back_text=data.get("back_text"),
+        front_bg_color=data.get("front_bg_color"),
+        back_bg_color=data.get("back_bg_color"),
+    )
+
+
+def get_all_tokens(filename: str = "data/tokens.yml") -> list[Token]:
+    all_tokens = []
+    with open(filename, "r") as tokens_file:
+        data = yaml.safe_load(tokens_file)
+        for item in data.items():
+            all_tokens.append(parse_tokens(item))
+    return all_tokens
+
+
 def parse_maneuvers(maneuvers) -> Maneuver:
     name, data = maneuvers
     return Maneuver(
@@ -413,6 +435,7 @@ class GameDatabase:
             self.mechs = get_all_mechs()
             self.drones = get_all_drones()
             self.maneuvers = get_all_maneuvers()
+        self.tokens = get_all_tokens()
         self.everything = list(
             itertools.chain.from_iterable(
                 [self.equipment, self.mechs, self.drones, self.maneuvers]

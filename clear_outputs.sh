@@ -55,6 +55,15 @@ for i in "$@"; do
       rm outputs/changed_montages/*
     fi
   fi
+  if [ "$i" == "tokens" ]; then
+    echo "Clearing tokens"
+    if [ -n "$(ls -A outputs/tokens)" ]; then
+      rm outputs/tokens/*
+    fi
+    if [ -n "$(ls -A outputs/tokens_montages)" ]; then
+      rm outputs/tokens_montages/*
+    fi
+  fi
   if [ "$i" == "references" ]; then
     echo "Clearing references"
     if [ -n "$(ls -A outputs/references)" ]; then

@@ -1,0 +1,47 @@
+Engage:
+  texture: engage.png
+  amount: 2
+  front_bg_color: "#ff0000"
+  back_bg_color: "#00ff00"
+
+Overheat:
+  texture: overheat.png
+  amount: 4
+  front_text: 1
+  back_text: 2
+
+Shield:
+  texture: shield.png
+  amount: 4
+  front_text: 1
+  back_text: 2
+
+Suppression:
+  texture: suppression.png
+  amount: 4
+  front_text: 1
+  back_text: 2
+
+Vulnerable:
+  texture: vulnerable.png
+  amount: 4
+  front_text: 1
+  back_text: 2
+
+Prepare:
+  texture: prepare.png
+  amount: 2
+  front_bg_color: "#ffff00"
+  back_bg_color: "#ffff00"
+
+Disabled:
+  texture: disabled.png
+  amount: 6
+  front_bg_color: "#00f0ff"
+  back_bg_color: "#00f0ff"
+
+Activateable:
+  texture: prepare.png
+  amount: 9
+  front_bg_color: "#ff0000"
+  back_bg_color: "#00ff00"

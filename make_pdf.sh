@@ -33,6 +33,13 @@ for i in "$@"; do
     montage outputs/changed/*.png -tile 3x3 -geometry 1500x2100 -background white -density 600 outputs/changed_montages/output.png
     magick outputs/changed_montages/*.png -gravity Center changed.pdf
   fi
+  if [ "$i" == "tokens" ]; then
+    echo "Generating tokens PDF"
+    # card_rendering.py already renders the amount of copies each token asks for
+    montage outputs/tokens/*_front.png -tile 5x7 -geometry 300x300 -background white -density 600 outputs/tokens_montages/output_front.png
+    montage outputs/tokens/*_back.png -tile 5x7 -geometry 300x300 -background white -density 600 outputs/tokens_montages/output_back.png
+    magick outputs/tokens_montages/output_front*.png outputs/tokens_montages/output_back*.png -gravity Center tokens.pdf
+  fi
   if [ "$i" == "references" ]; then
     echo "Generating references PDF"
     cp -r outputs/references /tmp/references

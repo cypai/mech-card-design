@@ -3,6 +3,8 @@ from typing import Optional, Self
 import re
 from thefuzz import fuzz
 
+DEFAULT_BG_COLOR = "#ffffff"
+
 
 def parse_rating(rating: Optional[str]) -> int:
     if rating == "Cadet":
@@ -414,6 +416,46 @@ class Drone:
             is_diff = True
             diffs += f"{other.ability}|->\n{self.ability}"
         return (is_diff, diffs)
+
+
+class Token:
+    name: str
+    texture: str
+    amount: int
+    front_text: Optional[str]
+    back_text: Optional[str]
+    front_bg_color: str
+    back_bg_color: str
+
+    def __init__(self, **kwargs):
+        self.name = str(kwargs.get("name"))
+        self.texture = str(kwargs.get("texture"))
+        self.amount = int(kwargs.get("amount", 1))
+        front_text = kwargs.get("front_text")
+        self.front_text = None if front_text is None else str(front_text)
+        back_text = kwargs.get("back_text")
+        self.back_text = None if back_text is None else str(back_text)
+        self.front_bg_color = str(kwargs.get("front_bg_color") or DEFAULT_BG_COLOR)
+        self.back_bg_color = str(kwargs.get("back_bg_color") or DEFAULT_BG_COLOR)
+
+        self.normalized_name = re.sub(r"\W", "", self.name)
+        self.normalized_name = self.normalized_name.lower()
+
+    def front_filename(self, copy: int = 0) -> str:
+        return f"outputs/tokens/{self.normalized_name}_{copy}_front.png"
+
+    def back_filename(self, copy: int = 0) -> str:
+        return f"outputs/tokens/{self.normalized_name}_{copy}_back.png"
+
+    def __str__(self):
+        text = self.name + "\n"
+        text += f"Texture: {self.texture}"
+        text += f"\nAmount: {self.amount}"
+        if self.front_text is not None:
+            text += f"\nFront text: {self.front_text}"
+        if self.back_text is not None:
+            text += f"\nBack text: {self.back_text}"
+        return text
 
 
 class Maneuver:

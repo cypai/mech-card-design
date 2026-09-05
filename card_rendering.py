@@ -14,7 +14,7 @@ from PIL import Image, ImageFont, ImageDraw, ImageText
 from typing import Optional, Union
 
 from game_data import GameDatabase
-from game_defs import Drone, Equipment, Maneuver, Mech
+from game_defs import DEFAULT_BG_COLOR, Drone, Equipment, Maneuver, Mech, Token
 from lib import wrap_text_tagged
 
 CARD_WIDTH = 1500
@@ -37,6 +37,8 @@ ICON_SIZE = int(CARD_WIDTH / 10)
 SECTION_ICON_SIZE = int(SMALL_FONT_SIZE * 1.2)
 
 TRACKER_SIZE = int(CARD_HEIGHT / 10)
+
+TOKEN_SIZE = 300
 
 MARGIN = int(CARD_WIDTH * 0.05)
 BORDER_MARGIN = int(MARGIN / 3)
@@ -128,9 +130,17 @@ def card_text_sections(card: Union[Equipment, Mech, Maneuver, Drone]):
 
 
 class Renderer(ABC):
-    def __init__(self, icons: Icons, filename: str, width: int, height: int):
+    def __init__(
+        self,
+        icons: Icons,
+        filename: str,
+        width: int,
+        height: int,
+        bg_color: str = DEFAULT_BG_COLOR,
+    ):
         self.icons = icons
         self.filename = filename
+        self.bg_color = bg_color
         self.huge_font = ImageFont.truetype(
             "./fonts/HackNerdFont-Bold.ttf", HUGE_FONT_SIZE
         )
@@ -156,7 +166,7 @@ class Renderer(ABC):
         self.height = height
 
     def __enter__(self):
-        self.image = Image.new("RGBA", (self.width, self.height), (255, 255, 255))
+        self.image = Image.new("RGBA", (self.width, self.height), self.bg_color)
         self.pilmoji = Pilmoji(
             self.image,
             source=SteelVanguardSource,
@@ -975,6 +985,42 @@ class MechBackRenderer(MechRenderer):
         )
 
 
+class TokenRenderer(Renderer):
+    IMAGE_SIZE = int(TOKEN_SIZE / 2)
+    IMAGE_X = int((TOKEN_SIZE - IMAGE_SIZE) / 2)
+    IMAGE_Y = IMAGE_X
+    TEXT_MARGIN = int(TOKEN_SIZE * 0.07)
+
+    def __init__(self, token: Token, icons: Icons, copy: int = 0, back: bool = False):
+        filename = token.back_filename(copy) if back else token.front_filename(copy)
+        bg_color = token.back_bg_color if back else token.front_bg_color
+        super().__init__(icons, filename, TOKEN_SIZE, TOKEN_SIZE, bg_color)
+        self.token = token
+        self.text = token.back_text if back else token.front_text
+
+    def render(self):
+        self.draw_border()
+        with Image.open(f"textures/{self.token.texture}") as img:
+            resized = img.convert("RGBA").resize(
+                (TokenRenderer.IMAGE_SIZE, TokenRenderer.IMAGE_SIZE),
+                Image.Resampling.LANCZOS,
+            )
+            self.image.alpha_composite(
+                resized, (TokenRenderer.IMAGE_X, TokenRenderer.IMAGE_Y)
+            )
+        if self.text is not None:
+            self.draw.text(
+                (
+                    TOKEN_SIZE - TokenRenderer.TEXT_MARGIN,
+                    TOKEN_SIZE - TokenRenderer.TEXT_MARGIN,
+                ),
+                self.text,
+                fill="#000000",
+                font=self.icon_font,
+                anchor="rd",
+            )
+
+
 game_db = GameDatabase()
 
 
@@ -1031,6 +1077,14 @@ def main():
             for drone in game_db.drones:
                 with DroneCardRenderer(drone, icons) as card:
                     card.render()
+        if args.action == "tokens":
+            print("Rendering tokens...")
+            for token in game_db.tokens:
+                for copy in range(token.amount):
+                    with TokenRenderer(token, icons, copy) as card:
+                        card.render()
+                    with TokenRenderer(token, icons, copy, back=True) as card:
+                        card.render()
         if args.action == "references":
             print("Rendering references...")
             with KeywordReferenceCardRenderer(icons) as card:

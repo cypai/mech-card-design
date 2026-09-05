@@ -12,6 +12,8 @@ mkdir -p outputs/maneuvers
 mkdir -p outputs/maneuvers_montages
 mkdir -p outputs/changed
 mkdir -p outputs/changed_montages
+mkdir -p outputs/tokens
+mkdir -p outputs/tokens_montages
 
 for i in "$@"; do
   if [ "$i" == "all" ]; then
@@ -45,6 +47,11 @@ for i in "$@"; do
     ./card_rendering.py maneuvers
     ./make_pdf.sh maneuvers
   fi
+  if [ "$i" == "tokens" ]; then
+    ./clear_outputs.sh tokens
+    ./card_rendering.py tokens
+    ./make_pdf.sh tokens
+  fi
   if [ "$i" == "changed" ]; then
     ./clear_outputs.sh changed
     ./run_changelog.py montage
@@ -73,5 +80,9 @@ for i in "$@"; do
   if [ "$i" == "drone-pngs" ]; then
     ./clear_outputs.sh drones
     ./card_rendering.py drones
+  fi
+  if [ "$i" == "token-pngs" ]; then
+    ./clear_outputs.sh tokens
+    ./card_rendering.py tokens
   fi
 done
