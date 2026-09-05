@@ -972,16 +972,16 @@ class MechBackRenderer(MechRenderer):
         )
         self.draw_card_text(
             [CardTextSection(CardTextSectionType.LEGACY, self.mech.how_to_play)],
-            int(MECH_PADDING * 1.5),
+            int(MECH_PADDING),
             int(MechRenderer.ART_Y + MECH_PADDING * 0.5),
-            max_chars=48,
+            max_chars=46,
         )
         self.draw_card_text(
-            [CardTextSection(CardTextSectionType.LEGACY, self.mech.lore)],
-            int(MECH_WIDTH / 2 + MECH_PADDING),
-            int(MechRenderer.ART_Y + MECH_PADDING * 0.5),
-            max_chars=48,
-            font=self.italic_font,
+            [CardTextSection(CardTextSectionType.LEGACY, x) for x in self.mech.lore],
+            int(MECH_PADDING),
+            int(MECH_HEIGHT / 4),
+            max_chars=54,
+            font=self.flavor_text_font,
         )
 
 

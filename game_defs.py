@@ -200,7 +200,7 @@ class Mech:
     copies: int
     legacy_text: bool
     rating: Optional[str]
-    lore: str
+    lore: list[str]
     how_to_play: str
 
     def __init__(self, **kwargs):
@@ -231,7 +231,7 @@ class Mech:
         self.copies = kwargs.get("copies", 1)
         self.rating = kwargs.get("rating", None)
         self.rating_int = parse_rating(self.rating)
-        self.lore = kwargs.get("lore", "")
+        self.lore = kwargs.get("lore", [])
         self.how_to_play = kwargs.get("how_to_play", "")
 
         self.normalized_name = re.sub(r"\W", "", self.name)

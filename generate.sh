@@ -28,9 +28,9 @@ for i in "$@"; do
     ./make_pdf.sh mechs
   fi
   if [ "$i" == "mech-backs" ]; then
-    ./clear_outputs.sh mech_backs
-    ./card_rendering.py mech_backs
-    ./make_pdf.sh mech_backs
+    ./clear_outputs.sh mech-backs
+    ./card_rendering.py mech-backs
+    ./make_pdf.sh mech-backs
   fi
   if [ "$i" == "equipment" ]; then
     ./clear_outputs.sh equipment
