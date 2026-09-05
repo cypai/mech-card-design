@@ -57,6 +57,11 @@ for i in "$@"; do
     ./run_changelog.py montage
     ./make_pdf.sh changed
   fi
+  if [ "$i" == "references" ]; then
+    ./clear_outputs.sh references
+    ./card_rendering.py references
+    ./make_pdf.sh references
+  fi
   if [ "$i" == "pngs" ]; then
     ./clear_outputs.sh mechs equipment drones maneuvers
     ./card_rendering.py all

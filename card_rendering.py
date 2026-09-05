@@ -612,9 +612,10 @@ class DroneCardRenderer(CardRenderer):
 
 class KeywordReferenceCardRenderer(CardRenderer):
     def __init__(self, icons: Icons):
-        super().__init__(icons, "keywords.png")
+        super().__init__(icons, "outputs/references/keywords.png")
 
     def render(self):
+        self.draw_border()
         self.draw_name("Keywords", "#000000")
         self.draw_text()
 
@@ -656,9 +657,10 @@ class KeywordReferenceCardRenderer(CardRenderer):
 
 class RulesReferenceCardRenderer(CardRenderer):
     def __init__(self, icons: Icons):
-        super().__init__(icons, "rules.png")
+        super().__init__(icons, "outputs/references/rules.png")
 
     def render(self):
+        self.draw_border()
         self.draw_name("Turn Reference", "#000000")
         self.draw_text()
 
@@ -699,9 +701,10 @@ class RulesReferenceCardRenderer(CardRenderer):
 
 class RegroupingReferenceCardRenderer(CardRenderer):
     def __init__(self, icons: Icons):
-        super().__init__(icons, "regrouping.png")
+        super().__init__(icons, "outputs/references/regrouping.png")
 
     def render(self):
+        self.draw_border()
         self.draw_name("Regrouping", "#000000")
         self.draw_text()
 
