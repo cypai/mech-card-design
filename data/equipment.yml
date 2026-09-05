@@ -9,6 +9,8 @@ Light Cannon:
   actions:
     - |
       Deal 2 <:damage:>.
+  flavor_text: |
+    "Wazzup, I deal 2 damage."
 
 Gunslinger's Justice:
   size: Small
