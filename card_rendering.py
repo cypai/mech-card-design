@@ -942,16 +942,16 @@ class MechBackRenderer(MechRenderer):
         self.draw_border(stroke=4)
         self.draw_name()
         self.draw_rectangle(
-            MECH_PADDING,
+            MechRenderer.ART_X,
             MechRenderer.ART_Y,
-            int(MECH_WIDTH / 2 - MECH_PADDING),
-            MECH_HEIGHT - MechRenderer.ART_Y,
+            MechRenderer.ART_W,
+            MechRenderer.ART_H,
         )
         self.draw_rectangle(
-            int(MECH_WIDTH / 2 + MECH_PADDING / 2),
+            int(MECH_PADDING / 2),
             MechRenderer.ART_Y,
-            int(MECH_WIDTH / 2 - MECH_PADDING),
-            MECH_HEIGHT - MechRenderer.ART_Y,
+            MechRenderer.ART_X - int(MECH_PADDING),
+            MechRenderer.ART_H,
         )
         self.draw_flag()
         self.draw_card_rating(
