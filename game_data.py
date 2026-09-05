@@ -58,7 +58,7 @@ def parse_mechs(mechs) -> Mech:
         tags=data.get("tags", []),
         copies=data.get("copies", 1),
         rating=data.get("rating", None),
-        lore=data.get("lore", ""),
+        lore=data.get("lore", []),
         how_to_play=data.get("how_to_play", ""),
     )
 

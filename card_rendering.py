@@ -788,6 +788,19 @@ class MechRenderer(MechSizedRenderer):
             align="left",
         )
 
+    def draw_mech_image(self):
+        image_path = f"textures/mech-art/{self.mech.normalized_name}.png"
+        if not os.path.exists(image_path):
+            image_path = f"textures/mech-art/placeholder.png"
+        with Image.open(image_path) as img:
+            self.draw_bordered_image(
+                img,
+                MechRenderer.ART_X,
+                MechRenderer.ART_Y,
+                MechRenderer.ART_W,
+                MechRenderer.ART_H,
+            )
+
     def draw_flag(self):
         image_path = f"textures/flags/{self.mech.faction.lower()}.png"
         with Image.open(image_path) as img:
@@ -810,15 +823,7 @@ class MechFrontRenderer(MechRenderer):
     def render(self):
         self.draw_border(stroke=4)
         self.draw_name()
-        # image_path = f"textures/mech-art/{self.mech.normalized_name}.png"
-        # if not os.path.exists(image_path):
-        #    image_path = f"textures/mech-art/placeholder.png"
-        self.draw_rectangle(
-            MechRenderer.ART_X,
-            MechRenderer.ART_Y,
-            MechRenderer.ART_W,
-            MechRenderer.ART_H,
-        )
+        self.draw_mech_image()
         self.draw_rectangle(
             int(MECH_PADDING / 2),
             MechRenderer.ART_Y,
@@ -951,12 +956,7 @@ class MechBackRenderer(MechRenderer):
     def render(self):
         self.draw_border(stroke=4)
         self.draw_name()
-        self.draw_rectangle(
-            MechRenderer.ART_X,
-            MechRenderer.ART_Y,
-            MechRenderer.ART_W,
-            MechRenderer.ART_H,
-        )
+        self.draw_mech_image()
         self.draw_rectangle(
             int(MECH_PADDING / 2),
             MechRenderer.ART_Y,
@@ -980,7 +980,7 @@ class MechBackRenderer(MechRenderer):
             [CardTextSection(CardTextSectionType.LEGACY, x) for x in self.mech.lore],
             int(MECH_PADDING),
             int(MECH_HEIGHT / 4),
-            max_chars=54,
+            max_chars=53,
             font=self.flavor_text_font,
         )
 
