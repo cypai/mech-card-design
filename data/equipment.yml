@@ -558,9 +558,6 @@ Pulsar Beam Cannon:
     - |
       If [<:charge:>]=2:
       Disable 1 Equipment on the <:target:>. Deal 5 <:damage:>. Set <:charge:> to 0.
-  flavor_text: |
-    “What makes a good pilot? The courage to give of themselves such that others might not labor in chains."
-     - Cpt. Kim Yaerin, Commonwealth Mechanized Cavalry
   tags:
     - Strong-Watchlist
   alias:

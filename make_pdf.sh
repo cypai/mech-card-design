@@ -42,7 +42,7 @@ for i in "$@"; do
   fi
   if [ "$i" == "references" ]; then
     echo "Generating references PDF"
-    cp outputs/references/* /tmp/references
+    cp -r outputs/references /tmp/references
     montage outputs/references/*.png /tmp/references/*.png -tile 3x3 -geometry 1500x2100 -background white -density 600 /tmp/references.png
     magick /tmp/references.png -gravity Center references.pdf
   fi

@@ -17,10 +17,10 @@ mkdir -p outputs/tokens_montages
 
 for i in "$@"; do
   if [ "$i" == "all" ]; then
-    ./clear_outputs.sh mechs equipment drones maneuvers changed
+    ./clear_outputs.sh mechs mech-backs equipment drones maneuvers changed
     ./card_rendering.py all
     ./run_changelog.py montage
-    ./make_pdf.sh mechs equipment drones maneuvers changed
+    ./make_pdf.sh mechs mech-backs equipment drones maneuvers changed
   fi
   if [ "$i" == "mechs" ]; then
     ./clear_outputs.sh mechs
