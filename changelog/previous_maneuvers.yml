@@ -49,7 +49,7 @@ Ramming Speed:
 
 Strategic Bombardment:
   target: 1
-  rating: Veteran
+  rating: Ace
   triggers:
     - |
       When your turn ends:
@@ -70,7 +70,7 @@ Outflank:
       Draw a card. Reposition any number of enemy mechs. At least 1 mech must be in the front line.
 
 Combat Engineering:
-  rating: Veteran
+  rating: Cadet
   actions:
     - |
       Draw a card. Look at an additional 5 cards in the deck. You may replace 1 Equipment on any of your mechs with one of those cards or cards in your hand.

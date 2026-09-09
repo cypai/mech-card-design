@@ -34,7 +34,7 @@ Flechettes:
   range: 1
   target: C
   maxcharge: 3
-  rating: Veteran
+  rating: Ace
   actions:
     - |
       Deal 1 <:damage:> to each <:target:>. Lose all <:charge:>.
@@ -60,7 +60,7 @@ LINK-R Targeting Gun:
   triggers:
     - |
       When this mech resolves a <:target:> 1 Medium or Large Weapon:
-      <:target:> must be the same as that Weapon. -1 <:heat:> cost. Deal 1 <:damage:>.
+      <:target:> must be the same as that Weapon. -1 <:heat:> Cost. Deal 1 <:damage:>.
   alias:
     - LINK-R
 
@@ -93,7 +93,7 @@ Seeker Minigun:
   range: 1
   target: 1
   maxcharge: 4
-  rating: Veteran
+  rating: Ace
   actions:
     - |
       Gain 2 <:charge:>.
@@ -113,6 +113,8 @@ Gauss Rifle:
   actions:
     - |
       Deal 2 AP <:damage:>. Inflict 1 <:vulnerable:>.
+  flavor_text: |
+    Particularly popular in the Free Havens for their reliability in zero-G, gauss rifles are the choice of many a grizzled veteran across the Sol System.
 
 Assault Carbine:
   size: Medium
@@ -121,7 +123,7 @@ Assault Carbine:
   heat: 2
   range: 1
   target: 1
-  rating: Veteran
+  rating: Ace
   actions:
     - |
       Deal 2 <:damage:>. Inflict 1 <:suppression:>.
@@ -144,11 +146,10 @@ Automatic Shotgun:
   form: Weapon
   heat: 3
   range: 1
-  target: P
   rating: Cadet
   actions:
     - |
-      Deal 2 <:damage:> to all mechs at the <:target:>.
+      Choose a position within <:range:>. Deal 2 <:damage:> to all mechs there.
   tags:
     - AOE
 
@@ -159,7 +160,7 @@ Assault Cannon:
   heat: 3
   range: 1
   target: 1
-  rating: Veteran
+  rating: Ace
   actions:
     - |
       Deal 2 <:damage:>. Choose:
@@ -188,7 +189,7 @@ Assault Rifle:
   heat: 4
   range: 1
   target: 2
-  rating: Cadet
+  rating: Veteran
   actions:
     - |
       Deal 2 <:damage:> to each <:target:>.
@@ -222,6 +223,9 @@ Panoptic Autocannon:
   actions:
     - |
       Deal 1 <:damage:>. Inflict 2 <:suppression:> to other mechs at that position.
+  flavor_text: |
+    “What makes a good pilot? One who understands the superiority of agentic thought, and surrenders himself body and soul to the God-Machine."
+     - Cpt. Leon Viel, Templar of Jupiter
   tags:
     - AOE
   alias:
@@ -238,6 +242,8 @@ Railgun:
   actions:
     - |
       Deal 5 AP <:damage:>.
+  flavor_text: |
+    “There's a certain elegance to the railgun. No self-guidance, no nanites, no tricks. Just you, your firing solution, and annihilation at Mach 14.”
 
 Hullcrusher Rifle:
   size: Large
@@ -264,6 +270,8 @@ Mass Driver:
   actions:
     - |
       Deal 4 <:damage:>. If the <:target:> is in the front line, Reposition it.
+  flavor_text: |
+    “Give ‘em a broadside, lads! Show these invaders a little Belter hospitality!”
 
 Annihilator Siege Cannon:
   size: Large
@@ -273,7 +281,7 @@ Annihilator Siege Cannon:
   range: 1
   target: 1
   ammo: 2
-  rating: Veteran
+  rating: Ace
   actions:
     - |
       Prepare: Deal 8 AP <:damage:>.
@@ -290,7 +298,7 @@ Heavy Assault Cannon:
   range: 1
   target: 1
   maxcharge: 3
-  rating: Veteran
+  rating: Ace
   actions:
     - |
       Deal [<:charge:>+2] <:damage:>.
@@ -323,7 +331,7 @@ Hellbore AMR:
   heat: 5
   range: 2
   target: 1
-  rating: Cadet
+  rating: Veteran
   actions:
     - |
       Deal 4 AP <:damage:>.
@@ -365,7 +373,7 @@ Pulse Pistol:
   range: 1
   target: C
   maxcharge: 4
-  rating: Veteran
+  rating: Ace
   actions:
     - |
       Gain 2 <:charge:>.
@@ -381,7 +389,7 @@ EM Polarizer:
   heat: 2
   range: 1
   target: 1
-  rating: Cadet
+  rating: Veteran
   actions:
     - |
       Deal 1 <:damage:>.
@@ -410,7 +418,7 @@ Antimatter Blaster:
   range: 1
   target: 1
   ammo: 1
-  rating: Veteran
+  rating: Cadet
   actions:
     - |
       Deal 4 AP <:damage:>. Inflict 3 <:overheat:>.
@@ -421,11 +429,12 @@ Flamethrower:
   form: Weapon
   heat: 3
   range: 1
-  target: P
   rating: Cadet
   actions:
     - |
-      Deal 1 <:damage:> and inflict 1 <:overheat:> to all mechs at the <:target:>.
+      Choose a position within <:range:>. Deal 1 <:damage:> and inflict 1 <:overheat:> to all mechs there.
+  flavor_text: |
+    “May the cleansing fire of the God-Machine redeem you, infidel!”
   tags:
     - AOE
 
@@ -435,12 +444,11 @@ Galvanic Shotgun:
   form: Weapon
   heat: 3
   range: 1
-  target: P
   maxcharge: 1
-  rating: Veteran
+  rating: Cadet
   actions:
     - |
-      Deal [<:charge:>+1] <:damage:> to all mechs at the <:target:>. 1 Equipment on an allied mech gains 1 <:charge:>.
+      Choose a position within <:range:>. Deal [<:charge:>+1] <:damage:> to all mechs there. 1 Equipment on an allied mech gains 1 <:charge:>.
   tags:
     - AOE
     - Strong-Watchlist
@@ -454,10 +462,12 @@ Laser Rifle:
   heat: 3
   range: 1
   target: 1
-  rating: Veteran
+  rating: Cadet
   actions:
     - |
       Deal 3 <:damage:>.
+  flavor_text: |
+    Simple, cheap and reliable, the C55 Astrea Laser Rifle has been a ubiquitous mech weapon for more than half a century.
 
 Autopulse Rifle:
   size: Medium
@@ -467,7 +477,7 @@ Autopulse Rifle:
   target: C
   range: 1
   maxcharge: 3
-  rating: Veteran
+  rating: Ace
   actions:
     - |
       Gain 1 <:charge:> before designating <:target:>. Deal 3 <:damage:> to each <:target:>. Lose all <:charge:>.
@@ -487,7 +497,7 @@ Plasma Blaster:
   rating: Cadet
   actions:
     - |
-      Deal 2 <:damage:>. Inflict 1 <:overheat:>.
+      Deal 1 <:damage:>. Inflict 2 <:overheat:>.
 
 Repulsor Array:
   size: Medium
@@ -512,7 +522,7 @@ Magnetic Harpoon:
   heat: 3
   range: 2
   target: 1
-  rating: Veteran
+  rating: Ace
   actions:
     - |
       Deal 2 <:damage:>.
@@ -541,13 +551,15 @@ Pulsar Beam Cannon:
   range: 1
   target: 1
   maxcharge: 2
-  rating: Cadet
+  rating: Veteran
   actions:
     - |
       Deal 2 <:damage:>. Gain 1 <:charge:>.
     - |
       If [<:charge:>]=2:
-      Remove all <:shield:> on all enemy mechs. Disable 1 Equipment on the <:target:>. Deal 5 <:damage:>. Set <:charge:> to 0.
+      Disable 1 Equipment on the <:target:>. Deal 5 <:damage:>. Set <:charge:> to 0.
+  tags:
+    - Strong-Watchlist
   alias:
     - Pulsar
     - Pulsar Beam
@@ -563,6 +575,9 @@ Slagmaker:
   actions:
     - |
       Deal 6 <:damage:>. Disable all other Equipment on this mech.
+  flavor_text: |
+    “What makes a good pilot? Blowing up all your enemies and getting paid!"
+     - Cpt. Thalia Schwarz, Skull & Crossbones PMC
 
 Thermobaric Flame Cannon:
   size: Large
@@ -570,12 +585,13 @@ Thermobaric Flame Cannon:
   form: Weapon
   heat: 6
   range: 2
-  target: P
-  rating: Cadet
+  rating: Veteran
   actions:
     - |
-      Inflict 1 <:overheat:> to all mechs with no <:shield:> at <:target:>.
-      Deal 2 <:damage:> to all mechs at the <:target:>.
+      Choose a position within <:range:>. Inflict 1 <:overheat:> to all mechs with no <:shield:> there. Deal 2 <:damage:> to all mechs there.
+  flavor_text: |
+    “ULTIMA RATIO IMPERATOR MARTIUS"
+     - Inscription on a Martian F-451 thermobaric cannon
   tags:
     - AOE
     - Strong-Watchlist
@@ -610,7 +626,7 @@ Plasma Incinerator:
   rating: Cadet
   actions:
     - |
-      Deal 5 <:damage:>. Inflict 1 <:overheat:> and 1 <:vulnerable:>.
+      Deal 5 <:damage:>. Inflict 2 <:overheat:>.
 
 Portal Inducer:
   size: Large
@@ -619,7 +635,7 @@ Portal Inducer:
   heat: 6
   range: 3
   target: 2
-  rating: Cadet
+  rating: Veteran
   info: |
     This Weapon may <:target:> allied mechs.
   actions:
@@ -627,6 +643,8 @@ Portal Inducer:
       Choose for each <:target:>:
       > Reposition the <:target:>.
       > Deal 2 AP <:damage:>.
+  flavor_text: |
+    “This thing is giving physics the middle finger. It functions, and we have no idea why. If this is really what their 'God-Machine' can do, we should be terrified.”
 
 Gungnir Seeker Cannon:
   size: Large
@@ -635,10 +653,12 @@ Gungnir Seeker Cannon:
   heat: 5
   range: 1
   target: 1
-  rating: Veteran
+  rating: Ace
   actions:
     - |
       Prepare: Deal 6 <:damage:>. Cannot be Evaded.
+  flavor_text: |
+    "This time, your life will definitely end 30 minutes from now!"
   alias:
     - Gungnir
 
@@ -650,7 +670,7 @@ Gigapulse Laser:
   range: 1
   target: C
   maxcharge: 3
-  rating: Veteran
+  rating: Ace
   actions:
     - |
       Gain 1 <:charge:> before designating <:target:>.
@@ -671,51 +691,53 @@ Combat Knife:
   type: Melee
   form: Weapon
   heat: 2
-  range: 0
+  range: 1
   target: 1
-  rating: Veteran
+  rating: Cadet
   actions:
     - |
-      Melee <:card-rotation:>. Deal 1 <:damage:>. Inflict 1 <:vulnerable:>.
+      <:engage:> this mech. Deal 1 <:damage:>. Inflict 1 <:vulnerable:>.
 
 Power Buckler:
   size: Small
   type: Melee
   form: Weapon
   heat: 2
-  range: 0
+  range: 1
   target: 1
-  rating: Veteran
+  rating: Cadet
   actions:
     - |
-      Melee <:card-rotation:>. Deal 1 <:damage:>. Gain 1 <:shield:>.
+      <:engage:> this mech. Deal 1 <:damage:>. Gain 1 <:shield:>.
 
 Power Fist:
   size: Medium
   type: Melee
   form: Weapon
   heat: 3
-  range: 0
+  range: 1
   target: 1
-  rating: Veteran
+  rating: Cadet
   actions:
     - |
-      Melee <:card-rotation:>. Deal 3 <:damage:>. Move the <:target:> to the back line.
+      <:engage:> this mech. Deal 3 <:damage:>. Move the <:target:> to the back line.
 
 Iaijutsu Blade:
   size: Medium
   type: Melee
   form: Weapon
   heat: 4
-  range: 0
+  range: 1
   target: 1
   rating: Veteran
   actions:
     - |
-      Melee <:card-rotation:>.
+      <:engage:> this mech.
       Choose:
       > Deal 3 <:damage:>. Shred.
       > Discard a card. Destroy the <:target:> if it has 5 HP or less.
+  flavor_text: |
+    “You’re already dead.”
   alias:
     - Iaijutsu
 
@@ -724,49 +746,49 @@ Ion Knuckle:
   type: Melee
   form: Weapon
   heat: 4
-  range: 0
+  range: 1
   target: 1
-  rating: Veteran
+  rating: Cadet
   actions:
     - |
-      Melee <:card-rotation:>. Deal 2 <:damage:>. Disable 1 Equipment on the <:target:>.
+      <:engage:> this mech. Deal 2 <:damage:>. Disable 1 Equipment on the <:target:>.
 
 Phase Lance:
   size: Medium
   type: Melee
   form: Weapon
   heat: 3
-  range: 0
+  range: 1
   target: 1
-  rating: Veteran
+  rating: Cadet
   actions:
     - |
-      Melee <:card-rotation:>. Remove all <:shield:> from the <:target:>. Deal 3 AP <:damage:>.
+      <:engage:> this mech. Remove all <:shield:> from the <:target:>. Deal 3 AP <:damage:>.
 
 Plasma Torch:
   size: Medium
   type: Melee
   form: Weapon
   heat: 3
-  range: 0
+  range: 1
   target: 1
   rating: Veteran
   actions:
     - |
-      Melee <:card-rotation:>. If the <:target:> has no <:shield:>, inflict 1 <:overheat:>. Deal 3 AP <:damage:>.
+      <:engage:> this mech. Inflict [X+1] <:overheat:>, where X = Armor of the <:target:>. Deal 3 <:damage:>.
 
 Rocket Fists:
   size: Medium
   type: Melee
   form: Weapon
   heat: 4
-  range: 0
+  range: 1
   target: 1
   ammo: 2
   rating: Veteran
   actions:
     - |
-      Melee <:card-rotation:>. Deal 4 <:damage:>.
+      <:engage:> this mech. Deal 4 <:damage:>.
       Requires <:ammo:>, but does not consume <:ammo:>.
     - |
       Deal 2 <:damage:> with <:range:> 2. Move the <:target:> to the back line.
@@ -776,14 +798,17 @@ Ripjaw Chainaxe:
   type: Melee
   form: Weapon
   heat: 5
-  range: 0
+  range: 1
   target: 1
   maxcharge: 4
   rating: Veteran
   actions:
     - |
-      Melee <:card-rotation:>. Gain 1 <:charge:>. Deal [<:charge:>+4] <:damage:>.
+      <:engage:> this mech. Gain 1 <:charge:>. Deal [<:charge:>+4] <:damage:>.
       If [<:charge:>]>1, Shred.
+  flavor_text: |
+    "What makes a good pilot? Simple. The combination of unerring rationality and unfettered hate."
+     - Cpt. Jim Leigh, Legio Martius
   alias:
     - Ripjaw
 
@@ -792,12 +817,14 @@ Arondight Starsword:
   type: Melee
   form: Weapon
   heat: 5
-  range: 0
+  range: 1
   target: 1
-  rating: Veteran
+  rating: Cadet
   actions:
     - |
-      Melee <:card-rotation:>. Deal 6 <:damage:>.
+      <:engage:> this mech. Deal 6 <:damage:>.
+  flavor_text: |
+    Formally known as the X-CL Monomolecular Blade, this weapon is so iconic to the Lancelot-class that the Commonwealth Armory named it after the knight’s legendary sword.
   alias:
     - Arondight
 
@@ -806,14 +833,17 @@ Heavy Combat Drill:
   type: Melee
   form: Weapon
   heat: 5
-  range: 0
+  range: 1
   target: 1
   maxcharge: 6
   rating: Ace
   actions:
     - |
-      Melee <:card-rotation:>. Gain 1 <:charge:>. Deal 2 AP <:damage:>. Shred.
-      Prepare: Deal [<:charge:>+2] AP <:damage:>. Shred.
+      <:engage:> this mech. Gain 1 <:charge:>. Deal 1 <:damage:>. Shred.
+      Prepare: Deal [<:charge:>+2] <:damage:>. Shred. Shred.
+  flavor_text: |
+    "Practical? I don't care if it's *practical*! With this drill, I'm going to do the impossible!"
+     - Anonymous Martian insurgent, pilot of the *Red Spiral*
   alias:
     - Arondight
 
@@ -822,16 +852,16 @@ Thermopylae Plasma Lance:
   type: Melee
   form: Weapon
   heat: 5
-  range: 0
+  range: 1
   target: 1
   rating: Ace
   actions:
     - |
-      Melee <:card-rotation:>. Deal 4 AP <:damage:>. Inflict 2 <:overheat:>.
+      <:engage:> this mech. Deal 4 AP <:damage:>. Inflict 2 <:overheat:>.
   triggers:
     - |
-      When an enemy mech Repositions into the front line:
-      <:target:> that mech and perform this Weapon's <:action:>.
+      When the turn ends:
+      You may <:target:> an enemy mech that Repositioned this turn and perform this Weapon's <:action:>.
   alias:
     - Thermopylae
 
@@ -841,12 +871,11 @@ Combat Drone Launcher:
   form: Weapon
   heat: 5
   range: 1
-  target: P
   ammo: 3
   rating: Veteran
   actions:
     - |
-      Deal 2 <:damage:> to the enemy front line.
+      Deal 2 <:damage:> to all mechs in the front line.
       Deploy 1 Combat Drone.
     - |
       Back line activation: -3 <:heat:> Cost. Deploy 1 Combat Drone.
@@ -860,10 +889,10 @@ Shield Drone Launcher:
   form: System
   heat: 3
   ammo: 2
-  rating: Ace
+  rating: Veteran
   actions:
     - |
-      Grant 2 <:shield:> to an allied mech. Deploy 1 Shield Drone.
+      Grant 1 <:shield:> to an allied mech. Deploy 1 Shield Drone.
 
 Scout Drone Launcher:
   size: Small
@@ -871,7 +900,7 @@ Scout Drone Launcher:
   form: System
   heat: 2
   ammo: 3
-  rating: Veteran
+  rating: Ace
   actions:
     - |
       You may Reposition an allied mech. Deploy 1 Scout Drone.
@@ -885,17 +914,16 @@ Jammer Drone Launcher:
   form: System
   heat: 4
   range: 1
-  target: P
   ammo: 2
   rating: Veteran
   actions:
     - |
-      Inflict 1 <:overheat:> on the enemy front line. Deploy 1 Jammer Drone.
+      Inflict 1 <:overheat:> to all enemy mechs in the front line. Deploy 1 Jammer Drone.
   tags:
     - AOE
     - Strong-Watchlist
 
-Hailstorm Drone Nexus:
+Skyhammer Drone Nexus:
   size: Medium
   type: Drone
   form: System
@@ -913,26 +941,21 @@ Hailstorm Drone Nexus:
     - AOE
     - Strong-Watchlist
   alias:
-    - Hailstorm
+    - Skyhammer
 
-Skyhammer Drone Nexus:
+Hailstorm Drone Nexus:
   size: Medium
   type: Drone
   form: System
   heat: 4
   range: 2
-  target: 1
   ammo: 3
   rating: Ace
   actions:
     - |
-      Deploy 1 Combat Drone. Inflict [X] <:suppression:>, where X is the total amount of your deployed Drones.
-  passives:
-    - |
-      When any allied mech resolves a <:target:> 1 Equipment, and you have at least 1 deployed Combat Drone:
-      If that Equipment's <:target:> has <:suppression:>, <:card-rotation:> the <:target:>.
+      Deploy 1 Combat Drone. Choose a position within <:range:>. Inflict [X] <:suppression:> to all mechs there, where X is the total amount of your deployed Drones.
   alias:
-    - Skyhammer
+    - Hailstorm
 
 Pathfinder Drone Nexus:
   size: Medium
@@ -971,8 +994,8 @@ Hunter-Killer Nanites:
       If the <:target:> has Vulnerable, deal 1 <:damage:>, otherwise inflict 1 <:vulnerable:>.
   triggers:
     - |
-      When the turn ends, and an enemy mech Repositioned this turn:
-      Perform this Weapon's <:action:>.
+      When the turn ends:
+      You may <:target:> an enemy mech that Repositioned this turn and perform this Weapon's <:action:>.
   tags:
     - Weak-Watchlist
   alias:
@@ -987,7 +1010,7 @@ Proximity-Swarm Nanites:
   range: 1
   target: 1
   ammo: 3
-  rating: Ace
+  rating: Veteran
   actions:
     - |
       Gain 1 <:shield:> on this mech.
@@ -1009,12 +1032,14 @@ Thermo-Reactive Nanites:
   range: 2
   target: 1
   ammo: 3
-  rating: Veteran
+  rating: Cadet
   actions:
     - |
       Inflict 3 <:overheat:>.
     - |
       Inflict 3 <:vulnerable:>.
+  flavor_text: |
+    Nanite swarms are a new, and terrifying, addition to 24th century war. Their programming is strictly regulated by international law to avoid a "grey goo" scenario.
   alias:
     - Thermo-Reactive
     - Thermo Reactive
@@ -1044,7 +1069,7 @@ Anchor Harpoon:
   ammo: 2
   rating: Cadet
   info: |
-      This Weapon may <:target:> allied mechs.
+    This Weapon may <:target:> allied mechs.
   actions:
     - |
       Reposition the <:target:>.
@@ -1076,7 +1101,7 @@ Breach Missile:
   range: 1
   target: 1
   ammo: 2
-  rating: Cadet
+  rating: Veteran
   actions:
     - |
       Deal 1 <:damage:>. Shred.
@@ -1087,13 +1112,12 @@ Ballistic Missile:
   form: Weapon
   heat: 0
   range: 3
-  target: P
   ammo: 1
-  rating: Veteran
+  rating: Ace
   actions:
     - |
-      <:target:> a position.
-      Prepare: Deal 3 AP <:damage:> to all mechs at that <:target:>.
+      Choose a position.
+      Prepare: Deal 3 AP <:damage:> to all mechs there.
   tags:
     - AOE
 
@@ -1103,33 +1127,15 @@ Fragmentation Missile:
   form: Weapon
   heat: 0
   range: 1
-  target: P
   ammo: 2
   rating: Cadet
   actions:
     - |
-      Deal 1 <:damage:> to all mechs at the <:target:>.
+      Choose a position within <:range:>. Deal 1 <:damage:> to all mechs there.
   tags:
     - AOE
   alias:
     - Frag Missile
-
-Razortooth Missile:
-  size: Small
-  type: Missile
-  form: Weapon
-  heat: 0
-  range: 1
-  target: P
-  ammo: 1
-  rating: Cadet
-  actions:
-    - |
-      Shred all enemy mechs at the <:target:>.
-  tags:
-    - AOE
-  alias:
-    - Razortooth
 
 Ion Torpedo:
   size: Small
@@ -1137,12 +1143,11 @@ Ion Torpedo:
   form: Weapon
   heat: 0
   range: 2
-  target: P
   ammo: 1
   rating: Cadet
   actions:
     - |
-      Disable 1 Equipment on each mech with no <:shield:> at the <:target:>.
+      Choose a position within <:range:>. Disable 1 Equipment on each mech with no <:shield:> there.
   tags:
     - AOE
     - Weak-Watchlist
@@ -1159,6 +1164,8 @@ Thanatos Missile:
   actions:
     - |
       Discard a card. Deal 4 <:damage:>. Cannot be Evaded.
+  flavor_text: |
+    Thanatos Smart Missiles are so expensive that each costs over 45 billion denarii to produce. Why does efficiency-worshipping Mars still use them? Because every single one ever fired, without exception, has hit its target.
   tags:
     - Strong-Watchlist
   alias:
@@ -1186,7 +1193,7 @@ Thanatos Missile:
   range: 3
   target: C
   maxcharge: 4
-  rating: Veteran
+  rating: Ace
   actions:
     - |
       Gain 1 <:charge:> before designating <:target:>.
@@ -1207,6 +1214,8 @@ Thanatos Missile:
   actions:
     - |
       If the <:target:> is not at 0 <:heat:>, Disable 1 Equipment on the <:target:>.
+  flavor_text: |
+    “All right, corpo scum, let's see how much good that big laser does you when I turn it into the world’s biggest paperweight!”
   alias:
     - SHORTCIRCUIT
 
@@ -1217,12 +1226,14 @@ Thanatos Missile:
   heat: 2
   range: 3
   target: 2
-  rating: Cadet
+  rating: Veteran
   info: |
     This Weapon may <:target:> allied mechs. <:target:> must be distinct mechs.
   actions:
     - |
       Reposition the <:target:>.
+  flavor_text: |
+    “O holy God-Machine, invest your spirit in my code, that your children might dance with joy to your divine melody!”
   alias:
     - TANGO
 
@@ -1240,14 +1251,33 @@ Thanatos Missile:
   tags:
     - Weak-Watchlist
 
-Overkill Protocol:
+"Cyberwarfare: GATEBREAKER":
   size: Small
   type: Electronics
   form: System
   heat: 2
-  range: 2
+  range: 3
   target: 1
+  maxcharge: 6
   rating: Cadet
+  actions:
+    - |
+      Gain 2 <:charge:>.
+    - |
+      Inflict [<:charge:>] <:vulnerable:>. Lose all <:charge:>.
+  alias:
+    - GATEBREAKER
+  tags:
+    - Strong-Watchlist
+
+Overkill Protocol:
+  size: Small
+  type: Electronics
+  form: System
+  heat: 1
+  range: 3
+  target: 1
+  rating: Veteran
   triggers:
     - |
       1/round, when you resolve a <:target:> 1 Equipment that inflicted <:suppression:>, <:overheat:>, or <:vulnerable:>:
@@ -1290,7 +1320,7 @@ Artillery Uplink:
   size: Small
   type: Electronics
   form: System
-  rating: Veteran
+  rating: Ace
   heat: 0
   range: 3
   target: 1
@@ -1320,7 +1350,7 @@ Weakness Hunter Protocol:
   size: Small
   type: Electronics
   form: System
-  rating: Veteran
+  rating: Cadet
   passives:
     - |
       This mech deals +1 <:damage:> to mechs with 2 or more total of <:overheat:> and <:vulnerable:>.
@@ -1360,7 +1390,7 @@ Shield Capacitor:
   triggers:
     - |
       When the Round ends:
-      Gain [X] <:charge:>, where X = this mech's remaining <:heat> capacity.
+      Gain [X] <:charge:>, where X = this mech's remaining <:heat:> capacity.
     - |
       When the Round starts:
       Gain [<:charge:>] <:shield:>. Lose all <:charge:>.
@@ -1385,7 +1415,7 @@ Rotating Shield Matrix:
   form: System
   heat: 2
   maxcharge: 2
-  rating: Cadet
+  rating: Veteran
   triggers:
     - |
       When this mech becomes a <:target:> of an enemy Equipment:
@@ -1407,13 +1437,13 @@ Iron Sights:
   size: Small
   type: Auxiliary
   form: Attachment
-  rating: Veteran
+  rating: Ace
   info: |
     Inert.
   triggers:
     - |
       When a different allied mech resolves an Equipment's <:action:>:
-      Choose a <:range:> 1 Weapon on this mech. Prepare: Activate that Weapon, treating it as <:range:> 2.
+      Choose a <:range:> 1 non-Melee Weapon on this mech. Prepare: Activate that Weapon, treating it as <:range:> 2.
 
 Heartpiercer Rounds:
   size: Small
@@ -1480,7 +1510,7 @@ Spiked Pauldrons:
   size: Medium
   type: Auxiliary
   form: Attachment
-  rating: Veteran
+  rating: Cadet
   info: |
     Inert.
   passives:
@@ -1491,7 +1521,7 @@ Jump Jets:
   size: Medium
   type: Auxiliary
   form: System
-  rating: Cadet
+  rating: Veteran
   ammo: 3
   triggers:
     - |
@@ -1509,6 +1539,8 @@ Reinforced Frame:
     - |
       When the battle starts:
       This mech gains 1 Armor (max 3 Armor).
+  flavor_text: |
+    TESTUDO-pattern frames are a status symbol among Martian pilots. The heavy armor shows others that the life of the mech’s veteran pilot is worth preserving.
   tags:
     - Weak-Watchlist
 
@@ -1525,23 +1557,8 @@ Combat Rifle:
   actions:
     - |
       Deal 2 AP <:damage:>.
-  tags:
-    - Spare
-
-Mortar:
-  size: Medium
-  type: Ballistic
-  form: Weapon
-  heat: 5
-  range: 3
-  target: 1
-  ammo: 3
-  rating: Cadet
-  info: |
-    Reserved.
-  actions:
-    - |
-      Deal 3 <:damage:>. If activated at <:range:> 1, deal 1 <:damage:> to this mech.
+  flavor_text: |
+    The GP-80 Combat Rifle was once the premier anti-materiel mech weapon. While now decades out of date, they're reliable and dirt cheap, and can still threaten a modern chassis.
   tags:
     - Spare
 
@@ -1550,14 +1567,14 @@ Power Blade:
   type: Melee
   form: Weapon
   heat: 3
-  range: 0
+  range: 1
   target: 1
-  rating: Veteran
+  rating: Cadet
   info: |
     Reserved.
   actions:
     - |
-      Melee <:card-rotation:>. Deal 3 <:damage:>.
+      <:engage:> this mech. Deal 3 <:damage:>.
   tags:
     - Spare
 
@@ -1621,5 +1638,7 @@ Shield Projector:
   actions:
     - |
       Grant 2 <:shield:> to an allied mech.
+  flavor_text: |
+    24th century shields use a combination of magnetic fields and thick aerosols to help deflect both ballistic and energy weaponry.
   tags:
     - Spare

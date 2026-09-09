@@ -1,18 +1,21 @@
 Combat Drone:
   range: 1
   target: P
+  rating: Veteran
   passives:
     - |
       When the Round ends:
       Deal 2 <:damage:> to the enemy front line, then destroy this drone.
 
 Shield Drone:
+  rating: Veteran
   triggers:
     - |
       When an allied mech becomes a <:target:> of an enemy Equipment:
       Gain 2 <:shield:> on an allied mech, then destroy this drone.
 
 Scout Drone:
+  rating: Veteran
   actions:
     - |
       Reposition an allied mech, then that mech may activate a Weapon. Then destroy this drone.
@@ -20,6 +23,7 @@ Scout Drone:
 Jammer Drone:
   range: 1
   target: 1
+  rating: Veteran
   passives:
     - |
       When the Round starts:

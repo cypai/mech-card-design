@@ -1,3 +1,664 @@
+Full Reprint 9/7
+----------------
+
+Lancelot
+Rating: None -> Cadet
+
+Guanyin
+Hardpoints: M M S S -> M M M
+Rating: None -> Veteran
+
+Osiris
+Rating: None -> Veteran
+
+Anansi
+HP: 9 -> 8
+Hardpoints: M M S S -> M M S
+Rating: None -> Cadet
+Action: Activate a <:target:> 1 Equipment on this mech, then inflict 1 <:overheat:> to the same <:target:> when it resolves.
+|->
+Action: Activate a <:target:> 1 non-Missile Equipment on this mech, then inflict 1 <:overheat:> to the same <:target:> when it resolves.
+
+Tzitzimitl
+Hardpoints: M M S S -> M M S
+Rating: None -> Veteran
+
+Amaterasu
+Rating: None -> Cadet
+
+Rubicon
+Rating: None -> Ace
+
+Gladius
+Rating: None -> Cadet
+
+Proconsul
+HP: 7 -> 9
+Armor: 2 -> 1
+Rating: None -> Cadet
+
+Draconarius
+HP: 8 -> 10
+Armor: 2 -> 1
+Rating: None -> Veteran
+
+Praetorian
+Rating: None -> Veteran
+Action: <:card-rotation:> this mech.
+Trigger: 1/round, when a different allied mech becomes a <:target:>, and this mech is <:card-rotation:>:
+Redirect that <:target:> to this mech.
+Passive: While this mech is <:card-rotation:>, this mech's <:range:> 1 Weapons have <:range:> 2.
+|->
+Action: <:engage:> this mech.
+Trigger: 1/round, when a different allied mech becomes a <:target:>, and this mech is <:engage:>:
+Redirect that <:target:> to this mech.
+
+Hastatus
+Rating: None -> Veteran
+Action: <:card-rotation:> this mech, then activate a Weapon.
+Passive: While this mech is <:card-rotation:>, this mech's non-Large, non-Melee Weapons deal +1 <:damage:>.
+|->
+Action: <:engage:> this mech, then activate a Weapon.
+Passive: While this mech is <:engage:>, this mech's non-Large, non-Melee Weapons deal +1 <:damage:>.
+
+Aquarius
+Hardpoints: M M S S -> M M S
+Rating: None -> Cadet
+
+Pegasus
+Hardpoints: M M S S -> M M M
+Rating: None -> Cadet
+
+Cygnus
+Rating: None -> Cadet
+
+Libra
+Rating: None -> Ace
+
+Gemini
+Rating: None -> Veteran
+
+Capricornus
+Hardpoints: L S S S -> L S S
+Rating: None -> Veteran
+
+Cockroach
+Rating: None -> Veteran
+[]|->
+['Manufacturer: Edison-Li, Inc.\n', 'First Deployed: 2285\n', "During the Terran Revolution, the Corporate Assembly's assumption of ever greater emergency powers and middling performance against the rebels left many mid-size corpos like Edison-Li considering their options. It seemed that their choices were a rebel victory that would see their assets expropriated, or a corporate victory that would see them absorbed fully into an Assembly-run megaconglomerate. Like many such corporations, they liked neither option, and fled to the Asteroid Belt. The price for asylum was simple: design a new combat mech and surrender all rights to it to the member states of the Free Havens. With little time on their hands, Edison-Li's engineers strapped a giant cannon to a civilian hauling mech to create the E5001. Derisively nicknamed the “Cockroach” by skeptical Belter pilots, the design proved to be surprisingly effective after some after-market modifications were circulated around. Able to retract its profile to take cover while emergency reboot diagnostics and self-repair protocols are initiated, this scrappy mech has proven itself surprisingly hard to put down for good. Corporate battle protocol recommends double tapping any enemy Cockroaches, just to be sure they're truly dead.\n"]|->
+The Cockroach's playstyle is fast and aggressive. Notoriously hard to destroy, it works well with high <:heat:> Equipment. Be careful of multi-hitting Weapons and Airstrikes.
+
+Monte Carlo
+Rating: None -> Cadet
+
+Jolly Roger
+Rating: None -> Veteran
+
+Blackjack
+Rating: None -> Cadet
+
+Powder Keg
+Rating: None -> Ace
+
+Rapscallion
+HP: 7 -> 6
+Rating: None -> Ace
+
+Flechettes
+Rating: Veteran -> Ace
+
+LINK-R Targeting Gun
+Action: Deal 1 <:damage:>.
+Trigger: When this mech resolves a <:target:> 1 Medium or Large Weapon:
+<:target:> must be the same as that Weapon. -1 <:heat:> cost. Deal 1 <:damage:>.
+|->
+Action: Deal 1 <:damage:>.
+Trigger: When this mech resolves a <:target:> 1 Medium or Large Weapon:
+<:target:> must be the same as that Weapon. -1 <:heat:> Cost. Deal 1 <:damage:>.
+
+Seeker Minigun
+Rating: Veteran -> Ace
+
+Gauss Rifle
+Action: Deal 2 AP <:damage:>. Inflict 1 <:vulnerable:>.
+|->
+Action: Deal 2 AP <:damage:>. Inflict 1 <:vulnerable:>.
+Flavor Text: Particularly popular in the Free Havens for their reliability in zero-G, gauss rifles are the choice of many a grizzled veteran across the Sol System.
+None|->
+Particularly popular in the Free Havens for their reliability in zero-G, gauss rifles are the choice of many a grizzled veteran across the Sol System.
+
+Assault Carbine
+Rating: Veteran -> Ace
+
+Automatic Shotgun
+Target: P -> None
+Action: Deal 2 <:damage:> to all mechs at the <:target:>.
+|->
+Action: Choose a position within <:range:>. Deal 2 <:damage:> to all mechs there.
+
+Assault Cannon
+Rating: Veteran -> Ace
+
+Assault Rifle
+Rating: Cadet -> Veteran
+
+Panoptic Autocannon
+Action: Deal 1 <:damage:>. Inflict 2 <:suppression:> to other mechs at that position.
+|->
+Action: Deal 1 <:damage:>. Inflict 2 <:suppression:> to other mechs at that position.
+Flavor Text: “What makes a good pilot? One who understands the superiority of agentic thought, and surrenders himself body and soul to the God-Machine."
+ - Cpt. Leon Viel, Templar of Jupiter
+None|->
+“What makes a good pilot? One who understands the superiority of agentic thought, and surrenders himself body and soul to the God-Machine."
+ - Cpt. Leon Viel, Templar of Jupiter
+
+Railgun
+Action: Deal 5 AP <:damage:>.
+|->
+Action: Deal 5 AP <:damage:>.
+Flavor Text: “There's a certain elegance to the railgun. No self-guidance, no nanites, no tricks. Just you, your firing solution, and annihilation at Mach 14.”
+None|->
+“There's a certain elegance to the railgun. No self-guidance, no nanites, no tricks. Just you, your firing solution, and annihilation at Mach 14.”
+
+Mass Driver
+Action: Deal 4 <:damage:>. If the <:target:> is in the front line, Reposition it.
+|->
+Action: Deal 4 <:damage:>. If the <:target:> is in the front line, Reposition it.
+Flavor Text: “Give ‘em a broadside, lads! Show these invaders a little Belter hospitality!”
+None|->
+“Give ‘em a broadside, lads! Show these invaders a little Belter hospitality!”
+
+Annihilator Siege Cannon
+Rating: Veteran -> Ace
+
+Heavy Assault Cannon
+Rating: Veteran -> Ace
+
+Hellbore AMR
+Rating: Cadet -> Veteran
+
+Pulse Pistol
+Rating: Veteran -> Ace
+
+EM Polarizer
+Rating: Cadet -> Veteran
+
+Antimatter Blaster
+Rating: Veteran -> Cadet
+
+Flamethrower
+Target: P -> None
+Action: Deal 1 <:damage:> and inflict 1 <:overheat:> to all mechs at the <:target:>.
+|->
+Action: Choose a position within <:range:>. Deal 1 <:damage:> and inflict 1 <:overheat:> to all mechs there.
+Flavor Text: “May the cleansing fire of the God-Machine redeem you, infidel!”
+None|->
+“May the cleansing fire of the God-Machine redeem you, infidel!”
+
+Galvanic Shotgun
+Target: P -> None
+Rating: Veteran -> Cadet
+Action: Deal [<:charge:>+1] <:damage:> to all mechs at the <:target:>. 1 Equipment on an allied mech gains 1 <:charge:>.
+|->
+Action: Choose a position within <:range:>. Deal [<:charge:>+1] <:damage:> to all mechs there. 1 Equipment on an allied mech gains 1 <:charge:>.
+
+Laser Rifle
+Rating: Veteran -> Cadet
+Action: Deal 3 <:damage:>.
+|->
+Action: Deal 3 <:damage:>.
+Flavor Text: Simple, cheap and reliable, the C55 Astrea Laser Rifle has been a ubiquitous mech weapon for more than half a century.
+None|->
+Simple, cheap and reliable, the C55 Astrea Laser Rifle has been a ubiquitous mech weapon for more than half a century.
+
+Autopulse Rifle
+Rating: Veteran -> Ace
+
+Plasma Blaster
+Action: Deal 2 <:damage:>. Inflict 1 <:overheat:>.
+|->
+Action: Deal 1 <:damage:>. Inflict 2 <:overheat:>.
+
+Magnetic Harpoon
+Rating: Veteran -> Ace
+
+Pulsar Beam Cannon
+Rating: Cadet -> Veteran
+Action: Deal 2 <:damage:>. Gain 1 <:charge:>.
+Action: If [<:charge:>]=2:
+Remove all <:shield:> on all enemy mechs. Disable 1 Equipment on the <:target:>. Deal 5 <:damage:>. Set <:charge:> to 0.
+|->
+Action: Deal 2 <:damage:>. Gain 1 <:charge:>.
+Action: If [<:charge:>]=2:
+Disable 1 Equipment on the <:target:>. Deal 5 <:damage:>. Set <:charge:> to 0.
+
+Slagmaker
+Action: Deal 6 <:damage:>. Disable all other Equipment on this mech.
+|->
+Action: Deal 6 <:damage:>. Disable all other Equipment on this mech.
+Flavor Text: “What makes a good pilot? Blowing up all your enemies and getting paid!"
+ - Cpt. Thalia Schwarz, Skull & Crossbones PMC
+None|->
+“What makes a good pilot? Blowing up all your enemies and getting paid!"
+ - Cpt. Thalia Schwarz, Skull & Crossbones PMC
+
+Thermobaric Flame Cannon
+Target: P -> None
+Rating: Cadet -> Veteran
+Action: Inflict 1 <:overheat:> to all mechs with no <:shield:> at <:target:>.
+Deal 2 <:damage:> to all mechs at the <:target:>.
+|->
+Action: Choose a position within <:range:>. Inflict 1 <:overheat:> to all mechs with no <:shield:> there. Deal 2 <:damage:> to all mechs there.
+Flavor Text: “ULTIMA RATIO IMPERATOR MARTIUS"
+ - Inscription on a Martian F-451 thermobaric cannon
+None|->
+“ULTIMA RATIO IMPERATOR MARTIUS"
+ - Inscription on a Martian F-451 thermobaric cannon
+
+Plasma Incinerator
+Action: Deal 5 <:damage:>. Inflict 1 <:overheat:> and 1 <:vulnerable:>.
+|->
+Action: Deal 5 <:damage:>. Inflict 2 <:overheat:>.
+
+Portal Inducer
+Rating: Cadet -> Veteran
+Info: This Weapon may <:target:> allied mechs.
+Action: Choose for each <:target:>:
+> Reposition the <:target:>.
+> Deal 2 AP <:damage:>.
+|->
+Info: This Weapon may <:target:> allied mechs.
+Action: Choose for each <:target:>:
+> Reposition the <:target:>.
+> Deal 2 AP <:damage:>.
+Flavor Text: “This thing is giving physics the middle finger. It functions, and we have no idea why. If this is really what their 'God-Machine' can do, we should be terrified.”
+None|->
+“This thing is giving physics the middle finger. It functions, and we have no idea why. If this is really what their 'God-Machine' can do, we should be terrified.”
+
+Gungnir Seeker Cannon
+Rating: Veteran -> Ace
+Action: Prepare: Deal 6 <:damage:>. Cannot be Evaded.
+|->
+Action: Prepare: Deal 6 <:damage:>. Cannot be Evaded.
+Flavor Text: "This time, your life will definitely end 30 minutes from now!"
+None|->
+"This time, your life will definitely end 30 minutes from now!"
+
+Gigapulse Laser
+Rating: Veteran -> Ace
+
+Combat Knife
+Range: 0 -> 1
+Rating: Veteran -> Cadet
+Action: Melee <:card-rotation:>. Deal 1 <:damage:>. Inflict 1 <:vulnerable:>.
+|->
+Action: <:engage:> this mech. Deal 1 <:damage:>. Inflict 1 <:vulnerable:>.
+
+Power Buckler
+Range: 0 -> 1
+Rating: Veteran -> Cadet
+Action: Melee <:card-rotation:>. Deal 1 <:damage:>. Gain 1 <:shield:>.
+|->
+Action: <:engage:> this mech. Deal 1 <:damage:>. Gain 1 <:shield:>.
+
+Power Fist
+Range: 0 -> 1
+Rating: Veteran -> Cadet
+Action: Melee <:card-rotation:>. Deal 3 <:damage:>. Move the <:target:> to the back line.
+|->
+Action: <:engage:> this mech. Deal 3 <:damage:>. Move the <:target:> to the back line.
+
+Iaijutsu Blade
+Range: 0 -> 1
+Action: Melee <:card-rotation:>.
+Choose:
+> Deal 3 <:damage:>. Shred.
+> Discard a card. Destroy the <:target:> if it has 5 HP or less.
+|->
+Action: <:engage:> this mech.
+Choose:
+> Deal 3 <:damage:>. Shred.
+> Discard a card. Destroy the <:target:> if it has 5 HP or less.
+Flavor Text: “You’re already dead.”
+None|->
+“You’re already dead.”
+
+Ion Knuckle
+Range: 0 -> 1
+Rating: Veteran -> Cadet
+Action: Melee <:card-rotation:>. Deal 2 <:damage:>. Disable 1 Equipment on the <:target:>.
+|->
+Action: <:engage:> this mech. Deal 2 <:damage:>. Disable 1 Equipment on the <:target:>.
+
+Phase Lance
+Range: 0 -> 1
+Rating: Veteran -> Cadet
+Action: Melee <:card-rotation:>. Remove all <:shield:> from the <:target:>. Deal 3 AP <:damage:>.
+|->
+Action: <:engage:> this mech. Remove all <:shield:> from the <:target:>. Deal 3 AP <:damage:>.
+
+Plasma Torch
+Range: 0 -> 1
+Action: Melee <:card-rotation:>. If the <:target:> has no <:shield:>, inflict 1 <:overheat:>. Deal 3 AP <:damage:>.
+|->
+Action: <:engage:> this mech. Inflict [X+1] <:overheat:>, where X = Armor of the <:target:>. Deal 3 <:damage:>.
+
+Rocket Fists
+Range: 0 -> 1
+Action: Melee <:card-rotation:>. Deal 4 <:damage:>.
+Requires <:ammo:>, but does not consume <:ammo:>.
+Action: Deal 2 <:damage:> with <:range:> 2. Move the <:target:> to the back line.
+|->
+Action: <:engage:> this mech. Deal 4 <:damage:>.
+Requires <:ammo:>, but does not consume <:ammo:>.
+Action: Deal 2 <:damage:> with <:range:> 2. Move the <:target:> to the back line.
+
+Ripjaw Chainaxe
+Range: 0 -> 1
+Action: Melee <:card-rotation:>. Gain 1 <:charge:>. Deal [<:charge:>+4] <:damage:>.
+If [<:charge:>]>1, Shred.
+|->
+Action: <:engage:> this mech. Gain 1 <:charge:>. Deal [<:charge:>+4] <:damage:>.
+If [<:charge:>]>1, Shred.
+Flavor Text: "What makes a good pilot? Simple. The combination of unerring rationality and unfettered hate."
+ - Cpt. Jim Leigh, Legio Martius
+None|->
+"What makes a good pilot? Simple. The combination of unerring rationality and unfettered hate."
+ - Cpt. Jim Leigh, Legio Martius
+
+Arondight Starsword
+Range: 0 -> 1
+Rating: Veteran -> Cadet
+Action: Melee <:card-rotation:>. Deal 6 <:damage:>.
+|->
+Action: <:engage:> this mech. Deal 6 <:damage:>.
+Flavor Text: Formally known as the X-CL Monomolecular Blade, this weapon is so iconic to the Lancelot-class that the Commonwealth Armory named it after the knight’s legendary sword.
+None|->
+Formally known as the X-CL Monomolecular Blade, this weapon is so iconic to the Lancelot-class that the Commonwealth Armory named it after the knight’s legendary sword.
+
+Heavy Combat Drill
+Range: 0 -> 1
+Action: Melee <:card-rotation:>. Gain 1 <:charge:>. Deal 2 AP <:damage:>. Shred.
+Prepare: Deal [<:charge:>+2] AP <:damage:>. Shred.
+|->
+Action: <:engage:> this mech. Gain 1 <:charge:>. Deal 1 <:damage:>. Shred.
+Prepare: Deal [<:charge:>+2] <:damage:>. Shred. Shred.
+Flavor Text: "Practical? I don't care if it's *practical*! With this drill, I'm going to do the impossible!"
+ - Anonymous Martian insurgent, pilot of the *Red Spiral*
+None|->
+"Practical? I don't care if it's *practical*! With this drill, I'm going to do the impossible!"
+ - Anonymous Martian insurgent, pilot of the *Red Spiral*
+
+Thermopylae Plasma Lance
+Range: 0 -> 1
+Action: Melee <:card-rotation:>. Deal 4 AP <:damage:>. Inflict 2 <:overheat:>.
+Trigger: When an enemy mech Repositions into the front line:
+<:target:> that mech and perform this Weapon's <:action:>.
+|->
+Action: <:engage:> this mech. Deal 4 AP <:damage:>. Inflict 2 <:overheat:>.
+Trigger: When the turn ends:
+You may <:target:> an enemy mech that Repositioned this turn and perform this Weapon's <:action:>.
+
+Combat Drone Launcher
+Target: P -> None
+Action: Deal 2 <:damage:> to the enemy front line.
+Deploy 1 Combat Drone.
+Action: Back line activation: -3 <:heat:> Cost. Deploy 1 Combat Drone.
+|->
+Action: Deal 2 <:damage:> to all mechs in the front line.
+Deploy 1 Combat Drone.
+Action: Back line activation: -3 <:heat:> Cost. Deploy 1 Combat Drone.
+
+Shield Drone Launcher
+Rating: Ace -> Veteran
+Action: Grant 2 <:shield:> to an allied mech. Deploy 1 Shield Drone.
+|->
+Action: Grant 1 <:shield:> to an allied mech. Deploy 1 Shield Drone.
+
+Scout Drone Launcher
+Rating: Veteran -> Ace
+
+Jammer Drone Launcher
+Target: P -> None
+Action: Inflict 1 <:overheat:> on the enemy front line. Deploy 1 Jammer Drone.
+|->
+Action: Inflict 1 <:overheat:> to all enemy mechs in the front line. Deploy 1 Jammer Drone.
+
+Skyhammer Drone Nexus
+Range: 2 -> None
+Target: 1 -> None
+Ammo: 3 -> 2
+Action: Deploy 1 Combat Drone. Inflict [X] <:suppression:>, where X is the total amount of your deployed Drones.
+Passive: When any allied mech resolves a <:target:> 1 Equipment, and you have at least 1 deployed Combat Drone:
+If that Equipment's <:target:> has <:suppression:>, <:card-rotation:> the <:target:>.
+|->
+Action: Choose any Drone that you do not currently have deployed, and Deploy it.
+Passive: When the turn ends, and an allied Drone was destroyed this turn:
+You may discard a card to add an Airstrike into your hand.
+
+Hailstorm Drone Nexus
+Range: None -> 2
+Ammo: 2 -> 3
+Action: Choose any Drone that you do not currently have deployed, and Deploy it.
+Passive: When the turn ends, and an allied Drone was destroyed this turn:
+You may discard a card to add an Airstrike into your hand.
+|->
+Action: Deploy 1 Combat Drone. Choose a position within <:range:>. Inflict [X] <:suppression:> to all mechs there, where X is the total amount of your deployed Drones.
+
+Hunter-Killer Nanites
+Action: If the <:target:> has Vulnerable, deal 1 <:damage:>, otherwise inflict 1 <:vulnerable:>.
+Trigger: When the turn ends, and an enemy mech Repositioned this turn:
+Perform this Weapon's <:action:>.
+|->
+Action: If the <:target:> has Vulnerable, deal 1 <:damage:>, otherwise inflict 1 <:vulnerable:>.
+Trigger: When the turn ends:
+You may <:target:> an enemy mech that Repositioned this turn and perform this Weapon's <:action:>.
+
+Proximity-Swarm Nanites
+Rating: Ace -> Veteran
+
+Thermo-Reactive Nanites
+Rating: Veteran -> Cadet
+Action: Inflict 3 <:overheat:>.
+Action: Inflict 3 <:vulnerable:>.
+|->
+Action: Inflict 3 <:overheat:>.
+Action: Inflict 3 <:vulnerable:>.
+Flavor Text: Nanite swarms are a new, and terrifying, addition to 24th century war. Their programming is strictly regulated by international law to avoid a "grey goo" scenario.
+None|->
+Nanite swarms are a new, and terrifying, addition to 24th century war. Their programming is strictly regulated by international law to avoid a "grey goo" scenario.
+
+Breach Missile
+Rating: Cadet -> Veteran
+
+Ballistic Missile
+Target: P -> None
+Rating: Veteran -> Ace
+Action: <:target:> a position.
+Prepare: Deal 3 AP <:damage:> to all mechs at that <:target:>.
+|->
+Action: Choose a position.
+Prepare: Deal 3 AP <:damage:> to all mechs there.
+
+Fragmentation Missile
+Target: P -> None
+Action: Deal 1 <:damage:> to all mechs at the <:target:>.
+|->
+Action: Choose a position within <:range:>. Deal 1 <:damage:> to all mechs there.
+
+Ion Torpedo
+Target: P -> None
+Action: Disable 1 Equipment on each mech with no <:shield:> at the <:target:>.
+|->
+Action: Choose a position within <:range:>. Disable 1 Equipment on each mech with no <:shield:> there.
+
+Thanatos Missile
+Action: Discard a card. Deal 4 <:damage:>. Cannot be Evaded.
+|->
+Action: Discard a card. Deal 4 <:damage:>. Cannot be Evaded.
+Flavor Text: Thanatos Smart Missiles are so expensive that each costs over 45 billion denarii to produce. Why does efficiency-worshipping Mars still use them? Because every single one ever fired, without exception, has hit its target.
+None|->
+Thanatos Smart Missiles are so expensive that each costs over 45 billion denarii to produce. Why does efficiency-worshipping Mars still use them? Because every single one ever fired, without exception, has hit its target.
+
+Cyberwarfare: EPIDEMIC
+Rating: Veteran -> Ace
+
+Cyberwarfare: SHORTCIRCUIT
+Action: If the <:target:> is not at 0 <:heat:>, Disable 1 Equipment on the <:target:>.
+|->
+Action: If the <:target:> is not at 0 <:heat:>, Disable 1 Equipment on the <:target:>.
+Flavor Text: “All right, corpo scum, let's see how much good that big laser does you when I turn it into the world’s biggest paperweight!”
+None|->
+“All right, corpo scum, let's see how much good that big laser does you when I turn it into the world’s biggest paperweight!”
+
+Cyberwarfare: TANGO
+Rating: Cadet -> Veteran
+Info: This Weapon may <:target:> allied mechs. <:target:> must be distinct mechs.
+Action: Reposition the <:target:>.
+|->
+Info: This Weapon may <:target:> allied mechs. <:target:> must be distinct mechs.
+Action: Reposition the <:target:>.
+Flavor Text: “O holy God-Machine, invest your spirit in my code, that your children might dance with joy to your divine melody!”
+None|->
+“O holy God-Machine, invest your spirit in my code, that your children might dance with joy to your divine melody!”
+
+Overkill Protocol
+Heat: 2 -> 1
+Range: 2 -> 3
+Rating: Cadet -> Veteran
+
+Artillery Uplink
+Rating: Veteran -> Ace
+
+Weakness Hunter Protocol
+Rating: Veteran -> Cadet
+
+Shield Capacitor
+Trigger: When the Round ends:
+Gain [X] <:charge:>, where X = this mech's remaining <:heat> capacity.
+Trigger: When the Round starts:
+Gain [<:charge:>] <:shield:>. Lose all <:charge:>.
+|->
+Trigger: When the Round ends:
+Gain [X] <:charge:>, where X = this mech's remaining <:heat:> capacity.
+Trigger: When the Round starts:
+Gain [<:charge:>] <:shield:>. Lose all <:charge:>.
+
+Rotating Shield Matrix
+Rating: Cadet -> Veteran
+
+Iron Sights
+Rating: Veteran -> Ace
+Info: Inert.
+Trigger: When a different allied mech resolves an Equipment's <:action:>:
+Choose a <:range:> 1 Weapon on this mech. Prepare: Activate that Weapon, treating it as <:range:> 2.
+|->
+Info: Inert.
+Trigger: When a different allied mech resolves an Equipment's <:action:>:
+Choose a <:range:> 1 non-Melee Weapon on this mech. Prepare: Activate that Weapon, treating it as <:range:> 2.
+
+Spiked Pauldrons
+Rating: Veteran -> Cadet
+
+Jump Jets
+Rating: Cadet -> Veteran
+
+Reinforced Frame
+Info: Inert.
+Trigger: When the battle starts:
+This mech gains 1 Armor (max 3 Armor).
+|->
+Info: Inert.
+Trigger: When the battle starts:
+This mech gains 1 Armor (max 3 Armor).
+Flavor Text: TESTUDO-pattern frames are a status symbol among Martian pilots. The heavy armor shows others that the life of the mech’s veteran pilot is worth preserving.
+None|->
+TESTUDO-pattern frames are a status symbol among Martian pilots. The heavy armor shows others that the life of the mech’s veteran pilot is worth preserving.
+
+Combat Rifle
+Info: Reserved.
+Action: Deal 2 AP <:damage:>.
+|->
+Info: Reserved.
+Action: Deal 2 AP <:damage:>.
+Flavor Text: The GP-80 Combat Rifle was once the premier anti-materiel mech weapon. While now decades out of date, they're reliable and dirt cheap, and can still threaten a modern chassis.
+None|->
+The GP-80 Combat Rifle was once the premier anti-materiel mech weapon. While now decades out of date, they're reliable and dirt cheap, and can still threaten a modern chassis.
+
+Power Blade
+Range: 0 -> 1
+Rating: Veteran -> Cadet
+Info: Reserved.
+Action: Melee <:card-rotation:>. Deal 3 <:damage:>.
+|->
+Info: Reserved.
+Action: <:engage:> this mech. Deal 3 <:damage:>.
+
+Shield Projector
+Info: Reserved.
+Action: Grant 2 <:shield:> to an allied mech.
+|->
+Info: Reserved.
+Action: Grant 2 <:shield:> to an allied mech.
+Flavor Text: 24th century shields use a combination of magnetic fields and thick aerosols to help deflect both ballistic and energy weaponry.
+None|->
+24th century shields use a combination of magnetic fields and thick aerosols to help deflect both ballistic and energy weaponry.
+
+Cyberwarfare: GATEBREAKER was added.
+Cyberwarfare: GATEBREAKER
+Small Electronics System
+Heat: 2
+Range: 3
+Target: 1
+Max Charge: 6
+Tags: ['Strong-Watchlist']
+Rating: Cadet
+Action: Gain 2 <:charge:>.
+Action: Inflict [<:charge:>] <:vulnerable:>. Lose all <:charge:>.
+
+Razortooth Missile was deleted.
+Razortooth Missile
+Small Missile Weapon
+Heat: 0
+Range: 1
+Target: P
+Ammo: 1
+Tags: ['AOE']
+Rating: Cadet
+Action: Shred all enemy mechs at the <:target:>.
+
+Mortar was deleted.
+Mortar
+Medium Ballistic Weapon
+Heat: 5
+Range: 3
+Target: 1
+Ammo: 3
+Tags: ['Spare']
+Rating: Cadet
+Info: Reserved.
+Action: Deal 3 <:damage:>. If activated at <:range:> 1, deal 1 <:damage:> to this mech.
+
+Combat Drone
+Rating: None -> Veteran
+
+Shield Drone
+Rating: None -> Veteran
+
+Scout Drone
+Rating: None -> Veteran
+
+Jammer Drone
+Rating: None -> Veteran
+
+Strategic Bombardment
+Rating: Veteran -> Ace
+
+Combat Engineering
+Rating: Veteran -> Cadet
+
+
+
 4/7 playtest printout sync
 --------------------------
 
