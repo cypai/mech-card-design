@@ -578,6 +578,12 @@ class ManeuverCardRenderer(CardRenderer):
         self.draw_card_text(
             card_text_sections(self.maneuver), MARGIN, CardRenderer.CARD_TEXT_Y
         )
+        self.draw_card_rating(
+            int(CARD_WIDTH / 2),
+            int(CARD_HEIGHT),
+            self.maneuver.rating_int,
+            self.icons.star,
+        )
 
 
 class DroneCardRenderer(CardRenderer):
@@ -607,6 +613,12 @@ class DroneCardRenderer(CardRenderer):
         self.draw_card_type("Drone")
         self.draw_card_text(
             card_text_sections(self.drone), MARGIN, CardRenderer.CARD_TEXT_Y
+        )
+        self.draw_card_rating(
+            int(CARD_WIDTH / 2),
+            int(CARD_HEIGHT),
+            self.drone.rating_int,
+            self.icons.star,
         )
 
 
