@@ -262,8 +262,6 @@ class Mech:
 
     def pretty_text(self):
         text = ""
-        if self.rating is not None:
-            text += f"Rating: {self.rating}\n"
         if self.info is not None:
             text += f"Info: {self.info}"
         for action in self.actions:
@@ -373,8 +371,6 @@ class Drone:
 
     def pretty_text(self):
         text = ""
-        if self.rating is not None:
-            text += f"Rating: {self.rating}\n"
         if self.info is not None:
             text += f"Info: {self.info}"
         if self.range is not None:
