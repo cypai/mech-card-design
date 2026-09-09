@@ -138,7 +138,7 @@ Sniper Rifle:
   rating: Cadet
   actions:
     - |
-      Deal 3 <:damage:>. +1 <:heat:> Cost if activated at Range 1.
+      Deal 3 <:damage:>. +1 <:heat:> Cost if activated at <:range:> 1.
 
 Automatic Shotgun:
   size: Medium
@@ -284,7 +284,7 @@ Annihilator Siege Cannon:
   rating: Ace
   actions:
     - |
-      Prepare: Deal 8 AP <:damage:>.
+      Prepare: Deal 8 AP <:damage:>. Disable this Weapon.
   flavor_text: |
     "Your life ends 30 minutes from now."
   alias:
@@ -304,7 +304,7 @@ Heavy Assault Cannon:
       Deal [<:charge:>+2] <:damage:>.
       Choose:
       > Shred.
-      > Inflict [<:charge:>+1] <:suppression:>. Gain 1 <:charge:>.
+      > Gain 1 <:charge:>. Inflict [<:charge:>] <:suppression:>.
   tags:
     - Strong-Watchlist
   alias:
@@ -335,7 +335,7 @@ Hellbore AMR:
   actions:
     - |
       Deal 4 AP <:damage:>.
-      If you <:target:> a mech in the front line, you may additionally <:target:> a mech in the back line, dealing 1 <:damage:>.
+      If you <:target:> a mech in the front line, you may additionally <:target:> a mech in the back line if within <:range:>, dealing 1 <:damage:>.
   tags:
     - AOE
   alias:
@@ -352,6 +352,8 @@ Targeting Laser:
   actions:
     - |
       Inflict 2 <:vulnerable:>.
+  flavor_text: |
+    "You turned off your targeting computer. That was really stupid, you shouldn't do that."
 
 Plasma Pistol:
   size: Small
@@ -609,7 +611,7 @@ Damocles Megalaser:
   rating: Cadet
   actions:
     - |
-      Gain 1 <:charge:>. Deal [<:charge:>+1] <:damage:>.
+      Gain 1 <:charge:>. Deal [<:charge:>+2] <:damage:>.
       Choose:
       > Gain 1 <:charge:>.
       > Inflict 2 <:overheat:>.

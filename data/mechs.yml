@@ -135,7 +135,7 @@ Proconsul:
     - Small
   triggers:
     - |
-      1/battle, when you resolve a Maneuver:
+      1/round, when you resolve a Maneuver:
       Discard a card. Put that Maneuever into your hand instead of discarding it.
 
 Draconarius:
@@ -162,7 +162,7 @@ Praetorian:
   faction: Martians
   hp: 7
   armor: 3
-  hc: 6
+  hc: 7
   rating: Veteran
   hardpoints:
     - Large
@@ -170,7 +170,7 @@ Praetorian:
     - Small
   actions:
     - |
-      <:engage:> this mech.
+      <:engage:> this mech. Cannot be used if this mech is already <:engage:>.
   triggers:
     - |
       1/round, when a different allied mech becomes a <:target:>, and this mech is <:engage:>:
