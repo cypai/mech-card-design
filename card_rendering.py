@@ -20,8 +20,11 @@ from lib import wrap_text_tagged
 CARD_WIDTH = 1500
 CARD_HEIGHT = 2100
 
+SLEEVE_WIDTH = 1560
+SLEEVE_HEIGHT = 2160
+
 MECH_PADDING = int(CARD_WIDTH / 20)
-MECH_WIDTH = int(CARD_WIDTH * 3) + MECH_PADDING * 2
+MECH_WIDTH = SLEEVE_WIDTH * 3 + MECH_PADDING * 2
 MECH_HEIGHT = int(CARD_HEIGHT * 1.5) + MECH_PADDING * 2
 
 HUGE_FONT_SIZE = int(CARD_HEIGHT / 12)
@@ -189,9 +192,9 @@ class Renderer(ABC):
         self.draw.line(
             [
                 (x, y),
-                (x, y + height - 1),
-                (x + width - 1, y + height - 1),
-                (x + width - 1, y),
+                (x, y + height - stroke / 2),
+                (x + width - stroke / 2, y + height - stroke / 2),
+                (x + width - stroke / 2, y),
                 (x, y),
             ],
             fill="#000000",
@@ -871,22 +874,22 @@ class MechFrontRenderer(MechRenderer):
         x = int(MECH_PADDING / 2)
         for hardpoint in self.mech.hardpoints:
             self.draw_hardpoint(x, MECH_HEIGHT - 2 * MECH_PADDING, hardpoint)
-            x += CARD_WIDTH + int(MECH_PADDING / 2)
+            x += SLEEVE_WIDTH + int(MECH_PADDING / 2)
 
     def draw_hardpoint(self, x: int, y: int, text: str):
         self.draw.line(
             [
                 (x, y),
-                (x, y + CARD_HEIGHT - 1),
-                (x + CARD_WIDTH - 1, y + CARD_HEIGHT - 1),
-                (x + CARD_WIDTH - 1, y + 0),
+                (x, y + SLEEVE_HEIGHT - 1),
+                (x + SLEEVE_WIDTH - 1, y + SLEEVE_HEIGHT - 1),
+                (x + SLEEVE_WIDTH - 1, y + 0),
                 (x, y),
             ],
             fill="#000000",
             width=2,
         )
         self.draw.text(
-            (x + CARD_WIDTH / 2, int(y - LARGE_FONT_SIZE * 0.8)),
+            (x + SLEEVE_WIDTH / 2, int(y - LARGE_FONT_SIZE * 0.8)),
             text,
             stroke_width=2,
             stroke_fill="#000000",

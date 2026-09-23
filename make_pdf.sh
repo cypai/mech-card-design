@@ -8,13 +8,13 @@ for i in "$@"; do
   fi
   if [ "$i" == "mechs" ]; then
     echo "Generating mechs PDF"
-    montage outputs/mechs/*.png -tile 1x2 -geometry 4650x3300 -background white -density 600 outputs/mechs_montages/output.png
-    magick outputs/mechs_montages/*.png -gravity Center mechs.pdf
+    montage outputs/mechs/*.png -rotate 90 -tile 1x1 -geometry 3300x4830 -background white -density 600 outputs/mechs_montages/output.png
+    magick outputs/mechs_montages/*.png -units PixelsPerInch -density 600 -background white -gravity center -extent 4960x7016 mechs.pdf
   fi
   if [ "$i" == "mech-backs" ]; then
     echo "Generating mech_backs PDF"
-    montage outputs/mech_backs/*.png -tile 1x2 -geometry 4650x3300 -background white -density 600 outputs/mech_backs_montages/output.png
-    magick outputs/mech_backs_montages/*.png -gravity Center mech_backs.pdf
+    montage outputs/mech_backs/*.png -rotate 90 -tile 1x1 -geometry 3300x4830 -background white -density 600 outputs/mech_backs_montages/output.png
+    magick outputs/mech_backs_montages/*.png -units PixelsPerInch -density 600 -background white -gravity center -extent 4960x7016 mech_backs.pdf
   fi
   if [ "$i" == "drones" ]; then
     echo "Generating drones PDF"
