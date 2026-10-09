@@ -550,18 +550,18 @@ Pulsar Beam Cannon:
   type: Energy
   form: Weapon
   heat: 3
-  range: 1
+  range: 2
   target: 1
-  maxcharge: 2
+  maxcharge: 1
   rating: Veteran
   actions:
     - |
       Deal 2 <:damage:>. Gain 1 <:charge:>.
     - |
-      If [<:charge:>]=2:
-      Disable 1 Equipment on the <:target:>. Deal 5 <:damage:>. Set <:charge:> to 0.
+      If [<:charge:>]=1:
+      Disable 1 Equipment on the <:target:>. Deal 3 <:damage:>. Set <:charge:> to 0.
   tags:
-    - Strong-Watchlist
+    - Weak-Watchlist
   alias:
     - Pulsar
     - Pulsar Beam
@@ -1352,10 +1352,10 @@ Weakness Hunter Protocol:
   size: Small
   type: Electronics
   form: System
-  rating: Cadet
+  rating: Ace
   passives:
     - |
-      This mech deals +1 <:damage:> to mechs with 2 or more total of <:overheat:> and <:vulnerable:>.
+      This mech deals +[X] <:damage:> to mechs with 2 or more total of <:overheat:> and <:vulnerable:>, where X = the total amount of <:overheat:> and <:vulnerable:>.
   alias:
     - Weakness Hunter
 
@@ -1399,29 +1399,34 @@ Shield Capacitor:
   tags:
     - Strong-Watchlist
 
-Light Screen Projector:
+Shield Ionizer:
   size: Small
   type: Electronics
   form: System
-  heat: 2
-  rating: Cadet
-  actions:
+  heat: 1
+  maxcharge: 1
+  rating: Veteran
+  triggers:
     - |
-      All allied mechs gain 1 <:shield:>.
-  tags:
-    - Weak-Watchlist
+      Gain 1 <:charge:>. Grant 1 <:shield:> to an allied mech.
+  passives:
+    - |
+      While [<:charge:>]=1, Melee Weapons on allied mechs with <:shield:> additionally Disable 1 Equipment on their <:target:>.
+    - |
+      When the Round ends:
+      Lose all <:charge:>.
 
 Rotating Shield Matrix:
   size: Small
   type: Electronics
   form: System
   heat: 2
-  maxcharge: 2
+  maxcharge: 3
   rating: Veteran
   triggers:
     - |
       When this mech becomes a <:target:> of an enemy Equipment:
-      Gain 1 <:charge:>. Gain [<:charge:>] <:shield:>. If [<:charge:>]=2, lose all <:charge:>.
+      Gain 1 <:charge:>. Gain [<:charge:>] <:shield:>. If [<:charge:>]=3, lose all <:charge:>.
 
 Charge Spool:
   size: Small

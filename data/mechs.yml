@@ -285,10 +285,11 @@ Capricornus:
     - Large
     - Small
     - Small
-  triggers:
+  actions:
     - |
-      When any player's turn ends, and this mech changed position that turn:
-      Activate a Small Equipment on this mech. If this mech is in the back line, treat it as <:range:> 2.
+      Advance, then activate a Weapon on this mech. It deals +1 <:damage:> this turn.
+    - |
+      Fall Back, then activate a System on this mech.
 
 Cockroach:
   designation_name: E-5001 Cockroach
