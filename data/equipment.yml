@@ -41,7 +41,7 @@ Flechettes:
   triggers:
     - |
       When this mech resolves a mech ability or a different Equipment's <:action:> ability:
-      Gain 1 <:charge:>.
+      <:range:><:none:>: Gain 1 <:charge:>.
   tags:
     - AOE
     - Multihit
@@ -96,7 +96,7 @@ Seeker Minigun:
   rating: Ace
   actions:
     - |
-      Gain 2 <:charge:>.
+      <:range:><:none:>: Gain 2 <:charge:>.
     - |
       Deal [<:charge:>] damage. Inflict [<:charge:>-1] <:suppression:>. Lose all <:charge:>. Cannot be Evaded.
   alias:
@@ -378,7 +378,7 @@ Pulse Pistol:
   rating: Ace
   actions:
     - |
-      Gain 2 <:charge:>.
+      <:range:><:none:>: Gain 2 <:charge:>.
     - |
       Deal 1 <:damage:> to each <:target:>. Lose all <:charge:>.
   tags:
@@ -482,9 +482,9 @@ Autopulse Rifle:
   rating: Ace
   actions:
     - |
-      Gain 1 <:charge:> before designating <:target:>. Deal 3 <:damage:> to each <:target:>. Lose all <:charge:>.
+      <:range:><:none:>: Gain 1 <:charge:>.
     - |
-      Back line activation: Gain 1 <:charge:>.
+      Gain 1 <:charge:> before designating <:target:>. Deal 3 <:damage:> to each <:target:>. Lose all <:charge:>.
   tags:
     - AOE
     - Multihit
@@ -1015,7 +1015,7 @@ Proximity-Swarm Nanites:
   rating: Veteran
   actions:
     - |
-      Gain 1 <:shield:> on this mech.
+      <:range:><:none:>: Gain 1 <:shield:> on this mech.
     - |
       Inflict 1 <:vulnerable:>.
   triggers:
@@ -1264,7 +1264,7 @@ Thanatos Missile:
   rating: Cadet
   actions:
     - |
-      Gain 2 <:charge:>.
+      <:range:><:none:>: Gain 2 <:charge:>.
     - |
       Inflict [<:charge:>] <:vulnerable:>. Lose all <:charge:>.
   alias:
@@ -1298,7 +1298,7 @@ EMP Projector:
   rating: Cadet
   actions:
     - |
-      Gain 1 <:charge:>.
+      <:range:><:none:>: Gain 1 <:charge:>.
     - |
       If [<:charge:>]>0: Lose 1 <:charge:>. If the <:target:> has no <:shield:>, Disable 1 Equipment on it.
   tags:
