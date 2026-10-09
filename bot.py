@@ -797,6 +797,10 @@ async def db_rename(ctx: commands.Context, original: str, new_name: str):
     await reply(ctx, f"{original} was renamed to {new_name}.")
 
 
+def list_to_csv_value(items: list) -> str:
+    return "; ".join(str(item) for item in items if item is not None)
+
+
 @bot.command()
 async def equipment_csv(ctx: commands.Context):
     output = io.StringIO()
@@ -811,6 +815,15 @@ async def equipment_csv(ctx: commands.Context):
         "ammo",
         "maxcharge",
         "text",
+        "info",
+        "actions",
+        "triggers",
+        "passives",
+        "flavor_text",
+        "tags",
+        "alias",
+        "copies",
+        "rating",
     ]
     writer = csv.DictWriter(output, fieldnames=fieldnames)
     writer.writeheader()
@@ -827,6 +840,15 @@ async def equipment_csv(ctx: commands.Context):
                 "ammo": equipment.ammo,
                 "maxcharge": equipment.maxcharge,
                 "text": equipment.text,
+                "info": equipment.info,
+                "actions": list_to_csv_value(equipment.actions),
+                "triggers": list_to_csv_value(equipment.triggers),
+                "passives": list_to_csv_value(equipment.passives),
+                "flavor_text": equipment.flavor_text,
+                "tags": list_to_csv_value(equipment.tags),
+                "alias": list_to_csv_value(equipment.alias),
+                "copies": equipment.copies,
+                "rating": equipment.rating,
             }
         )
     await reply(ctx, output.getvalue(), "equipment.csv")
@@ -837,11 +859,22 @@ async def mech_csv(ctx: commands.Context):
     output = io.StringIO()
     fieldnames = [
         "name",
+        "designation_name",
+        "faction",
         "hp",
         "heat",
         "armor",
         "hardpoints",
         "ability",
+        "info",
+        "actions",
+        "triggers",
+        "passives",
+        "tags",
+        "copies",
+        "rating",
+        "lore",
+        "how_to_play",
     ]
     writer = csv.DictWriter(output, fieldnames=fieldnames)
     writer.writeheader()
@@ -849,14 +882,91 @@ async def mech_csv(ctx: commands.Context):
         writer.writerow(
             {
                 "name": mech.name,
+                "designation_name": mech.designation_name,
+                "faction": mech.faction,
                 "hp": mech.hp,
                 "heat": mech.hc,
                 "armor": mech.armor,
                 "hardpoints": mech.hardpoints_str,
                 "ability": mech.ability,
+                "info": mech.info,
+                "actions": list_to_csv_value(mech.actions),
+                "triggers": list_to_csv_value(mech.triggers),
+                "passives": list_to_csv_value(mech.passives),
+                "tags": list_to_csv_value(mech.tags),
+                "copies": mech.copies,
+                "rating": mech.rating,
+                "lore": list_to_csv_value(mech.lore),
+                "how_to_play": mech.how_to_play,
             }
         )
     await reply(ctx, output.getvalue(), "mechs.csv")
+
+
+@bot.command()
+async def maneuvers_csv(ctx: commands.Context):
+    output = io.StringIO()
+    fieldnames = [
+        "name",
+        "target",
+        "text",
+        "info",
+        "actions",
+        "triggers",
+        "copies",
+        "rating",
+    ]
+    writer = csv.DictWriter(output, fieldnames=fieldnames)
+    writer.writeheader()
+    for maneuver in db.maneuvers:
+        writer.writerow(
+            {
+                "name": maneuver.name,
+                "target": maneuver.target,
+                "text": maneuver.text,
+                "info": maneuver.info,
+                "actions": list_to_csv_value(maneuver.actions),
+                "triggers": list_to_csv_value(maneuver.triggers),
+                "copies": maneuver.copies,
+                "rating": maneuver.rating,
+            }
+        )
+    await reply(ctx, output.getvalue(), "maneuvers.csv")
+
+
+@bot.command()
+async def drones_csv(ctx: commands.Context):
+    output = io.StringIO()
+    fieldnames = [
+        "name",
+        "range",
+        "target",
+        "ability",
+        "info",
+        "actions",
+        "triggers",
+        "passives",
+        "copies",
+        "rating",
+    ]
+    writer = csv.DictWriter(output, fieldnames=fieldnames)
+    writer.writeheader()
+    for drone in db.drones:
+        writer.writerow(
+            {
+                "name": drone.name,
+                "range": drone.range,
+                "target": drone.target,
+                "ability": drone.ability,
+                "info": drone.info,
+                "actions": list_to_csv_value(drone.actions),
+                "triggers": list_to_csv_value(drone.triggers),
+                "passives": list_to_csv_value(drone.passives),
+                "copies": drone.copies,
+                "rating": drone.rating,
+            }
+        )
+    await reply(ctx, output.getvalue(), "drones.csv")
 
 
 def get_todo_forum(bot: commands.Bot) -> ForumChannel:
