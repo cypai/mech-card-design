@@ -766,6 +766,73 @@ async def db_stats(ctx: commands.Context):
     await reply(ctx, message)
 
 
+def get_equipment_usage() -> dict[str, tuple[int, int]]:
+    """
+    Maps equipment name -> (wins, total usages) from the battle database.
+    Only includes cards that exist in equipment.yml.
+    """
+    equipment_names = {e.name for e in db.equipment}
+    with sqlite3.connect("data.db") as conn:
+        cursor = conn.cursor()
+        cursor.execute("""
+            select e.name,
+                   count(*),
+                   sum(case when m.player = b.winner then 1 else 0 end)
+            from equipment_drafts e
+            join mech_drafts m on e.mech_draft_id = m.id
+            join battles b on m.battle_id = b.id
+            group by e.name
+            """)
+        rows = cursor.fetchall()
+    return {
+        name: (wins, total) for name, total, wins in rows if name in equipment_names
+    }
+
+
+@bot.command()
+async def equipment_winrates(ctx: commands.Context):
+    usage = get_equipment_usage()
+    stats = []
+    for equipment in db.equipment:
+        wins, total = usage.get(equipment.name, (0, 0))
+        stats.append((equipment.name, wins, total))
+    stats.sort(
+        key=lambda s: (
+            s[2] == 0,
+            -(s[1] / s[2]) if s[2] > 0 else 0,
+            -s[2],
+            s[0],
+        )
+    )
+    if all(s[2] == 0 for s in stats):
+        await reply(
+            ctx,
+            "No equipment usage data found. Log battles with $db_add_battle and $db_add_draft first.",
+        )
+        return
+    message = "Equipment win rates"
+    for i, (name, wins, total) in enumerate(stats, start=1):
+        if total > 0:
+            message += f"\n{i}. {name}: {wins}/{total} ({int(wins / total * 100)}%)"
+        else:
+            message += f"\n{i}. {name}: 0/0 (n/a)"
+    await reply(ctx, message, "winrates.txt")
+
+
+@bot.command()
+async def equipment_usage(ctx: commands.Context):
+    usage = get_equipment_usage()
+    stats = [
+        (equipment.name, *usage.get(equipment.name, (0, 0)))
+        for equipment in db.equipment
+    ]
+    stats.sort(key=lambda s: (-s[2], s[0]))
+    message = "Equipment usage"
+    for i, (name, wins, total) in enumerate(stats, start=1):
+        message += f"\n{i}. {name}: {total}"
+    await reply(ctx, message, "equipment_usage.txt")
+
+
 FACTIONS = ["Feds", "Martians", "Jovians", "Pirates"]
 FACTION_ABBR = {"Feds": "Feds", "Martians": "Mart", "Jovians": "Jov", "Pirates": "Pir"}
 
@@ -867,10 +934,9 @@ def format_matchup_matrix(
         # results is keyed (player 1 faction, player 2 faction), so battles
         # where faction_a was player 2 live under (faction_b, faction_a).
         # Winners are player ids, so swap them to keep faction_a's view.
-        winners = (
-            results.get((faction_a, faction_b), [])
-            + [2 if w == 1 else 1 for w in results.get((faction_b, faction_a), [])]
-        )
+        winners = results.get((faction_a, faction_b), []) + [
+            2 if w == 1 else 1 for w in results.get((faction_b, faction_a), [])
+        ]
         if not winners:
             return "n/a"
         total = len(winners)
