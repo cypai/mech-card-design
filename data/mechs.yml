@@ -333,7 +333,7 @@ Monte Carlo:
 Jolly Roger:
   designation_name: CM90 Jolly Roger
   faction: Pirates
-  hp: 9
+  hp: 8
   armor: 2
   hc: 6
   rating: Veteran

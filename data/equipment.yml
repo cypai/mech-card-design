@@ -499,7 +499,7 @@ Plasma Blaster:
   rating: Cadet
   actions:
     - |
-      Deal 1 <:damage:>. Inflict 2 <:overheat:>.
+      Inflict 2 <:overheat:>. Deal [X-1] <:damage:>, where X is the total amount of <:overheat:> on the <:target:>.
 
 Repulsor Array:
   size: Medium
@@ -1352,7 +1352,7 @@ Weakness Hunter Protocol:
   size: Small
   type: Electronics
   form: System
-  rating: Ace
+  rating: Veteran
   passives:
     - |
       This mech deals +[X] <:damage:> to mechs with 2 or more total of <:overheat:> and <:vulnerable:>, where X = the total amount of <:overheat:> and <:vulnerable:>.
@@ -1463,7 +1463,9 @@ Heartpiercer Rounds:
   triggers:
     - |
       When this mech activates a Ballistic Weapon:
-      That Weapon's damage is AP this turn.
+      Choose:
+      > That Weapon's damage is AP this turn.
+      > That Weapon bypasses <:shield:> on mechs it affects this turn.
   alias:
     - Heartpiercer
 
