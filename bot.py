@@ -158,7 +158,7 @@ async def scan_help(ctx: commands.Context):
     For mechs:
     ```
     Name
-    Factions: Feds, Ares, Jovians, Pirates
+    Factions: Feds, Martians, Jovians, Pirates
     Hardpoints: Large, Medium, Small
     Ability
     Heat[operator][number]
@@ -364,7 +364,7 @@ async def tutorial(ctx: commands.Context):
     - Small: Breach Missile (Teaches Ammo and Shred)
     - Small: Empty
 
-    Ares
+    Martians
     ----
     Wolfblade
     - Large: Empty
@@ -764,6 +764,182 @@ async def db_stats(ctx: commands.Context):
         cursor.execute("select count(*) from battles")
         message += f"\nTotal battles: {cursor.fetchone()[0]}"
     await reply(ctx, message)
+
+
+FACTIONS = ["Feds", "Martians", "Jovians", "Pirates"]
+FACTION_ABBR = {"Feds": "Feds", "Martians": "Mart", "Jovians": "Jov", "Pirates": "Pir"}
+
+
+def get_battle_factions() -> dict[int, dict[int, set[str]]]:
+    """
+    Maps battle_id -> {player: set of factions drafted by that player}.
+    A player's factions are the factions of all their drafted mechs.
+    """
+    mech_faction = {mech.name: mech.faction for mech in db.mechs}
+    with sqlite3.connect("data.db") as conn:
+        cursor = conn.cursor()
+        cursor.execute("select battle_id, player, name from mech_drafts")
+        draft_rows = cursor.fetchall()
+    factions_by_battle: dict[int, dict[int, set[str]]] = {}
+    for battle_id, player, name in draft_rows:
+        faction = mech_faction.get(name)
+        if faction is None:
+            continue
+        factions_by_battle.setdefault(battle_id, {}).setdefault(player, set()).add(
+            faction
+        )
+    return factions_by_battle
+
+
+def get_faction_matchups() -> tuple[dict[tuple[str, str], list[int]], int, int]:
+    """
+    Aggregates battles into faction-vs-faction results.
+
+    Returns (results, total_battles, skipped_battles) where results maps
+    (faction_a, faction_b) to a list of winners (1 or 2, from the battles
+    table) for every battle where faction_a and faction_b faced each other.
+    A player's factions are the factions of all their drafted mechs, so a
+    mixed-faction draft counts towards each of its faction pairings.
+    """
+    results: dict[tuple[str, str], list[int]] = {}
+    total_battles = 0
+    skipped_battles = 0
+    with sqlite3.connect("data.db") as conn:
+        cursor = conn.cursor()
+        cursor.execute("select id, winner from battles order by id asc")
+        battles = cursor.fetchall()
+    factions_by_battle = get_battle_factions()
+    for battle_id, winner in battles:
+        battle_factions = factions_by_battle.get(battle_id, {})
+        factions1 = battle_factions.get(1, set())
+        factions2 = battle_factions.get(2, set())
+        if not factions1 or not factions2:
+            skipped_battles += 1
+            continue
+        total_battles += 1
+        for faction1 in factions1:
+            for faction2 in factions2:
+                results.setdefault((faction1, faction2), []).append(winner)
+    return results, total_battles, skipped_battles
+
+
+def get_faction_head_to_head(
+    faction1: str, faction2: str
+) -> list[tuple[int, str, bool]]:
+    """
+    Returns (battle_id, timestamp, won_by_faction1) for every battle where
+    the two players played exactly faction1 and faction2, in either order.
+    Wins are always reported from faction1's perspective, so
+    "Feds vs Martians" and "Martians vs Feds" cover the same battles.
+    """
+    factions_by_battle = get_battle_factions()
+    with sqlite3.connect("data.db") as conn:
+        cursor = conn.cursor()
+        cursor.execute(
+            "select id, winner, timestamp from battles order by timestamp desc"
+        )
+        battles = cursor.fetchall()
+    results = []
+    for battle_id, winner, timestamp in battles:
+        player_factions = factions_by_battle.get(battle_id, {})
+        f1 = player_factions.get(1)
+        f2 = player_factions.get(2)
+        if f1 == {faction1} and f2 == {faction2}:
+            results.append((battle_id, timestamp, winner == 1))
+        elif f1 == {faction2} and f2 == {faction1}:
+            results.append((battle_id, timestamp, winner == 2))
+    return results
+
+
+def format_matchup_matrix(
+    results: dict[tuple[str, str], list[int]], total_battles: int, skipped_battles: int
+) -> str:
+    lines = ["Faction matchup winrates (row faction's win rate vs column faction)"]
+    header = f"Battles: {total_battles}"
+    if skipped_battles > 0:
+        header += f" ({skipped_battles} skipped: no faction data)"
+    lines.append(header)
+    lines.append("")
+
+    def cell(faction_a: str, faction_b: str) -> str:
+        if faction_a == faction_b:
+            return "-"
+        # results is keyed (player 1 faction, player 2 faction), so battles
+        # where faction_a was player 2 live under (faction_b, faction_a).
+        # Winners are player ids, so swap them to keep faction_a's view.
+        winners = (
+            results.get((faction_a, faction_b), [])
+            + [2 if w == 1 else 1 for w in results.get((faction_b, faction_a), [])]
+        )
+        if not winners:
+            return "n/a"
+        total = len(winners)
+        wins = sum(1 for winner in winners if winner == 1)
+        return f"{round(wins / total * 100)}%({wins}/{total})"
+
+    rows = [[cell(a, b) for b in FACTIONS] for a in FACTIONS]
+    widths = [len(FACTION_ABBR[f]) for f in FACTIONS]
+    for row in rows:
+        for i, value in enumerate(row):
+            widths[i] = max(widths[i], len(value))
+
+    lines.append(
+        "      "
+        + " ".join(FACTION_ABBR[f].ljust(widths[i]) for i, f in enumerate(FACTIONS))
+    )
+    for faction, row in zip(FACTIONS, rows):
+        lines.append(
+            FACTION_ABBR[faction].ljust(6)
+            + " ".join(value.ljust(widths[i]) for i, value in enumerate(row))
+        )
+    return "\n".join(lines)
+
+
+@bot.command()
+async def matchups(ctx: commands.Context):
+    results, total_battles, skipped_battles = get_faction_matchups()
+    if total_battles == 0:
+        await reply(
+            ctx,
+            "No battle data with faction information yet. Log battles with $db_add_battle and $db_add_draft first.",
+        )
+        return
+    message = format_matchup_matrix(results, total_battles, skipped_battles)
+    await reply(ctx, message, "matchups.txt")
+
+
+@bot.command()
+async def matchup(ctx: commands.Context, faction1: str, faction2: str):
+    f1 = next((f for f in FACTIONS if f.lower() == faction1.strip().lower()), None)
+    if f1 is None:
+        message = (
+            f"{faction1} is not a known faction. Valid factions: {', '.join(FACTIONS)}"
+        )
+        await reply(ctx, message)
+        return
+    f2 = next((f for f in FACTIONS if f.lower() == faction2.strip().lower()), None)
+    if f2 is None:
+        message = (
+            f"{faction2} is not a known faction. Valid factions: {', '.join(FACTIONS)}"
+        )
+        await reply(ctx, message)
+        return
+    if f1 == f2:
+        message = f"{f1} vs {f2} is not a valid matchup. Pick two different factions."
+        await reply(ctx, message)
+        return
+    rows = get_faction_head_to_head(f1, f2)
+    message = f"Stats for {f1} vs {f2}:"
+    if len(rows) > 0:
+        wins = sum(1 for _, _, won in rows if won)
+        total = len(rows)
+        message += f"\nTotal battles: {total}"
+        message += f"\nOverall win rate: {wins}/{total}: {int(wins/total*100)}%"
+        for battle_id, timestamp, won in rows:
+            message += f"\nBattle {battle_id} {'won' if won else 'lost'} on {timestamp}"
+    else:
+        message += "\nNo data found."
+    await reply(ctx, message, "matchup.txt")
 
 
 @bot.command()
