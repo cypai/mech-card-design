@@ -55,13 +55,14 @@ Strategic Bombardment:
       When your turn ends:
       Draw a card. Inflict 3 <:suppression:>.
 
-Latent Trojan:
+Infantry Support:
   target: 1
-  rating: Veteran
-  triggers:
+  rating: Cadet
+  actions:
     - |
-      When an enemy mech activates a System:
-      Draw a card. Inflict 2 <:overheat:> to that mech as the <:target:>.
+      Draw a card. Deal 1 <:damage:>. Reveal all concealed Equipment on the <:target:>.
+    - |
+      Draw a card. If you have 2 or less cards in your hand, draw another card.
 
 Outflank:
   rating: Cadet

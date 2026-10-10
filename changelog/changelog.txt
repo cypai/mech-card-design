@@ -1,3 +1,223 @@
+10/9 playtest sync
+------------------
+
+Proconsul
+Trigger: 1/battle, when you resolve a Maneuver:
+Discard a card. Put that Maneuever into your hand instead of discarding it.
+|->
+Trigger: 1/round, when you resolve a Maneuver:
+Discard a card. Put that Maneuever into your hand instead of discarding it.
+
+Praetorian
+Heat Capacity: 6 -> 7
+Action: <:engage:> this mech.
+Trigger: 1/round, when a different allied mech becomes a <:target:>, and this mech is <:engage:>:
+Redirect that <:target:> to this mech.
+|->
+Action: <:engage:> this mech. Cannot be used if this mech is already <:engage:>.
+Trigger: 1/round, when a different allied mech becomes a <:target:>, and this mech is <:engage:>:
+Redirect that <:target:> to this mech.
+
+Capricornus
+Trigger: When any player's turn ends, and this mech changed position that turn:
+Activate a Small Equipment on this mech. If this mech is in the back line, treat it as <:range:> 2.
+|->
+Action: Advance, then activate a Weapon on this mech. It deals +1 <:damage:> this turn.
+Action: Fall Back, then activate a System on this mech.
+
+Jolly Roger
+HP: 9 -> 8
+
+Flechettes
+Action: Deal 1 <:damage:> to each <:target:>. Lose all <:charge:>.
+Trigger: When this mech resolves a mech ability or a different Equipment's <:action:> ability:
+Gain 1 <:charge:>.
+|->
+Action: Deal 1 <:damage:> to each <:target:>. Lose all <:charge:>.
+Trigger: When this mech resolves a mech ability or a different Equipment's <:action:> ability:
+<:range:><:none:>: Gain 1 <:charge:>.
+
+Seeker Minigun
+Action: Gain 2 <:charge:>.
+Action: Deal [<:charge:>] damage. Inflict [<:charge:>-1] <:suppression:>. Lose all <:charge:>. Cannot be Evaded.
+|->
+Action: <:range:><:none:>: Gain 2 <:charge:>.
+Action: Deal [<:charge:>] damage. Inflict [<:charge:>-1] <:suppression:>. Lose all <:charge:>. Cannot be Evaded.
+
+Sniper Rifle
+Action: Deal 3 <:damage:>. +1 <:heat:> Cost if activated at Range 1.
+|->
+Action: Deal 3 <:damage:>. +1 <:heat:> Cost if activated at <:range:> 1.
+
+Annihilator Siege Cannon
+Action: Prepare: Deal 8 AP <:damage:>.
+Flavor Text: "Your life ends 30 minutes from now."
+|->
+Action: Prepare: Deal 8 AP <:damage:>. Disable this Weapon.
+Flavor Text: "Your life ends 30 minutes from now."
+
+Heavy Assault Cannon
+Action: Deal [<:charge:>+2] <:damage:>.
+Choose:
+> Shred.
+> Inflict [<:charge:>+1] <:suppression:>. Gain 1 <:charge:>.
+|->
+Action: Deal [<:charge:>+2] <:damage:>.
+Choose:
+> Shred.
+> Gain 1 <:charge:>. Inflict [<:charge:>] <:suppression:>.
+
+Hellbore AMR
+Action: Deal 4 AP <:damage:>.
+If you <:target:> a mech in the front line, you may additionally <:target:> a mech in the back line, dealing 1 <:damage:>.
+|->
+Action: Deal 4 AP <:damage:>.
+If you <:target:> a mech in the front line, you may additionally <:target:> a mech in the back line if within <:range:>, dealing 1 <:damage:>.
+
+Targeting Laser
+Action: Inflict 2 <:vulnerable:>.
+|->
+Action: Inflict 2 <:vulnerable:>.
+Flavor Text: "You turned off your targeting computer. That was really stupid, you shouldn't do that."
+None|->
+"You turned off your targeting computer. That was really stupid, you shouldn't do that."
+
+Pulse Pistol
+Action: Gain 2 <:charge:>.
+Action: Deal 1 <:damage:> to each <:target:>. Lose all <:charge:>.
+|->
+Action: <:range:><:none:>: Gain 2 <:charge:>.
+Action: Deal 1 <:damage:> to each <:target:>. Lose all <:charge:>.
+
+Autopulse Rifle
+Action: Gain 1 <:charge:> before designating <:target:>. Deal 3 <:damage:> to each <:target:>. Lose all <:charge:>.
+Action: Back line activation: Gain 1 <:charge:>.
+|->
+Action: <:range:><:none:>: Gain 1 <:charge:>.
+Action: Gain 1 <:charge:> before designating <:target:>. Deal 3 <:damage:> to each <:target:>. Lose all <:charge:>.
+
+Plasma Blaster
+Action: Deal 1 <:damage:>. Inflict 2 <:overheat:>.
+|->
+Action: Inflict 2 <:overheat:>. Deal [X-1] <:damage:>, where X is the total amount of <:overheat:> on the <:target:>.
+
+Pulsar Beam Cannon
+Range: 1 -> 2
+Max Charge: 2 -> 1
+Action: Deal 2 <:damage:>. Gain 1 <:charge:>.
+Action: If [<:charge:>]=2:
+Disable 1 Equipment on the <:target:>. Deal 5 <:damage:>. Set <:charge:> to 0.
+|->
+Action: Deal 2 <:damage:>. Gain 1 <:charge:>.
+Action: If [<:charge:>]=1:
+Disable 1 Equipment on the <:target:>. Deal 3 <:damage:>. Set <:charge:> to 0.
+
+Damocles Megalaser
+Action: Gain 1 <:charge:>. Deal [<:charge:>+1] <:damage:>.
+Choose:
+> Gain 1 <:charge:>.
+> Inflict 2 <:overheat:>.
+|->
+Action: Gain 1 <:charge:>. Deal [<:charge:>+2] <:damage:>.
+Choose:
+> Gain 1 <:charge:>.
+> Inflict 2 <:overheat:>.
+
+Proximity-Swarm Nanites
+Action: Gain 1 <:shield:> on this mech.
+Action: Inflict 1 <:vulnerable:>.
+Trigger: When this mech becomes a <:target:> of an enemy Equipment:
+Perform either of this Equipment's <:action:>.
+|->
+Action: <:range:><:none:>: Gain 1 <:shield:> on this mech.
+Action: Inflict 1 <:vulnerable:>.
+Trigger: When this mech becomes a <:target:> of an enemy Equipment:
+Perform either of this Equipment's <:action:>.
+
+Cyberwarfare: GATEBREAKER
+Action: Gain 2 <:charge:>.
+Action: Inflict [<:charge:>] <:vulnerable:>. Lose all <:charge:>.
+|->
+Action: <:range:><:none:>: Gain 2 <:charge:>.
+Action: Inflict [<:charge:>] <:vulnerable:>. Lose all <:charge:>.
+
+EMP Projector
+Action: Gain 1 <:charge:>.
+Action: If [<:charge:>]>0: Lose 1 <:charge:>. If the <:target:> has no <:shield:>, Disable 1 Equipment on it.
+|->
+Action: <:range:><:none:>: Gain 1 <:charge:>.
+Action: If [<:charge:>]>0: Lose 1 <:charge:>. If the <:target:> has no <:shield:>, Disable 1 Equipment on it.
+
+Weakness Hunter Protocol
+Rating: Cadet -> Veteran
+Passive: This mech deals +1 <:damage:> to mechs with 2 or more total of <:overheat:> and <:vulnerable:>.
+|->
+Passive: This mech deals +[X] <:damage:> to mechs with 2 or more total of <:overheat:> and <:vulnerable:>, where X = the total amount of <:overheat:> and <:vulnerable:>.
+
+Rotating Shield Matrix
+Max Charge: 2 -> 3
+Trigger: When this mech becomes a <:target:> of an enemy Equipment:
+Gain 1 <:charge:>. Gain [<:charge:>] <:shield:>. If [<:charge:>]=2, lose all <:charge:>.
+|->
+Trigger: When this mech becomes a <:target:> of an enemy Equipment:
+Gain 1 <:charge:>. Gain [<:charge:>] <:shield:>. If [<:charge:>]=3, lose all <:charge:>.
+
+Heartpiercer Rounds
+Info: Inert.
+Trigger: When this mech activates a Ballistic Weapon:
+That Weapon's damage is AP this turn.
+|->
+Info: Inert.
+Trigger: When this mech activates a Ballistic Weapon:
+Choose:
+> That Weapon's damage is AP this turn.
+> That Weapon bypasses <:shield:> on mechs it affects this turn.
+
+Power Blade
+Info: Reserved.
+Action: <:engage:> this mech. Deal 3 <:damage:>.
+|->
+Info: Reserved.
+Action: <:engage:> this mech. Deal 3 <:damage:>.
+Flavor Text: Many 24th century melee weapons are actually delivery systems for hundreds of simultaneously exploding anti-materiel charges.
+None|->
+Many 24th century melee weapons are actually delivery systems for hundreds of simultaneously exploding anti-materiel charges.
+
+Shield Ionizer was added.
+Shield Ionizer
+Small Electronics System
+Heat: 1
+Max Charge: 1
+Rating: Veteran
+Trigger: Gain 1 <:charge:>. Grant 1 <:shield:> to an allied mech.
+Passive: While [<:charge:>]=1, Melee Weapons on allied mechs with <:shield:> additionally Disable 1 Equipment on their <:target:>.
+Passive: When the Round ends:
+Lose all <:charge:>.
+
+Light Screen Projector was deleted.
+Light Screen Projector
+Small Electronics System
+Heat: 2
+Tags: ['Weak-Watchlist']
+Rating: Cadet
+Action: All allied mechs gain 1 <:shield:>.
+
+Infantry Support was added.
+Infantry Support
+Rating: Cadet
+Target: 1
+Action: Draw a card. Deal 1 <:damage:>. Reveal all concealed Equipment on the <:target:>.
+Action: Draw a card. If you have 2 or less cards in your hand, draw another card.
+
+Latent Trojan was deleted.
+Latent Trojan
+Rating: Veteran
+Target: 1
+Trigger: When an enemy mech activates a System:
+Draw a card. Inflict 2 <:overheat:> to that mech as the <:target:>.
+
+
+
 Full Reprint 9/7
 ----------------
 
