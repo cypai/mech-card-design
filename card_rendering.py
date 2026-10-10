@@ -20,7 +20,8 @@ from lib import wrap_text_tagged
 CARD_WIDTH = 1500
 CARD_HEIGHT = 2100
 
-SLEEVE_WIDTH = 1560
+# Sized so each hardpoint prints at 2 5/8" wide (printer shrinks output by 45/46 of nominal dpi size)
+SLEEVE_WIDTH = 1610
 SLEEVE_HEIGHT = 2160
 
 MECH_PADDING = int(CARD_WIDTH / 20)
@@ -41,7 +42,8 @@ SECTION_ICON_SIZE = int(SMALL_FONT_SIZE * 1.2)
 
 TRACKER_SIZE = int(CARD_HEIGHT / 10)
 
-TOKEN_SIZE = 300
+# Sized so the token prints at just under 1" corner-to-corner (side is 1/sqrt(2) inches) (printer shrinks output by 45/46 of nominal dpi size)
+TOKEN_SIZE = 430
 
 MARGIN = int(CARD_WIDTH * 0.05)
 BORDER_MARGIN = int(MARGIN / 3)
@@ -1017,7 +1019,7 @@ class TokenRenderer(Renderer):
         self.text = token.back_text if back else token.front_text
 
     def render(self):
-        self.draw_border()
+        self.draw_border(4)
         with Image.open(f"textures/{self.token.texture}") as img:
             resized = img.convert("RGBA").resize(
                 (TokenRenderer.IMAGE_SIZE, TokenRenderer.IMAGE_SIZE),
