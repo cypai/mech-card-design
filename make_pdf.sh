@@ -25,7 +25,9 @@ for i in "$@"; do
   fi
   if [ "$i" == "maneuvers" ]; then
     echo "Generating maneuvers PDF"
-    montage outputs/maneuvers/*.png -tile 3x3 -geometry 1500x2100 -background white -density 600 outputs/maneuvers_montages/output.png
+    rm -rf /tmp/maneuvers
+    cp -r outputs/maneuvers /tmp/maneuvers
+    montage outputs/maneuvers/*.png /tmp/maneuvers/*.png -tile 3x3 -geometry 1500x2100 -background white -density 600 outputs/maneuvers_montages/output.png
     magick outputs/maneuvers_montages/*.png -gravity Center maneuvers.pdf
   fi
   if [ "$i" == "changed" ]; then
