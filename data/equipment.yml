@@ -1584,6 +1584,8 @@ Power Blade:
   actions:
     - |
       <:engage:> this mech. Deal 3 <:damage:>.
+  flavor_text: |
+    Many 24th century melee weapons are actually delivery systems for hundreds of simultaneously exploding anti-materiel charges.
   tags:
     - Spare
 
