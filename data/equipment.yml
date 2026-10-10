@@ -1355,7 +1355,9 @@ Weakness Hunter Protocol:
   rating: Veteran
   passives:
     - |
-      This mech deals +[X] <:damage:> to mechs with 2 or more total of <:overheat:> and <:vulnerable:>, where X = the total amount of <:overheat:> and <:vulnerable:>.
+      This mech deals +2 <:damage:> to mechs with 2 or more total of <:overheat:> and <:vulnerable:>.
+  tags:
+    - Strong-Watchlist
   alias:
     - Weakness Hunter
 

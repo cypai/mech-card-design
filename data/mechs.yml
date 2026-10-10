@@ -333,8 +333,8 @@ Monte Carlo:
 Jolly Roger:
   designation_name: CM90 Jolly Roger
   faction: Pirates
-  hp: 8
-  armor: 2
+  hp: 9
+  armor: 1
   hc: 6
   rating: Veteran
   hardpoints:
@@ -349,9 +349,9 @@ Jolly Roger:
 Blackjack:
   designation_name: PSF-1D Blackjack
   faction: Pirates
-  hp: 10
-  armor: 1
-  hc: 7
+  hp: 9
+  armor: 2
+  hc: 6
   rating: Cadet
   hardpoints:
     - Large
