@@ -35,9 +35,36 @@ for i in "$@"; do
     magick outputs/maneuvers_montages/*.png -gravity Center maneuvers.pdf
   fi
   if [ "$i" == "changed" ]; then
-    echo "Generating changed PDF"
-    montage outputs/changed/*.png -tile 3x3 -geometry 1500x2100 -background white -density 600 outputs/changed_montages/output.png
-    magick outputs/changed_montages/*.png -gravity Center changed.pdf
+    echo "Generating changed PDFs"
+    mkdir -p outputs/changed_montages
+    rm -f outputs/changed_montages/*.png
+    # Split changed renders into cards (1500x2100) and mechs/mech backs (4980x3300) by size
+    changed_cards=()
+    changed_mechs=()
+    for f in outputs/changed/*.png; do
+      w=$(identify -format "%w" "$f")
+      if [ "$w" == "1500" ]; then
+        changed_cards+=("$f")
+      else
+        changed_mechs+=("$f")
+      fi
+    done
+    if [ ${#changed_cards[@]} -gt 0 ]; then
+      montage "${changed_cards[@]}" -tile 3x3 -geometry 1500x2100 -background white -density 600 outputs/changed_montages/changed_cards.png
+      if ls outputs/changed_montages/changed_cards-*.png >/dev/null 2>&1; then
+        magick outputs/changed_montages/changed_cards-*.png -gravity Center changed_cards.pdf
+      else
+        echo "ERROR: montage did not create outputs/changed_montages/changed_cards-*.png" >&2
+      fi
+    fi
+    if [ ${#changed_mechs[@]} -gt 0 ]; then
+      montage "${changed_mechs[@]}" -rotate 90 -tile 1x1 -geometry 3300x4980 -background white -density 600 outputs/changed_montages/changed_mechs.png
+      if ls outputs/changed_montages/changed_mechs-*.png >/dev/null 2>&1; then
+        magick outputs/changed_montages/changed_mechs-*.png -units PixelsPerInch -density 600 -background white -gravity center -extent 4960x7016 changed_mechs.pdf
+      else
+        echo "ERROR: montage did not create outputs/changed_montages/changed_mechs-*.png" >&2
+      fi
+    fi
   fi
   if [ "$i" == "tokens" ]; then
     echo "Generating tokens PDF"
