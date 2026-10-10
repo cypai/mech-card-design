@@ -27,6 +27,10 @@ for i in "$@"; do
     echo "Generating maneuvers PDF"
     rm -rf /tmp/maneuvers
     cp -r outputs/maneuvers /tmp/maneuvers
+    # 7 copies of Airstrike (2 from the copies above + 5 extras)
+    for n in 2 3 4 5 6; do
+      cp outputs/maneuvers/airstrike.png /tmp/maneuvers/airstrike$n.png
+    done
     montage outputs/maneuvers/*.png /tmp/maneuvers/*.png -tile 3x3 -geometry 1500x2100 -background white -density 600 outputs/maneuvers_montages/output.png
     magick outputs/maneuvers_montages/*.png -gravity Center maneuvers.pdf
   fi
