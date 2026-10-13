@@ -1545,13 +1545,15 @@ Reinforced Frame:
   form: Attachment
   rating: Veteran
   info: |
-    Inert.
+    Inert. Cannot be removed.
   triggers:
+    - |
+      1/battle, when this mech receives Shred:
+      Ignore the Shred.
+  passives:
     - |
       When the battle starts:
       This mech gains 1 Armor (max 3 Armor).
-  flavor_text: |
-    TESTUDO-pattern frames are a status symbol among Martian pilots. The heavy armor shows others that the life of the mech’s veteran pilot is worth preserving.
   tags:
     - Weak-Watchlist
 
