@@ -400,18 +400,6 @@ EM Polarizer:
       When activating an Energy Weapon on a different allied mech:
       That Weapon deals +1 <:damage:> this turn.
 
-Tesla Coil:
-  size: Small
-  type: Energy
-  form: Weapon
-  heat: 2
-  range: 1
-  target: 1
-  rating: Cadet
-  actions:
-    - |
-      Deal [X+1] <:damage:>, where X is the total amount of <:overheat:> and <:shield:> on the <:target:>.
-
 Antimatter Blaster:
   size: Small
   type: Energy
@@ -424,6 +412,18 @@ Antimatter Blaster:
   actions:
     - |
       Deal 4 AP <:damage:>. Inflict 3 <:overheat:>.
+
+Tesla Coil:
+  size: Medium
+  type: Energy
+  form: Weapon
+  heat: 3
+  range: 1
+  target: 1
+  rating: Cadet
+  actions:
+    - |
+      Deal [X+2] <:damage:>, where X is the total amount of <:overheat:> and <:shield:> on the <:target:>.
 
 Flamethrower:
   size: Medium
@@ -1533,6 +1533,7 @@ Jump Jets:
   type: Auxiliary
   form: System
   rating: Veteran
+  heat: 0
   ammo: 3
   triggers:
     - |

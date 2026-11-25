@@ -42,7 +42,7 @@ Osiris:
     - Small
   triggers:
     - |
-      1/round, when this mech resolves a System:
+      When this mech resolves a System:
       Activate a Weapon on this mech.
 
 Anansi:
@@ -97,7 +97,7 @@ Rubicon:
   faction: Martians
   hp: 8
   armor: 2
-  hc: 6
+  hc: 7
   rating: Ace
   hardpoints:
     - Large
@@ -344,7 +344,7 @@ Jolly Roger:
   triggers:
     - |
       When a mech is destroyed:
-      Mount 1 Equipment from that mech onto this mech, replacing Equipment if necessary. <:charge:> and <:ammo:> are retained. You may activate it.
+      Mount 1 Equipment from that mech onto this mech, replacing Equipment if necessary. All status on it is retained. You may activate it.
 
 Blackjack:
   designation_name: PSF-1D Blackjack
