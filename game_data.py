@@ -1,4 +1,5 @@
 from game_defs import *
+import os
 import yaml
 import itertools
 from thefuzz import fuzz
@@ -140,6 +141,16 @@ def get_all_maneuvers(filename: str = "data/maneuvers.yml") -> list[Maneuver]:
         for item in data.items():
             all_maneuvers.append(parse_maneuvers(item))
     return all_maneuvers
+
+
+def get_all_art_md5s(
+    filename: str = "./changelog/previous_art_md5s.yml",
+) -> dict[str, str | None]:
+    if not os.path.exists(filename):
+        return {}
+    with open(filename, "r") as md5_file:
+        data = yaml.safe_load(md5_file)
+    return data if data is not None else {}
 
 
 def equipment_stats():
@@ -441,6 +452,20 @@ class GameDatabase:
                 [self.equipment, self.mechs, self.drones, self.maneuvers]
             )
         )
+        if changelog:
+            self.apply_previous_art_md5s()
+
+    def apply_previous_art_md5s(self):
+        """
+        Card art md5sums are computed from the live art files, so a previous
+        database would always see the current art. Override the previous
+        items' art md5sums with the ones saved at the last sync so that art
+        changes are detected by the changelog.
+        """
+        saved_md5s = get_all_art_md5s()
+        for item in self.everything:
+            if item.name in saved_md5s:
+                item.art_md5 = saved_md5s[item.name]
 
     def get_filtered_equipment(self, filters: list[str]) -> list[Equipment]:
         return get_filtered_equipment(filters)

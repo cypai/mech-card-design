@@ -5,6 +5,8 @@ import shutil
 import os
 from typing import TypeVar
 
+import yaml
+
 from game_defs import *
 from game_data import *
 from lib import *
@@ -124,11 +126,18 @@ def append_to_changelog(message):
         f.write(previous_data)
 
 
+def save_current_art_md5s():
+    md5s = {item.name: item.art_md5 for item in db.everything}
+    with open("./changelog/previous_art_md5s.yml", "w") as f:
+        yaml.safe_dump(md5s, f, default_flow_style=False, sort_keys=True)
+
+
 def copy_current():
     shutil.copyfile("./data/mechs.yml", "./changelog/previous_mechs.yml")
     shutil.copyfile("./data/drones.yml", "./changelog/previous_drones.yml")
     shutil.copyfile("./data/equipment.yml", "./changelog/previous_equipment.yml")
     shutil.copyfile("./data/maneuvers.yml", "./changelog/previous_maneuvers.yml")
+    save_current_art_md5s()
 
 
 def create_montage_directory():

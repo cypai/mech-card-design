@@ -1,6 +1,8 @@
+import hashlib
+import os
+import re
 from functools import reduce
 from typing import Optional, Self
-import re
 from thefuzz import fuzz
 
 DEFAULT_BG_COLOR = "#ffffff"
@@ -62,6 +64,13 @@ class Equipment:
         self.normalized_name = re.sub(r"\W", "", self.name)
         self.normalized_name = self.normalized_name.lower()
         self.filename = f"outputs/equipment/{self.normalized_name}.png"
+        self.art_filename = f"textures/card-art/{self.normalized_name}.png"
+        if os.path.exists(self.art_filename):
+            with open(self.art_filename, "rb") as f:
+                self.art_md5 = hashlib.md5(f.read()).hexdigest()
+        else:
+            self.art_md5 = None
+
         self.legacy_text = (
             self.info is None
             and len(self.actions) == 0
@@ -105,7 +114,8 @@ class Equipment:
             text += f"Tags: {self.tags}\n"
         if self.rating is not None:
             text += f"Rating: {self.rating}\n"
-        text += f"{self.text}"
+        text += f"Art MD5: {self.art_md5}\n"
+        text += f"{self.text}\n"
         return text
 
     def is_similar(self, other: Self) -> bool:
@@ -172,6 +182,9 @@ class Equipment:
         if self.rating != other.rating:
             is_diff = True
             diffs += f"Rating: {other.rating} -> {self.rating}\n"
+        if self.art_md5 != other.art_md5:
+            is_diff = True
+            diffs += f"Art MD5: {other.art_md5}|->\n{self.art_md5}"
         if self.text != other.text:
             is_diff = True
             diffs += f"{other.text}|->\n{self.text}"
@@ -238,6 +251,13 @@ class Mech:
         self.normalized_name = self.normalized_name.lower()
         self.filename = f"outputs/mechs/{self.normalized_name}.png"
         self.back_filename = f"outputs/mech_backs/{self.normalized_name}.png"
+        self.art_filename = f"textures/mech-art/{self.normalized_name}.png"
+        if os.path.exists(self.art_filename):
+            with open(self.art_filename, "rb") as f:
+                self.art_md5 = hashlib.md5(f.read()).hexdigest()
+        else:
+            self.art_md5 = None
+
         self.legacy_text = (
             self.info is None
             and len(self.actions) == 0
@@ -256,8 +276,10 @@ class Mech:
         text += f"Heat: {self.hc}\n"
         text += f"Hardpoints: {self.hardpoints_str}\n"
         text += f"Ability: \n{self.ability}\n"
+        text += f"Rating: {self.rating}\n"
         text += f"Lore: \n{self.lore}\n"
         text += f"How to Play: \n{self.how_to_play}\n"
+        text += f"Art MD5: {self.art_md5}\n"
         return text
 
     def pretty_text(self):
@@ -319,6 +341,9 @@ class Mech:
         if self.ability != other.ability:
             is_diff = True
             diffs += f"{other.ability}|->\n{self.ability}"
+        if self.art_md5 != other.art_md5:
+            is_diff = True
+            diffs += f"Art MD5: {other.art_md5}|->\n{self.art_md5}"
         if self.lore != other.lore:
             is_diff = True
             diffs += f"{other.lore}|->\n{self.lore}"
@@ -357,6 +382,13 @@ class Drone:
         self.normalized_name = re.sub(r"\W", "", self.name)
         self.normalized_name = self.normalized_name.lower()
         self.filename = f"outputs/drones/{self.normalized_name}.png"
+        self.art_filename = f"textures/card-art/{self.normalized_name}.png"
+
+        if os.path.exists(self.art_filename):
+            with open(self.art_filename, "rb") as f:
+                self.art_md5 = hashlib.md5(f.read()).hexdigest()
+        else:
+            self.art_md5 = None
 
         self.legacy_text = (
             self.info is None
@@ -387,7 +419,8 @@ class Drone:
 
     def __str__(self):
         text = self.name + "\n"
-        text += f"Ability: {self.ability}"
+        text += f"Art MD5: {self.art_md5}\n"
+        text += f"Ability: {self.ability}\n"
         return text
 
     def is_similar(self, other: Self) -> bool:
@@ -408,6 +441,9 @@ class Drone:
         if self.rating != other.rating:
             is_diff = True
             diffs += f"Rating: {other.rating} -> {self.rating}\n"
+        if self.art_md5 != other.art_md5:
+            is_diff = True
+            diffs += f"Art MD5: {other.art_md5}|->\n{self.art_md5}"
         if self.ability != other.ability:
             is_diff = True
             diffs += f"{other.ability}|->\n{self.ability}"
@@ -478,6 +514,13 @@ class Maneuver:
         self.normalized_name = re.sub(r"\W", "", self.name)
         self.normalized_name = self.normalized_name.lower()
         self.filename = f"outputs/maneuvers/{self.normalized_name}.png"
+        self.art_filename = f"textures/card-art/{self.normalized_name}.png"
+        if os.path.exists(self.art_filename):
+            with open(self.art_filename, "rb") as f:
+                self.art_md5 = hashlib.md5(f.read()).hexdigest()
+        else:
+            self.art_md5 = None
+
         self.legacy_text = (
             self.info is None and len(self.actions) == 0 and len(self.triggers) == 0
         )
@@ -492,6 +535,7 @@ class Maneuver:
             text += f"Rating: {self.rating}\n"
         if self.target is not None:
             text += f"Target: {self.target}\n"
+        text += f"\nArt MD5: {self.art_md5}"
         text += self.text
         return text
 
@@ -524,6 +568,9 @@ class Maneuver:
         if self.rating != other.rating:
             is_diff = True
             diffs += f"Rating: {other.rating} -> {self.rating}\n"
+        if self.art_md5 != other.art_md5:
+            is_diff = True
+            diffs += f"Art MD5: {other.art_md5}|->\n{self.art_md5}"
         if self.text != other.text:
             is_diff = True
             diffs += f"{other.text}|->\n{self.text}"
