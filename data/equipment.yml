@@ -970,7 +970,7 @@ Pathfinder Drone Nexus:
   rating: Ace
   actions:
     - |
-      Deploy 1 Scout Drone. Gain 1 <:charge:>.
+      <:range:><:none:>: Deploy 1 Scout Drone. Gain 1 <:charge:>.
   triggers:
     - |
       When you Advance or Fall Back an allied mech, and this Equipment has 1 <:charge:>:
