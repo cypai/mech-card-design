@@ -789,6 +789,28 @@ def get_equipment_usage() -> dict[str, tuple[int, int]]:
     }
 
 
+def get_mech_usage() -> dict[str, tuple[int, int]]:
+    """
+    Maps mech name -> (wins, total usages) from the battle database.
+    Only includes mechs that exist in mechs.yml.
+    """
+    mech_names = {mech.name for mech in db.mechs}
+    with sqlite3.connect("data.db") as conn:
+        cursor = conn.cursor()
+        cursor.execute("""
+            select m.name,
+                   count(*),
+                   sum(case when m.player = b.winner then 1 else 0 end)
+            from mech_drafts m
+            join battles b on m.battle_id = b.id
+            group by m.name
+            """)
+        rows = cursor.fetchall()
+    return {
+        name: (wins, total) for name, total, wins in rows if name in mech_names
+    }
+
+
 @bot.command()
 async def equipment_winrates(ctx: commands.Context):
     usage = get_equipment_usage()
@@ -1006,6 +1028,57 @@ async def matchup(ctx: commands.Context, faction1: str, faction2: str):
     else:
         message += "\nNo data found."
     await reply(ctx, message, "matchup.txt")
+
+
+@bot.command()
+async def faction_stats(ctx: commands.Context, faction: str):
+    f = next((x for x in FACTIONS if x.lower() == faction.strip().lower()), None)
+    if f is None:
+        message = (
+            f"{faction} is not a known faction. Valid factions: {', '.join(FACTIONS)}"
+        )
+        await reply(ctx, message)
+        return
+
+    results, total_battles, _ = get_faction_matchups()
+    mech_usage = get_mech_usage()
+    faction_mechs = [mech for mech in db.mechs if mech.faction == f]
+
+    message = f"Faction stats for {f}"
+
+    message += "\n\nMatchups"
+    message += "\n--------"
+    for other in FACTIONS:
+        if other == f:
+            continue
+        winners = results.get((f, other), []) + [
+            2 if w == 1 else 1 for w in results.get((other, f), [])
+        ]
+        if not winners:
+            message += f"\nvs {other}: n/a"
+        else:
+            total = len(winners)
+            wins = sum(1 for winner in winners if winner == 1)
+            message += f"\nvs {other}: {wins}/{total} ({int(wins / total * 100)}%)"
+
+    message += "\n\nMech usage"
+    message += "\n----------"
+    stats = [(mech.name, *mech_usage.get(mech.name, (0, 0))) for mech in faction_mechs]
+    stats.sort(
+        key=lambda s: (
+            s[2] == 0,
+            -(s[1] / s[2]) if s[2] > 0 else 0,
+            -s[2],
+            s[0],
+        )
+    )
+    for name, wins, total in stats:
+        if total > 0:
+            message += f"\n{name}: {wins}/{total} ({int(wins / total * 100)}%)"
+        else:
+            message += f"\n{name}: 0/0 (n/a)"
+
+    await reply(ctx, message, "faction_stats.txt")
 
 
 @bot.command()
