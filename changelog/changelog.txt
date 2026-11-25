@@ -1,3 +1,36 @@
+11/22 playtest sync
+-------------------
+
+Jolly Roger
+HP: 8 -> 9
+Armor: 2 -> 1
+
+Blackjack
+HP: 10 -> 9
+Armor: 1 -> 2
+Heat Capacity: 7 -> 6
+
+Weakness Hunter Protocol
+Passive: This mech deals +[X] <:damage:> to mechs with 2 or more total of <:overheat:> and <:vulnerable:>, where X = the total amount of <:overheat:> and <:vulnerable:>.
+|->
+Passive: This mech deals +2 <:damage:> to mechs with 2 or more total of <:overheat:> and <:vulnerable:>.
+
+Reinforced Frame
+Info: Inert.
+Trigger: When the battle starts:
+This mech gains 1 Armor (max 3 Armor).
+Flavor Text: TESTUDO-pattern frames are a status symbol among Martian pilots. The heavy armor shows others that the life of the mech’s veteran pilot is worth preserving.
+|->
+Info: Inert. Cannot be removed.
+Trigger: 1/battle, when this mech receives Shred:
+Ignore the Shred.
+Passive: When the battle starts:
+This mech gains 1 Armor (max 3 Armor).
+TESTUDO-pattern frames are a status symbol among Martian pilots. The heavy armor shows others that the life of the mech’s veteran pilot is worth preserving.
+|->
+None
+
+
 10/9 playtest sync
 ------------------
 
