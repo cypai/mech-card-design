@@ -54,7 +54,11 @@ for i in "$@"; do
       if ls outputs/changed_montages/changed_cards-*.png >/dev/null 2>&1; then
         magick outputs/changed_montages/changed_cards-*.png -gravity Center changed_cards.pdf
       else
-        echo "ERROR: montage did not create outputs/changed_montages/changed_cards-*.png" >&2
+        if ls outputs/changed_montages/changed_cards.png >/dev/null 2>&1; then
+          magick outputs/changed_montages/changed_cards.png -gravity Center changed_cards.pdf
+        else
+          echo "ERROR: montage did not create outputs/changed_montages/changed_cards-*.png" >&2
+        fi
       fi
     fi
     if [ ${#changed_mechs[@]} -gt 0 ]; then
@@ -62,7 +66,11 @@ for i in "$@"; do
       if ls outputs/changed_montages/changed_mechs-*.png >/dev/null 2>&1; then
         magick outputs/changed_montages/changed_mechs-*.png -units PixelsPerInch -density 600 -background white -gravity center -extent 4960x7016 changed_mechs.pdf
       else
-        echo "ERROR: montage did not create outputs/changed_montages/changed_mechs-*.png" >&2
+        if ls outputs/changed_montages/changed_mechs.png >/dev/null 2>&1; then
+          magick outputs/changed_montages/changed_mechs.png -gravity Center changed_mechs.pdf
+        else
+          echo "ERROR: montage did not create outputs/changed_montages/changed_mechs-*.png" >&2
+        fi
       fi
     fi
   fi
